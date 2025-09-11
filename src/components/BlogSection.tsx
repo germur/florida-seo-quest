@@ -1,0 +1,82 @@
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
+
+const BlogSection = () => {
+  const posts = [
+    {
+      title: "Topical Authority: Why It Wins in 2025",
+      date: "Mar 15, 2024",
+      readTime: "5 min read",
+      excerpt: "How semantic SEO and content clusters drive sustainable growth.",
+      color: "from-teal/10 to-transparent"
+    },
+    {
+      title: "AI in SEO: Practical Uses (No Hype)",
+      date: "Mar 10, 2024", 
+      readTime: "7 min read",
+      excerpt: "Real AI applications that actually improve SEO workflows.",
+      color: "from-electric-blue/10 to-transparent"
+    },
+    {
+      title: "Florida SEO: Strategies That Work",
+      date: "Mar 5, 2024",
+      readTime: "6 min read", 
+      excerpt: "Local insights and strategies for dominating Florida markets.",
+      color: "from-bright-orange/10 to-transparent"
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-secondary/30">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-black text-primary text-center mb-16">
+            Learn SEO & AI in Action
+          </h2>
+          
+          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+            {posts.map((post, index) => (
+              <article 
+                key={index}
+                className={`bg-gradient-to-br ${post.color} bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer`}
+              >
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                  <span className="flex items-center gap-1">
+                    <Calendar className="h-4 w-4" />
+                    {post.date}
+                  </span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-4 w-4" />
+                    {post.readTime}
+                  </span>
+                </div>
+                
+                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-teal transition-colors">
+                  {post.title}
+                </h3>
+                
+                <p className="text-muted-foreground leading-relaxed mb-6">
+                  {post.excerpt}
+                </p>
+                
+                <div className="flex items-center text-teal font-medium group-hover:text-electric-blue transition-colors">
+                  Read Article
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </article>
+            ))}
+          </div>
+          
+          <div className="text-center">
+            <Button variant="outline" size="lg" className="group">
+              Visit the Blog
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default BlogSection;

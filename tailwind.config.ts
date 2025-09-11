@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'space-grotesk': ['Space Grotesk', 'sans-serif'],
+        'poppins': ['Poppins', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -46,6 +51,22 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        "electric-blue": {
+          DEFAULT: "hsl(var(--electric-blue))",
+          foreground: "hsl(var(--electric-blue-foreground))",
+        },
+        "bright-orange": {
+          DEFAULT: "hsl(var(--bright-orange))",
+          foreground: "hsl(var(--bright-orange-foreground))",
+        },
+        "neutral-gray": {
+          DEFAULT: "hsl(var(--neutral-gray))",
+          foreground: "hsl(var(--neutral-gray-foreground))",
+        },
+        teal: {
+          DEFAULT: "hsl(var(--teal))",
+          foreground: "hsl(var(--teal-foreground))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

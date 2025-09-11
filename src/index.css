@@ -9,32 +9,56 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 5%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 5%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 5%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Calvo Creativo Brand Colors */
+    --primary: 0 0% 5%; /* Black */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 5%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --electric-blue: 218 100% 50%; /* #0055FF */
+    --electric-blue-foreground: 0 0% 100%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --bright-orange: 21 100% 50%; /* #FF6B00 */
+    --bright-orange-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --neutral-gray: 0 0% 33%; /* #555555 */
+    --neutral-gray-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Teal accents from design */
+    --teal: 174 72% 56%; /* From design reference */
+    --teal-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 174 72% 56%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 174 72% 56%;
+
+    /* Custom gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(174 72% 56%), hsl(218 100% 50%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --gradient-orange: linear-gradient(135deg, hsl(21 100% 50%), hsl(21 100% 45%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 40px -10px hsl(174 72% 56% / 0.2);
+    --shadow-card: 0 4px 24px -6px hsl(0 0% 0% / 0.1);
+    --shadow-button: 0 4px 16px -4px hsl(174 72% 56% / 0.3);
 
     --radius: 0.5rem;
 
@@ -101,5 +125,15 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
