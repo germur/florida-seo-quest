@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -15,18 +16,21 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#services" className="text-muted-foreground hover:text-primary transition-colors">
-              Services
-            </a>
-            <a href="#results" className="text-muted-foreground hover:text-primary transition-colors">
-              Results
-            </a>
-            <a href="#process" className="text-muted-foreground hover:text-primary transition-colors">
-              Process
-            </a>
-            <a href="#blog" className="text-muted-foreground hover:text-primary transition-colors">
+            <Link to="/servicios" className="text-muted-foreground hover:text-primary transition-colors">
+              Servicios
+            </Link>
+            <Link to="/casos-estudio" className="text-muted-foreground hover:text-primary transition-colors">
+              Casos de Éxito
+            </Link>
+            <Link to="/como-trabajamos" className="text-muted-foreground hover:text-primary transition-colors">
+              Cómo Trabajamos
+            </Link>
+            <Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">
               Blog
-            </a>
+            </Link>
+            <Link to="/recursos" className="text-muted-foreground hover:text-primary transition-colors">
+              Recursos
+            </Link>
           </nav>
           
           <Button variant="hero" size="sm">
