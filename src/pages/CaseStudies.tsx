@@ -148,11 +148,12 @@ const CaseStudies = () => {
       {/* Cases Grid */}
       <section className="py-24">
         <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto space-y-20">
+          <div className="max-w-4xl mx-auto space-y-32">
             {cases.map((caseStudy, index) => (
-              <article key={caseStudy.id} className="space-y-8">
-                <div className="border-b border-border pb-8">
-                  <div className="flex items-center gap-4 mb-4">
+              <article key={caseStudy.id} className="space-y-16">
+                {/* Header */}
+                <div className="text-center">
+                  <div className="flex items-center justify-center gap-4 mb-4">
                     <div className="text-sm text-muted-foreground uppercase tracking-wide">
                       {caseStudy.industry}
                     </div>
@@ -162,56 +163,88 @@ const CaseStudies = () => {
                     </div>
                   </div>
                   
-                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+                  <h2 className="text-4xl md:text-5xl font-bold text-foreground">
                     {caseStudy.company}
                   </h2>
-                  
-                  <div className="grid md:grid-cols-3 gap-8 mb-8">
+                </div>
+
+                {/* Phase 01 - The Challenge */}
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="text-4xl font-bold text-muted-foreground/30">01</div>
+                    <h3 className="text-2xl font-bold text-foreground">The Challenge</h3>
+                  </div>
+                  <p className="text-lg text-muted-foreground leading-relaxed pl-16">
+                    {caseStudy.challenge}
+                  </p>
+                </div>
+
+                {/* Phase 02 - The Solution */}
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="text-4xl font-bold text-muted-foreground/30">02</div>
+                    <h3 className="text-2xl font-bold text-foreground">The Solution</h3>
+                  </div>
+                  <p className="text-lg text-muted-foreground leading-relaxed pl-16">
+                    {caseStudy.solution}
+                  </p>
+                </div>
+
+                {/* Phase 03 - The Results */}
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="text-4xl font-bold text-muted-foreground/30">03</div>
+                    <h3 className="text-2xl font-bold text-foreground">The Results</h3>
+                  </div>
+                  <div className="pl-16 space-y-4">
+                    {caseStudy.results.map((result, resultIndex) => (
+                      <div key={resultIndex} className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
+                        <div className="text-lg text-muted-foreground leading-relaxed">{result}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Phase 04 - By the Numbers */}
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="text-4xl font-bold text-muted-foreground/30">04</div>
+                    <h3 className="text-2xl font-bold text-foreground">By the Numbers</h3>
+                  </div>
+                  <div className="pl-16 grid md:grid-cols-3 gap-8">
                     <div>
-                      <div className="text-2xl font-bold text-foreground mb-1">
+                      <div className="text-3xl font-bold text-foreground mb-2">
                         {caseStudy.metrics.duration}
                       </div>
-                      <div className="text-sm text-muted-foreground">Timeline</div>
+                      <div className="text-muted-foreground">Timeline</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-foreground mb-1">
+                      <div className="text-3xl font-bold text-foreground mb-2">
                         {caseStudy.metrics.investment}
                       </div>
-                      <div className="text-sm text-muted-foreground">Investment</div>
+                      <div className="text-muted-foreground">Investment</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-foreground mb-1">
+                      <div className="text-3xl font-bold text-foreground mb-2">
                         {caseStudy.metrics.roi}
                       </div>
-                      <div className="text-sm text-muted-foreground">ROI</div>
+                      <div className="text-muted-foreground">ROI</div>
                     </div>
                   </div>
                 </div>
-                
-                <div className="grid md:grid-cols-2 gap-12">
-                  <div className="space-y-6">
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-3">Challenge</h3>
-                      <p className="text-muted-foreground leading-relaxed">{caseStudy.challenge}</p>
-                    </div>
-                    
-                    <div>
-                      <h3 className="text-lg font-semibold text-foreground mb-3">Solution</h3>
-                      <p className="text-muted-foreground leading-relaxed">{caseStudy.solution}</p>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-6">Results</h3>
-                    <div className="space-y-4">
-                      {caseStudy.results.map((result, resultIndex) => (
-                        <div key={resultIndex} className="flex items-start gap-3">
-                          <div className="w-1.5 h-1.5 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
-                          <div className="text-muted-foreground leading-relaxed">{result}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+
+                {/* CTA */}
+                <div className="text-center pt-8 border-t border-border">
+                  <h4 className="text-xl font-semibold text-foreground mb-4">
+                    Want similar results for your business?
+                  </h4>
+                  <Button size="lg" asChild>
+                    <Link to="/contact">
+                      Schedule Your Free Consultation
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
                 </div>
               </article>
             ))}
