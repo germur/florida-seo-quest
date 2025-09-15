@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Calculator, Target, FileText } from "lucide-react";
+import { Calculator, Target, Sparkles } from "lucide-react";
 import Header from "@/components/Header";
 import { Link } from "react-router-dom";
 import ROICalculator from "@/components/ROICalculator";
 import ClusterGenerator from "@/components/ClusterGenerator";
+import TitleAnalyzer from "@/components/TitleAnalyzer";
 
 const Resources = () => {
   const tools = [
@@ -22,10 +23,10 @@ const Resources = () => {
       color: "bright-orange"
     },
     {
-      name: "Plantilla de Investigación de Keywords",
-      description: "Plantilla avanzada de Excel para investigación de palabras clave con fórmulas automatizadas.",
-      icon: <FileText className="h-8 w-8" />,
-      component: "template",
+      name: "Analizador de Títulos SEO",
+      description: "Optimiza tus títulos para maximizar CTR y rankings en Google.",
+      icon: <Sparkles className="h-8 w-8" />,
+      component: "title-analyzer",
       color: "neutral-gray"
     }
   ];
@@ -108,6 +109,24 @@ const Resources = () => {
             </div>
             
             <ClusterGenerator />
+          </div>
+        </div>
+      </section>
+
+      {/* Title Analyzer Section */}
+      <section className="py-24 bg-secondary/30">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-bold text-3xl text-foreground mb-4">
+                Analizador de Títulos SEO
+              </h2>
+              <p className="font-subtitle text-lg text-muted-foreground">
+                Optimiza tus títulos para maximizar CTR y rankings en Google
+              </p>
+            </div>
+            
+            <TitleAnalyzer />
           </div>
         </div>
       </section>
