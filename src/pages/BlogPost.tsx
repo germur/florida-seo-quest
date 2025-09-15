@@ -693,8 +693,498 @@ const BlogPost = () => {
           </div>
         </section>
 
-        <!-- Continue with remaining sections using similar structure... -->
-        <!-- I'll include key sections with proper formatting -->
+        <section id="como-se-fabrica-el-hype">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-orange/10 rounded-lg">
+              <svg class="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              </svg>
+            </div>
+            Cómo se fabrica el hype (y por qué nos lo creemos)
+          </h2>
+          
+          <p class="text-lg leading-relaxed mb-6">El mecanismo es siempre el mismo:</p>
+          
+          <div class="grid gap-6 mb-8">
+            <div class="flex items-start gap-4 p-4 bg-orange/5 border-l-4 border-orange rounded-r-lg">
+              <div class="p-2 bg-orange/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-orange mb-2">1. Una consultora publica un estudio atractivo</h4>
+                <p class="text-sm mb-0">Con proyecciones que suelen ser extrapolaciones lineales o basadas en muestras muy específicas.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-yellow/5 border-l-4 border-yellow rounded-r-lg">
+              <div class="p-2 bg-yellow/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-yellow mb-2">2. Los medios lo amplifican sin contexto</h4>
+                <p class="text-sm mb-0">Los titulares se vuelven más dramáticos con cada republication: "El 50% se convierte en "La mayoría", las "proyecciones" en "hechos".</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-green/5 border-l-4 border-green rounded-r-lg">
+              <div class="p-2 bg-green/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-green mb-2">3. Los "gurús" lo convierten en urgencia</h4>
+                <p class="text-sm mb-0">Conferencias, cursos, certificaciones. El FOMO (Fear Of Missing Out) es el combustible perfecto.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-blue/5 border-l-4 border-blue rounded-r-lg">
+              <div class="p-2 bg-blue/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-blue mb-2">4. Las empresas invierten en la "solución"</h4>
+                <p class="text-sm mb-0">Y cuando los resultados no llegan, la narrativa se mueve a la próxima gran cosa.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-purple/10 to-pink/10 border-l-4 border-purple p-6 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-purple/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-purple mb-2">💡 El problema de fondo</p>
+                <p class="mb-0">En un mundo donde la atención es el recurso más escaso, las predicciones <em>moderadas</em> no generan clics, conferencias, ni presupuestos. <strong>El espectáculo siempre gana.</strong></p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="acronimos-que-venden-humo">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-purple/10 rounded-lg">
+              <svg class="w-6 h-6 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-1l-4 4z"></path>
+              </svg>
+            </div>
+            Acrónimos que venden humo: AEO y compañía
+          </h2>
+          
+          <p class="text-lg leading-relaxed mb-6">Cada "revolución" viene con su paquete de términos técnicos que suenan profesionales y sofisticados. Veamos algunos:</p>
+
+          <div class="grid gap-6 mb-8">
+            <div class="flex items-start gap-4 p-4 bg-purple/5 border border-purple/20 rounded-xl">
+              <div class="p-2 bg-purple/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-purple mb-2">AEO (Answer Engine Optimization)</h4>
+                <p class="text-sm mb-2">En teoría: "Optimizar para que AI responda tus consultas."</p>
+                <p class="text-sm mb-0 text-muted-foreground">En la práctica: <strong>hacer buen SEO tradicional con structured data.</strong> Misma receta, nueva etiqueta.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 bg-blue/5 border border-blue/20 rounded-xl">
+              <div class="p-2 bg-blue/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-blue mb-2">VEO (Voice Engine Optimization)</h4>
+              <p class="text-sm mb-2">En teoría: "Revoluciona tu estrategia para búsquedas por voz."</p>
+              <p class="text-sm mb-0 text-muted-foreground">En la práctica: <strong>escribir content conversacional y optimizar snippets.</strong> Algo que ya hacíamos.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 bg-teal/5 border border-teal/20 rounded-xl">
+            <div class="p-2 bg-teal/10 rounded-lg mt-1">
+              <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-semibold text-teal mb-2">VSEO (Visual Search Engine Optimization)</h4>
+              <p class="text-sm mb-2">En teoría: "El futuro es visual, optimiza tus imágenes diferente."</p>
+              <p class="text-sm mb-0 text-muted-foreground">En la práctica: <strong>alt text descriptivos, nombres de archivos relevantes, structured data.</strong> Lo mismo de siempre.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-yellow/10 to-orange/10 border-l-4 border-yellow p-6 rounded-r-lg">
+          <div class="flex items-start gap-3">
+            <div class="p-2 bg-yellow/10 rounded-lg mt-1">
+              <svg class="w-5 h-5 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.99-.833-2.598 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-yellow mb-2">⚠️ La trampa está en el packaging</p>
+              <p class="mb-0">Lo que antes se llamaba "SEO bien hecho" ahora se vende como una disciplina completamente nueva. <strong>Mismo vino, botella más cara.</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="predicciones-virales-vs-realidad">
+        <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+          <div class="p-2 bg-red/10 rounded-lg">
+            <svg class="w-6 h-6 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          Predicciones virales vs. realidad: el patrón que se repite
+        </h2>
+        
+        <p class="text-lg leading-relaxed mb-8">En los últimos 10 años, hemos visto el mismo patrón una y otra vez:</p>
+
+        <div class="space-y-6 mb-8">
+          <div class="flex gap-6 p-6 bg-red/5 border border-red/20 rounded-xl">
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 bg-red/10 rounded-full flex items-center justify-center">
+                <span class="text-red font-bold text-xl">2017</span>
+              </div>
+            </div>
+            <div class="flex-grow">
+              <div class="flex items-center gap-3 mb-2">
+                <h4 class="font-semibold text-red">Predicción viral</h4>
+                <span class="px-2 py-1 bg-red/10 text-red text-xs rounded-full">ComScore</span>
+              </div>
+              <p class="mb-2">"50% de las búsquedas serán por voz en 2020"</p>
+              <div class="mt-4 p-3 bg-white/50 rounded-lg">
+                <p class="font-semibold text-muted-foreground text-sm mb-1">Realidad 2025:</p>
+                <p class="text-sm">Menos del 20% usa voz de forma habitual, y principalmente para tareas básicas como música o clima.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-6 p-6 bg-orange/5 border border-orange/20 rounded-xl">
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 bg-orange/10 rounded-full flex items-center justify-center">
+                <span class="text-orange font-bold text-xl">2019</span>
+              </div>
+            </div>
+            <div class="flex-grow">
+              <div class="flex items-center gap-3 mb-2">
+                <h4 class="font-semibold text-orange">Predicción viral</h4>
+                <span class="px-2 py-1 bg-orange/10 text-orange text-xs rounded-full">Varios analistas</span>
+              </div>
+              <p class="mb-2">"Las búsquedas visuales dominarán el e-commerce"</p>
+              <div class="mt-4 p-3 bg-white/50 rounded-lg">
+                <p class="font-semibold text-muted-foreground text-sm mb-1">Realidad 2025:</p>
+                <p class="text-sm">La búsqueda visual existe, pero sigue siendo nicho. La mayoría busca con palabras.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-6 p-6 bg-yellow/5 border border-yellow/20 rounded-xl">
+            <div class="flex-shrink-0">
+              <div class="w-16 h-16 bg-yellow/10 rounded-full flex items-center justify-center">
+                <span class="text-yellow font-bold text-xl">2020</span>
+              </div>
+            </div>
+            <div class="flex-grow">
+              <div class="flex items-center gap-3 mb-2">
+                <h4 class="font-semibold text-yellow">Predicción viral</h4>
+                <span class="px-2 py-1 bg-yellow/10 text-yellow text-xs rounded-full">Múltiples fuentes</span>
+              </div>
+              <p class="mb-2">"COVID acelerará la transformación digital: todo será diferente"</p>
+              <div class="mt-4 p-3 bg-white/50 rounded-lg">
+                <p class="font-semibold text-muted-foreground text-sm mb-1">Realidad 2025:</p>
+                <p class="text-sm">Más tráfico online, sí. Pero las reglas del SEO básicamente no cambiaron.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-blue/10 to-purple/10 border-l-4 border-blue p-6 rounded-r-lg">
+          <div class="flex items-start gap-3">
+            <div class="p-2 bg-blue/10 rounded-lg mt-1">
+              <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-blue mb-2">📊 Lo que revelan los datos</p>
+              <p class="mb-0">Cada "revolución" resultó siendo una <strong>evolución gradual</strong> en nichos específicos, no el cambio disruptivo que vendían los titulares.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="lo-que-si-sirve">
+        <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+          <div class="p-2 bg-green/10 rounded-lg">
+            <svg class="w-6 h-6 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          Lo que sí sirve (y cuándo)
+        </h2>
+        
+        <p class="text-lg leading-relaxed mb-8">No todo es humo. Hay situaciones específicas donde estas "innovaciones" sí generan resultados reales:</p>
+
+        <div class="grid gap-6 mb-8">
+          <div class="p-6 bg-green/5 border border-green/20 rounded-xl">
+            <div class="flex items-start gap-4">
+              <div class="p-2 bg-green/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-green mb-2">Negocios locales + Búsqueda por voz</h4>
+                <p class="mb-3">"Oye Google, ¿dónde hay un dentista cerca?" sí genera tráfico real para consultorios, restaurantes, talleres.</p>
+                <div class="bg-white/50 p-3 rounded-lg">
+                  <p class="text-sm font-semibold mb-1">Qué optimizar:</p>
+                  <ul class="text-sm space-y-1">
+                    <li>• Google Business Profile completo y actualizado</li>
+                    <li>• FAQ estructuradas que respondan "cómo llegar", "horarios", "servicios"</li>
+                    <li>• Reseñas consistentes</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 bg-blue/5 border border-blue/20 rounded-xl">
+            <div class="flex items-start gap-4">
+              <div class="p-2 bg-blue/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-blue mb-2">E-commerce + Búsqueda visual</h4>
+                <p class="mb-3">En moda y decoración, la gente sí busca "productos similares a esta imagen". Pero es un canal adicional, no reemplazo.</p>
+                <div class="bg-white/50 p-3 rounded-lg">
+                  <p class="text-sm font-semibold mb-1">Qué optimizar:</p>
+                  <ul class="text-sm space-y-1">
+                    <li>• Imágenes de alta calidad con metadatos correctos</li>
+                    <li>• Alt text descriptivos y específicos</li>
+                    <li>• Schema markup para productos</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 bg-purple/5 border border-purple/20 rounded-xl">
+            <div class="flex items-start gap-4">
+              <div class="p-2 bg-purple/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-purple mb-2">Contenido educativo + AI Overviews</h4>
+                <p class="mb-3">Si produces contenido que realmente responde preguntas, las AI Overview pueden amplificar tu alcance.</p>
+                <div class="bg-white/50 p-3 rounded-lg">
+                  <p class="text-sm font-semibold mb-1">Qué optimizar:</p>
+                  <ul class="text-sm space-y-1">
+                    <li>• Respuestas completas y bien estructuradas</li>
+                    <li>• Datos actualizados y fuentes confiables</li>
+                    <li>• Formato que facilite la extracción (listas, tablas)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-teal/10 to-green/10 border-l-4 border-teal p-6 rounded-r-lg">
+          <div class="flex items-start gap-3">
+            <div class="p-2 bg-teal/10 rounded-lg mt-1">
+              <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-teal mb-2">✅ La clave del éxito</p>
+              <p class="mb-0">Estas tecnologías funcionan cuando <strong>complementan</strong> una estrategia SEO sólida, no cuando la reemplazan. Son herramientas adicionales para contextos específicos.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="la-regla-que-google-no-ha-cambiado">
+        <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+          <div class="p-2 bg-teal/10 rounded-lg">
+            <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+          La regla que Google no ha cambiado en 20 años
+        </h2>
+        
+        <p class="text-lg leading-relaxed mb-8">En medio de todo el ruido sobre supuestas revoluciones, hay una constante que Google jamás ha modificado desde sus inicios:</p>
+
+        <div class="bg-gradient-to-br from-teal/10 to-blue/10 border-2 border-teal/20 rounded-2xl p-8 mb-8 text-center">
+          <div class="mb-6">
+            <div class="w-16 h-16 bg-teal/10 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+          </div>
+          <blockquote class="text-2xl font-bold text-primary mb-4">
+            "Organizar la información del mundo y hacerla universalmente accesible y útil"
+          </blockquote>
+          <p class="text-teal font-semibold">— Misión de Google desde 1998</p>
+        </div>
+
+        <p class="text-lg leading-relaxed mb-6">Todo lo demás son medios, no el fin. Y para cumplir esa misión, Google evalúa contenido basándose en tres pilares que no han cambiado:</p>
+
+        <div class="grid gap-6 mb-8">
+          <div class="flex items-start gap-4 p-6 bg-green/5 border border-green/20 rounded-xl">
+            <div class="p-3 bg-green/10 rounded-lg mt-1">
+              <svg class="w-6 h-6 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-green mb-3">1. Relevancia</h4>
+              <p class="mb-2">¿Tu contenido responde realmente lo que el usuario busca?</p>
+              <p class="text-sm text-muted-foreground">No importa si es voz, texto, imagen o AI: la pregunta sigue siendo la misma.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-6 bg-blue/5 border border-blue/20 rounded-xl">
+            <div class="p-3 bg-blue/10 rounded-lg mt-1">
+              <svg class="w-6 h-6 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-blue mb-3">2. Autoridad</h4>
+              <p class="mb-2">¿Eres una fuente confiable sobre este tema?</p>
+              <p class="text-sm text-muted-foreground">Experiencia, credibilidad, reconocimiento. Las métricas pueden evolucionar, el concepto no.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-6 bg-purple/5 border border-purple/20 rounded-xl">
+            <div class="p-3 bg-purple/10 rounded-lg mt-1">
+              <svg class="w-6 h-6 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold text-purple mb-3">3. Experiencia de usuario</h4>
+              <p class="mb-2">¿Tu sitio es fácil, rápido y accesible?</p>
+              <p class="text-sm text-muted-foreground">Desde dial-up hasta 5G, la velocidad siempre importó. Solo cambian los umbrales.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-orange/10 to-yellow/10 border-l-4 border-orange p-6 rounded-r-lg">
+          <div class="flex items-start gap-3">
+            <div class="p-2 bg-orange/10 rounded-lg mt-1">
+              <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-orange mb-2">💡 La realidad incómoda</p>
+              <p class="mb-0">Mientras las agencias debaten sobre AEO vs VEO vs VSEO, <strong>los sitios que crecen son los que dominan estos tres fundamentos</strong>, independientemente de la tecnología del momento.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="innovacion-real-o-espejismo">
+        <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+          <div class="p-2 bg-yellow/10 rounded-lg">
+            <svg class="w-6 h-6 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+            </svg>
+          </div>
+          ¿Innovación real o espejismo de marketing?
+        </h2>
+        
+        <p class="text-lg leading-relaxed mb-8">Para separar la innovación real del hype, hagamos una evaluación práctica:</p>
+
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold text-primary mb-6">📊 Test de realidad: Evalúa cualquier "nueva tendencia" con estas preguntas</h3>
+          
+          <div class="space-y-4">
+            <div class="p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-teal/10 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                  <span class="text-teal font-bold text-sm">1</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-primary mb-1">¿Hay datos de uso real (no proyecciones)?</p>
+                  <p class="text-sm text-muted-foreground">Busca estadísticas de comportamiento actual, no predicciones de consultoras.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-teal/10 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                  <span class="text-teal font-bold text-sm">2</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-primary mb-1">¿Qué tan diferente es del SEO tradicional?</p>
+                  <p class="text-sm text-muted-foreground">Si la "revolución" se reduce a hacer mejor lo que ya sabías, probablemente sea marketing.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-teal/10 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                  <span class="text-teal font-bold text-sm">3</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-primary mb-1">¿Aplica a tu industria específica?</p>
+                  <p class="text-sm text-muted-foreground">Lo que funciona para e-commerce de moda no necesariamente sirve para SaaS B2B.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="flex items-start gap-3">
+                <div class="w-6 h-6 bg-teal/10 rounded-full flex items-center justify-center mt-1 flex-shrink-0">
+                  <span class="text-teal font-bold text-sm">4</span>
+                </div>
+                <div>
+                  <p class="font-semibold text-primary mb-1">¿Cuál es el ROI vs. esfuerzo invertido?</p>
+                  <p class="text-sm text-muted-foreground">Una optimización que toma 40 horas pero genera 2% más tráfico no es estratégica.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-red/10 to-purple/10 border-l-4 border-red p-6 rounded-r-lg">
+          <div class="flex items-start gap-3">
+            <div class="p-2 bg-red/10 rounded-lg mt-1">
+              <svg class="w-5 h-5 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.99-.833-2.598 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+              </svg>
+            </div>
+            <div>
+              <p class="font-semibold text-red mb-2">⚡ Regla práctica</p>
+              <p class="mb-0">Si una "nueva técnica SEO" no puede demostrar resultados mensurables en tu contexto específico, <strong>probablemente sea mejor optimizar lo básico que ya sabes que funciona.</strong></p>
+            </div>
+          </div>
+        </div>
+      </section>
 
         <section id="voz-promesas-gigantes">
           <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
