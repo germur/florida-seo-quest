@@ -9,7 +9,7 @@ const BlogSection = () => {
       date: "Mar 15, 2024",
       readTime: "5 min read",
       excerpt: "How semantic SEO and content clusters drive sustainable growth.",
-      color: "from-teal/10 to-transparent"
+      color: "from-electric-blue/10 to-transparent"
     },
     {
       title: "AI in SEO: Practical Uses (No Hype)",
@@ -52,7 +52,7 @@ const BlogSection = () => {
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-teal transition-colors">
+                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-electric-blue transition-colors">
                   {post.title}
                 </h3>
                 
@@ -60,7 +60,7 @@ const BlogSection = () => {
                   {post.excerpt}
                 </p>
                 
-                <div className="flex items-center text-teal font-medium group-hover:text-electric-blue transition-colors">
+                <div className="flex items-center text-electric-blue font-medium group-hover:text-bright-orange transition-colors">
                   Read Article
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </div>

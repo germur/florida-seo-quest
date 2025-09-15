@@ -7,7 +7,7 @@ const FinalCTA = () => {
     <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 right-10 w-64 h-64 bg-teal rounded-full blur-3xl"></div>
+        <div className="absolute top-10 right-10 w-64 h-64 bg-electric-blue rounded-full blur-3xl"></div>
         <div className="absolute bottom-10 left-10 w-80 h-80 bg-bright-orange rounded-full blur-3xl"></div>
       </div>
       
@@ -49,7 +49,7 @@ const FinalCTA = () => {
           
           <div className="mt-16 grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-teal mb-2">Florida</div>
+              <div className="text-3xl font-bold text-electric-blue mb-2">Florida</div>
               <div className="text-sm text-white/70">Local Expertise</div>
             </div>
             <div className="text-center">

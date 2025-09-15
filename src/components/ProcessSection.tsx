@@ -8,7 +8,7 @@ const ProcessSection = () => {
       number: "1",
       title: "Kick-off",
       description: "Understand your market and competitors.",
-      color: "teal"
+      color: "electric-blue"
     },
     {
       number: "2",
@@ -40,7 +40,7 @@ const ProcessSection = () => {
           
           <div className="relative">
             {/* Connection Line */}
-            <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-teal via-electric-blue via-bright-orange to-neutral-gray opacity-30"></div>
+            <div className="hidden lg:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-electric-blue via-bright-orange to-neutral-gray opacity-30"></div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {steps.map((step, index) => (

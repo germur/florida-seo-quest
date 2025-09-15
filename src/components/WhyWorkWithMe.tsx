@@ -38,8 +38,8 @@ const WhyWorkWithMe = () => {
                 key={index}
                 className="bg-card border border-border rounded-2xl p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-teal/20 to-electric-blue/20 rounded-2xl mb-6 group-hover:from-teal/30 group-hover:to-electric-blue/30 transition-all duration-300">
-                  <div className="text-teal group-hover:text-electric-blue transition-colors duration-300">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-electric-blue/20 to-bright-orange/20 rounded-2xl mb-6 group-hover:from-electric-blue/30 group-hover:to-bright-orange/30 transition-all duration-300">
+                  <div className="text-electric-blue group-hover:text-bright-orange transition-colors duration-300">
                     {feature.icon}
                   </div>
                 </div>

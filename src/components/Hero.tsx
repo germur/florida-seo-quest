@@ -8,8 +8,8 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-secondary/30 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-72 h-72 bg-teal rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-96 h-96 bg-electric-blue/20 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-20 w-72 h-72 bg-electric-blue rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-bright-orange/20 rounded-full blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-6 relative z-10">
@@ -17,7 +17,7 @@ const Hero = () => {
           {/* Trust Signals Bar */}
           <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm font-medium text-muted-foreground">
             <span className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-teal rounded-full"></div>
+              <div className="w-2 h-2 bg-electric-blue rounded-full"></div>
               +250% Organic Traffic
             </span>
             <span className="flex items-center gap-2">
@@ -33,7 +33,7 @@ const Hero = () => {
           {/* Main Headline */}
           <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 leading-tight font-space-grotesk">
             SEO Strategy & Consulting{" "}
-            <span className="bg-gradient-to-r from-teal to-electric-blue bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-electric-blue to-bright-orange bg-clip-text text-transparent">
               for Florida Businesses
             </span>
           </h1>
@@ -58,8 +58,8 @@ const Hero = () => {
 
           {/* Floating Stats Cards */}
           <div className="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="bg-card/80 backdrop-blur-sm border border-teal/20 rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <div className="text-3xl font-bold text-teal mb-2">+250%</div>
+            <div className="bg-card/80 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div className="text-3xl font-bold text-electric-blue mb-2">+250%</div>
               <div className="text-sm text-muted-foreground">Traffic Growth</div>
             </div>
             <div className="bg-card/80 backdrop-blur-sm border border-electric-blue/20 rounded-2xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">

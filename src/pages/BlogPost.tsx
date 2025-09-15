@@ -129,14 +129,14 @@ const BlogPost = () => {
 
         <section id="plugin-dependency">
           <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
-            <div class="p-2 bg-teal/10 rounded-lg">
-              <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="p-2 bg-electric-blue/10 rounded-lg">
+              <svg class="w-6 h-6 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
               </svg>
             </div>
             Plugin Dependency and Hidden Licensing Costs
           </h2>
-          <p class="text-lg leading-relaxed mb-6">Another feature of WordPress is that its flexibility comes largely from plugins. The WordPress core provides basic features, but for almost anything extra — contact forms, advanced galleries, online stores, SEO optimization, backups, social media integration, etc. — additional plugins are needed. In the "traditional" WordPress environment you practically live in the <strong class="text-teal">"City of Plugins,"</strong> as there are thousands available, and you end up installing one for every feature you need.</p>
+          <p class="text-lg leading-relaxed mb-6">Another feature of WordPress is that its flexibility comes largely from plugins. The WordPress core provides basic features, but for almost anything extra — contact forms, advanced galleries, online stores, SEO optimization, backups, social media integration, etc. — additional plugins are needed. In the "traditional" WordPress environment you practically live in the <strong class="text-electric-blue">"City of Plugins,"</strong> as there are thousands available, and you end up installing one for every feature you need.</p>
           
           <h3 class="flex items-center gap-2 text-xl font-semibold text-primary mb-4">
             <span class="w-2 h-2 bg-red rounded-full"></span>
@@ -606,59 +606,59 @@ const BlogPost = () => {
       category: "SEO Strategy",
       tags: ["SEO Myths", "Voice Search", "Visual Search", "AEO", "SEO Strategy"],
       content: `
-        <div class="table-of-contents bg-gradient-to-br from-teal/5 to-teal/10 border border-teal/20 rounded-2xl p-8 mb-12">
+        <div class="table-of-contents bg-gradient-to-br from-electric-blue/5 to-electric-blue/10 border border-electric-blue/20 rounded-2xl p-8 mb-12">
           <div class="flex items-center gap-3 mb-6">
-            <div class="p-2 bg-teal/10 rounded-lg">
-              <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="p-2 bg-electric-blue/10 rounded-lg">
+              <svg class="w-5 h-5 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
               </svg>
             </div>
             <h2 class="text-xl font-bold text-primary mb-0">🧭 Índice</h2>
           </div>
           <nav class="space-y-2">
-            <a href="#cuando-el-humo-se-disfraza-de-futuro" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
-              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+            <a href="#cuando-el-humo-se-disfraza-de-futuro" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
+              <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
               Cuando el humo se disfrazó de futuro
             </a>
-            <a href="#como-se-fabrica-el-hype" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
-              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+            <a href="#como-se-fabrica-el-hype" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
+              <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
               Cómo se fabrica el hype (y por qué nos lo creemos)
             </a>
-            <a href="#acronimos-que-venden-humo" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
-              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
-              Acrónimos que venden humo: AEO y compañía
+            <a href="#acronimos-que-venden-humo" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
+              <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
+              Acrónimos que venden humo
             </a>
-            <a href="#predicciones-virales-vs-realidad" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
-              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
-              Predicciones virales vs. realidad: el patrón que se repite
+            <a href="#predicciones-virales-vs-realidad" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
+              <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
+              Predicciones virales vs. realidad
             </a>
-            <a href="#lo-que-si-sirve" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
-              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
-              Lo que sí sirve (y cuándo)
+            <a href="#lo-que-si-sirve" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
+              <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
+              Lo que sí sirve (spoiler: no es sexy)
             </a>
-            <a href="#la-regla-que-google-no-ha-cambiado" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
-              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
-              La regla que Google no ha cambiado en 20 años
+            <a href="#la-regla-que-google-no-ha-cambiado" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
+              <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
+              La regla que Google no ha cambiado
             </a>
-            <a href="#innovacion-real-o-espejismo" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
-              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
-              ¿Innovación real o espejismo de marketing?
+            <a href="#innovacion-real-o-espejismo" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
+              <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
+              Innovación real o espejismo
             </a>
-            <a href="#voz-promesas-gigantes" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
-              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
-              Voz: promesas gigantes, impacto limitado
+            <a href="#voz-promesas-gigantes" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
+              <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
+              Búsqueda por voz: promesas gigantes, adopción lenta
             </a>
-            <a href="#busqueda-visual" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
-              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
-              Búsqueda visual: revolución parcial, oportunidad real
+            <a href="#busqueda-visual" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
+              <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
+              Búsqueda visual: el futuro que sigue siendo futuro
             </a>
-            <a href="#aeo-revolucion-costosa" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
-              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
-              AEO: ¿revolución costosa o etiqueta bonita?
+            <a href="#aeo-revolucion-costosa" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
+              <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
+              AEO: la revolución más costosa que rentable
             </a>
-            <a href="#conclusion" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
-              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
-              Conclusión: el SEO que sí funciona en 2025 (y en 2030)
+            <a href="#conclusion" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
+              <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
+              Conclusión
             </a>
           </nav>
         </div>
@@ -672,7 +672,7 @@ const BlogPost = () => {
             </div>
             Cuando el humo se disfrazó de futuro
           </h2>
-          <p class="text-lg leading-relaxed mb-6">En 2016, Gartner lanzó un titular que corrió como pólvora: <strong class="text-teal">"Para 2020, el 30% de las búsquedas serán sin pantalla."</strong> Un año después, ComScore encendió más fuego: <strong class="text-teal">"La mitad de las búsquedas se harán por voz."</strong></p>
+          <p class="text-lg leading-relaxed mb-6">En 2016, Gartner lanzó un titular que corrió como pólvora: <strong class="text-electric-blue">"Para 2020, el 30% de las búsquedas serán sin pantalla."</strong> Un año después, ComScore encendió más fuego: <strong class="text-electric-blue">"La mitad de las búsquedas se harán por voz."</strong></p>
           
           <p class="leading-relaxed mb-6">La promesa sonaba irresistible. ¿Quién no querría adelantarse a la revolución?</p>
           
@@ -1830,7 +1830,7 @@ const BlogPost = () => {
 
             {/* Article Meta */}
             <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground mb-6">
-              <span className="px-3 py-1 bg-teal/10 text-teal rounded-full font-medium">
+              <span className="px-3 py-1 bg-electric-blue/10 text-electric-blue rounded-full font-medium">
                 {post.category}
               </span>
               <span className="flex items-center gap-1">

@@ -48,7 +48,7 @@ const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps)
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "SEO Strategy":
-        return "bg-teal/10 text-teal border-teal/20";
+        return "bg-electric-blue/10 text-electric-blue border-electric-blue/20";
       case "Web Development":
         return "bg-purple/10 text-purple border-purple/20";
       default:
