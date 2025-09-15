@@ -16,20 +16,26 @@ const Header = () => {
           </div>
           
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/servicios" className="text-muted-foreground hover:text-primary transition-colors">
-              Servicios
+            <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">
+              Services
             </Link>
-            <Link to="/casos-estudio" className="text-muted-foreground hover:text-primary transition-colors">
-              Casos de Éxito
+            <Link to="/case-studies" className="text-muted-foreground hover:text-primary transition-colors">
+              Case Studies
             </Link>
-            <Link to="/como-trabajamos" className="text-muted-foreground hover:text-primary transition-colors">
-              Cómo Trabajamos
+            <Link to="/how-we-work" className="text-muted-foreground hover:text-primary transition-colors">
+              How We Work
             </Link>
             <Link to="/blog" className="text-muted-foreground hover:text-primary transition-colors">
               Blog
             </Link>
-            <Link to="/recursos" className="text-muted-foreground hover:text-primary transition-colors">
-              Recursos
+            <Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors">
+              Resources
+            </Link>
+            <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">
+              About
+            </Link>
+            <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">
+              Contact
             </Link>
           </nav>
           
