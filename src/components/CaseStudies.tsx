@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import DiceRoller from "./DiceRoller";
 
 const CaseStudies = () => {
   const cases = [
@@ -7,19 +8,22 @@ const CaseStudies = () => {
       company: "Paramount",
       industry: "Property Restoration",
       result: "+180% qualified leads in 6 months",
-      metrics: ["180% leads", "250% traffic", "420% ROI"]
+      metrics: ["180% leads", "250% traffic", "420% ROI"],
+      slug: "paramount-property-restoration"
     },
     {
       company: "1GC Construction", 
       industry: "Commercial Construction",
       result: "+95% organic visibility in 4 months",
-      metrics: ["95% visibility", "150% traffic", "280% ROI"]
+      metrics: ["95% visibility", "150% traffic", "280% ROI"],
+      slug: "1gc-construction"
     },
     {
       company: "Pura Piel",
       industry: "Aesthetics & Beauty", 
       result: "120+ technical errors fixed, +40% indexation",
-      metrics: ["120+ fixes", "40% indexation", "190% ROI"]
+      metrics: ["120+ fixes", "40% indexation", "190% ROI"],
+      slug: "pura-piel-aesthetics"
     }
   ];
 
@@ -40,7 +44,7 @@ const CaseStudies = () => {
             {cases.map((caseStudy, index) => (
               <Link 
                 key={index}
-                to="/case-studies"
+                to={`/case-studies/${caseStudy.slug}`}
                 className="block bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-200 group"
               >
                 <div className="flex items-start justify-between mb-4">
@@ -71,6 +75,9 @@ const CaseStudies = () => {
           </div>
           
           <div className="text-center mt-12">
+            <div className="mb-8">
+              <DiceRoller />
+            </div>
             <Link 
               to="/case-studies" 
               className="inline-flex items-center text-foreground hover:text-primary transition-colors"

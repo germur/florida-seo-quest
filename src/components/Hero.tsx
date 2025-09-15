@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import DiceRoller from "./DiceRoller";
+
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -45,15 +45,13 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          <div className="flex justify-center mb-16">
             <Button variant="hero" size="lg" className="group" asChild>
               <a href="tel:+573046807443">
                 Book a Consultation
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-            
-            <DiceRoller />
           </div>
 
           {/* Floating Stats Cards */}
