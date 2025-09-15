@@ -41,8 +41,16 @@ const CoreServices = () => {
                 key={index}
                 className="bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group"
               >
-                <div className={`inline-flex items-center justify-center w-16 h-16 bg-${service.color}/10 rounded-2xl mb-6 group-hover:bg-${service.color}/20 transition-all duration-300`}>
-                  <div className={`text-${service.color}`}>
+                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 transition-all duration-300 ${
+                  service.color === 'teal' ? 'bg-teal/10 group-hover:bg-teal/20' :
+                  service.color === 'electric-blue' ? 'bg-electric-blue/10 group-hover:bg-electric-blue/20' :
+                  'bg-bright-orange/10 group-hover:bg-bright-orange/20'
+                }`}>
+                  <div className={`${
+                    service.color === 'teal' ? 'text-teal' :
+                    service.color === 'electric-blue' ? 'text-electric-blue' :
+                    'text-bright-orange'
+                  }`}>
                     {service.icon}
                   </div>
                 </div>
@@ -51,7 +59,7 @@ const CoreServices = () => {
                 <p className="text-muted-foreground leading-relaxed mb-6 font-inter">{service.description}</p>
                 
                 <Button variant="outline" className="group w-full justify-between" asChild>
-                  <Link to={`/services#${service.title.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}`}>
+                  <Link to="/services">
                     {service.cta}
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Link>

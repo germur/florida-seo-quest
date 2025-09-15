@@ -136,21 +136,28 @@ ${formData.name}
               {contactMethods.map((method, index) => (
                 <div 
                   key={index}
-                  className={`bg-gradient-to-br from-${method.color}/10 to-${method.color}/5 border border-${method.color}/20 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group`}
+                  className={`rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group ${
+                    method.color === 'teal' ? 'bg-gradient-to-br from-teal/10 to-teal/5 border border-teal/20' :
+                    method.color === 'electric-blue' ? 'bg-gradient-to-br from-electric-blue/10 to-electric-blue/5 border border-electric-blue/20' :
+                    'bg-gradient-to-br from-bright-orange/10 to-bright-orange/5 border border-bright-orange/20'
+                  }`}
                 >
-                  <Button 
-                    className={`inline-flex items-center justify-center w-20 h-20 bg-${method.color}/20 rounded-2xl mb-6 group-hover:bg-${method.color}/30 transition-all duration-300 text-${method.color}`}
-                    asChild
-                  >
-                    <Link to="/contact">
-                      {method.icon}
-                    </Link>
-                  </Button>
+                  <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6 transition-all duration-300 ${
+                    method.color === 'teal' ? 'bg-teal/20 group-hover:bg-teal/30 text-teal' :
+                    method.color === 'electric-blue' ? 'bg-electric-blue/20 group-hover:bg-electric-blue/30 text-electric-blue' :
+                    'bg-bright-orange/20 group-hover:bg-bright-orange/30 text-bright-orange'
+                  }`}>
+                    {method.icon}
+                  </div>
                   
                   <h3 className="text-2xl font-semibold text-primary mb-4">{method.title}</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">{method.description}</p>
                   
-                  <Button variant="outline" className={`w-full group-hover:bg-${method.color} group-hover:text-white group-hover:border-${method.color} transition-all`} asChild>
+                  <Button variant="outline" className={`w-full transition-all ${
+                    method.color === 'teal' ? 'group-hover:bg-teal group-hover:text-white group-hover:border-teal' :
+                    method.color === 'electric-blue' ? 'group-hover:bg-electric-blue group-hover:text-white group-hover:border-electric-blue' :
+                    'group-hover:bg-bright-orange group-hover:text-white group-hover:border-bright-orange'
+                  }`} asChild>
                     <a href={
                       method.action === 'Schedule Now' ? 'tel:+573046807443' : 
                       method.action === 'Send Email' ? 'mailto:rogermur1990@gmail.com' : 

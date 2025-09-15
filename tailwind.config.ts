@@ -60,6 +60,10 @@ export default {
           DEFAULT: "hsl(var(--bright-orange))",
           foreground: "hsl(var(--bright-orange-foreground))",
         },
+        "teal": {
+          DEFAULT: "hsl(174 100% 29%)", /* #008B8B - A proper teal color */
+          foreground: "hsl(0 0% 100%)",
+        },
         "neutral-gray": {
           DEFAULT: "hsl(var(--neutral-gray))",
           foreground: "hsl(var(--neutral-gray-foreground))",

@@ -187,7 +187,13 @@ function CaseStudyOverlay({ caseStudy, onClose, onRollAgain }: CaseStudyOverlayP
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-6">
       <div className="bg-card border border-border rounded-2xl p-8 max-w-2xl w-full shadow-2xl animate-scale-in">
         <div className="text-center mb-6">
-          <div className={`inline-block px-3 py-1 bg-${caseStudy.color}/10 text-${caseStudy.color} text-sm font-medium rounded-full mb-4`}>
+          <div className={`inline-block px-3 py-1 text-sm font-medium rounded-full mb-4 ${
+            caseStudy.color === 'teal' ? 'bg-teal/10 text-teal' :
+            caseStudy.color === 'electric-blue' ? 'bg-electric-blue/10 text-electric-blue' :
+            caseStudy.color === 'bright-orange' ? 'bg-bright-orange/10 text-bright-orange' :
+            caseStudy.color === 'purple' ? 'bg-purple-500/10 text-purple-600' :
+            'bg-green-500/10 text-green-600'
+          }`}>
             {caseStudy.industry} • {caseStudy.location}
           </div>
           

@@ -107,8 +107,16 @@ const Services = () => {
                 <div key={service.id} className={`grid lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                   <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
                     <div className="mb-6">
-                      <div className={`inline-flex items-center justify-center w-20 h-20 bg-${service.color}/10 rounded-2xl mb-6`}>
-                        <div className={`text-${service.color}`}>
+                      <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6 ${
+                        service.color === 'teal' ? 'bg-teal/10' :
+                        service.color === 'electric-blue' ? 'bg-electric-blue/10' :
+                        'bg-bright-orange/10'
+                      }`}>
+                        <div className={`${
+                          service.color === 'teal' ? 'text-teal' :
+                          service.color === 'electric-blue' ? 'text-electric-blue' :
+                          'text-bright-orange'
+                        }`}>
                           {service.icon}
                         </div>
                       </div>
@@ -121,19 +129,24 @@ const Services = () => {
                     <div className="space-y-3 mb-8">
                       {service.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-start">
-                          <CheckCircle className={`h-5 w-5 text-${service.color} mr-3 mt-0.5 flex-shrink-0`} />
+                          <CheckCircle className={`h-5 w-5 mr-3 mt-0.5 flex-shrink-0 ${
+                            service.color === 'teal' ? 'text-teal' :
+                            service.color === 'electric-blue' ? 'text-electric-blue' :
+                            'text-bright-orange'
+                          }`} />
                           <span className="text-muted-foreground">{feature}</span>
                         </div>
                       ))}
                     </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
-              <Link to="/contact">
-                Start This Service
-              </Link>
-            </Button>
-          </div>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <Button variant="hero" size="lg" asChild>
+                        <Link to="/contact">
+                          Start This Service
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
 
                   <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
