@@ -42,7 +42,7 @@ Best regards,
 ${formData.name}
     `.trim();
     
-    const mailtoLink = `mailto:hello@calvocreativo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:rogermur1990@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
     
     // Reset form
@@ -151,7 +151,11 @@ ${formData.name}
                   <p className="text-muted-foreground mb-6 leading-relaxed">{method.description}</p>
                   
                   <Button variant="outline" className={`w-full group-hover:bg-${method.color} group-hover:text-white group-hover:border-${method.color} transition-all`} asChild>
-                    <a href={method.action === 'Schedule Now' ? '/contact' : method.action === 'Send Email' ? 'mailto:hello@calvocreativo.com' : 'https://wa.me/1234567890'}>
+                    <a href={
+                      method.action === 'Schedule Now' ? 'tel:+573046807443' : 
+                      method.action === 'Send Email' ? 'mailto:rogermur1990@gmail.com' : 
+                      'https://wa.me/573046807443?text=Hi! I\'m interested in your SEO services.'
+                    }>
                       {method.action}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
