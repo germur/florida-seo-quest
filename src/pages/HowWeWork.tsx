@@ -358,9 +358,9 @@ const HowWeWork = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <Link to="/contact">
+              <a href="tel:+573046807443">
                 Schedule Free Consultation
-              </Link>
+              </a>
             </Button>
             <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
               <Link to="/case-studies">View Our Results</Link>

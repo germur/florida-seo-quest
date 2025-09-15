@@ -1980,9 +1980,9 @@ const BlogPost = () => {
                 Discover how to apply these strategies to your business with a personalized consultation.
               </p>
               <Button size="lg" className="mr-4" asChild>
-                <Link to="/contact">
+                <a href="tel:+573046807443">
                   Schedule your consultation
-                </Link>
+                </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
                 <Link to="/blog">

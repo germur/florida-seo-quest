@@ -240,10 +240,10 @@ const CaseStudies = () => {
                     Want similar results for your business?
                   </h4>
                   <Button size="lg" asChild>
-                    <Link to="/contact">
+                    <a href="tel:+573046807443">
                       Schedule Your Free Consultation
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
+                    </a>
                   </Button>
                 </div>
               </article>
@@ -263,10 +263,10 @@ const CaseStudies = () => {
               Let's discuss your project and create a custom strategy for your business.
             </p>
             <Button size="lg" asChild>
-              <Link to="/contact">
+              <a href="tel:+573046807443">
                 Schedule a consultation
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              </a>
             </Button>
           </div>
         </div>

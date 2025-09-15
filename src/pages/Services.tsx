@@ -161,11 +161,11 @@ const Services = () => {
                           <span className="font-semibold text-primary">{service.duration}</span>
                         </div>
                         <div className="pt-4 border-t border-border">
-                          <Button variant="outline" className="w-full" asChild>
-                            <Link to="/contact">
-                              Schedule Free Consultation
-                            </Link>
-                          </Button>
+              <Button variant="outline" className="w-full" asChild>
+                <a href="tel:+573046807443">
+                  Schedule Free Consultation
+                </a>
+              </Button>
                         </div>
                       </div>
                     </div>
@@ -216,9 +216,9 @@ const Services = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <Link to="/contact">
+              <a href="tel:+573046807443">
                 Schedule Free Consultation
-              </Link>
+              </a>
             </Button>
             <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
               <Link to="/case-studies">See Our Results</Link>
