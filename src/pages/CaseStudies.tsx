@@ -6,109 +6,125 @@ import Header from "@/components/Header";
 const CaseStudies = () => {
   const cases = [
     {
-      id: "paramount",
+      id: "paramount-property-restoration",
       company: "Paramount Property Restoration",
       industry: "Property Restoration",
-      location: "Miami, FL",
-      challenge: "Low visibility in local searches for emergency and restoration services",
-      solution: "Local SEO strategy + authority content + technical optimization",
+      location: "Florida, USA",
+      challenge: "Invisible in a saturated Florida restoration market. No rankings for 'service + city' searches. No emergency leads.",
+      solution: "Designed a programmatic SEO SILO with city + service landing pages. Optimized Core Web Vitals, LocalBusiness schema, and internal linking. Added high-converting content: 24/7 CTAs, trust signals, before/after visuals.",
       results: [
-        "+180% qualified leads in 6 months",
-        "+250% organic traffic",
-        "Top 3 in 15+ target keywords",
-        "+85% conversion improvement"
+        "Multi-city coverage for emergency keywords",
+        "Organic leads flowing within months",
+        "200+ optimized pages live",
+        "Dozens of local keywords in top 3",
+        "First emergency leads from SEO in <6 months"
+      ],
+      metrics: {
+        duration: "<6 months",
+        pages: "200+",
+        keywords: "Dozens in top 3"
+      },
+      website: "paramountpropertyrestoration.com"
+    },
+    {
+      id: "flo-car-rental",
+      company: "Flo Car Rental",
+      industry: "Car Rental",
+      location: "Miami, USA",
+      challenge: "Competing with global giants. Needed a website that made booking effortless — and stronger visibility on Google Maps.",
+      solution: "Built a frictionless booking flow: minimal steps, mobile-first, trust elements. Optimized Google Business Profile with reviews, photos, Q&A, and updates. Targeted long-tail local queries: Miami airport car rental no deposit, luxury SUV rental.",
+      results: [
+        "More calls, directions, and visits from Google",
+        "Higher conversion rates on the booking funnel",
+        "+120% growth in GBP actions (calls, directions)",
+        "CTR boost on high-value rental queries"
       ],
       metrics: {
         duration: "6 months",
-        investment: "$4,500",
-        roi: "420%"
+        gbp_growth: "+120%",
+        ctr: "Significant boost"
       },
-      color: "teal",
-      image: "/lovable-uploads/15b81203-d4a9-4da9-ace4-976c55d22c82.png"
+      website: "flocarrental.com"
     },
     {
-      id: "1gc",
-      company: "1GC Construction",
-      industry: "Commercial Construction",
-      location: "Orlando, FL", 
-      challenge: "Fierce competition in commercial construction, needed differentiation",
-      solution: "Semantic architecture + technical content + strategic link building",
+      id: "puff-cleaning",
+      company: "Puff Cleaning",
+      industry: "Cleaning Services",
+      location: "Bogotá, Colombia",
+      challenge: "Zero digital presence in a highly competitive local cleaning market.",
+      solution: "Built a local SEO authority map with optimized service pages and FAQs. Strengthened Google Business Profile with verified reviews. Designed for conversion: WhatsApp button, CTAs, testimonials.",
       results: [
-        "+95% organic visibility in 4 months",
-        "+150% quality traffic",
-        "Dominance in 'commercial construction Orlando'",
-        "+60% increase in qualified RFPs"
+        "Strong presence in local pack",
+        "Leads through both WhatsApp and forms",
+        "From 0 to ~2,000 monthly organic visits in year one",
+        "Top 3 rankings for sofa cleaning Bogotá, mattress cleaning Bogotá"
+      ],
+      metrics: {
+        duration: "1 year",
+        traffic: "~2,000 monthly visits",
+        rankings: "Top 3 local keywords"
+      },
+      website: "puffcleaning.com"
+    },
+    {
+      id: "edu1st-preschools",
+      company: "Edu1st Preschools",
+      industry: "Education",
+      location: "Florida, USA",
+      challenge: "Multiple campuses, scattered online presence. Needed more parent engagement and admissions.",
+      solution: "Created a parent-focused blog with practical guides and bilingual resources. Designed printable coloring pages as lead magnets. Local SEO for each campus: optimized pages, schema, NAP consistency.",
+      results: [
+        "Parents spent more time engaging with blog content",
+        "More tour bookings and admissions inquiries",
+        "Significant growth in blog traffic and downloads",
+        "+80% increase in calls and actions from Google Maps"
+      ],
+      metrics: {
+        duration: "8 months",
+        gmb_actions: "+80%",
+        engagement: "Significant growth"
+      },
+      website: "edu1stvess.com"
+    },
+    {
+      id: "craftd-london",
+      company: "CRAFTD London",
+      industry: "Men's Jewelry",
+      location: "UK & US",
+      challenge: "Men's jewelry brand in a crowded market. Needed to scale SEO without losing brand identity.",
+      solution: "Built a full-funnel content strategy: TOFU: style guides & trends. MOFU: size guides & product comparisons. BOFU: optimized product & category pages with Product schema. Reinforced internal linking across product families.",
+      results: [
+        "Higher visibility for core product categories",
+        "Content that educates and converts",
+        "50+ keywords in top 10 within 4 months",
+        "CTR lift thanks to rich snippets"
       ],
       metrics: {
         duration: "4 months",
-        investment: "$3,200", 
-        roi: "280%"
+        keywords: "50+ in top 10",
+        ctr: "Significant lift"
       },
-      color: "electric-blue",
-      image: "/lovable-uploads/15b81203-d4a9-4da9-ace4-976c55d22c82.png"
+      website: "craftdlondon.com"
     },
     {
-      id: "pura-piel",
-      company: "Pura Piel",
-      industry: "Aesthetics & Beauty",
-      location: "Fort Lauderdale, FL",
-      challenge: "Website with multiple technical issues affecting indexation",
-      solution: "Complete technical audit + indexation fixes + new architecture",
+      id: "le-gramme",
+      company: "LE GRAMME",
+      industry: "Luxury Jewelry",
+      location: "France & Global",
+      challenge: "Luxury minimalist jewelry brand. Needed to expand internationally without compromising design-first identity.",
+      solution: "Crafted a luxury content strategy: heritage, craftsmanship, buying guides. Implemented international SEO: hreflang, taxonomy, Product schema. Strengthened PR and editorial links in design/lifestyle outlets.",
       results: [
-        "120+ technical errors solved",
-        "+40% indexation improvement",
-        "+75% increase in organic sessions", 
-        "60% reduction in bounce rate"
+        "Increased organic visibility in English and French markets",
+        "SEO aligned seamlessly with luxury branding",
+        "+40% impressions on flagship collections",
+        "Multiple transactional luxury keywords in top 10"
       ],
       metrics: {
-        duration: "3 months",
-        investment: "$2,800",
-        roi: "190%"
+        duration: "6 months",
+        impressions: "+40%",
+        keywords: "Multiple in top 10"
       },
-      color: "bright-orange",
-      image: "/lovable-uploads/15b81203-d4a9-4da9-ace4-976c55d22c82.png"
-    },
-    {
-      id: "quintana",
-      company: "Quintana",
-      industry: "Professional Services",
-      location: "Boca Raton, FL",
-      challenge: "Needed to position themselves as authority in their sector",
-      solution: "Topical authority strategy + evergreen content + digital PR",
-      results: [
-        "+200% brand mentions",
-        "Top 5 in high-competition keywords",
-        "+90% qualified organic traffic",
-        "+45% leads from organic search"
-      ],
-      metrics: {
-        duration: "5 months", 
-        investment: "$3,800",
-        roi: "350%"
-      },
-      color: "purple",
-      image: "/lovable-uploads/15b81203-d4a9-4da9-ace4-976c55d22c82.png"
-    },
-    {
-      id: "roger-murillo",
-      company: "Roger Murillo Image Consulting",
-      industry: "Image Consulting",
-      location: "Miami, FL",
-      challenge: "Very competitive market in personal image services",
-      solution: "Local SEO + personal branding + valuable content + link building",
-      results: [
-        "+300% brand searches",
-        "Leader in 'image consultant Miami'",
-        "+120% qualified consultations",
-        "+80% increase in premium bookings"
-      ],
-      metrics: {
-        duration: "4 months",
-        investment: "$2,900",
-        roi: "240%"
-      },
-      color: "green",
-      image: "/lovable-uploads/15b81203-d4a9-4da9-ace4-976c55d22c82.png"
+      website: "legramme.com"
     }
   ];
 
@@ -129,16 +145,16 @@ const CaseStudies = () => {
             
             <div className="grid md:grid-cols-3 gap-8">
               <div>
-                <div className="text-4xl font-bold mb-2">+250%</div>
-                <div className="text-background/70">Average traffic increase</div>
+                <div className="text-4xl font-bold mb-2">6</div>
+                <div className="text-background/70">Success Stories</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">15+</div>
-                <div className="text-background/70">Successful projects</div>
+                <div className="text-4xl font-bold mb-2">3</div>
+                <div className="text-background/70">Countries</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">280%</div>
-                <div className="text-background/70">Average ROI</div>
+                <div className="text-4xl font-bold mb-2">200+</div>
+                <div className="text-background/70">Keywords in Top 10</div>
               </div>
             </div>
           </div>
@@ -221,15 +237,21 @@ const CaseStudies = () => {
                     </div>
                     <div>
                       <div className="text-3xl font-bold text-foreground mb-2">
-                        {caseStudy.metrics.investment}
+                        {Object.values(caseStudy.metrics)[1]}
                       </div>
-                      <div className="text-muted-foreground">Investment</div>
+                      <div className="text-muted-foreground">{Object.keys(caseStudy.metrics)[1].replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}</div>
                     </div>
                     <div>
                       <div className="text-3xl font-bold text-foreground mb-2">
-                        {caseStudy.metrics.roi}
+                        {Object.values(caseStudy.metrics)[2]}
                       </div>
-                      <div className="text-muted-foreground">ROI</div>
+                      <div className="text-muted-foreground">{Object.keys(caseStudy.metrics)[2].replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}</div>
+                    </div>
+                  </div>
+                  
+                  <div className="pl-16 mt-6">
+                    <div className="text-sm text-muted-foreground">
+                      Site: <span className="text-foreground font-medium">{caseStudy.website}</span>
                     </div>
                   </div>
                 </div>

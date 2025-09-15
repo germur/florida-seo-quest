@@ -11,111 +11,228 @@ const CaseStudyDetail = () => {
     "paramount-property-restoration": {
       company: "Paramount Property Restoration",
       industry: "Property Restoration",
-      location: "Miami, Florida",
+      location: "Florida, USA",
+      duration: "<6 months",
+      website: "paramountpropertyrestoration.com",
+      hero: {
+        challenge: "Invisible in a saturated Florida restoration market. No rankings for 'service + city' searches. No emergency leads.",
+        result: "Multi-city coverage for emergency keywords with organic leads flowing within months"
+      },
+      challenge: [
+        "Invisible in saturated Florida restoration market",
+        "No rankings for 'service + city' searches",
+        "No emergency leads from organic search",
+        "Limited multi-city presence online"
+      ],
+      solution: [
+        "Designed programmatic SEO SILO with city + service landing pages",
+        "Optimized Core Web Vitals for better user experience",
+        "Implemented LocalBusiness schema markup",
+        "Enhanced internal linking structure",
+        "Added high-converting content with 24/7 CTAs, trust signals, before/after visuals"
+      ],
+      results: {
+        metrics: [
+          { label: "Optimized Pages", value: "200+", icon: Target },
+          { label: "Top 3 Keywords", value: "Dozens", icon: Search },
+          { label: "Time to Results", value: "<6 months", icon: TrendingUp },
+          { label: "Coverage", value: "Multi-city", icon: Users }
+        ],
+        details: [
+          "200+ optimized pages live",
+          "Dozens of local keywords in top 3",
+          "First emergency leads from SEO in <6 months",
+          "Multi-city coverage for emergency keywords achieved"
+        ]
+      }
+    },
+    "flo-car-rental": {
+      company: "Flo Car Rental",
+      industry: "Car Rental",
+      location: "Miami, USA",
       duration: "6 months",
+      website: "flocarrental.com",
       hero: {
-        challenge: "Paramount needed to dominate local search results for emergency property restoration services in Miami's competitive market.",
-        result: "+180% qualified leads and +250% organic traffic in 6 months"
+        challenge: "Competing with global giants while needing effortless booking experience and stronger Google Maps visibility.",
+        result: "+120% growth in Google Business Profile actions with improved booking conversions"
       },
       challenge: [
-        "Low visibility for high-intent restoration keywords",
-        "Poor local SEO performance despite prime service area",
-        "Website technical issues affecting mobile performance",
-        "Limited content strategy for emergency services"
+        "Competing with global car rental giants",
+        "Complex booking process deterring customers",
+        "Weak visibility on Google Maps",
+        "Limited local search presence"
       ],
       solution: [
-        "Comprehensive technical SEO audit and optimization",
-        "Local SEO strategy targeting Miami neighborhoods",
-        "Emergency services content strategy development",
-        "Mobile-first website optimization",
-        "Review management and local citation building"
+        "Built frictionless booking flow with minimal steps",
+        "Implemented mobile-first design with trust elements",
+        "Optimized Google Business Profile with reviews, photos, Q&A, and updates",
+        "Targeted long-tail local queries like 'Miami airport car rental no deposit'",
+        "Focused on luxury SUV rental keywords"
       ],
       results: {
         metrics: [
-          { label: "Qualified Leads", value: "+180%", icon: Users },
-          { label: "Organic Traffic", value: "+250%", icon: TrendingUp },
-          { label: "Local Rankings", value: "+85%", icon: Search },
-          { label: "ROI", value: "+420%", icon: Target }
+          { label: "GBP Actions", value: "+120%", icon: TrendingUp },
+          { label: "Conversion Rate", value: "Higher", icon: Target },
+          { label: "CTR Boost", value: "Significant", icon: Search },
+          { label: "User Experience", value: "Enhanced", icon: Users }
         ],
         details: [
-          "Ranked #1 for 'Miami water damage restoration'",
-          "Increased emergency call volume by 180%",
-          "Expanded service area coverage by 40%",
-          "Improved mobile conversion rate by 65%"
+          "+120% growth in GBP actions (calls, directions)",
+          "Higher conversion rates on booking funnel",
+          "CTR boost on high-value rental queries",
+          "More calls, directions, and visits from Google"
         ]
       }
     },
-    "1gc-construction": {
-      company: "1GC Construction",
-      industry: "Commercial Construction",
-      location: "Orlando, Florida",
-      duration: "4 months", 
+    "puff-cleaning": {
+      company: "Puff Cleaning",
+      industry: "Cleaning Services",
+      location: "Bogotá, Colombia",
+      duration: "1 year",
+      website: "puffcleaning.com",
       hero: {
-        challenge: "1GC Construction needed to establish authority in Orlando's commercial construction market and attract high-value projects.",
-        result: "+95% organic visibility and +150% traffic in 4 months"
+        challenge: "Zero digital presence in highly competitive local cleaning market.",
+        result: "From 0 to ~2,000 monthly organic visits with top 3 local rankings"
       },
       challenge: [
-        "Limited online presence for commercial construction services",
-        "Competition from established construction companies",
-        "Lack of content showcasing expertise and capabilities",
-        "Poor performance for commercial project keywords"
+        "Zero digital presence initially",
+        "Highly competitive local cleaning market",
+        "No established online authority",
+        "Limited brand recognition"
       ],
       solution: [
-        "Industry-specific keyword research and content strategy",
-        "Technical SEO optimization for construction portfolio",
-        "Local authority building through strategic partnerships",
-        "Commercial project showcase development",
-        "B2B lead generation optimization"
+        "Built local SEO authority map with optimized service pages",
+        "Created comprehensive FAQ sections",
+        "Strengthened Google Business Profile with verified reviews",
+        "Designed for conversion with WhatsApp integration",
+        "Added compelling CTAs and customer testimonials"
       ],
       results: {
         metrics: [
-          { label: "Organic Visibility", value: "+95%", icon: Search },
-          { label: "Website Traffic", value: "+150%", icon: TrendingUp },
-          { label: "Lead Quality", value: "+200%", icon: Target },
-          { label: "ROI", value: "+280%", icon: Users }
+          { label: "Monthly Visits", value: "~2,000", icon: TrendingUp },
+          { label: "Local Rankings", value: "Top 3", icon: Search },
+          { label: "Lead Sources", value: "Multiple", icon: Target },
+          { label: "Market Position", value: "Strong", icon: Users }
         ],
         details: [
-          "Ranked top 3 for 'Orlando commercial construction'",
-          "Secured 5 major commercial projects worth $2M+",
-          "Increased project inquiry volume by 200%",
-          "Established thought leadership in construction industry"
+          "From 0 to ~2,000 monthly organic visits in year one",
+          "Top 3 rankings for sofa cleaning Bogotá",
+          "Top 3 rankings for mattress cleaning Bogotá",
+          "Strong presence in local pack with leads through WhatsApp and forms"
         ]
       }
     },
-    "pura-piel-aesthetics": {
-      company: "Pura Piel Aesthetics",
-      industry: "Aesthetics & Beauty",
-      location: "Tampa, Florida",
-      duration: "5 months",
+    "edu1st-preschools": {
+      company: "Edu1st Preschools",
+      industry: "Education",
+      location: "Florida, USA",
+      duration: "8 months",
+      website: "edu1stvess.com",
       hero: {
-        challenge: "Pura Piel needed to fix critical technical issues and improve search visibility for aesthetic treatments in Tampa's beauty market.",
-        result: "120+ technical errors fixed and +40% indexation improvement"
+        challenge: "Multiple campuses with scattered online presence needed more parent engagement and admissions.",
+        result: "+80% increase in Google Maps actions with significant blog engagement growth"
       },
       challenge: [
-        "120+ critical technical SEO errors affecting performance",
-        "Poor search indexation limiting visibility",
-        "Competition from established aesthetic clinics",
-        "Limited content for specific treatment keywords"
+        "Multiple campuses with scattered online presence",
+        "Limited parent engagement online",
+        "Insufficient admissions inquiries",
+        "Lack of cohesive digital strategy"
       ],
       solution: [
-        "Comprehensive technical SEO audit and remediation",
-        "Site architecture optimization for beauty services",
-        "Treatment-specific content strategy development", 
-        "Local SEO optimization for aesthetic clinics",
-        "Mobile performance enhancement"
+        "Created parent-focused blog with practical guides",
+        "Developed bilingual resources for diverse community",
+        "Designed printable coloring pages as lead magnets",
+        "Implemented local SEO for each campus",
+        "Ensured NAP consistency across all locations"
       ],
       results: {
         metrics: [
-          { label: "Technical Fixes", value: "120+", icon: Target },
-          { label: "Indexation", value: "+40%", icon: Search },
-          { label: "Local Rankings", value: "+75%", icon: TrendingUp },
-          { label: "ROI", value: "+190%", icon: Users }
+          { label: "GMB Actions", value: "+80%", icon: TrendingUp },
+          { label: "Blog Traffic", value: "Significant Growth", icon: Search },
+          { label: "Engagement", value: "Enhanced", icon: Target },
+          { label: "Admissions", value: "Increased", icon: Users }
         ],
         details: [
-          "Fixed all critical technical SEO errors",
-          "Improved page load speed by 60%",
-          "Ranked top 5 for 'Tampa aesthetic treatments'",
-          "Increased consultation bookings by 85%"
+          "+80% increase in calls and actions from Google Maps",
+          "Significant growth in blog traffic and downloads",
+          "Parents spent more time engaging with blog content",
+          "More tour bookings and admissions inquiries"
+        ]
+      }
+    },
+    "craftd-london": {
+      company: "CRAFTD London",
+      industry: "Men's Jewelry",
+      location: "UK & US",
+      duration: "4 months",
+      website: "craftdlondon.com",
+      hero: {
+        challenge: "Men's jewelry brand needed to scale SEO in crowded market without losing brand identity.",
+        result: "50+ keywords in top 10 within 4 months with significant CTR improvements"
+      },
+      challenge: [
+        "Crowded men's jewelry market",
+        "Need to scale SEO without losing brand identity",
+        "Limited content strategy",
+        "Poor product page optimization"
+      ],
+      solution: [
+        "Built full-funnel content strategy",
+        "Created TOFU content: style guides & trends",
+        "Developed MOFU content: size guides & product comparisons",
+        "Optimized BOFU: product & category pages with Product schema",
+        "Reinforced internal linking across product families"
+      ],
+      results: {
+        metrics: [
+          { label: "Top 10 Keywords", value: "50+", icon: Search },
+          { label: "Timeline", value: "4 months", icon: TrendingUp },
+          { label: "CTR Improvement", value: "Significant", icon: Target },
+          { label: "Rich Snippets", value: "Active", icon: Users }
+        ],
+        details: [
+          "50+ keywords in top 10 within 4 months",
+          "Higher visibility for core product categories",
+          "CTR lift thanks to rich snippets",
+          "Content that educates and converts effectively"
+        ]
+      }
+    },
+    "le-gramme": {
+      company: "LE GRAMME",
+      industry: "Luxury Jewelry",
+      location: "France & Global",
+      duration: "6 months",
+      website: "legramme.com",
+      hero: {
+        challenge: "Luxury minimalist jewelry brand needed international expansion without compromising design-first identity.",
+        result: "+40% impressions on flagship collections with multiple luxury keywords in top 10"
+      },
+      challenge: [
+        "International expansion while maintaining luxury brand identity",
+        "Design-first approach limiting SEO opportunities",
+        "Multiple market and language requirements",
+        "Competition in luxury jewelry space"
+      ],
+      solution: [
+        "Crafted luxury content strategy focusing on heritage and craftsmanship",
+        "Created compelling buying guides for luxury audience",
+        "Implemented international SEO with hreflang and proper taxonomy",
+        "Added Product schema for better visibility",
+        "Strengthened PR and editorial links in design/lifestyle outlets"
+      ],
+      results: {
+        metrics: [
+          { label: "Impressions", value: "+40%", icon: TrendingUp },
+          { label: "Top 10 Keywords", value: "Multiple", icon: Search },
+          { label: "Market Reach", value: "International", icon: Target },
+          { label: "Brand Alignment", value: "Seamless", icon: Users }
+        ],
+        details: [
+          "+40% impressions on flagship collections",
+          "Multiple transactional luxury keywords in top 10",
+          "Increased organic visibility in English and French markets",
+          "SEO aligned seamlessly with luxury branding"
         ]
       }
     }
