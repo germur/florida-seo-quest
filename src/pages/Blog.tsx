@@ -8,15 +8,26 @@ const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [
-    { id: "all", name: "All", count: 25 },
+    { id: "all", name: "All", count: 26 },
     { id: "seo-strategy", name: "SEO Strategy", count: 9, color: "teal" },
     { id: "technical-seo", name: "Technical SEO", count: 6, color: "electric-blue" },
     { id: "seo-ai", name: "SEO with AI", count: 4, color: "bright-orange" },
-    { id: "florida-seo", name: "Florida SEO", count: 3, color: "purple" },
-    { id: "content-strategy", name: "Content Strategy", count: 3, color: "green" }
+    { id: "web-development", name: "Web Development", count: 1, color: "purple" },
+    { id: "florida-seo", name: "Florida SEO", count: 3, color: "green" },
+    { id: "content-strategy", name: "Content Strategy", count: 3, color: "yellow" }
   ];
 
   const posts = [
+    {
+      id: "wordpress-affordable-solution-or-anchor",
+      title: "WordPress: Affordable Solution or Anchor of Problems?",
+      excerpt: "WordPress powers 40% of websites, but is it really the ideal solution? A critical analysis of hidden costs, maintenance burdens, and performance issues.",
+      category: "web-development",
+      readTime: "10 min",
+      date: "2025-01-20",
+      featured: true,
+      tags: ["WordPress", "Web Development", "Performance", "CMS", "Maintenance"]
+    },
     {
       id: "seo-no-murio-hype-estrategia",
       title: "SEO no murió: del hype a la estrategia que sí funciona",

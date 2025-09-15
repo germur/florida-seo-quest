@@ -8,6 +8,133 @@ const BlogPost = () => {
 
   // This would normally come from a CMS or API
   const posts = {
+    "wordpress-affordable-solution-or-anchor": {
+      title: "WordPress: Affordable Solution or Anchor of Problems?",
+      date: "2025-01-20",
+      readTime: "10 min",
+      category: "Web Development",
+      tags: ["WordPress", "Web Development", "Performance", "CMS", "Maintenance"],
+      content: `
+        <h2>Introduction</h2>
+        <p>WordPress is, without a doubt, one of the most popular platforms for building websites. It is estimated to power more than 40% of all sites on the Internet, and its reputation as a free and easy-to-use tool convinces many entrepreneurs with limited budgets that it is the best option for any project. The common narrative presents WordPress as the ideal solution for those who need a website that is inexpensive and quick to launch.</p>
+        
+        <p>However, is WordPress really the panacea it promises to be? In practice, many experienced professionals have discovered that, far from being a smooth path, WordPress often generates more conflicts and problems than solutions when not managed properly. Below, we explore why in many cases WordPress can become an obstacle to scaling a digital project, and how its popularity has given rise to bad practices and empty promises in the web development industry.</p>
+
+        <h2>Constant Maintenance and Frequent Updates</h2>
+        <p>One of the first disadvantages faced by WordPress users is the ongoing maintenance it requires. Unlike a fully custom-built website that may remain more static, a WordPress site demands regular attention. WordPress does not maintain itself: it is necessary to update the system core, themes, and plugins regularly, and even review content periodically. If these tasks are not performed, problems soon begin to appear.</p>
+        
+        <p>Every new version of WordPress or any plugin can introduce incompatibilities that break existing features. Skipping updates "for convenience" is not an option: it risks accumulating security vulnerabilities or serious errors over time.</p>
+        
+        <p>Moreover, the updates themselves can create conflicts. It is advisable to make backups before updating and check compatibility of each new version with the rest of the site's ecosystem. Many users learn this the hard way: after a major update, certain parts of the website stop working, or the dreaded "white screen" appears.</p>
+
+        <div class="bg-purple/10 border-l-4 border-purple p-6 my-8 rounded-r-lg">
+          <p class="mb-0"><strong>In practical terms, owning a WordPress site is like owning a car that constantly needs to go to the shop:</strong> there is always a plugin asking for an update, or a warning in the dashboard like a check-engine light. Ignoring those "lights" and skipping maintenance is driving straight toward a breakdown.</p>
+        </div>
+
+        <p>All this maintenance consumes time and resources that the entrepreneur could otherwise dedicate to growing their business instead of dealing with technical issues.</p>
+        
+        <p>In more complex projects, the situation worsens. An enterprise WordPress site may require testing every change in a staging environment before applying it in production, especially if it integrates many custom features. As one developer put it: <em>"WordPress released a new version that auto-installed on many sites I manage… suddenly, websites started crashing with fatal errors one after another"</em> — requiring emergency intervention on each.</p>
+
+        <h2>Plugin Dependency and Hidden Licensing Costs</h2>
+        <p>Another feature of WordPress is that its flexibility comes largely from plugins. The WordPress core provides basic features, but for almost anything extra — contact forms, advanced galleries, online stores, SEO optimization, backups, social media integration, etc. — additional plugins are needed. In the "traditional" WordPress environment you practically live in the "City of Plugins," as there are thousands available, and you end up installing one for every feature you need.</p>
+        
+        <p>This creates several problems:</p>
+        <ul class="space-y-3">
+          <li><strong>More plugins, more risks:</strong> The more active plugins, the greater the risk of conflicts, failures after updates, or simply a slower and heavier website.</li>
+          <li><strong>Variable quality and security risks:</strong> Anyone can publish plugins. Some are excellent, but many are poorly coded and unsafe.</li>
+          <li><strong>License costs:</strong> WordPress is free, but many key plugins and themes are paid, with recurring fees.</li>
+        </ul>
+        
+        <p>The sum of these licenses transforms what seemed like an inexpensive solution into a significant long-term expense.</p>
+
+        <h2>Performance and Loading Speed Problems</h2>
+        <p>Website speed is critical today, not only for user experience but also for SEO. Many WordPress sites suffer performance issues because of:</p>
+        
+        <ul class="space-y-2">
+          <li><strong>Legacy code base</strong> that is slower than modern static frameworks.</li>
+          <li><strong>Bloated plugins and themes</strong> that add scripts, styles, and weight.</li>
+          <li><strong>Heavy page builders</strong> like Divi or Elementor, which add excessive JS/CSS.</li>
+          <li><strong>Inadequate hosting</strong> — cheap plans often mean slow performance.</li>
+        </ul>
+
+        <div class="bg-purple/10 border-l-4 border-purple p-6 my-8 rounded-r-lg">
+          <p class="mb-0">A developer sums it up: <em>"By default, WordPress is slower than a static custom-built site. It gets worse once you start adding plugins or visual builders."</em></p>
+        </div>
+
+        <h2>Divi and Elementor: Magic Solution or Headache?</h2>
+        <p>These page builders are marketed as easy solutions, but often become nightmares.</p>
+        
+        <ul class="space-y-3">
+          <li><strong>Performance issues:</strong> Sites become inflated, slow, and unstable.</li>
+          <li><strong>Complex interfaces:</strong> Users complain of confusing editors and cluttered workflows.</li>
+          <li><strong>Stability risks:</strong> Updates frequently break sites until patches are released.</li>
+        </ul>
+
+        <div class="bg-purple/10 border-l-4 border-purple p-6 my-8 rounded-r-lg">
+          <p class="mb-0">As one developer joked: <em>"Show me an Elementor site with fewer than 10 plugins, no premium dependencies, easy for the owner to manage, and scoring 90%+ on Lighthouse… and I'll show you a unicorn!"</em></p>
+        </div>
+
+        <h2>Scalability Difficulties</h2>
+        <p>In theory, WordPress scales with your project. In practice, growth often leads to:</p>
+        
+        <ul class="space-y-2">
+          <li>Higher hosting and infrastructure costs.</li>
+          <li>Increased plugin conflicts.</li>
+          <li>Bloated databases and disorganized structures.</li>
+          <li>Eventual need for a full rebuild.</li>
+        </ul>
+        
+        <p>Even enterprises admit these limitations: <strong>84% of companies</strong> said their CMS (often WordPress) prevents them from unlocking full multichannel value.</p>
+
+        <h2>Lack of Best Practices and SEO Issues</h2>
+        <p>WordPress markets itself as "SEO-friendly," but poor execution ruins results.</p>
+        
+        <p>Common problems include:</p>
+        <ul class="space-y-2">
+          <li>Multiple H1 tags or skipped hierarchies.</li>
+          <li>Poorly optimized templates marked "SEO-ready" that aren't.</li>
+          <li>Heavy images, duplicate menus, bad robots.txt, missing sitemaps.</li>
+        </ul>
+        
+        <p>Inexperienced implementers often deliver "WordPress SEO" sites that rank poorly.</p>
+
+        <h2>"Smoke Sellers" and Industry Bad Practices</h2>
+        <p>WordPress' accessibility opened the door to pseudo-experts selling cheap websites with big promises.</p>
+        
+        <p>Many agencies install a flashy theme, stuff content with keywords, charge monthly SEO "maintenance," and deliver nothing of value.</p>
+        
+        <p>The problem isn't WordPress itself — it's misuse and bad practices by unqualified providers.</p>
+
+        <h2>Conclusion</h2>
+        <p>This article doesn't reject WordPress outright — when used correctly, it can be powerful. But it's not the magic shortcut many believe.</p>
+        
+        <p>WordPress often means:</p>
+        <ul class="space-y-2">
+          <li>Ongoing maintenance.</li>
+          <li>Plugin dependency and hidden costs.</li>
+          <li>Slow performance if poorly managed.</li>
+          <li>Frequent SEO mistakes.</li>
+        </ul>
+        
+        <p>The tool itself isn't bad — but it demands knowledge, discipline, and resources. Professionals can mitigate its downsides. Amateurs often create time bombs.</p>
+
+        <div class="bg-purple/10 border-l-4 border-purple p-6 my-8 rounded-r-lg">
+          <p class="mb-0"><strong>If you're tempted by WordPress' apparent ease, be cautious.</strong> Either invest the time to learn, or hire competent professionals. Otherwise, what looked like a quick start can turn into an anchor holding your project back.</p>
+        </div>
+
+        <hr class="my-12 border-border">
+
+        <h3>Sources</h3>
+        <ul class="text-sm text-muted-foreground space-y-2">
+          <li><a href="https://hygraph.com/blog/wordpress-disadvantages" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Hygraph – 9 disadvantages of WordPress that are holding you back</a></li>
+          <li><a href="https://raiolanetworks.com/blog/ventajas-wordpress/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Raiola Networks – Ventajas y desventajas de utilizar WordPress</a></li>
+          <li><a href="https://javiervallejo.com/desventajas-de-utilizar-wordpress/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Javier Vallejo – Desventajas de utilizar WordPress</a></li>
+          <li><a href="https://hoot.host/elementor-is-everything-wrong-with-wordpress/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Hoot Host – Elementor is Everything Wrong with WordPress</a></li>
+          <li><a href="https://nestrategia.com/blog/errores-wordpress-seo/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Nestrategia – Los 9 errores en WordPress más comunes en SEO</a></li>
+          <li><a href="https://enovaic.es/el-posicionamiento-web-esta-prostituido/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Enova IC – El posicionamiento web está prostituido</a></li>
+        </ul>
+      `
+    },
     "seo-no-murio-hype-estrategia": {
       title: "SEO no murió: del hype a la estrategia que sí funciona",
       date: "2025-01-15",
