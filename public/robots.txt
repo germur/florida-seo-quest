@@ -1,14 +1,10 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
+# Bloqueos básicos (si tienes paneles de admin o login)
+Disallow: /admin/
+Disallow: /login/
+
+# Permitir rastreo completo del sitio público
 Allow: /
+
+# Señalar la ubicación de tu sitemap
+Sitemap: https://calvocreativo.com/sitemap.xml
