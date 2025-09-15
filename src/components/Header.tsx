@@ -16,7 +16,7 @@ const Header = () => {
               <img 
                 src={calvoCreativoLogo} 
                 alt="Calvo Creativo" 
-                className="h-16 w-auto md:h-[72px] lg:h-20 xl:h-24"
+                className="h-20 w-auto md:h-24 lg:h-28 xl:h-32"
               />
             </Link>
           </div>
