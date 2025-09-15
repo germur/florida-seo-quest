@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
-import calvoCreativoLogo from "@/assets/calvo-creativo-logo.svg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -47,9 +46,9 @@ const Footer = () => {
             <div className="lg:col-span-1">
               <Link to="/" className="inline-block mb-6">
                 <img 
-                  src={calvoCreativoLogo} 
+                  src="/favicon.svg" 
                   alt="Calvo Creativo" 
-                  className="h-16 w-auto filter brightness-0 invert"
+                  className="h-12 w-auto"
                 />
               </Link>
               <p className="text-primary-foreground/80 mb-6 leading-relaxed">
