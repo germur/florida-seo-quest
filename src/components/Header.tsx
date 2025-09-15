@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import calvoCreativoLogo from "@/assets/calvo-creativo-logo.png";
+import calvoCreativoLogo from "@/assets/calvo-creativo-logo-new.png";
 
 const Header = () => {
   return (
@@ -12,7 +12,7 @@ const Header = () => {
               <img 
                 src={calvoCreativoLogo} 
                 alt="Calvo Creativo" 
-                className="h-10 w-auto"
+                className="h-12 w-auto"
               />
             </Link>
           </div>
