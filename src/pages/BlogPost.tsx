@@ -2,6 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Clock, Tag, Calendar, List, User, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
+import SocialShare from "@/components/SocialShare";
+import RelatedArticles from "@/components/RelatedArticles";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -1868,6 +1870,23 @@ const BlogPost = () => {
               className="prose prose-lg max-w-none prose-headings:text-primary prose-p:text-muted-foreground prose-strong:text-primary prose-ul:text-muted-foreground prose-ol:text-muted-foreground prose-li:text-muted-foreground"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
+
+            {/* Social Share */}
+            <div className="mt-12">
+              <SocialShare 
+                url={`/blog/${slug}`}
+                title={post.title}
+                description={`Un artículo sobre ${post.category.toLowerCase()}`}
+              />
+            </div>
+
+            {/* Related Articles */}
+            <div className="mt-12">
+              <RelatedArticles 
+                currentSlug={slug!}
+                currentCategory={post.category}
+              />
+            </div>
 
             {/* CTA Section */}
             <div className="mt-16 p-8 bg-gradient-to-br from-teal/5 to-electric-blue/5 border border-border rounded-2xl text-center">
