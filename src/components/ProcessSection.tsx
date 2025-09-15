@@ -31,8 +31,22 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section className="py-24 bg-background relative overflow-hidden">
+      {/* Brand Pattern Background */}
+      <div className="absolute inset-0 opacity-6">
+        <div 
+          className="absolute top-0 right-0 w-1/2 h-full"
+          style={{
+            backgroundImage: `
+              radial-gradient(circle at 80% 20%, hsl(var(--teal)) 6%, transparent 40%),
+              radial-gradient(circle at 60% 60%, hsl(var(--bright-orange)) 4%, transparent 30%)
+            `,
+            backgroundSize: '300px 300px, 200px 200px'
+          }}
+        />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-primary text-center mb-16">
             How I Deliver SEO Results
