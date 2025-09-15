@@ -1,64 +1,83 @@
 import { ArrowUpRight } from "lucide-react";
-import DiceRoller from "./DiceRoller";
+import { Link } from "react-router-dom";
 
 const CaseStudies = () => {
   const cases = [
     {
       company: "Paramount",
+      industry: "Property Restoration",
       result: "+180% qualified leads in 6 months",
-      color: "from-teal/20 to-teal/10",
-      accent: "teal"
+      metrics: ["180% leads", "250% traffic", "420% ROI"]
     },
     {
-      company: "1GC Construction",
+      company: "1GC Construction", 
+      industry: "Commercial Construction",
       result: "+95% organic visibility in 4 months",
-      color: "from-electric-blue/20 to-electric-blue/10",
-      accent: "electric-blue"
+      metrics: ["95% visibility", "150% traffic", "280% ROI"]
     },
     {
       company: "Pura Piel",
+      industry: "Aesthetics & Beauty", 
       result: "120+ technical errors fixed, +40% indexation",
-      color: "from-bright-orange/20 to-bright-orange/10",
-      accent: "bright-orange"
+      metrics: ["120+ fixes", "40% indexation", "190% ROI"]
     }
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-secondary/30 to-background">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-black text-primary text-center mb-16">
-            Real Results, Real Businesses
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Case Studies
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Real results from real businesses across Florida
+            </p>
+          </div>
           
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-3 gap-6">
             {cases.map((caseStudy, index) => (
-              <div 
+              <Link 
                 key={index}
-                className={`bg-gradient-to-br ${caseStudy.color} border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer`}
+                to="/case-studies"
+                className="block bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-200 group"
               >
-                <div className="flex items-start justify-between mb-6">
-                  <h3 className="text-2xl font-bold text-primary">{caseStudy.company}</h3>
-                  <ArrowUpRight className={`h-6 w-6 text-${caseStudy.accent} group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform`} />
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">
+                      {caseStudy.industry}
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {caseStudy.company}
+                    </h3>
+                  </div>
+                  <ArrowUpRight className="h-5 w-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
                 </div>
                 
-                <p className="text-lg text-muted-foreground leading-relaxed font-medium">
+                <p className="text-muted-foreground mb-4 leading-relaxed">
                   {caseStudy.result}
                 </p>
-              </div>
+                
+                <div className="flex gap-4 text-sm">
+                  {caseStudy.metrics.map((metric, metricIndex) => (
+                    <div key={metricIndex} className="text-muted-foreground">
+                      {metric}
+                    </div>
+                  ))}
+                </div>
+              </Link>
             ))}
           </div>
           
-          <div className="text-center">
-            <div className="mb-4">
-              <h3 className="text-xl font-semibold text-primary mb-2">
-                Discover Another Case Study
-              </h3>
-              <p className="text-muted-foreground text-sm">
-                Roll the dice to see a random success story
-              </p>
-            </div>
-            <DiceRoller />
+          <div className="text-center mt-12">
+            <Link 
+              to="/case-studies" 
+              className="inline-flex items-center text-foreground hover:text-primary transition-colors"
+            >
+              View all case studies
+              <ArrowUpRight className="ml-1 h-4 w-4" />
+            </Link>
           </div>
         </div>
       </div>
