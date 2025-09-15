@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Dice1 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import DiceRoller from "./DiceRoller";
 
 const Hero = () => {
   return (
@@ -49,10 +50,7 @@ const Hero = () => {
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             
-            <Button variant="dice" size="lg" className="group">
-              <Dice1 className="mr-2 h-5 w-5 group-hover:rotate-45 transition-transform" />
-              Roll the Dice – See a Success Story
-            </Button>
+            <DiceRoller />
           </div>
 
           {/* Floating Stats Cards */}

@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
-import { Dice1, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import DiceRoller from "./DiceRoller";
 
 const CaseStudies = () => {
   const cases = [
@@ -50,10 +50,15 @@ const CaseStudies = () => {
           </div>
           
           <div className="text-center">
-            <Button variant="dice" size="lg" className="group">
-              <Dice1 className="mr-2 h-5 w-5 group-hover:rotate-45 transition-transform" />
-              Roll the Dice – Discover Another Case Study
-            </Button>
+            <div className="mb-4">
+              <h3 className="text-xl font-semibold text-primary mb-2">
+                Discover Another Case Study
+              </h3>
+              <p className="text-muted-foreground text-sm">
+                Roll the dice to see a random success story
+              </p>
+            </div>
+            <DiceRoller />
           </div>
         </div>
       </div>
