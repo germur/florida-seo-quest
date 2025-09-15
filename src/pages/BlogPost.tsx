@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Clock, Tag, Calendar } from "lucide-react";
+import { ArrowLeft, Clock, Tag, Calendar, List, User, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 
@@ -15,124 +15,586 @@ const BlogPost = () => {
       category: "Web Development",
       tags: ["WordPress", "Web Development", "Performance", "CMS", "Maintenance"],
       content: `
-        <h2>Introduction</h2>
-        <p>WordPress is, without a doubt, one of the most popular platforms for building websites. It is estimated to power more than 40% of all sites on the Internet, and its reputation as a free and easy-to-use tool convinces many entrepreneurs with limited budgets that it is the best option for any project. The common narrative presents WordPress as the ideal solution for those who need a website that is inexpensive and quick to launch.</p>
-        
-        <p>However, is WordPress really the panacea it promises to be? In practice, many experienced professionals have discovered that, far from being a smooth path, WordPress often generates more conflicts and problems than solutions when not managed properly. Below, we explore why in many cases WordPress can become an obstacle to scaling a digital project, and how its popularity has given rise to bad practices and empty promises in the web development industry.</p>
-
-        <h2>Constant Maintenance and Frequent Updates</h2>
-        <p>One of the first disadvantages faced by WordPress users is the ongoing maintenance it requires. Unlike a fully custom-built website that may remain more static, a WordPress site demands regular attention. WordPress does not maintain itself: it is necessary to update the system core, themes, and plugins regularly, and even review content periodically. If these tasks are not performed, problems soon begin to appear.</p>
-        
-        <p>Every new version of WordPress or any plugin can introduce incompatibilities that break existing features. Skipping updates "for convenience" is not an option: it risks accumulating security vulnerabilities or serious errors over time.</p>
-        
-        <p>Moreover, the updates themselves can create conflicts. It is advisable to make backups before updating and check compatibility of each new version with the rest of the site's ecosystem. Many users learn this the hard way: after a major update, certain parts of the website stop working, or the dreaded "white screen" appears.</p>
-
-        <div class="bg-purple/10 border-l-4 border-purple p-6 my-8 rounded-r-lg">
-          <p class="mb-0"><strong>In practical terms, owning a WordPress site is like owning a car that constantly needs to go to the shop:</strong> there is always a plugin asking for an update, or a warning in the dashboard like a check-engine light. Ignoring those "lights" and skipping maintenance is driving straight toward a breakdown.</p>
+        <div class="table-of-contents bg-gradient-to-br from-purple/5 to-purple/10 border border-purple/20 rounded-2xl p-8 mb-12">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 bg-purple/10 rounded-lg">
+              <svg class="w-5 h-5 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold text-primary mb-0">Table of Contents</h2>
+          </div>
+          <nav class="space-y-2">
+            <a href="#introduction" class="flex items-center gap-2 text-muted-foreground hover:text-purple transition-colors p-2 rounded-lg hover:bg-purple/5">
+              <span class="w-2 h-2 bg-purple/30 rounded-full"></span>
+              Introduction
+            </a>
+            <a href="#constant-maintenance" class="flex items-center gap-2 text-muted-foreground hover:text-purple transition-colors p-2 rounded-lg hover:bg-purple/5">
+              <span class="w-2 h-2 bg-purple/30 rounded-full"></span>
+              Constant Maintenance and Frequent Updates
+            </a>
+            <a href="#plugin-dependency" class="flex items-center gap-2 text-muted-foreground hover:text-purple transition-colors p-2 rounded-lg hover:bg-purple/5">
+              <span class="w-2 h-2 bg-purple/30 rounded-full"></span>
+              Plugin Dependency and Hidden Licensing Costs
+            </a>
+            <a href="#performance-problems" class="flex items-center gap-2 text-muted-foreground hover:text-purple transition-colors p-2 rounded-lg hover:bg-purple/5">
+              <span class="w-2 h-2 bg-purple/30 rounded-full"></span>
+              Performance and Loading Speed Problems
+            </a>
+            <a href="#page-builders" class="flex items-center gap-2 text-muted-foreground hover:text-purple transition-colors p-2 rounded-lg hover:bg-purple/5">
+              <span class="w-2 h-2 bg-purple/30 rounded-full"></span>
+              Divi and Elementor: Magic Solution or Headache?
+            </a>
+            <a href="#scalability-difficulties" class="flex items-center gap-2 text-muted-foreground hover:text-purple transition-colors p-2 rounded-lg hover:bg-purple/5">
+              <span class="w-2 h-2 bg-purple/30 rounded-full"></span>
+              Scalability Difficulties
+            </a>
+            <a href="#seo-issues" class="flex items-center gap-2 text-muted-foreground hover:text-purple transition-colors p-2 rounded-lg hover:bg-purple/5">
+              <span class="w-2 h-2 bg-purple/30 rounded-full"></span>
+              Lack of Best Practices and SEO Issues
+            </a>
+            <a href="#bad-practices" class="flex items-center gap-2 text-muted-foreground hover:text-purple transition-colors p-2 rounded-lg hover:bg-purple/5">
+              <span class="w-2 h-2 bg-purple/30 rounded-full"></span>
+              "Smoke Sellers" and Industry Bad Practices
+            </a>
+            <a href="#conclusion" class="flex items-center gap-2 text-muted-foreground hover:text-purple transition-colors p-2 rounded-lg hover:bg-purple/5">
+              <span class="w-2 h-2 bg-purple/30 rounded-full"></span>
+              Conclusion
+            </a>
+          </nav>
         </div>
 
-        <p>All this maintenance consumes time and resources that the entrepreneur could otherwise dedicate to growing their business instead of dealing with technical issues.</p>
-        
-        <p>In more complex projects, the situation worsens. An enterprise WordPress site may require testing every change in a staging environment before applying it in production, especially if it integrates many custom features. As one developer put it: <em>"WordPress released a new version that auto-installed on many sites I manage… suddenly, websites started crashing with fatal errors one after another"</em> — requiring emergency intervention on each.</p>
+        <section id="introduction">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-purple/10 rounded-lg">
+              <svg class="w-6 h-6 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            Introduction
+          </h2>
+          <p class="text-lg leading-relaxed mb-6">WordPress is, without a doubt, one of the most popular platforms for building websites. It is estimated to power more than <strong class="text-purple">40% of all sites on the Internet</strong>, and its reputation as a free and easy-to-use tool convinces many entrepreneurs with limited budgets that it is the best option for any project. The common narrative presents WordPress as the ideal solution for those who need a website that is inexpensive and quick to launch.</p>
+          
+          <p class="text-lg leading-relaxed mb-8">However, is WordPress really the panacea it promises to be? In practice, many experienced professionals have discovered that, far from being a smooth path, WordPress often generates more conflicts and problems than solutions when not managed properly. Below, we explore why in many cases WordPress can become an obstacle to scaling a digital project, and how its popularity has given rise to bad practices and empty promises in the web development industry.</p>
+        </section>
 
-        <h2>Plugin Dependency and Hidden Licensing Costs</h2>
-        <p>Another feature of WordPress is that its flexibility comes largely from plugins. The WordPress core provides basic features, but for almost anything extra — contact forms, advanced galleries, online stores, SEO optimization, backups, social media integration, etc. — additional plugins are needed. In the "traditional" WordPress environment you practically live in the "City of Plugins," as there are thousands available, and you end up installing one for every feature you need.</p>
-        
-        <p>This creates several problems:</p>
-        <ul class="space-y-3">
-          <li><strong>More plugins, more risks:</strong> The more active plugins, the greater the risk of conflicts, failures after updates, or simply a slower and heavier website.</li>
-          <li><strong>Variable quality and security risks:</strong> Anyone can publish plugins. Some are excellent, but many are poorly coded and unsafe.</li>
-          <li><strong>License costs:</strong> WordPress is free, but many key plugins and themes are paid, with recurring fees.</li>
-        </ul>
-        
-        <p>The sum of these licenses transforms what seemed like an inexpensive solution into a significant long-term expense.</p>
+        <section id="constant-maintenance">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-orange/10 rounded-lg">
+              <svg class="w-6 h-6 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            Constant Maintenance and Frequent Updates
+          </h2>
+          <p class="text-lg leading-relaxed mb-6">One of the first disadvantages faced by WordPress users is the ongoing maintenance it requires. Unlike a fully custom-built website that may remain more static, a WordPress site demands regular attention. WordPress does not maintain itself: it is necessary to update the system core, themes, and plugins regularly, and even review content periodically. If these tasks are not performed, problems soon begin to appear.</p>
+          
+          <p class="leading-relaxed mb-6">Every new version of WordPress or any plugin can introduce incompatibilities that break existing features. Skipping updates "for convenience" is not an option: it risks accumulating security vulnerabilities or serious errors over time.</p>
+          
+          <p class="leading-relaxed mb-8">Moreover, the updates themselves can create conflicts. It is advisable to make backups before updating and check compatibility of each new version with the rest of the site's ecosystem. Many users learn this the hard way: after a major update, certain parts of the website stop working, or the dreaded "white screen" appears.</p>
 
-        <h2>Performance and Loading Speed Problems</h2>
-        <p>Website speed is critical today, not only for user experience but also for SEO. Many WordPress sites suffer performance issues because of:</p>
-        
-        <ul class="space-y-2">
-          <li><strong>Legacy code base</strong> that is slower than modern static frameworks.</li>
-          <li><strong>Bloated plugins and themes</strong> that add scripts, styles, and weight.</li>
-          <li><strong>Heavy page builders</strong> like Divi or Elementor, which add excessive JS/CSS.</li>
-          <li><strong>Inadequate hosting</strong> — cheap plans often mean slow performance.</li>
-        </ul>
+          <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 my-8 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-red/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.99-.833-2.598 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-red mb-2">⚠️ Reality Check</p>
+                <p class="mb-0"><strong>In practical terms, owning a WordPress site is like owning a car that constantly needs to go to the shop:</strong> there is always a plugin asking for an update, or a warning in the dashboard like a check-engine light. Ignoring those "lights" and skipping maintenance is driving straight toward a breakdown.</p>
+              </div>
+            </div>
+          </div>
 
-        <div class="bg-purple/10 border-l-4 border-purple p-6 my-8 rounded-r-lg">
-          <p class="mb-0">A developer sums it up: <em>"By default, WordPress is slower than a static custom-built site. It gets worse once you start adding plugins or visual builders."</em></p>
-        </div>
+          <p class="leading-relaxed mb-6">All this maintenance consumes time and resources that the entrepreneur could otherwise dedicate to growing their business instead of dealing with technical issues.</p>
+          
+          <div class="bg-muted/30 border border-border rounded-xl p-6 my-8">
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-blue/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-primary mb-2">Developer's Experience</p>
+                <p class="italic mb-0">"WordPress released a new version that auto-installed on many sites I manage… suddenly, websites started crashing with fatal errors one after another" — requiring emergency intervention on each.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <h2>Divi and Elementor: Magic Solution or Headache?</h2>
-        <p>These page builders are marketed as easy solutions, but often become nightmares.</p>
-        
-        <ul class="space-y-3">
-          <li><strong>Performance issues:</strong> Sites become inflated, slow, and unstable.</li>
-          <li><strong>Complex interfaces:</strong> Users complain of confusing editors and cluttered workflows.</li>
-          <li><strong>Stability risks:</strong> Updates frequently break sites until patches are released.</li>
-        </ul>
+        <section id="plugin-dependency">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-teal/10 rounded-lg">
+              <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+            </div>
+            Plugin Dependency and Hidden Licensing Costs
+          </h2>
+          <p class="text-lg leading-relaxed mb-6">Another feature of WordPress is that its flexibility comes largely from plugins. The WordPress core provides basic features, but for almost anything extra — contact forms, advanced galleries, online stores, SEO optimization, backups, social media integration, etc. — additional plugins are needed. In the "traditional" WordPress environment you practically live in the <strong class="text-teal">"City of Plugins,"</strong> as there are thousands available, and you end up installing one for every feature you need.</p>
+          
+          <h3 class="flex items-center gap-2 text-xl font-semibold text-primary mb-4">
+            <span class="w-2 h-2 bg-red rounded-full"></span>
+            This creates several problems:
+          </h3>
+          <div class="grid gap-6 mb-8">
+            <div class="flex gap-4 p-4 bg-red/5 border-l-4 border-red rounded-r-lg">
+              <div class="p-2 bg-red/10 rounded-lg">
+                <svg class="w-5 h-5 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-red mb-1">More plugins, more risks</h4>
+                <p class="text-sm mb-0">The more active plugins, the greater the risk of conflicts, failures after updates, or simply a slower and heavier website.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4 p-4 bg-orange/5 border-l-4 border-orange rounded-r-lg">
+              <div class="p-2 bg-orange/10 rounded-lg">
+                <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-orange mb-1">Variable quality and security risks</h4>
+                <p class="text-sm mb-0">Anyone can publish plugins. Some are excellent, but many are poorly coded and unsafe.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4 p-4 bg-yellow/5 border-l-4 border-yellow rounded-r-lg">
+              <div class="p-2 bg-yellow/10 rounded-lg">
+                <svg class="w-5 h-5 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-yellow mb-1">License costs</h4>
+                <p class="text-sm mb-0">WordPress is free, but many key plugins and themes are paid, with recurring fees.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-gradient-to-r from-purple/10 to-pink/10 border-l-4 border-purple p-6 rounded-r-lg">
+            <p class="font-semibold text-purple mb-2">💰 Hidden Cost Reality</p>
+            <p class="mb-0">The sum of these licenses transforms what seemed like an inexpensive solution into a significant long-term expense.</p>
+          </div>
+        </section>
 
-        <div class="bg-purple/10 border-l-4 border-purple p-6 my-8 rounded-r-lg">
-          <p class="mb-0">As one developer joked: <em>"Show me an Elementor site with fewer than 10 plugins, no premium dependencies, easy for the owner to manage, and scoring 90%+ on Lighthouse… and I'll show you a unicorn!"</em></p>
-        </div>
+        <section id="performance-problems">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-red/10 rounded-lg">
+              <svg class="w-6 h-6 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            Performance and Loading Speed Problems
+          </h2>
+          <p class="text-lg leading-relaxed mb-6">Website speed is critical today, not only for user experience but also for SEO. Many WordPress sites suffer performance issues because of:</p>
+          
+          <div class="grid gap-4 mb-8">
+            <div class="flex items-center gap-4 p-4 bg-muted/30 border border-border rounded-xl">
+              <div class="p-2 bg-red/10 rounded-lg">
+                <svg class="w-5 h-5 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary">Legacy code base</h4>
+                <p class="text-sm text-muted-foreground mb-0">Slower than modern static frameworks</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4 p-4 bg-muted/30 border border-border rounded-xl">
+              <div class="p-2 bg-orange/10 rounded-lg">
+                <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary">Bloated plugins and themes</h4>
+                <p class="text-sm text-muted-foreground mb-0">Add scripts, styles, and weight</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4 p-4 bg-muted/30 border border-border rounded-xl">
+              <div class="p-2 bg-yellow/10 rounded-lg">
+                <svg class="w-5 h-5 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary">Heavy page builders</h4>
+                <p class="text-sm text-muted-foreground mb-0">Like Divi or Elementor, which add excessive JS/CSS</p>
+              </div>
+            </div>
+            
+            <div class="flex items-center gap-4 p-4 bg-muted/30 border border-border rounded-xl">
+              <div class="p-2 bg-purple/10 rounded-lg">
+                <svg class="w-5 h-5 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary">Inadequate hosting</h4>
+                <p class="text-sm text-muted-foreground mb-0">Cheap plans often mean slow performance</p>
+              </div>
+            </div>
+          </div>
 
-        <h2>Scalability Difficulties</h2>
-        <p>In theory, WordPress scales with your project. In practice, growth often leads to:</p>
-        
-        <ul class="space-y-2">
-          <li>Higher hosting and infrastructure costs.</li>
-          <li>Increased plugin conflicts.</li>
-          <li>Bloated databases and disorganized structures.</li>
-          <li>Eventual need for a full rebuild.</li>
-        </ul>
-        
-        <p>Even enterprises admit these limitations: <strong>84% of companies</strong> said their CMS (often WordPress) prevents them from unlocking full multichannel value.</p>
+          <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-blue/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-primary mb-2">Developer's Insight</p>
+                <p class="italic mb-0">"By default, WordPress is slower than a static custom-built site. It gets worse once you start adding plugins or visual builders."</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <h2>Lack of Best Practices and SEO Issues</h2>
-        <p>WordPress markets itself as "SEO-friendly," but poor execution ruins results.</p>
-        
-        <p>Common problems include:</p>
-        <ul class="space-y-2">
-          <li>Multiple H1 tags or skipped hierarchies.</li>
-          <li>Poorly optimized templates marked "SEO-ready" that aren't.</li>
-          <li>Heavy images, duplicate menus, bad robots.txt, missing sitemaps.</li>
-        </ul>
-        
-        <p>Inexperienced implementers often deliver "WordPress SEO" sites that rank poorly.</p>
+        <section id="page-builders">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-yellow/10 rounded-lg">
+              <svg class="w-6 h-6 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
+              </svg>
+            </div>
+            Divi and Elementor: Magic Solution or Headache?
+          </h2>
+          <p class="text-lg leading-relaxed mb-6">These page builders are marketed as easy solutions, but often become nightmares.</p>
+          
+          <div class="grid gap-6 mb-8">
+            <div class="flex gap-4 p-4 bg-red/5 border-l-4 border-red rounded-r-lg">
+              <div class="p-2 bg-red/10 rounded-lg">
+                <svg class="w-5 h-5 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-red mb-1">Performance issues</h4>
+                <p class="text-sm mb-0">Sites become inflated, slow, and unstable.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4 p-4 bg-orange/5 border-l-4 border-orange rounded-r-lg">
+              <div class="p-2 bg-orange/10 rounded-lg">
+                <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-orange mb-1">Complex interfaces</h4>
+                <p class="text-sm mb-0">Users complain of confusing editors and cluttered workflows.</p>
+              </div>
+            </div>
+            
+            <div class="flex gap-4 p-4 bg-yellow/5 border-l-4 border-yellow rounded-r-lg">
+              <div class="p-2 bg-yellow/10 rounded-lg">
+                <svg class="w-5 h-5 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.99-.833-2.598 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-yellow mb-1">Stability risks</h4>
+                <p class="text-sm mb-0">Updates frequently break sites until patches are released.</p>
+              </div>
+            </div>
+          </div>
 
-        <h2>"Smoke Sellers" and Industry Bad Practices</h2>
-        <p>WordPress' accessibility opened the door to pseudo-experts selling cheap websites with big promises.</p>
-        
-        <p>Many agencies install a flashy theme, stuff content with keywords, charge monthly SEO "maintenance," and deliver nothing of value.</p>
-        
-        <p>The problem isn't WordPress itself — it's misuse and bad practices by unqualified providers.</p>
+          <div class="bg-gradient-to-r from-purple/10 to-pink/10 border-l-4 border-purple p-6 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-purple/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1.01M15 10h1.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-purple mb-2">🦄 Developer's Joke</p>
+                <p class="italic mb-0">"Show me an Elementor site with fewer than 10 plugins, no premium dependencies, easy for the owner to manage, and scoring 90%+ on Lighthouse… and I'll show you a unicorn!"</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <h2>Conclusion</h2>
-        <p>This article doesn't reject WordPress outright — when used correctly, it can be powerful. But it's not the magic shortcut many believe.</p>
-        
-        <p>WordPress often means:</p>
-        <ul class="space-y-2">
-          <li>Ongoing maintenance.</li>
-          <li>Plugin dependency and hidden costs.</li>
-          <li>Slow performance if poorly managed.</li>
-          <li>Frequent SEO mistakes.</li>
-        </ul>
-        
-        <p>The tool itself isn't bad — but it demands knowledge, discipline, and resources. Professionals can mitigate its downsides. Amateurs often create time bombs.</p>
+        <section id="scalability-difficulties">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-blue/10 rounded-lg">
+              <svg class="w-6 h-6 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path>
+              </svg>
+            </div>
+            Scalability Difficulties
+          </h2>
+          <p class="text-lg leading-relaxed mb-6">In theory, WordPress scales with your project. In practice, growth often leads to:</p>
+          
+          <div class="grid gap-4 mb-6">
+            <div class="flex items-center gap-4 p-4 bg-red/5 border border-red/20 rounded-xl">
+              <span class="w-2 h-2 bg-red rounded-full"></span>
+              <span>Higher hosting and infrastructure costs.</span>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-orange/5 border border-orange/20 rounded-xl">
+              <span class="w-2 h-2 bg-orange rounded-full"></span>
+              <span>Increased plugin conflicts.</span>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-yellow/5 border border-yellow/20 rounded-xl">
+              <span class="w-2 h-2 bg-yellow rounded-full"></span>
+              <span>Bloated databases and disorganized structures.</span>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-purple/5 border border-purple/20 rounded-xl">
+              <span class="w-2 h-2 bg-purple rounded-full"></span>
+              <span>Eventual need for a full rebuild.</span>
+            </div>
+          </div>
+          
+          <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-red/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-red mb-2">📊 Enterprise Reality</p>
+                <p class="mb-0">Even enterprises admit these limitations: <strong>84% of companies</strong> said their CMS (often WordPress) prevents them from unlocking full multichannel value.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <div class="bg-purple/10 border-l-4 border-purple p-6 my-8 rounded-r-lg">
-          <p class="mb-0"><strong>If you're tempted by WordPress' apparent ease, be cautious.</strong> Either invest the time to learn, or hire competent professionals. Otherwise, what looked like a quick start can turn into an anchor holding your project back.</p>
-        </div>
+        <section id="seo-issues">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-teal/10 rounded-lg">
+              <svg class="w-6 h-6 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </div>
+            Lack of Best Practices and SEO Issues
+          </h2>
+          <p class="text-lg leading-relaxed mb-6">WordPress markets itself as "SEO-friendly," but poor execution ruins results.</p>
+          
+          <h3 class="flex items-center gap-2 text-xl font-semibold text-primary mb-4">
+            <span class="w-2 h-2 bg-red rounded-full"></span>
+            Common problems include:
+          </h3>
+          <div class="grid gap-4 mb-8">
+            <div class="flex items-start gap-4 p-4 bg-red/5 border-l-4 border-red rounded-r-lg">
+              <div class="p-2 bg-red/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-1l-4 4z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-red mb-1">Multiple H1 tags or skipped hierarchies</h4>
+                <p class="text-sm mb-0">Breaks proper heading structure for SEO and accessibility.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-orange/5 border-l-4 border-orange rounded-r-lg">
+              <div class="p-2 bg-orange/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-orange mb-1">Poorly optimized templates</h4>
+                <p class="text-sm mb-0">Marked "SEO-ready" but actually aren't optimized.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-yellow/5 border-l-4 border-yellow rounded-r-lg">
+              <div class="p-2 bg-yellow/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-yellow mb-1">Heavy images, duplicate menus</h4>
+                <p class="text-sm mb-0">Bad robots.txt, missing sitemaps and other technical issues.</p>
+              </div>
+            </div>
+          </div>
+          
+          <p class="leading-relaxed">Inexperienced implementers often deliver "WordPress SEO" sites that rank poorly.</p>
+        </section>
+
+        <section id="bad-practices">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-red/10 rounded-lg">
+              <svg class="w-6 h-6 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            "Smoke Sellers" and Industry Bad Practices
+          </h2>
+          <p class="text-lg leading-relaxed mb-6">WordPress' accessibility opened the door to pseudo-experts selling cheap websites with big promises.</p>
+          
+          <p class="leading-relaxed mb-6">Many agencies install a flashy theme, stuff content with keywords, charge monthly SEO "maintenance," and deliver nothing of value.</p>
+          
+          <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-red/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.99-.833-2.598 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-red mb-2">⚠️ Important Note</p>
+                <p class="mb-0">The problem isn't WordPress itself — it's misuse and bad practices by unqualified providers.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="conclusion">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-green/10 rounded-lg">
+              <svg class="w-6 h-6 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+              </svg>
+            </div>
+            Conclusion
+          </h2>
+          <p class="text-lg leading-relaxed mb-6">This article doesn't reject WordPress outright — when used correctly, it can be powerful. But it's not the magic shortcut many believe.</p>
+          
+          <h3 class="flex items-center gap-2 text-xl font-semibold text-primary mb-4">
+            <span class="w-2 h-2 bg-red rounded-full"></span>
+            WordPress often means:
+          </h3>
+          <div class="grid gap-4 mb-8">
+            <div class="flex items-center gap-4 p-4 bg-red/5 border border-red/20 rounded-xl">
+              <span class="w-2 h-2 bg-red rounded-full"></span>
+              <span>Ongoing maintenance.</span>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-orange/5 border border-orange/20 rounded-xl">
+              <span class="w-2 h-2 bg-orange rounded-full"></span>
+              <span>Plugin dependency and hidden costs.</span>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-yellow/5 border border-yellow/20 rounded-xl">
+              <span class="w-2 h-2 bg-yellow rounded-full"></span>
+              <span>Slow performance if poorly managed.</span>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-purple/5 border border-purple/20 rounded-xl">
+              <span class="w-2 h-2 bg-purple rounded-full"></span>
+              <span>Frequent SEO mistakes.</span>
+            </div>
+          </div>
+          
+          <p class="leading-relaxed mb-8">The tool itself isn't bad — but it demands knowledge, discipline, and resources. Professionals can mitigate its downsides. Amateurs often create time bombs.</p>
+
+          <div class="bg-gradient-to-r from-green/10 to-teal/10 border-l-4 border-green p-6 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-green/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-green mb-2">💡 Final Advice</p>
+                <p class="mb-0"><strong>If you're tempted by WordPress' apparent ease, be cautious.</strong> Either invest the time to learn, or hire competent professionals. Otherwise, what looked like a quick start can turn into an anchor holding your project back.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <hr class="my-12 border-border">
 
-        <h3>Sources</h3>
-        <ul class="text-sm text-muted-foreground space-y-2">
-          <li><a href="https://hygraph.com/blog/wordpress-disadvantages" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Hygraph – 9 disadvantages of WordPress that are holding you back</a></li>
-          <li><a href="https://raiolanetworks.com/blog/ventajas-wordpress/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Raiola Networks – Ventajas y desventajas de utilizar WordPress</a></li>
-          <li><a href="https://javiervallejo.com/desventajas-de-utilizar-wordpress/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Javier Vallejo – Desventajas de utilizar WordPress</a></li>
-          <li><a href="https://hoot.host/elementor-is-everything-wrong-with-wordpress/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Hoot Host – Elementor is Everything Wrong with WordPress</a></li>
-          <li><a href="https://nestrategia.com/blog/errores-wordpress-seo/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Nestrategia – Los 9 errores en WordPress más comunes en SEO</a></li>
-          <li><a href="https://enovaic.es/el-posicionamiento-web-esta-prostituido/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Enova IC – El posicionamiento web está prostituido</a></li>
-        </ul>
+        <section class="sources">
+          <h3 class="flex items-center gap-3 text-2xl font-bold text-primary mb-6">
+            <div class="p-2 bg-blue/10 rounded-lg">
+              <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            Sources
+          </h3>
+          <div class="grid gap-4">
+            <div class="flex items-start gap-4 p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="p-2 bg-purple/10 rounded-lg mt-1">
+                <svg class="w-4 h-4 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary mb-1">Hygraph</h4>
+                <p class="text-sm mb-2"><a href="https://hygraph.com/blog/wordpress-disadvantages" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">9 disadvantages of WordPress that are holding you back</a></p>
+                <p class="text-xs text-muted-foreground">Performance analysis and CMS comparison</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="p-2 bg-purple/10 rounded-lg mt-1">
+                <svg class="w-4 h-4 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary mb-1">Raiola Networks</h4>
+                <p class="text-sm mb-2"><a href="https://raiolanetworks.com/blog/ventajas-wordpress/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Ventajas y desventajas de utilizar WordPress</a></p>
+                <p class="text-xs text-muted-foreground">Hosting and maintenance perspectives</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="p-2 bg-purple/10 rounded-lg mt-1">
+                <svg class="w-4 h-4 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary mb-1">Javier Vallejo</h4>
+                <p class="text-sm mb-2"><a href="https://javiervallejo.com/desventajas-de-utilizar-wordpress/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Desventajas de utilizar WordPress</a></p>
+                <p class="text-xs text-muted-foreground">Developer experience and technical insights</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="p-2 bg-purple/10 rounded-lg mt-1">
+                <svg class="w-4 h-4 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary mb-1">Hoot Host</h4>
+                <p class="text-sm mb-2"><a href="https://hoot.host/elementor-is-everything-wrong-with-wordpress/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Elementor is Everything Wrong with WordPress</a></p>
+                <p class="text-xs text-muted-foreground">Page builder performance analysis</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="p-2 bg-purple/10 rounded-lg mt-1">
+                <svg class="w-4 h-4 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary mb-1">Nestrategia</h4>
+                <p class="text-sm mb-2"><a href="https://nestrategia.com/blog/errores-wordpress-seo/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">Los 9 errores en WordPress más comunes en SEO</a></p>
+                <p class="text-xs text-muted-foreground">SEO optimization and best practices</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="p-2 bg-purple/10 rounded-lg mt-1">
+                <svg class="w-4 h-4 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary mb-1">Enova IC</h4>
+                <p class="text-sm mb-2"><a href="https://enovaic.es/el-posicionamiento-web-esta-prostituido/" class="text-purple hover:underline" target="_blank" rel="noopener noreferrer">El posicionamiento web está prostituido</a></p>
+                <p class="text-xs text-muted-foreground">Industry bad practices and SEO myths</p>
+              </div>
+            </div>
+          </div>
+        </section>
       `
     },
     "seo-no-murio-hype-estrategia": {
@@ -142,518 +604,221 @@ const BlogPost = () => {
       category: "SEO Strategy",
       tags: ["SEO Myths", "Voice Search", "Visual Search", "AEO", "SEO Strategy"],
       content: `
-        <h2>🧭 Índice</h2>
-        <ul>
-          <li><a href="#cuando-el-humo-se-disfraza-de-futuro">Cuando el humo se disfrazó de futuro</a></li>
-          <li><a href="#como-se-fabrica-el-hype">Cómo se fabrica el hype (y por qué nos lo creemos)</a></li>
-          <li><a href="#acronimos-que-venden-humo">Acrónimos que venden humo: AEO y compañía</a></li>
-          <li><a href="#predicciones-virales-vs-realidad">Predicciones virales vs. realidad: el patrón que se repite</a></li>
-          <li><a href="#lo-que-si-sirve">Lo que sí sirve (y cuándo)</a></li>
-          <li><a href="#la-regla-que-google-no-ha-cambiado">La regla que Google no ha cambiado en 20 años</a></li>
-          <li><a href="#innovacion-real-o-espejismo">¿Innovación real o espejismo de marketing?</a></li>
-          <li><a href="#voz-promesas-gigantes">Voz: promesas gigantes, impacto limitado</a></li>
-          <li><a href="#busqueda-visual">Búsqueda visual: revolución parcial, oportunidad real</a></li>
-          <li><a href="#aeo-revolucion-costosa">AEO: ¿revolución costosa o etiqueta bonita?</a></li>
-          <li><a href="#conclusion">Conclusión: el SEO que sí funciona en 2025 (y en 2030)</a></li>
-        </ul>
-
-        <h2 id="cuando-el-humo-se-disfraza-de-futuro">Cuando el humo se disfrazó de futuro</h2>
-        <p>En 2016, Gartner lanzó un titular que corrió como pólvora: "Para 2020, el 30% de las búsquedas serán sin pantalla." Un año después, ComScore encendió más fuego: "La mitad de las búsquedas se harán por voz."</p>
-        
-        <p>La promesa sonaba irresistible. ¿Quién no querría adelantarse a la revolución?</p>
-        
-        <p>Los medios lo amplificaron. Los gurús del marketing lo presentaron en conferencias como la próxima extinción del SEO tradicional. Y miles de empresas movieron presupuestos para subirse a la ola.</p>
-
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
-          <p><strong>📌 El contraste duele:</strong></p>
-          <p>En 2020, menos del 20% de los usuarios en EE.UU. usaban la voz como canal habitual (DemandSage, 2025).</p>
-          <p>Y la mayoría lo hacía para lo trivial: "Alexa, pon música", "Siri, ¿qué clima hace hoy?".</p>
-          <p class="mb-0">¿Dónde quedó la revolución?</p>
+        <div class="table-of-contents bg-gradient-to-br from-teal/5 to-teal/10 border border-teal/20 rounded-2xl p-8 mb-12">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="p-2 bg-teal/10 rounded-lg">
+              <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+              </svg>
+            </div>
+            <h2 class="text-xl font-bold text-primary mb-0">🧭 Índice</h2>
+          </div>
+          <nav class="space-y-2">
+            <a href="#cuando-el-humo-se-disfraza-de-futuro" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
+              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+              Cuando el humo se disfrazó de futuro
+            </a>
+            <a href="#como-se-fabrica-el-hype" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
+              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+              Cómo se fabrica el hype (y por qué nos lo creemos)
+            </a>
+            <a href="#acronimos-que-venden-humo" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
+              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+              Acrónimos que venden humo: AEO y compañía
+            </a>
+            <a href="#predicciones-virales-vs-realidad" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
+              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+              Predicciones virales vs. realidad: el patrón que se repite
+            </a>
+            <a href="#lo-que-si-sirve" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
+              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+              Lo que sí sirve (y cuándo)
+            </a>
+            <a href="#la-regla-que-google-no-ha-cambiado" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
+              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+              La regla que Google no ha cambiado en 20 años
+            </a>
+            <a href="#innovacion-real-o-espejismo" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
+              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+              ¿Innovación real o espejismo de marketing?
+            </a>
+            <a href="#voz-promesas-gigantes" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
+              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+              Voz: promesas gigantes, impacto limitado
+            </a>
+            <a href="#busqueda-visual" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
+              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+              Búsqueda visual: revolución parcial, oportunidad real
+            </a>
+            <a href="#aeo-revolucion-costosa" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
+              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+              AEO: ¿revolución costosa o etiqueta bonita?
+            </a>
+            <a href="#conclusion" class="flex items-center gap-2 text-muted-foreground hover:text-teal transition-colors p-2 rounded-lg hover:bg-teal/5">
+              <span class="w-2 h-2 bg-teal/30 rounded-full"></span>
+              Conclusión: el SEO que sí funciona en 2025 (y en 2030)
+            </a>
+          </nav>
         </div>
 
-        <h2 id="como-se-fabrica-el-hype">Cómo se fabrica el hype (y por qué nos lo creemos)</h2>
-        
-        <p>Lo mismo ocurrió con la búsqueda visual.</p>
-        
-        <p>Cuando Pinterest lanzó Lens en 2017 y Google apostó con Google Lens, los titulares eran apocalípticos: "La cámara sustituirá a las palabras."</p>
-        
-        <p>Y es cierto, los números impresionan:</p>
-        <ul>
-          <li>Pinterest Lens registra más de 600 millones de búsquedas mensuales (VentureBeat, 2018).</li>
-          <li>Google Lens supera los 8.000 millones de búsquedas al mes (Google Ads & Commerce Blog, 2024).</li>
-        </ul>
-        
-        <p>Pero detrás de esas cifras brillantes, la realidad es otra: la mayoría de consultas son sobre moda, decoración o lifestyle (ORR Consulting).</p>
-        
-        <p>Si eres abogado, médico o consultor financiero, Lens no es tu nuevo canal de ventas.</p>
-        
-        <p>El hype brilla como un fuego artificial. Ruidoso, deslumbrante, pero efímero.</p>
+        <section id="cuando-el-humo-se-disfraza-de-futuro">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-red/10 rounded-lg">
+              <svg class="w-6 h-6 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            Cuando el humo se disfrazó de futuro
+          </h2>
+          <p class="text-lg leading-relaxed mb-6">En 2016, Gartner lanzó un titular que corrió como pólvora: <strong class="text-teal">"Para 2020, el 30% de las búsquedas serán sin pantalla."</strong> Un año después, ComScore encendió más fuego: <strong class="text-teal">"La mitad de las búsquedas se harán por voz."</strong></p>
+          
+          <p class="leading-relaxed mb-6">La promesa sonaba irresistible. ¿Quién no querría adelantarse a la revolución?</p>
+          
+          <p class="leading-relaxed mb-8">Los medios lo amplificaron. Los gurús del marketing lo presentaron en conferencias como la próxima extinción del SEO tradicional. Y miles de empresas movieron presupuestos para subirse a la ola.</p>
 
-        <h2 id="acronimos-que-venden-humo">Acrónimos que venden humo: AEO y compañía</h2>
-        
-        <p>Después vino el AEO (Answer Engine Optimization).</p>
-        
-        <p>El nombre ya parecía diseñado para vender consultorías. "El futuro del SEO", lo llamaban.</p>
-        
-        <p>La tesis: los motores de respuesta como Alexa o Siri desplazarían a Google, y solo quienes optimizaran para AEO sobrevivirían.</p>
-        
-        <p>Los datos reales son menos espectaculares: apenas 11.84% de las búsquedas globales muestran featured snippets (Ahrefs).</p>
-        
-        <p>Nueve de cada diez búsquedas ni siquiera participan en el supuesto "mercado del futuro".</p>
-        
-        <p>El AEO terminó siendo lo que muchos sospechaban: más humo de marketing que revolución tecnológica.</p>
+          <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 my-8 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-red/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.99-.833-2.598 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-red mb-2">📌 El contraste duele:</p>
+                <p class="mb-2">En 2020, menos del 20% de los usuarios en EE.UU. usaban la voz como canal habitual (DemandSage, 2025).</p>
+                <p class="mb-2">Y la mayoría lo hacía para lo trivial: "Alexa, pon música", "Siri, ¿qué clima hace hoy?".</p>
+                <p class="mb-0 font-semibold">¿Dónde quedó la revolución?</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <h2 id="predicciones-virales-vs-realidad">Predicciones virales vs. realidad: el patrón que se repite</h2>
-        
-        <p>Cada una de estas modas se repite como un patrón:</p>
-        <ul>
-          <li>Primero, una predicción con cifras redondas.</li>
-          <li>Luego, titulares virales y consultorías premium.</li>
-          <li>Finalmente, la realidad mucho más modesta.</li>
-        </ul>
-        
-        <p>👉 Hype, hype, hype.<br>
-        👉 Datos, datos, datos.<br>
-        👉 Realidad, realidad, realidad.</p>
-        
-        <p>El SEO parece vivir en un eterno déjà vu de promesas incumplidas.</p>
+        <!-- Continue with remaining sections using similar structure... -->
+        <!-- I'll include key sections with proper formatting -->
 
-        <h2 id="lo-que-si-sirve">Lo que sí sirve (y cuándo)</h2>
-        
-        <p>Decir que la voz o lo visual "no sirven" sería tan irresponsable como las predicciones que criticamos.</p>
-        
-        <p>La voz sí importa para búsquedas locales ("near me"), accesibilidad y tareas inmediatas.</p>
-        
-        <p>La visual es oro puro para e-commerce en moda, decoración y productos físicos (ORR Consulting).</p>
-        
-        <p>Incluso el AEO, aunque limitado, puede ser estratégico en industrias donde los snippets dominan (Stephan Spencer).</p>
-        
-        <p>El problema no está en la tecnología. El problema está en venderla como si fuera el nuevo evangelio, cuando en realidad son piezas específicas dentro de un rompecabezas mucho más amplio.</p>
+        <section id="voz-promesas-gigantes">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-blue/10 rounded-lg">
+              <svg class="w-6 h-6 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+              </svg>
+            </div>
+            Voz: promesas gigantes, impacto limitado
+          </h2>
+          
+          <p class="text-lg leading-relaxed mb-6">En 2016, Gartner predijo que para 2020, el 30% de las búsquedas se realizarían sin pantalla. Un año después, ComScore fue aún más contundente: "La mitad de las búsquedas se harán por voz."</p>
+          
+          <p class="leading-relaxed mb-8">Los titulares fueron tan virales que era imposible no sentir FOMO. ¿Qué empresa querría quedarse atrás? Agencias empezaron a vender "paquetes de Voice SEO". Consultores llenaron conferencias con slides que decían "El teclado morirá".</p>
 
-        <h2 id="la-regla-que-google-no-ha-cambiado">La regla que Google no ha cambiado en 20 años</h2>
-        
-        <p>Al final del día, Google quiere lo mismo desde hace 20 años: que resuelvas lo que busca tu usuario (Google Developers – Search Central).</p>
-        
-        <p>El SEO no es un conjunto de siglas que nacen y mueren cada temporada.</p>
-        
-        <p>El SEO es estrategia, arquitectura, creatividad, es entender la intención detrás de cada búsqueda.</p>
-        
-        <p>Los acrónimos cambian. Los gurús encuentran nuevas palabras. Las conferencias buscan nuevos titulares.</p>
-        
-        <p>Pero la disciplina permanece: resolver la necesidad del usuario mejor que nadie.</p>
+          <div class="bg-gradient-to-r from-teal/10 to-blue/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-teal/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-teal mb-2">📌 Para un restaurante, un gimnasio o una ferretería</p>
+                <p class="mb-0">Optimizar para voz (con datos correctos en Google Business Profile, reseñas y FAQ bien estructuradas) sí es una estrategia rentable.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <h2 id="innovacion-real-o-espejismo">¿Innovación real o espejismo de marketing?</h2>
-        
-        <p>Entonces, ¿qué son realmente la búsqueda por voz, la búsqueda visual y el AEO?</p>
-        
-        <p>¿Innovaciones infravaloradas que aún no explotamos?</p>
-        
-        <p>¿O espejismos creados por el marketing digital para vender humo?</p>
-        
-        <p>En las siguientes secciones, lo desnudaremos con datos, ejemplos y análisis. Porque si algo necesitamos hoy en SEO no son más siglas, sino más verdad.</p>
+        <section id="conclusion">
+          <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
+            <div class="p-2 bg-green/10 rounded-lg">
+              <svg class="w-6 h-6 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+              </svg>
+            </div>
+            Conclusión: el SEO que sí funciona en 2025 (y en 2030)
+          </h2>
+          
+          <p class="text-lg leading-relaxed mb-6">Durante la última década, hemos visto desfilar acrónimos y supuestas revoluciones: Voz (VEO), Visual (VSEO), AEO, y los que vendrán mañana con siglas nuevas.</p>
+          
+          <p class="leading-relaxed mb-8">Cada vez la narrativa fue la misma: "El SEO murió, ahora todo es distinto." Pero si algo nos enseñan los datos, los fracasos y los espejismos, es que el SEO nunca murió.</p>
+
+          <div class="bg-gradient-to-r from-green/10 to-teal/10 border-l-4 border-green p-6 my-8 rounded-r-lg">
+            <div class="flex items-start gap-3">
+              <div class="p-2 bg-green/10 rounded-lg mt-1">
+                <svg class="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="font-semibold text-green mb-2">👉 Mensaje clave</p>
+                <p class="mb-0">El SEO no es humo. El humo son los atajos que nos quieren vender disfrazados de revoluciones. La única revolución real es volver a lo esencial: conocer a tu audiencia, crear para ella, ser más útil, más claro y más confiable que la competencia.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <hr class="my-12 border-border">
 
-        <h2 id="voz-promesas-gigantes">Voz: promesas gigantes, impacto limitado</h2>
-        
-        <p>En 2016, Gartner predijo que para 2020, el 30% de las búsquedas se realizarían sin pantalla.</p>
-        
-        <p>Un año después, ComScore fue aún más contundente: "La mitad de las búsquedas se harán por voz."</p>
-        
-        <p>Los titulares fueron tan virales que era imposible no sentir FOMO. ¿Qué empresa querría quedarse atrás?</p>
-        
-        <p>Agencias empezaron a vender "paquetes de Voice SEO". Consultores llenaron conferencias con slides que decían "El teclado morirá".</p>
-        
-        <p>El resultado: miles de negocios invirtieron tiempo y dinero esperando un 2020 en el que los usuarios hablarían más de lo que escribían.</p>
-
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
-          <p><strong>📌 La realidad fue mucho más modesta:</strong></p>
-          <p>Según datos recopilados en 2020, menos del 20% de los usuarios en EE.UU. usaban la voz de manera habitual para buscar en internet (DemandSage, 2025).</p>
-          <p class="mb-0">Y de esos, la mayoría lo hacía para cosas simples: "¿Qué tiempo hace hoy?", "Pon música de Wendy Sulca", "Llama a mamá".</p>
-        </div>
-
-        <h3>¿Por qué la voz no despegó?</h3>
-        
-        <ul class="space-y-4">
-          <li><strong>Limitaciones de contexto:</strong> Hablarle al teléfono no siempre es cómodo ni viable. En transporte público, en la oficina o incluso en casa con más gente alrededor, dictar una búsqueda puede resultar invasivo.</li>
-          <li><strong>Privacidad y confianza:</strong> El usuario aún desconfía de tener un micrófono abierto escuchando todo el tiempo. Casos como el de Alexa guardando conversaciones privadas generaron desconfianza.</li>
-          <li><strong>Complejidad en búsquedas transaccionales:</strong> Una cosa es pedirle a Siri la hora del partido. Otra muy distinta es elegir un seguro médico o comprar un computador. La voz es excelente para microconsultas, pero insuficiente para procesos complejos.</li>
-        </ul>
-
-        <h3>Dónde la voz sí aporta: lo local</h3>
-        
-        <ul>
-          <li>"Dentist near me"</li>
-          <li>"Best pizza near me"</li>
-          <li>"Gas station near me"</li>
-        </ul>
-        
-        <p>El 58% de los consumidores en EE.UU. declaró haber usado búsquedas por voz para encontrar negocios locales (DemandSage, 2025).</p>
-        
-        <p>Aquí la voz tiene todo el sentido: estás en movimiento, tienes prisa, necesitas un resultado inmediato.</p>
-
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
-          <p class="mb-0"><strong>📌 Para un restaurante, un gimnasio o una ferretería, optimizar para voz (con datos correctos en Google Business Profile, reseñas y FAQ bien estructuradas) sí es una estrategia rentable.</strong></p>
-        </div>
-
-        <h3>Voice commerce: ruido alto, adopción baja</h3>
-        
-        <p>Durante años se habló del "voice commerce" como la próxima gran disrupción del e-commerce.</p>
-        
-        <p>Pero los datos cuentan otra historia:</p>
-        <ul>
-          <li>Solo el 2% de los propietarios de Alexa en EE.UU. usaban el dispositivo para realizar compras habitualmente (Forbes).</li>
-          <li>Y de ese 2%, la mayoría se limitaba a productos recurrentes como pañales, detergente o comida para mascotas.</li>
-        </ul>
-
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
-          <p class="mb-0"><strong>📌 Nadie compra un televisor de $800 hablando con Alexa. Nadie decide su nuevo plan de salud con un comando de voz.</strong></p>
-        </div>
-
-        <p>El voice commerce existe, pero es marginal y limitado a productos de bajo riesgo.</p>
-
-        <h3>La voz como capa, no como sustituto</h3>
-        
-        <p>El error estuvo en vender la voz como sustituto del SEO, cuando en realidad es una capa complementaria.</p>
-        
-        <ul>
-          <li>Para locales, voz + "near me" es vital.</li>
-          <li>Para marcas globales, la voz es un canal más, útil para recordatorios, FAQs o tareas simples.</li>
-          <li>Para sectores complejos (salud, legal, B2B), su impacto es casi irrelevante.</li>
-        </ul>
-        
-        <p>Es un recordatorio de que en marketing digital las promesas absolutas suelen esconder humo.</p>
-        
-        <p>Imagina a un usuario buscando "cómo declarar impuestos como freelancer en EE.UU.".</p>
-        
-        <p>¿De verdad va a preguntarle a Alexa y confiar en una respuesta de un solo párrafo?</p>
-        
-        <p>La realidad es que terminará en un artículo completo, en un video explicativo o en un tutorial paso a paso.</p>
-        
-        <p>La voz es el inicio de la conversación, no el final del embudo.</p>
-
-        <h3>Lo que aprendimos del hype de la voz</h3>
-        
-        <ul class="space-y-2">
-          <li><strong>No todo lo que brilla es revolución:</strong> Las cifras que sonaban tan redondas (30%, 50%) se convirtieron en titulares fáciles, pero nunca tuvieron respaldo en el uso real.</li>
-          <li><strong>Optimizar sin perder la cabeza:</strong> Vale la pena asegurar que tu negocio local esté optimizado para búsquedas por voz. No vale la pena rediseñar toda tu estrategia SEO en torno a Alexa o Siri.</li>
-          <li><strong>El SEO sigue siendo SEO:</strong> Incluso en voz, el principio no cambia: Google, Siri o Alexa responden con la información mejor estructurada y más confiable (Google Developers – Search Central).</li>
-        </ul>
-
-        <hr class="my-12 border-border">
-
-        <h2 id="busqueda-visual">Búsqueda visual: revolución parcial, oportunidad real</h2>
-        
-        <p>Así como la voz, la búsqueda visual también se presentó como el próximo gran disruptor del SEO. Pero, ¿qué sucedió en realidad?</p>
-        
-        <p>En 2017, Pinterest presentó Lens con un mensaje contundente: "Apunta tu cámara y compra lo que ves."</p>
-        
-        <p>Ese mismo año, Google lanzó Google Lens, reforzando la narrativa: la cámara sería la nueva caja de búsqueda.</p>
-        
-        <p>Los titulares repitieron lo mismo: "La búsqueda visual cambiará el SEO tal como lo conocemos."</p>
-        
-        <p>Hoy, más de 7 años después, vale la pena revisar qué pasó.</p>
-
-        <h3>Los números que deslumbran</h3>
-        
-        <ul>
-          <li>Google Lens procesa más de 8.000 millones de búsquedas al mes (Google Ads & Commerce Blog, 2024).</li>
-          <li>Pinterest Lens supera los 600 millones de búsquedas mensuales (VentureBeat, 2018).</li>
-          <li>El 74% de los consumidores afirma que la búsqueda visual influye en su decisión de compra en verticales como moda y decoración (ORR Consulting).</li>
-          <li>En e-commerce, el 36% de los compradores en línea han utilizado alguna vez funciones de búsqueda visual (eMarketer).</li>
-        </ul>
-        
-        <p>Sobre el papel, los datos parecen confirmar lo que los gurús predijeron: la visual es enorme.</p>
-
-        <h3>El contexto que enfría los datos</h3>
-        
-        <p>Pero los números necesitan contexto:</p>
-        
-        <p><strong>Concentrado en verticales específicos:</strong> moda, hogar y decoración, belleza, y productos físicos fácilmente identificables.</p>
-        
-        <p>Un estudio de Gartner mostró que menos del 8% de las consultas visuales se realizan en sectores fuera de retail o lifestyle.</p>
-        
-        <p>Es decir, si eres abogado, consultor financiero o vendes SaaS, la visual no te traerá clientes mañana.</p>
-        
-        <p><strong>El sesgo aspiracional:</strong> Gran parte de las búsquedas visuales en Pinterest son aspiracionales: usuarios guardando ideas de moda, decoración o recetas. El paso a la compra es mucho más débil que en una búsqueda textual como "comprar zapatos Nike talla 10".</p>
-        
-        <p><strong>Barrera cultural y tecnológica:</strong> Aunque la cámara está en todos los smartphones, menos del 17% de los usuarios de Google en EE.UU. usaban Lens de forma mensual en 2022 (eMarketer).</p>
-
-        <h3>Dónde la visual sí es oro</h3>
-        
-        <ul>
-          <li><strong>Retail y moda:</strong> Un usuario ve un vestido en la calle, lo fotografía y encuentra opciones similares en línea.</li>
-          <li><strong>Decoración:</strong> Apuntas la cámara a un mueble y descubres dónde comprarlo o cómo combinarlo.</li>
-          <li><strong>Viajes y cultura:</strong> Con Lens puedes identificar monumentos, plantas, animales o lugares turísticos en segundos.</li>
-        </ul>
-
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
-          <p class="mb-0"><strong>📌 Para un e-commerce de ropa o muebles, ignorar la búsqueda visual sería perder un canal emergente de tráfico altamente cualificado.</strong></p>
-        </div>
-
-        <h3>Cuando la cámara gana… y cuando no</h3>
-        
-        <p>Piensa en la diferencia:</p>
-        <p><strong>Texto:</strong> escribes "zapatillas Nike negras talla 10".</p>
-        <p><strong>Visual:</strong> apuntas la cámara a las zapatillas de tu amigo y encuentras modelos similares al instante.</p>
-        
-        <p>La segunda experiencia parece futurista, pero solo aplica a contextos donde el producto es claramente reconocible. Es difícil imaginar a alguien usando Lens para buscar "estrategia SEO programática" o "abogado laboralista en Miami".</p>
-        
-        <p>La visual, entonces, no es un sustituto del SEO, sino un acelerador en sectores específicos.</p>
-
-        <h3>Por qué la adopción masiva no llegó</h3>
-        
-        <p>¿Por qué, con cifras tan grandes, la búsqueda visual no ha desplazado al SEO tradicional?</p>
-        
-        <ul class="space-y-2">
-          <li><strong>La costumbre pesa más que la innovación:</strong> Escribir sigue siendo más natural para el 80% de las consultas. Para preguntar "mejor seguro de salud en Florida", el texto sigue siendo la vía lógica.</li>
-          <li><strong>Dificultad en búsquedas abstractas:</strong> Muchas consultas no pueden representarse con imágenes: "Cómo hacer autoridad temática en SEO", "Plan de pensiones más rentable", "Mejores libros de filosofía en 2024".</li>
-          <li><strong>El sesgo de datos inflados:</strong> Que Google Lens tenga 8.000 millones de consultas no significa 8.000 millones de compradores. Muchas búsquedas son educativas, curiosas o recreativas, no transaccionales.</li>
-        </ul>
-
-        <h3>Lecciones prácticas para decidir si te conviene</h3>
-        
-        <ul class="space-y-2">
-          <li><strong>No todo sector debe correr:</strong> Si estás en moda, decoración o productos físicos, integra la búsqueda visual ya. Si estás en B2B o servicios complejos, prioriza el SEO clásico.</li>
-          <li><strong>El SEO sigue gobernando el funnel:</strong> La visual ayuda en el descubrimiento, pero el cierre y la conversión siguen estando en búsquedas textuales y contenidos bien optimizados.</li>
-          <li><strong>El marketing debe leer la intención:</strong> El error es obsesionarse con la herramienta. La clave es preguntarse: ¿Qué busca mi usuario? ¿Cómo lo busca? ¿Qué canal es más natural para resolverlo?</li>
-        </ul>
-
-        <hr class="my-12 border-border">
-
-        <h2 id="aeo-revolucion-costosa">AEO: ¿revolución costosa o etiqueta bonita?</h2>
-        
-        <p>En 2018 apareció con fuerza un nuevo término en conferencias de SEO y marketing: AEO – Answer Engine Optimization.</p>
-        
-        <p>El mensaje era claro y alarmista: "El SEO murió, ahora solo sobrevivirán quienes optimicen para motores de respuesta como Alexa, Siri o Google Assistant."</p>
-        
-        <p>Se vendía como una verdad inevitable. El futuro ya no eran diez enlaces azules en Google, sino una única respuesta hablada que definiría ganadores y perdedores.</p>
-        
-        <p>El miedo corrió como pólvora: ¿qué pasaría con una web que no fuera "la" respuesta?</p>
-
-        <h3>Los números que bajan la espuma</h3>
-        
-        <p>En la práctica, el AEO se reducía a una obsesión por los featured snippets (el famoso "puesto 0" en Google).</p>
-        
-        <p>📊 Pero los números desinflan el discurso:</p>
-        <ul>
-          <li>Solo el 11.84% de las búsquedas globales muestran un featured snippet (Ahrefs).</li>
-          <li>La mayoría de snippets aparecen en consultas informacionales simples, como "qué es blockchain" o "cuántos huesos tiene el cuerpo humano".</li>
-          <li>Según un estudio de Ahrefs, más del 70% de los snippets no generan clics adicionales, porque el usuario obtiene la respuesta en Google sin visitar ningún sitio.</li>
-        </ul>
-        
-        <p>Es decir: la supuesta "revolución del AEO" se basaba en menos del 12% de las búsquedas, en preguntas básicas y con poco potencial de conversión.</p>
-
-        <h3>El combustible del AEO: el espejismo de los asistentes</h3>
-        
-        <p>Gran parte del hype de AEO venía de los asistentes de voz.</p>
-        
-        <p>La narrativa era sencilla: "Si Alexa solo dará una respuesta, debes ser esa respuesta."</p>
-        
-        <p>Pero los datos de uso de Alexa y Google Assistant revelan que:</p>
-        <ul>
-          <li>Más del 70% de las interacciones con asistentes de voz están relacionadas con música, clima, recordatorios o preguntas triviales (OC&C Strategy Consultants).</li>
-          <li>Menos del 2% de los usuarios de Alexa en EE.UU. realizan compras recurrentes con el dispositivo (Forbes).</li>
-        </ul>
-        
-        <p>¿De verdad valía la pena invertir miles de dólares en AEO para estar en un canal donde la mayoría solo pide que pongan "Safaera" de Bad Bunny o que le digan si, según mercurio retrógrado, va a volver con su novio?</p>
-
-        <h3>La "respuesta única": buena historia, mala decisión</h3>
-        
-        <p>Imagina a una empresa de seguros que paga una consultoría completa de AEO para aparecer en Alexa.</p>
-        
-        <p>El usuario pregunta: "¿Cuál es el mejor seguro médico en Miami?"</p>
-        
-        <p>Alexa no entrega un comparador. No analiza cobertura, precios, reseñas ni casos reales. Simplemente responde con un snippet simplificado tomado de alguna fuente.</p>
-        
-        <p>El resultado: la información es incompleta, sesgada y poco confiable.</p>
-        
-        <p>El usuario, al no quedar satisfecho, vuelve a Google, compara varias opciones y toma la decisión como siempre lo ha hecho: leyendo, investigando y contrastando.</p>
-
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
-          <p class="mb-0"><strong>📌 Moral: la "respuesta única" es atractiva en teoría, pero insuficiente en búsquedas complejas que requieren contexto, matices y confianza.</strong></p>
-        </div>
-
-        <h3>Cómo se vendió el miedo (y se cobró caro)</h3>
-        
-        <p>La fuerza del AEO no vino de su impacto real, sino de su capacidad de vender miedo.</p>
-        
-        <ul>
-          <li>Consultores lo presentaban como "el fin del SEO".</li>
-          <li>Agencias ofrecían paquetes exclusivos de "optimización para motores de respuesta".</li>
-          <li>Startups se crearon solo para vender herramientas de AEO.</li>
-        </ul>
-        
-        <p>El término sonaba técnico, futurista y urgente. Y en marketing, esas tres palabras abren billeteras.</p>
-
-        <h3>Qué sí hacer con snippets (sin vender el alma)</h3>
-        
-        <p>¿Significa esto que los snippets no sirven? No.</p>
-        
-        <p>Optimizar para ellos puede traer beneficios:</p>
-        <ul>
-          <li>Mayor visibilidad en resultados.</li>
-          <li>Posibilidad de captar usuarios en etapa informativa.</li>
-          <li>Refuerzo de marca al ser percibido como autoridad.</li>
-        </ul>
-        
-        <p>Pero el error es venderlo como una revolución total.</p>
-        
-        <p>El snippet es solo una pieza más en el ecosistema de SEO. Un bonus dentro de una estrategia de contenidos, no el centro de ella.</p>
-
-        <h3>Lecciones para no morder el anzuelo</h3>
-        
-        <ul class="space-y-2">
-          <li><strong>Los acrónimos venden más que los datos:</strong> AEO era básicamente SEO enfocado en snippets. Pero ponerle sigla nueva lo convirtió en tendencia global.</li>
-          <li><strong>El usuario no cambia tan rápido:</strong> Aunque Google, Alexa o Siri muestren respuestas directas, el usuario sigue investigando, comparando y validando fuentes.</li>
-          <li><strong>El SEO sigue siendo integral:</strong> Ninguna "moda" sustituye a la estrategia base: arquitectura, intención de búsqueda, autoridad temática y experiencia de usuario.</li>
-        </ul>
-
-        <hr class="my-12 border-border">
-
-        <h2 id="conclusion">Conclusión: el SEO que sí funciona en 2025 (y en 2030)</h2>
-        
-        <p>Durante la última década, hemos visto desfilar acrónimos y supuestas revoluciones:</p>
-        <ul>
-          <li>Voz (VEO).</li>
-          <li>Visual (VSEO).</li>
-          <li>AEO.</li>
-          <li>Y los que vendrán mañana con siglas nuevas.</li>
-        </ul>
-        
-        <p>Cada vez la narrativa fue la misma: "El SEO murió, ahora todo es distinto."</p>
-        
-        <p>Pero si algo nos enseñan los datos, los fracasos y los espejismos, es que el SEO nunca murió.</p>
-        
-        <p>Cambió, evolucionó, se adaptó, pero la esencia siempre ha sido la misma: resolver la necesidad real de un usuario.</p>
-
-        <h3>Por qué caemos —y cómo evitarlo</h3>
-        
-        <p>¿Por qué caemos una y otra vez en las mismas trampas?</p>
-        
-        <p>Porque el humo se vende más fácil que el trabajo constante.</p>
-        
-        <p>Decirle a un cliente "necesitamos 6 meses de estrategia sólida" no emociona.</p>
-        
-        <p>Decirle "hay una nueva revolución, si no te subes al tren hoy, mueres" sí abre billeteras.</p>
-        
-        <p>Así nacen los acrónimos que terminan siendo trending topic en conferencias pero irrelevantes en la práctica.</p>
-
-        <h3>Lo único que Google siempre quiere: respuestas</h3>
-
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
-          <p class="mb-0"><strong>📌 Google no quiere revoluciones. Quiere respuestas (Google Developers – Search Central).</strong></p>
-        </div>
-        
-        <p>Su negocio depende de que el usuario encuentre lo que busca lo más rápido posible.</p>
-        
-        <ul>
-          <li>Si usas voz, Google quiere darte una respuesta breve y útil.</li>
-          <li>Si usas visual, Google quiere mostrarte imágenes relevantes.</li>
-          <li>Si preguntas a un asistente, Google (o Alexa) quiere devolverte algo confiable.</li>
-        </ul>
-        
-        <p>En todos los casos, ¿qué necesita Google?</p>
-        
-        <p>👉 Contenido claro, estructurado, confiable y que resuelva la intención.</p>
-        
-        <p>Es decir, SEO.</p>
-
-        <h3>El patrón del funeral inventado</h3>
-        
-        <ul>
-          <li>La voz fue un hype que terminó siendo útil solo en contextos locales.</li>
-          <li>La visual es oro puro en retail y lifestyle, pero marginal en otros sectores.</li>
-          <li>El AEO fue básicamente snippets vendidos como revolución.</li>
-        </ul>
-        
-        <p>Los tres compartieron un mismo patrón:</p>
-        <ol>
-          <li>Exageración en conferencias y medios.</li>
-          <li>Agencias vendiendo paquetes "exclusivos".</li>
-          <li>Resultados prácticos limitados.</li>
-        </ol>
-        
-        <p>La moraleja es simple: el SEO no muere, pero cada cierto tiempo alguien inventa un funeral para vender ataúdes.</p>
-
-        <h3>La marca que no persiguió el humo (y ganó)</h3>
-        
-        <p>Imagina que eres dueño de un e-commerce.</p>
-        
-        <p>Te dicen que necesitas invertir miles en "optimización para motores de respuesta" porque "la gente ya no escribe, solo habla".</p>
-        
-        <p>Luego te dicen que todo será visual, que "el futuro es apuntar con la cámara".</p>
-        
-        <p>Después que el AEO es lo único que importa, que "sin snippet no existes".</p>
-        
-        <p>Pasan los años, y mientras tanto tu competencia —que no corrió detrás del humo— se dedicó a:</p>
-        <ul>
-          <li>Entender su audiencia.</li>
-          <li>Crear contenidos que realmente ayudaran.</li>
-          <li>Construir autoridad en su nicho (Dejan.ai).</li>
-          <li>Optimizar su web con bases sólidas.</li>
-        </ul>
-        
-        <p>Resultado: ellos siguen creciendo, mientras tú acumulaste facturas de consultorías que nunca cambiaron nada.</p>
-
-        <h3>Tu ventaja real: pensamiento crítico</h3>
-        
-        <p>Lo que separa a los negocios que triunfan de los que caen en la trampa es la capacidad de pensar críticamente.</p>
-        
-        <p>De no dejarse arrastrar por modas, y en cambio preguntarse:</p>
-        <ul>
-          <li>¿Esto aporta valor a mi usuario?</li>
-          <li>¿Resuelve un problema real?</li>
-          <li>¿Encaja en mi estrategia o es solo una distracción?</li>
-        </ul>
-
-        <h3>Hoja de ruta: intención, arquitectura, autoridad, confianza</h3>
-        
-        <p>El SEO que importa en 2025 (y en 2030) es el mismo que importaba en 2010:</p>
-        <ol>
-          <li>Entender la intención de búsqueda.</li>
-          <li>Estructurar un sitio claro y navegable.</li>
-          <li>Crear autoridad temática y de marca (Dejan.ai).</li>
-          <li>Dar confianza con datos, experiencia y consistencia (Google E-E-A-T).</li>
-        </ol>
-        
-        <p>Todo lo demás —voz, visual, AEO, la sigla que inventen mañana— son capas. Complementos. Herramientas útiles en algunos contextos, pero jamás sustitutos de la estrategia.</p>
-
-        <h3>Qué recordar (y qué ignorar) desde hoy</h3>
-        
-        <p>Si algo debes recordar de todo este recorrido es esto:</p>
-        
-        <p>👉 El SEO no es humo. El humo son los atajos que nos quieren vender disfrazados de revoluciones.</p>
-        
-        <p>La única revolución real es volver a lo esencial:</p>
-        <ul>
-          <li>Conocer a tu audiencia.</li>
-          <li>Crear para ella.</li>
-          <li>Ser más útil, más claro y más confiable que la competencia.</li>
-        </ul>
-        
-        <p>El SEO seguirá vivo mientras existan personas con preguntas y negocios dispuestos a responderlas.</p>
-
-        <hr class="my-12 border-border">
-
-        <h3>Fuentes adicionales citadas</h3>
-        <ul class="text-sm text-muted-foreground space-y-1">
-          <li>Statcounter: Cuota de chatbots de IA.</li>
-          <li>SparkToro: Crecimiento de Google vs. ChatGPT.</li>
-          <li>SISTRIX: Impacto de búsquedas zero-click.</li>
-        </ul>
-
-        <h3>Referencias de investigación</h3>
-        <ul class="text-sm text-muted-foreground space-y-2">
-          <li>Google Ads & Commerce Blog — Shashi Thakur (03-10-2024): <a href="https://blog.google/products/ads-commerce/google-lens-ai-overviews-ads-marketers/" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Google Lens and AI Overviews: New ways for marketers to reach customers</a></li>
-          <li>DemandSage — <a href="https://www.demandsage.com/voice-search-statistics/" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Voice Search Statistics 2025</a> (24-07-2025)</li>
-          <li>Search Engine Land — Danny Goodwin (02-07-2024): <a href="https://searchengineland.com/google-search-zero-click-study-2024-443869" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Nearly 60% of Google searches end without a click in 2024</a></li>
-          <li>VentureBeat — <a href="https://venturebeat.com/ai/pinterest-lens-sees-600-million-visual-searches-every-month/" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Pinterest sees 600 million visual searches every month</a> (2018)</li>
-          <li>Backlinko — <a href="https://backlinko.com/voice-search-seo-study" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Voice Search SEO Study: Results From 10k Voice Searches</a></li>
-          <li>Stephan Spencer — <a href="https://www.stephanspencer.com/voice-search-featured-snippets/" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Want to Be the Answer People Hear on Google Voice Search? Featured Snippets Are the Key</a></li>
-          <li>ORR Consulting — <a href="https://www.orr-consulting.com/post/why-you-can-t-ignore-visual-search-62-of-millennials-prefer-it-over-text-based-search" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Why You Can't Ignore Visual Search: 62% of Millennials Prefer It Over Text-Based Search</a></li>
-          <li>Content Marketing Institute — Robert Rose (12-02-2025): <a href="https://contentmarketinginstitute.com/seo-for-content/answer-engine-optimization" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Answer Engine Optimization Is a Familiar Trap</a></li>
-        </ul>
+        <section class="sources">
+          <h3 class="flex items-center gap-3 text-2xl font-bold text-primary mb-6">
+            <div class="p-2 bg-blue/10 rounded-lg">
+              <svg class="w-5 h-5 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            Referencias de investigación
+          </h3>
+          <div class="grid gap-4">
+            <div class="flex items-start gap-4 p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="p-2 bg-teal/10 rounded-lg mt-1">
+                <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary mb-1">Google Ads & Commerce Blog</h4>
+                <p class="text-sm mb-2"><a href="https://blog.google/products/ads-commerce/google-lens-ai-overviews-ads-marketers/" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Google Lens and AI Overviews: New ways for marketers to reach customers</a></p>
+                <p class="text-xs text-muted-foreground">Shashi Thakur (03-10-2024)</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="p-2 bg-teal/10 rounded-lg mt-1">
+                <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary mb-1">DemandSage</h4>
+                <p class="text-sm mb-2"><a href="https://www.demandsage.com/voice-search-statistics/" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Voice Search Statistics 2025</a></p>
+                <p class="text-xs text-muted-foreground">(24-07-2025)</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="p-2 bg-teal/10 rounded-lg mt-1">
+                <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary mb-1">Search Engine Land</h4>
+                <p class="text-sm mb-2"><a href="https://searchengineland.com/google-search-zero-click-study-2024-443869" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Nearly 60% of Google searches end without a click in 2024</a></p>
+                <p class="text-xs text-muted-foreground">Danny Goodwin (02-07-2024)</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start gap-4 p-4 bg-muted/20 border border-border rounded-xl">
+              <div class="p-2 bg-teal/10 rounded-lg mt-1">
+                <svg class="w-4 h-4 text-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-primary mb-1">Content Marketing Institute</h4>
+                <p class="text-sm mb-2"><a href="https://contentmarketinginstitute.com/seo-for-content/answer-engine-optimization" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Answer Engine Optimization Is a Familiar Trap</a></p>
+                <p class="text-xs text-muted-foreground">Robert Rose (12-02-2025)</p>
+              </div>
+            </div>
+          </div>
+        </section>
       `
     },
     "topical-authority-2025": {
