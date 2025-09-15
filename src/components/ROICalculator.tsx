@@ -58,20 +58,20 @@ const ROICalculator = () => {
     let analysis = [];
 
     if (roi > 200) {
-      analysis.push("🎯 ROI Excelente: Tu inversión en SEO está generando resultados excepcionales.");
+      analysis.push("🎯 Excellent ROI: Your SEO investment is generating exceptional results.");
     } else if (roi > 100) {
-      analysis.push("✅ ROI Positivo: Estás obteniendo buenas ganancias de tu inversión SEO.");
+      analysis.push("✅ Positive ROI: You're getting good returns from your SEO investment.");
     } else if (roi > 0) {
-      analysis.push("📊 ROI Moderado: Hay margen de mejora. Considera optimizar conversiones.");
+      analysis.push("📊 Moderate ROI: There's room for improvement. Consider optimizing conversions.");
     } else {
-      analysis.push("⚠️ ROI Negativo: Revisa tu estrategia de keywords y conversión.");
+      analysis.push("⚠️ Negative ROI: Review your keyword strategy and conversion optimization.");
     }
 
-    analysis.push(`💰 Valor equivalente en Google Ads: Este tráfico costaría aproximadamente $${(estimatedTraffic * 2.5).toLocaleString()}/mes en publicidad paga.`);
-    analysis.push(`📈 Proyección anual: Ingresos potenciales de $${(revenue * 12).toLocaleString()} con una inversión de $${(seoInvestment * 12).toLocaleString()}.`);
+    analysis.push(`💰 Google Ads equivalent value: This traffic would cost approximately $${(estimatedTraffic * 2.5).toLocaleString()}/month in paid advertising.`);
+    analysis.push(`📈 Annual projection: Potential revenue of $${(revenue * 12).toLocaleString()} with an investment of $${(seoInvestment * 12).toLocaleString()}.`);
 
     if (conversions < 10) {
-      analysis.push("💡 Tip: Con pocas conversiones, enfócate en keywords de cola larga con mayor intención de compra.");
+      analysis.push("💡 Tip: With few conversions, focus on long-tail keywords with higher purchase intent.");
     }
 
     return analysis;
@@ -118,10 +118,10 @@ const ROICalculator = () => {
         <div className="bg-gradient-to-br from-electric-blue to-bright-orange text-white p-8 text-center">
           <h1 className="font-black text-3xl md:text-4xl mb-3 flex items-center justify-center gap-3">
             <Calculator className="h-8 w-8" />
-            Calculadora ROI de SEO
+            SEO ROI Calculator
           </h1>
           <p className="text-lg font-medium text-white/90">
-            Descubre el valor real de tu inversión en SEO y proyecta tus ganancias
+            Discover the real value of your SEO investment and project your earnings
           </p>
         </div>
 
@@ -130,20 +130,20 @@ const ROICalculator = () => {
           {/* Keyword Input */}
           <div className="space-y-3">
             <label className="flex items-center gap-2 font-semibold text-foreground">
-              Palabra clave objetivo
+              Target Keyword
               <Tooltip>
                 <TooltipTrigger>
                   <HelpCircle className="h-4 w-4 text-muted-foreground" />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>La palabra clave principal que quieres posicionar</p>
+                  <p>The main keyword you want to rank for</p>
                 </TooltipContent>
               </Tooltip>
             </label>
             <Input
               value={keyword}
               onChange={(e) => setKeyword(e.target.value)}
-              placeholder="ej: agencia marketing digital"
+              placeholder="e.g: digital marketing agency"
               className="text-base"
             />
           </div>
@@ -151,13 +151,13 @@ const ROICalculator = () => {
           {/* Search Volume */}
           <div className="space-y-3">
             <label className="flex items-center gap-2 font-semibold text-foreground">
-              Volumen de búsqueda mensual
+              Monthly Search Volume
               <Tooltip>
                 <TooltipTrigger>
                   <HelpCircle className="h-4 w-4 text-muted-foreground" />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Número de búsquedas mensuales de tu keyword</p>
+                  <p>Monthly search volume for your keyword</p>
                 </TooltipContent>
               </Tooltip>
             </label>
@@ -166,11 +166,11 @@ const ROICalculator = () => {
                 type="number"
                 value={searchVolume}
                 onChange={(e) => setSearchVolume(Number(e.target.value))}
-                placeholder="ej: 5000"
+                placeholder="e.g: 5000"
                 className="text-base pr-32"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground font-medium">
-                búsquedas/mes
+                searches/month
               </span>
             </div>
           </div>
@@ -178,13 +178,13 @@ const ROICalculator = () => {
           {/* Position Selector */}
           <div className="space-y-3">
             <label className="flex items-center gap-2 font-semibold text-foreground">
-              Posición objetivo en Google
+              Target Google Position
               <Tooltip>
                 <TooltipTrigger>
                   <HelpCircle className="h-4 w-4 text-muted-foreground" />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>La posición que esperas alcanzar</p>
+                  <p>The position you expect to achieve</p>
                 </TooltipContent>
               </Tooltip>
             </label>
@@ -211,13 +211,13 @@ const ROICalculator = () => {
           {/* Conversion Rate */}
           <div className="space-y-3">
             <label className="flex items-center gap-2 font-semibold text-foreground">
-              Tasa de conversión estimada (%)
+              Estimated Conversion Rate (%)
               <Tooltip>
                 <TooltipTrigger>
                   <HelpCircle className="h-4 w-4 text-muted-foreground" />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Porcentaje de visitantes que se convierten en clientes</p>
+                  <p>Percentage of visitors who convert to customers</p>
                 </TooltipContent>
               </Tooltip>
             </label>
@@ -250,13 +250,13 @@ const ROICalculator = () => {
           {/* Customer Value */}
           <div className="space-y-3">
             <label className="flex items-center gap-2 font-semibold text-foreground">
-              Valor promedio por cliente ($)
+              Average Customer Value ($)
               <Tooltip>
                 <TooltipTrigger>
                   <HelpCircle className="h-4 w-4 text-muted-foreground" />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Cuánto vale cada cliente para tu negocio</p>
+                  <p>How much each customer is worth to your business</p>
                 </TooltipContent>
               </Tooltip>
             </label>
@@ -265,7 +265,7 @@ const ROICalculator = () => {
                 type="number"
                 value={customerValue}
                 onChange={(e) => setCustomerValue(Number(e.target.value))}
-                placeholder="ej: 500"
+                placeholder="e.g: 500"
                 className="text-base pr-12"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground font-medium">
@@ -277,13 +277,13 @@ const ROICalculator = () => {
           {/* SEO Investment */}
           <div className="space-y-3">
             <label className="flex items-center gap-2 font-semibold text-foreground">
-              Inversión mensual en SEO ($)
+              Monthly SEO Investment ($)
               <Tooltip>
                 <TooltipTrigger>
                   <HelpCircle className="h-4 w-4 text-muted-foreground" />
                 </TooltipTrigger>
                 <TooltipContent>
-                  <p>Cuánto inviertes mensualmente en SEO</p>
+                  <p>How much you invest monthly in SEO</p>
                 </TooltipContent>
               </Tooltip>
             </label>
@@ -292,47 +292,47 @@ const ROICalculator = () => {
                 type="number"
                 value={seoInvestment}
                 onChange={(e) => setSeoInvestment(Number(e.target.value))}
-                placeholder="ej: 1500"
+                placeholder="e.g: 1500"
                 className="text-base pr-16"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground font-medium">
-                $/mes
+                $/month
               </span>
             </div>
           </div>
 
           {/* Calculate Button */}
-          <Button
+            <Button
             onClick={calculateROI}
             className="w-full py-4 text-lg font-bold bg-gradient-to-r from-electric-blue to-bright-orange hover:opacity-90 transition-all hover:-translate-y-1"
             size="lg"
           >
             <Calculator className="mr-2 h-5 w-5" />
-            Calcular ROI 📊
+            Calculate ROI 📊
           </Button>
 
           {/* Results */}
           {showResults && (
             <div className="mt-12 space-y-8 animate-in slide-in-from-bottom-4 duration-500">
               <h2 className="text-2xl font-black text-foreground text-center">
-                📈 Resultados de tu Inversión SEO
+                📈 Your SEO Investment Results
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-secondary/30 p-6 rounded-2xl text-center">
-                  <div className="text-sm text-muted-foreground mb-2">Tráfico Estimado/Mes</div>
+                  <div className="text-sm text-muted-foreground mb-2">Estimated Traffic/Month</div>
                   <div className="text-2xl font-bold text-foreground">
                     {results.estimatedTraffic.toLocaleString()}
                   </div>
                 </div>
                 <div className="bg-secondary/30 p-6 rounded-2xl text-center">
-                  <div className="text-sm text-muted-foreground mb-2">Conversiones/Mes</div>
+                  <div className="text-sm text-muted-foreground mb-2">Conversions/Month</div>
                   <div className="text-2xl font-bold text-foreground">
                     {results.conversions.toLocaleString()}
                   </div>
                 </div>
                 <div className="bg-secondary/30 p-6 rounded-2xl text-center">
-                  <div className="text-sm text-muted-foreground mb-2">Ingresos/Mes</div>
+                  <div className="text-sm text-muted-foreground mb-2">Revenue/Month</div>
                   <div className="text-2xl font-bold text-electric-blue">
                     ${results.revenue.toLocaleString()}
                   </div>
@@ -347,7 +347,7 @@ const ROICalculator = () => {
 
               {/* ROI Meter */}
               <div className="bg-secondary/30 p-6 rounded-2xl">
-                <h3 className="text-lg font-bold text-foreground mb-4">Calidad del ROI</h3>
+                <h3 className="text-lg font-bold text-foreground mb-4">ROI Quality</h3>
                 <div className="relative h-10 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 rounded-full overflow-hidden">
                   <div 
                     className="absolute top-1/2 transform -translate-y-1/2 w-1 h-8 bg-black rounded-full transition-all duration-500"
@@ -355,15 +355,15 @@ const ROICalculator = () => {
                   />
                 </div>
                 <div className="flex justify-between text-sm text-muted-foreground mt-2">
-                  <span>Bajo</span>
-                  <span>Medio</span>
-                  <span>Excelente</span>
+                  <span>Low</span>
+                  <span>Medium</span>
+                  <span>Excellent</span>
                 </div>
               </div>
 
               {/* Detailed Analysis */}
               <div className="bg-secondary/30 p-6 rounded-2xl">
-                <h3 className="text-lg font-bold text-foreground mb-4">💡 Análisis Detallado</h3>
+                <h3 className="text-lg font-bold text-foreground mb-4">💡 Detailed Analysis</h3>
                 <ul className="space-y-3 text-sm text-muted-foreground">
                   {getROIAnalysis().map((item, index) => (
                     <li key={index} className="leading-relaxed">{item}</li>
@@ -379,7 +379,7 @@ const ROICalculator = () => {
                   className="border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-white"
                 >
                   <Download className="mr-2 h-4 w-4" />
-                  📥 Exportar Reporte PDF
+                  📥 Export PDF Report
                 </Button>
               </div>
             </div>

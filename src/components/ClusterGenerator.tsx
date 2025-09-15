@@ -126,24 +126,24 @@ const ClusterGenerator = () => {
   const getContentByDepth = (topic: string) => {
     if (contentDepth === 'beginner') {
       return [
-        `Introducción a ${topic}`,
-        `${topic} para principiantes`,
-        `Errores comunes en ${topic}`
+        `Introduction to ${topic}`,
+        `${topic} for beginners`,
+        `Common mistakes in ${topic}`
       ];
     } else if (contentDepth === 'intermediate') {
       return [
-        `Guía completa de ${topic}`,
-        `Mejores prácticas de ${topic}`,
-        `Herramientas para ${topic}`,
-        `Casos de éxito en ${topic}`
+        `Complete guide to ${topic}`,
+        `Best practices for ${topic}`,
+        `Tools for ${topic}`,
+        `Success cases in ${topic}`
       ];
     } else {
       return [
-        `Estrategias avanzadas de ${topic}`,
-        `${topic}: Análisis profundo`,
-        `Innovaciones en ${topic}`,
-        `ROI y métricas de ${topic}`,
-        `Futuro de ${topic}`
+        `Advanced strategies for ${topic}`,
+        `${topic}: Deep analysis`,
+        `Innovations in ${topic}`,
+        `ROI and metrics for ${topic}`,
+        `Future of ${topic}`
       ];
     }
   };
@@ -194,29 +194,29 @@ const ClusterGenerator = () => {
               <Target className="h-8 w-8 text-electric-blue" />
             </div>
             <h2 className="font-black text-2xl text-foreground mb-2">
-              Configuración del Cluster
+              Cluster Configuration
             </h2>
             <p className="font-body text-muted-foreground">
-              Define los parámetros para generar tu cluster temático
+              Define the parameters to generate your topic cluster
             </p>
           </div>
 
           <div className="space-y-6">
             <div className="space-y-3">
               <label className="font-semibold text-foreground">
-                Tema Principal (Pillar Page)
+                Main Topic (Pillar Page)
               </label>
               <Input
                 value={mainTopic}
                 onChange={(e) => setMainTopic(e.target.value)}
-                placeholder="ej: Marketing Digital"
+                placeholder="e.g: Digital Marketing"
                 className="text-base"
               />
             </div>
 
             <div className="space-y-3">
               <label className="font-semibold text-foreground">
-                Industria o Nicho
+                Industry or Niche
               </label>
               <div className="flex flex-wrap gap-2">
                 {industries.map((industry) => (
@@ -239,33 +239,33 @@ const ClusterGenerator = () => {
 
             <div className="space-y-3">
               <label className="font-semibold text-foreground">
-                Número de Subtemas
+                Number of Subtopics
               </label>
               <Select value={subtopicCount} onValueChange={setSubtopicCount}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="6">6 subtemas (Básico)</SelectItem>
-                  <SelectItem value="8">8 subtemas (Recomendado)</SelectItem>
-                  <SelectItem value="10">10 subtemas (Completo)</SelectItem>
-                  <SelectItem value="12">12 subtemas (Avanzado)</SelectItem>
+                  <SelectItem value="6">6 subtopics (Basic)</SelectItem>
+                  <SelectItem value="8">8 subtopics (Recommended)</SelectItem>
+                  <SelectItem value="10">10 subtopics (Complete)</SelectItem>
+                  <SelectItem value="12">12 subtopics (Advanced)</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             <div className="space-y-3">
               <label className="font-semibold text-foreground">
-                Profundidad del Contenido
+                Content Depth
               </label>
               <Select value={contentDepth} onValueChange={setContentDepth}>
                 <SelectTrigger>
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="beginner">Principiante</SelectItem>
-                  <SelectItem value="intermediate">Intermedio</SelectItem>
-                  <SelectItem value="advanced">Avanzado</SelectItem>
+                  <SelectItem value="beginner">Beginner</SelectItem>
+                  <SelectItem value="intermediate">Intermediate</SelectItem>
+                  <SelectItem value="advanced">Advanced</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -279,12 +279,12 @@ const ClusterGenerator = () => {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                  Generando cluster...
+                  Generating cluster...
                 </>
               ) : (
                 <>
                   <Target className="mr-2 h-5 w-5" />
-                  Generar Cluster Temático 🚀
+                  Generate Topic Cluster 🚀
                 </>
               )}
             </Button>
@@ -295,7 +295,7 @@ const ClusterGenerator = () => {
         {showResults && (
           <div className="bg-card border border-border rounded-3xl p-8 shadow-lg animate-in slide-in-from-bottom-4 duration-500">
             <h2 className="font-black text-2xl text-foreground mb-6 text-center">
-              Tu Cluster Temático
+              Your Topic Cluster
             </h2>
 
             {/* Stats */}
@@ -304,25 +304,25 @@ const ClusterGenerator = () => {
                 <div className="text-2xl font-bold text-electric-blue">
                   {clusterData.totalPages}
                 </div>
-                <div className="text-sm text-muted-foreground">Páginas Totales</div>
+                <div className="text-sm text-muted-foreground">Total Pages</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-electric-blue">
                   {clusterData.totalLinks}
                 </div>
-                <div className="text-sm text-muted-foreground">Enlaces Internos</div>
+                <div className="text-sm text-muted-foreground">Internal Links</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-electric-blue">
                   {clusterData.contentHours}h
                 </div>
-                <div className="text-sm text-muted-foreground">Horas de Contenido</div>
+                <div className="text-sm text-muted-foreground">Content Hours</div>
               </div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-electric-blue">
                   {clusterData.authorityScore}%
                 </div>
-                <div className="text-sm text-muted-foreground">Score Autoridad</div>
+                <div className="text-sm text-muted-foreground">Authority Score</div>
               </div>
             </div>
 
@@ -365,16 +365,16 @@ const ClusterGenerator = () => {
                 variant="outline"
                 className="flex-1 border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-white"
               >
-                <FileText className="mr-2 h-4 w-4" />
-                Exportar Plan
+              <FileText className="ml-2 h-4 w-4" />
+              Export Plan
               </Button>
               <Button
-                onClick={() => alert('Mapa Mental generado! (Funcionalidad en desarrollo)')}
+                onClick={() => alert('Mind Map generated! (Feature in development)')}
                 variant="outline"
                 className="flex-1 border-bright-orange text-bright-orange hover:bg-bright-orange hover:text-white"
               >
                 <Map className="mr-2 h-4 w-4" />
-                Mapa Mental
+                Mind Map
               </Button>
             </div>
           </div>
@@ -386,33 +386,33 @@ const ClusterGenerator = () => {
         <div className="mt-12 bg-secondary/30 rounded-3xl p-8">
           <h3 className="font-bold text-xl text-foreground mb-6 flex items-center">
             <FileText className="mr-2 h-5 w-5 text-electric-blue" />
-            Estructura de Contenido Detallada
+            Detailed Content Structure
           </h3>
 
           <div className="space-y-6">
             {/* Pillar Page */}
             <div className="bg-card border border-border rounded-2xl p-6 border-l-4 border-l-electric-blue">
               <div className="font-bold text-lg text-electric-blue mb-4">
-                📌 Página Pilar: {mainTopic}
+                📌 Pillar Page: {mainTopic}
               </div>
               <ul className="space-y-3 text-sm">
                 <li className="flex items-center gap-3">
                   <span className="px-2 py-1 bg-electric-blue text-white rounded text-xs font-bold">
-                    PILAR
+                    PILLAR
                   </span>
-                  <span>Guía definitiva de {mainTopic} (5000+ palabras)</span>
+                  <span>Comprehensive guide to {mainTopic} (5000+ words)</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="px-2 py-1 bg-bright-orange text-white rounded text-xs font-bold">
                     SEO
                   </span>
-                  <span>Keyword principal: "{mainTopic}" + variaciones</span>
+                  <span>Main keyword: "{mainTopic}" + variations</span>
                 </li>
                 <li className="flex items-center gap-3">
                   <span className="px-2 py-1 bg-neutral-gray text-white rounded text-xs font-bold">
-                    ESTRUCTURA
+                    STRUCTURE
                   </span>
-                  <span>Tabla de contenidos + Enlaces a todos los subtemas</span>
+                  <span>Table of contents + Links to all subtopics</span>
                 </li>
               </ul>
             </div>

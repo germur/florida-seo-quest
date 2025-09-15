@@ -30,10 +30,10 @@ const TitleAnalyzer = () => {
   ];
 
   const examples = [
-    'Guía Completa de SEO 2025: Estrategias que Funcionan',
-    '10 Mejores Herramientas SEO Gratis',
-    'Cómo Aumentar el Tráfico Web en 30 Días [Probado]',
-    'Marketing Digital'
+    'Complete SEO Guide 2025: Strategies That Work',
+    '10 Best Free SEO Tools',
+    'How to Increase Web Traffic in 30 Days [Proven]',
+    'Digital Marketing'
   ];
 
   const getCharacterStatus = () => {
@@ -49,7 +49,7 @@ const TitleAnalyzer = () => {
 
   const analyzeTitle = async () => {
     if (!title.trim()) {
-      alert('Por favor, ingresa un título para analizar');
+      alert('Please enter a title to analyze');
       return;
     }
 
@@ -68,34 +68,34 @@ const TitleAnalyzer = () => {
         analysis.push({
           type: 'success',
           icon: CheckCircle,
-          title: 'Longitud Óptima',
-          desc: `${length} caracteres - Perfecto para desktop y móvil`
+          title: 'Optimal Length',
+          desc: `${length} characters - Perfect for desktop and mobile`
         });
       } else if (length > 60) {
         score += 10;
         analysis.push({
           type: 'warning',
           icon: AlertTriangle,
-          title: 'Título Muy Largo',
-          desc: `${length} caracteres - Google lo cortará en resultados`
+          title: 'Title Too Long',
+          desc: `${length} characters - Google will truncate in results`
         });
-        suggestions.push(`Reduce el título a 50-60 caracteres (actualmente ${length})`);
+        suggestions.push(`Reduce title to 50-60 characters (currently ${length})`);
       } else if (length < 30) {
         score += 5;
         analysis.push({
           type: 'error',
           icon: XCircle,
-          title: 'Título Muy Corto',
-          desc: `${length} caracteres - No aprovechas el espacio disponible`
+          title: 'Title Too Short',
+          desc: `${length} characters - Not using available space`
         });
-        suggestions.push('Añade más información relevante al título');
+        suggestions.push('Add more relevant information to the title');
       } else {
         score += 15;
         analysis.push({
           type: 'warning',
           icon: AlertTriangle,
-          title: 'Longitud Subóptima',
-          desc: `${length} caracteres - Algo corto pero aceptable`
+          title: 'Suboptimal Length',
+          desc: `${length} characters - Somewhat short but acceptable`
         });
       }
 
@@ -108,17 +108,17 @@ const TitleAnalyzer = () => {
         analysis.push({
           type: 'success',
           icon: Sparkles,
-          title: 'Palabras de Poder',
-          desc: `Encontradas ${foundPowerWords.length} palabras que aumentan CTR`
+          title: 'Power Words',
+          desc: `Found ${foundPowerWords.length} words that increase CTR`
         });
       } else {
         analysis.push({
           type: 'warning',
           icon: AlertTriangle,
-          title: 'Sin Palabras de Poder',
-          desc: 'Considera añadir palabras que generen acción'
+          title: 'No Power Words',
+          desc: 'Consider adding words that generate action'
         });
-        suggestions.push('Añade palabras como: gratis, guía, mejor, cómo, nuevo');
+        suggestions.push('Add words like: free, guide, best, how, new');
       }
 
       // 3. Numbers analysis
@@ -128,11 +128,11 @@ const TitleAnalyzer = () => {
         analysis.push({
           type: 'success',
           icon: Hash,
-          title: 'Contiene Números',
-          desc: 'Los números aumentan el CTR en un 36%'
+          title: 'Contains Numbers',
+          desc: 'Numbers increase CTR by 36%'
         });
       } else {
-        suggestions.push('Considera añadir números (ej: "10 formas", "2025", "5 pasos")');
+        suggestions.push('Consider adding numbers (e.g: "10 ways", "2025", "5 steps")');
       }
 
       // 4. Emotional analysis
@@ -142,8 +142,8 @@ const TitleAnalyzer = () => {
         analysis.push({
           type: 'success',
           icon: Heart,
-          title: 'Impacto Emocional',
-          desc: 'Genera curiosidad y engagement'
+          title: 'Emotional Impact',
+          desc: 'Generates curiosity and engagement'
         });
       }
 
@@ -154,11 +154,11 @@ const TitleAnalyzer = () => {
         analysis.push({
           type: 'success',
           icon: Target,
-          title: 'Uso de Corchetes',
-          desc: 'Aumenta CTR en un 38% según estudios'
+          title: 'Use of Brackets',
+          desc: 'Increases CTR by 38% according to studies'
         });
       } else {
-        suggestions.push('Prueba añadir [Actualizado], [Guía], o (2025) al final');
+        suggestions.push('Try adding [Updated], [Guide], or (2025) at the end');
       }
 
       // 6. Keyword position (assuming good position for longer titles)
@@ -168,7 +168,7 @@ const TitleAnalyzer = () => {
           type: 'success',
           icon: Target,
           title: 'Keyword Position',
-          desc: 'Asumiendo keyword al inicio (mejor práctica)'
+          desc: 'Assuming keyword at beginning (best practice)'
         });
       }
 
@@ -176,23 +176,23 @@ const TitleAnalyzer = () => {
       score = Math.min(score, 100);
 
       // Determine label and description
-      let label = 'Necesita Mejoras';
-      let description = 'Tu título necesita optimización';
+      let label = 'Needs Improvement';
+      let description = 'Your title needs optimization';
 
       if (score >= 80) {
-        label = '¡Excelente!';
-        description = 'Tu título está muy bien optimizado';
+        label = 'Excellent!';
+        description = 'Your title is very well optimized';
       } else if (score >= 60) {
-        label = 'Bueno';
-        description = 'Tu título es bueno pero puede mejorar';
+        label = 'Good';
+        description = 'Your title is good but can be improved';
       } else if (score >= 40) {
         label = 'Regular';
-        description = 'Hay varias áreas de mejora';
+        description = 'There are several areas for improvement';
       }
 
       // Default suggestions if none
       if (suggestions.length === 0) {
-        suggestions.push('¡Tu título está muy bien optimizado! 🎉');
+        suggestions.push('Your title is very well optimized! 🎉');
       }
 
       setResults({
@@ -228,15 +228,15 @@ const TitleAnalyzer = () => {
   return (
     <div className="max-w-4xl mx-auto bg-card border border-border rounded-3xl shadow-2xl overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-br from-electric-blue to-bright-orange text-white p-8 text-center">
-        <h1 className="font-black text-3xl md:text-4xl mb-3 flex items-center justify-center gap-3">
-          <Sparkles className="h-8 w-8" />
-          Analizador de Títulos SEO
-        </h1>
-        <p className="text-lg font-medium text-white/90">
-          Optimiza tus títulos para maximizar CTR y rankings en Google
-        </p>
-      </div>
+        <div className="bg-gradient-to-br from-electric-blue to-bright-orange text-white p-8 text-center">
+          <h1 className="font-black text-3xl md:text-4xl mb-3 flex items-center justify-center gap-3">
+            <Sparkles className="h-8 w-8" />
+            SEO Title Analyzer
+          </h1>
+          <p className="text-lg font-medium text-white/90">
+            Optimize your titles to maximize CTR and rankings in Google
+          </p>
+        </div>
 
       {/* Body */}
       <div className="p-8 space-y-8">
@@ -245,7 +245,7 @@ const TitleAnalyzer = () => {
           <Input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Escribe o pega tu título aquí..."
+            placeholder="Write or paste your title here..."
             className="text-xl p-6 text-center font-medium"
             maxLength={100}
           />
@@ -255,7 +255,7 @@ const TitleAnalyzer = () => {
               {title.length} / 60 caracteres
             </span>
             <span className="text-sm text-muted-foreground">
-              Óptimo: 50-60 caracteres
+              Optimal: 50-60 characters
             </span>
           </div>
         </div>
@@ -271,10 +271,10 @@ const TitleAnalyzer = () => {
               className="text-blue-600 text-lg hover:underline block truncate"
               style={{ maxWidth: '100%' }}
             >
-              {title || 'Tu título aparecerá aquí...'}
+              {title || 'Your title will appear here...'}
             </a>
             <div className="text-green-600 text-sm">
-              www.tusitio.com › blog › articulo
+              www.yoursite.com › blog › article
             </div>
           </div>
         </div>
@@ -285,16 +285,16 @@ const TitleAnalyzer = () => {
           disabled={isAnalyzing}
           className="w-full py-4 text-xl font-bold bg-gradient-to-r from-electric-blue to-bright-orange hover:opacity-90 transition-all hover:-translate-y-1"
           size="lg"
-        >
-          {isAnalyzing ? (
-            <>Analizando título...</>
-          ) : (
-            <>
-              <Search className="mr-2 h-6 w-6" />
-              Analizar Título 🔍
-            </>
-          )}
-        </Button>
+          >
+            {isAnalyzing ? (
+              <>Analyzing title...</>
+            ) : (
+              <>
+                <Search className="mr-2 h-6 w-6" />
+                Analyze Title 🔍
+              </>
+            )}
+          </Button>
 
         {/* Results */}
         {showResults && (
@@ -364,7 +364,7 @@ const TitleAnalyzer = () => {
             <div className="bg-electric-blue/10 border border-electric-blue/20 p-6 rounded-2xl">
               <h3 className="font-bold text-lg text-electric-blue mb-4 flex items-center gap-2">
                 <Lightbulb className="h-5 w-5" />
-                Sugerencias de Optimización
+                Optimization Suggestions
               </h3>
               <ul className="space-y-3">
                 {results.suggestions.map((suggestion, index) => (
@@ -380,7 +380,7 @@ const TitleAnalyzer = () => {
             {results.powerWords.length > 0 && (
               <div className="bg-secondary/30 p-6 rounded-2xl">
                 <h4 className="font-bold text-lg text-foreground mb-4">
-                  🔥 Palabras de Poder Detectadas
+                  🔥 Detected Power Words
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {results.powerWords.map((word, index) => (
@@ -400,7 +400,7 @@ const TitleAnalyzer = () => {
         {/* Examples */}
         <div className="bg-secondary/30 p-6 rounded-2xl">
           <h4 className="font-bold text-lg text-foreground mb-4">
-            Prueba estos ejemplos:
+            Try these examples:
           </h4>
           <div className="flex flex-wrap gap-3">
             {examples.map((example, index) => (
