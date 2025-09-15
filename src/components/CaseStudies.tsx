@@ -78,11 +78,25 @@ const CaseStudies = () => {
             <div className="mb-8">
               <DiceRoller />
             </div>
+            
+            {/* Strategic case study navigation */}
+            <div className="grid md:grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
+              <Link to="/case-studies/paramount-property-restoration" className="text-sm text-muted-foreground hover:text-primary transition-colors p-3 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
+                <strong>Property Restoration:</strong> +250% Traffic Growth
+              </Link>
+              <Link to="/case-studies/craftd-london" className="text-sm text-muted-foreground hover:text-primary transition-colors p-3 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
+                <strong>E-commerce:</strong> 50+ Keywords Top 10
+              </Link>
+              <Link to="/case-studies/edu1st-preschools" className="text-sm text-muted-foreground hover:text-primary transition-colors p-3 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
+                <strong>Education:</strong> +80% Local Actions
+              </Link>
+            </div>
+            
             <Link 
               to="/case-studies" 
-              className="inline-flex items-center text-foreground hover:text-primary transition-colors"
+              className="inline-flex items-center text-foreground hover:text-primary transition-colors font-medium"
             >
-              View all case studies
+              View all case studies & results
               <ArrowUpRight className="ml-1 h-4 w-4" />
             </Link>
           </div>

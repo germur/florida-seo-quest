@@ -45,13 +45,35 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex justify-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <Button variant="hero" size="lg" className="group" asChild>
               <a href="tel:+573046807443">
                 Book a Consultation
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
+            <Button variant="outline" size="lg" className="group" asChild>
+              <Link to="/case-studies">
+                See Success Stories
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+          </div>
+
+          {/* Quick Navigation Links */}
+          <div className="flex flex-wrap justify-center gap-6 mb-16 text-sm">
+            <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+              SEO Strategy (MAES)
+            </Link>
+            <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+              Technical SEO Audit
+            </Link>
+            <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+              SEO Consulting
+            </Link>
+            <Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+              Free SEO Tools
+            </Link>
           </div>
 
           {/* Floating Stats Cards */}

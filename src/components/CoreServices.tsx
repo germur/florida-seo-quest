@@ -58,12 +58,33 @@ const CoreServices = () => {
                 <h3 className="text-2xl font-semibold text-primary mb-4 font-poppins">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed mb-6 font-inter">{service.description}</p>
                 
-                <Button variant="outline" className="group w-full justify-between" asChild>
-                  <Link to="/services">
-                    {service.cta}
-                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
+                <div className="space-y-3">
+                  <Button variant="outline" className="group w-full justify-between" asChild>
+                    <Link to="/services">
+                      {service.cta}
+                      <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                  </Button>
+                  
+                  {/* Contextual links based on service */}
+                  <div className="text-sm text-center">
+                    {index === 0 && (
+                      <Link to="/case-studies/paramount-property-restoration" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
+                        See MAES Framework Results →
+                      </Link>
+                    )}
+                    {index === 1 && (
+                      <Link to="/case-studies/puff-cleaning" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
+                        View Technical SEO Case →
+                      </Link>
+                    )}
+                    {index === 2 && (
+                      <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
+                        Schedule Strategy Call →
+                      </Link>
+                    )}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

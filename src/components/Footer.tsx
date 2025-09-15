@@ -22,6 +22,15 @@ const Footer = () => {
     { name: "Cluster Generator", href: "/resources#cluster-generator" },
   ];
 
+  const caseStudyLinks = [
+    { name: "Paramount (Property)", href: "/case-studies/paramount-property-restoration" },
+    { name: "CRAFTD London (E-comm)", href: "/case-studies/craftd-london" },
+    { name: "Flo Car Rental (Miami)", href: "/case-studies/flo-car-rental" },
+    { name: "Puff Cleaning (Local)", href: "/case-studies/puff-cleaning" },
+    { name: "Edu1st (Education)", href: "/case-studies/edu1st-preschools" },
+    { name: "LE GRAMME (Luxury)", href: "/case-studies/legramme" },
+  ];
+
   const legalLinks = [
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
@@ -33,7 +42,7 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         {/* Main Footer Content */}
         <div className="py-16">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-12">
             {/* Company Info */}
             <div className="lg:col-span-1">
               <Link to="/" className="inline-block mb-6">
@@ -96,6 +105,23 @@ const Footer = () => {
                     <Link 
                       to={link.href} 
                       className="text-primary-foreground/80 hover:text-primary-foreground hover:text-electric-blue transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Case Studies */}
+            <div>
+              <h3 className="text-lg font-semibold mb-6 text-primary-foreground">Success Stories</h3>
+              <ul className="space-y-3">
+                {caseStudyLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.href} 
+                      className="text-primary-foreground/80 hover:text-primary-foreground hover:text-electric-blue transition-colors text-sm"
                     >
                       {link.name}
                     </Link>
