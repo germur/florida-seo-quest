@@ -24,22 +24,8 @@ const CaseStudies = () => {
   ];
 
   return (
-  <section className="py-24 bg-gradient-to-br from-secondary/30 to-background relative overflow-hidden">
-    {/* Brand Pattern Background */}
-    <div className="absolute inset-0 opacity-8">
-      <div 
-        className="absolute top-0 left-0 w-full h-full"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 25% 25%, hsl(var(--teal)) 8%, transparent 50%),
-            radial-gradient(circle at 75% 75%, hsl(var(--bright-orange)) 6%, transparent 40%)
-          `,
-          backgroundSize: '200px 200px'
-        }}
-      />
-    </div>
-    
-    <div className="container mx-auto px-6 relative z-10">
+    <section className="py-24 bg-gradient-to-br from-secondary/30 to-background">
+      <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-black text-primary text-center mb-16">
             Real Results, Real Businesses
