@@ -21,8 +21,8 @@ const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps)
   const allArticles: Article[] = [
     {
       slug: "seo-no-murio-hype-estrategia",
-      title: "SEO no murió: del hype a la estrategia que sí funciona",
-      excerpt: "Un análisis profundo sobre las modas del SEO y qué estrategias realmente funcionan en 2025.",
+      title: "SEO Didn't Die: From Hype to Strategy That Actually Works",
+      excerpt: "A deep analysis of SEO trends and what strategies actually work in 2025.",
       readTime: "12 min",
       category: "SEO Strategy",
       tags: ["SEO Myths", "Voice Search", "Visual Search", "AEO"]

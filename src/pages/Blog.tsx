@@ -8,13 +8,9 @@ const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [
-    { id: "all", name: "All", count: 26 },
-    { id: "seo-strategy", name: "SEO Strategy", count: 9, color: "teal" },
-    { id: "technical-seo", name: "Technical SEO", count: 6, color: "electric-blue" },
-    { id: "seo-ai", name: "SEO with AI", count: 4, color: "bright-orange" },
-    { id: "web-development", name: "Web Development", count: 1, color: "purple" },
-    { id: "florida-seo", name: "Florida SEO", count: 3, color: "green" },
-    { id: "content-strategy", name: "Content Strategy", count: 3, color: "yellow" }
+    { id: "all", name: "All", count: 2 },
+    { id: "seo-strategy", name: "SEO Strategy", count: 1, color: "electric-blue" },
+    { id: "web-development", name: "Web Development", count: 1, color: "bright-orange" }
   ];
 
   const posts = [
@@ -30,73 +26,13 @@ const Blog = () => {
     },
     {
       id: "seo-no-murio-hype-estrategia",
-      title: "SEO no murió: del hype a la estrategia que sí funciona",
-      excerpt: "Análisis crítico de las modas del marketing digital: voz, visual y AEO. Por qué el SEO real sigue siendo lo que Google quiere desde hace 20 años.",
+      title: "SEO Didn't Die: From Hype to Strategy That Actually Works",
+      excerpt: "Critical analysis of digital marketing trends: voice, visual and AEO. Why real SEO remains what Google has wanted for 20 years.",
       category: "seo-strategy",
       readTime: "12 min",
       date: "2025-01-15",
       featured: true,
       tags: ["SEO Myths", "Voice Search", "Visual Search", "AEO", "SEO Strategy"]
-    },
-    {
-      id: "topical-authority-2025",
-      title: "Topical Authority: Why It Wins in 2025",
-      excerpt: "Topical authority has become the most important ranking factor. Discover how to build it strategically.",
-      category: "seo-strategy",
-      readTime: "8 min",
-      date: "2024-12-15",
-      featured: true,
-      tags: ["Topical Authority", "SEO Strategy", "Content Architecture"]
-    },
-    {
-      id: "ai-seo-practical", 
-      title: "AI in SEO: Practical Uses (No Hype)",
-      excerpt: "Real AI use cases in SEO that actually work. No buzzwords, just practical applications that generate results.",
-      category: "seo-ai",
-      readTime: "6 min", 
-      date: "2024-12-10",
-      featured: true,
-      tags: ["AI", "Automation", "Workflow"]
-    },
-    {
-      id: "florida-seo-2025",
-      title: "Florida SEO: Strategies That Work",
-      excerpt: "Specific strategies for the Florida market. From Miami to Jacksonville, what works in the Sunshine State.",
-      category: "florida-seo",
-      readTime: "10 min",
-      date: "2024-12-05", 
-      featured: false,
-      tags: ["Local SEO", "Florida Market", "Geographic SEO"]
-    },
-    {
-      id: "core-web-vitals-2025",
-      title: "Core Web Vitals: Complete Guide 2025",
-      excerpt: "Everything you need to know about Core Web Vitals and how to optimize them for better rankings.",
-      category: "technical-seo",
-      readTime: "12 min",
-      date: "2024-11-28",
-      featured: false,
-      tags: ["Core Web Vitals", "Technical SEO", "Page Speed"]
-    },
-    {
-      id: "content-clusters-strategy",
-      title: "Content Clusters: Complete Implementation Guide",
-      excerpt: "How to build content clusters that generate topical authority and sustainable organic traffic.",
-      category: "content-strategy",
-      readTime: "9 min",
-      date: "2024-11-20",
-      featured: false,
-      tags: ["Content Clusters", "Topical Authority", "Content Strategy"]
-    },
-    {
-      id: "seo-audit-checklist",
-      title: "SEO Audit: Complete Checklist 2025",
-      excerpt: "A comprehensive checklist for conducting professional SEO audits that identify real growth opportunities.",
-      category: "seo-strategy",
-      readTime: "15 min",
-      date: "2024-11-15",
-      featured: false,
-      tags: ["SEO Audit", "Checklist", "SEO Analysis"]
     }
   ];
 

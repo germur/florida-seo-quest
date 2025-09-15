@@ -1,9 +1,10 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Clock, Tag, Calendar, List, User, Eye } from "lucide-react";
+import { ArrowLeft, Clock, Tag, Calendar, List, User, Eye, Home, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import SocialShare from "@/components/SocialShare";
 import RelatedArticles from "@/components/RelatedArticles";
+import { useEffect } from "react";
 
 const BlogPost = () => {
   const { slug } = useParams();
@@ -16,6 +17,35 @@ const BlogPost = () => {
       readTime: "10 min",
       category: "Web Development",
       tags: ["WordPress", "Web Development", "Performance", "CMS", "Maintenance"],
+      metaTitle: "WordPress: Affordable Solution or Anchor of Problems? | Calvo Creativo",
+      metaDescription: "WordPress powers 40% of websites, but is it really the ideal solution? A critical analysis of hidden costs, maintenance burdens, and performance issues.",
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "WordPress: Affordable Solution or Anchor of Problems?",
+        "description": "WordPress powers 40% of websites, but is it really the ideal solution? A critical analysis of hidden costs, maintenance burdens, and performance issues.",
+        "author": {
+          "@type": "Person",
+          "name": "Calvo Creativo",
+          "url": "https://calvocreativo.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Calvo Creativo",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://calvocreativo.com/logo.png"
+          }
+        },
+        "datePublished": "2025-01-20",
+        "dateModified": "2025-01-20",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://calvocreativo.com/blog/wordpress-affordable-solution-or-anchor"
+        },
+        "articleSection": "Web Development",
+        "keywords": ["WordPress", "CMS", "Web Development", "Performance", "Website Maintenance"]
+      },
       content: `
         <div class="table-of-contents bg-gradient-to-br from-purple/5 to-purple/10 border border-purple/20 rounded-2xl p-8 mb-12">
           <div class="flex items-center gap-3 mb-6">
@@ -600,11 +630,40 @@ const BlogPost = () => {
       `
     },
     "seo-no-murio-hype-estrategia": {
-      title: "SEO no murió: del hype a la estrategia que sí funciona",
+      title: "SEO Didn't Die: From Hype to Strategy That Actually Works",
       date: "2025-01-15",
       readTime: "12 min",
       category: "SEO Strategy",
       tags: ["SEO Myths", "Voice Search", "Visual Search", "AEO", "SEO Strategy"],
+      metaTitle: "SEO Didn't Die: From Hype to Strategy That Actually Works | Calvo Creativo",
+      metaDescription: "Critical analysis of digital marketing trends: voice, visual and AEO. Discover why real SEO remains what Google has wanted for 20 years and avoid falling for marketing hype.",
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "SEO Didn't Die: From Hype to Strategy That Actually Works",
+        "description": "Critical analysis of digital marketing trends: voice, visual and AEO. Discover why real SEO remains what Google has wanted for 20 years.",
+        "author": {
+          "@type": "Person",
+          "name": "Calvo Creativo",
+          "url": "https://calvocreativo.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Calvo Creativo",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://calvocreativo.com/logo.png"
+          }
+        },
+        "datePublished": "2025-01-15",
+        "dateModified": "2025-01-15",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://calvocreativo.com/blog/seo-no-murio-hype-estrategia"
+        },
+        "articleSection": "SEO Strategy",
+        "keywords": ["SEO", "Digital Marketing", "Voice Search", "Visual Search", "AEO", "Marketing Strategy"]
+      },
       content: `
         <div class="table-of-contents bg-gradient-to-br from-electric-blue/5 to-electric-blue/10 border border-electric-blue/20 rounded-2xl p-8 mb-12">
           <div class="flex items-center gap-3 mb-6">
@@ -1778,14 +1837,6 @@ const BlogPost = () => {
           </div>
         </section>
       `
-    },
-    "topical-authority-2025": {
-      title: "Topical Authority: Why It Wins in 2025",
-      date: "2024-12-15",
-      readTime: "8 min",
-      category: "SEO Strategy",
-      tags: ["Topical Authority", "SEO Strategy", "Content Architecture"],
-      content: "<p>Content coming soon...</p>"
     }
   };
 
@@ -1813,15 +1864,47 @@ const BlogPost = () => {
     <main className="min-h-screen pt-16">
       <Header />
       
+      {/* Breadcrumbs */}
+      <nav className="py-6 bg-secondary/30">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <ol className="flex items-center space-x-2 text-sm">
+              <li>
+                <Link 
+                  to="/" 
+                  className="flex items-center text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <Home className="h-4 w-4 mr-1" />
+                  Home
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <ChevronRight className="h-4 w-4 text-muted-foreground mx-2" />
+                <Link 
+                  to="/blog" 
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <ChevronRight className="h-4 w-4 text-muted-foreground mx-2" />
+                <span className="text-primary font-medium">{post.title}</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </nav>
+      
       {/* Article Header */}
       <article className="py-16">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
-            {/* Breadcrumb */}
+            {/* Back Navigation */}
             <nav className="mb-8">
               <Link 
                 to="/blog" 
-                className="flex items-center text-muted-foreground hover:text-primary transition-colors"
+                className="inline-flex items-center text-muted-foreground hover:text-primary transition-colors"
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Blog
@@ -1835,7 +1918,7 @@ const BlogPost = () => {
               </span>
               <span className="flex items-center gap-1">
                 <Calendar className="h-4 w-4" />
-                {new Date(post.date).toLocaleDateString('es-ES', { 
+                {new Date(post.date).toLocaleDateString('en-US', { 
                   year: 'numeric', 
                   month: 'long', 
                   day: 'numeric' 
@@ -1874,9 +1957,9 @@ const BlogPost = () => {
             {/* Social Share */}
             <div className="mt-12">
               <SocialShare 
-                url={`/blog/${slug}`}
+                url={`https://calvocreativo.com/blog/${slug}`}
                 title={post.title}
-                description={`Un artículo sobre ${post.category.toLowerCase()}`}
+                description={post.metaDescription}
               />
             </div>
 
@@ -1889,21 +1972,21 @@ const BlogPost = () => {
             </div>
 
             {/* CTA Section */}
-            <div className="mt-16 p-8 bg-gradient-to-br from-teal/5 to-electric-blue/5 border border-border rounded-2xl text-center">
+            <div className="mt-16 p-8 bg-gradient-to-br from-electric-blue/5 to-bright-orange/5 border border-border rounded-2xl text-center">
               <h3 className="text-2xl font-bold text-primary mb-4">
-                ¿Te gustó este artículo?
+                Did you like this article?
               </h3>
               <p className="text-muted-foreground mb-6">
-                Descubre cómo aplicar estas estrategias en tu negocio con una consulta personalizada.
+                Discover how to apply these strategies to your business with a personalized consultation.
               </p>
               <Button size="lg" className="mr-4" asChild>
                 <Link to="/contact">
-                  Agenda tu consulta
+                  Schedule your consultation
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild>
                 <Link to="/blog">
-                  Ver más artículos
+                  View more articles
                 </Link>
               </Button>
             </div>
