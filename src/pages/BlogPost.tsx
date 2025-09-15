@@ -17,35 +17,34 @@ const BlogPost = () => {
       content: `
         <h2>🧭 Índice</h2>
         <ul>
-          <li>SEO no murió: del hype a la estrategia que sí funciona</li>
-          <li>Cuando el humo se disfrazó de futuro</li>
-          <li>Cómo se fabrica el hype (y por qué nos lo creemos)</li>
-          <li>Acrónimos que venden humo: AEO y compañía</li>
-          <li>Predicciones virales vs. realidad: el patrón que se repite</li>
-          <li>Lo que sí sirve (y cuándo)</li>
-          <li>La regla que Google no ha cambiado en 20 años</li>
-          <li>¿Innovación real o espejismo de marketing?</li>
-          <li>Voz: promesas gigantes, impacto limitado</li>
-          <li>Búsqueda visual: revolución parcial, oportunidad real</li>
-          <li>AEO: ¿revolución costosa o etiqueta bonita?</li>
-          <li>Conclusión: el SEO que sí funciona en 2025 (y en 2030)</li>
+          <li><a href="#cuando-el-humo-se-disfraza-de-futuro">Cuando el humo se disfrazó de futuro</a></li>
+          <li><a href="#como-se-fabrica-el-hype">Cómo se fabrica el hype (y por qué nos lo creemos)</a></li>
+          <li><a href="#acronimos-que-venden-humo">Acrónimos que venden humo: AEO y compañía</a></li>
+          <li><a href="#predicciones-virales-vs-realidad">Predicciones virales vs. realidad: el patrón que se repite</a></li>
+          <li><a href="#lo-que-si-sirve">Lo que sí sirve (y cuándo)</a></li>
+          <li><a href="#la-regla-que-google-no-ha-cambiado">La regla que Google no ha cambiado en 20 años</a></li>
+          <li><a href="#innovacion-real-o-espejismo">¿Innovación real o espejismo de marketing?</a></li>
+          <li><a href="#voz-promesas-gigantes">Voz: promesas gigantes, impacto limitado</a></li>
+          <li><a href="#busqueda-visual">Búsqueda visual: revolución parcial, oportunidad real</a></li>
+          <li><a href="#aeo-revolucion-costosa">AEO: ¿revolución costosa o etiqueta bonita?</a></li>
+          <li><a href="#conclusion">Conclusión: el SEO que sí funciona en 2025 (y en 2030)</a></li>
         </ul>
 
-        <h2>Cuando el humo se disfrazó de futuro</h2>
+        <h2 id="cuando-el-humo-se-disfraza-de-futuro">Cuando el humo se disfrazó de futuro</h2>
         <p>En 2016, Gartner lanzó un titular que corrió como pólvora: "Para 2020, el 30% de las búsquedas serán sin pantalla." Un año después, ComScore encendió más fuego: "La mitad de las búsquedas se harán por voz."</p>
         
         <p>La promesa sonaba irresistible. ¿Quién no querría adelantarse a la revolución?</p>
         
         <p>Los medios lo amplificaron. Los gurús del marketing lo presentaron en conferencias como la próxima extinción del SEO tradicional. Y miles de empresas movieron presupuestos para subirse a la ola.</p>
 
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8">
+        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
           <p><strong>📌 El contraste duele:</strong></p>
           <p>En 2020, menos del 20% de los usuarios en EE.UU. usaban la voz como canal habitual (DemandSage, 2025).</p>
           <p>Y la mayoría lo hacía para lo trivial: "Alexa, pon música", "Siri, ¿qué clima hace hoy?".</p>
-          <p>¿Dónde quedó la revolución?</p>
+          <p class="mb-0">¿Dónde quedó la revolución?</p>
         </div>
 
-        <h2>Cómo se fabrica el hype (y por qué nos lo creemos)</h2>
+        <h2 id="como-se-fabrica-el-hype">Cómo se fabrica el hype (y por qué nos lo creemos)</h2>
         
         <p>Lo mismo ocurrió con la búsqueda visual.</p>
         
@@ -63,7 +62,7 @@ const BlogPost = () => {
         
         <p>El hype brilla como un fuego artificial. Ruidoso, deslumbrante, pero efímero.</p>
 
-        <h2>Acrónimos que venden humo: AEO y compañía</h2>
+        <h2 id="acronimos-que-venden-humo">Acrónimos que venden humo: AEO y compañía</h2>
         
         <p>Después vino el AEO (Answer Engine Optimization).</p>
         
@@ -77,14 +76,14 @@ const BlogPost = () => {
         
         <p>El AEO terminó siendo lo que muchos sospechaban: más humo de marketing que revolución tecnológica.</p>
 
-        <h2>Predicciones virales vs. realidad: el patrón que se repite</h2>
+        <h2 id="predicciones-virales-vs-realidad">Predicciones virales vs. realidad: el patrón que se repite</h2>
         
         <p>Cada una de estas modas se repite como un patrón:</p>
-        <ol>
+        <ul>
           <li>Primero, una predicción con cifras redondas.</li>
           <li>Luego, titulares virales y consultorías premium.</li>
           <li>Finalmente, la realidad mucho más modesta.</li>
-        </ol>
+        </ul>
         
         <p>👉 Hype, hype, hype.<br>
         👉 Datos, datos, datos.<br>
@@ -92,7 +91,7 @@ const BlogPost = () => {
         
         <p>El SEO parece vivir en un eterno déjà vu de promesas incumplidas.</p>
 
-        <h2>Lo que sí sirve (y cuándo)</h2>
+        <h2 id="lo-que-si-sirve">Lo que sí sirve (y cuándo)</h2>
         
         <p>Decir que la voz o lo visual "no sirven" sería tan irresponsable como las predicciones que criticamos.</p>
         
@@ -104,7 +103,7 @@ const BlogPost = () => {
         
         <p>El problema no está en la tecnología. El problema está en venderla como si fuera el nuevo evangelio, cuando en realidad son piezas específicas dentro de un rompecabezas mucho más amplio.</p>
 
-        <h2>La regla que Google no ha cambiado en 20 años</h2>
+        <h2 id="la-regla-que-google-no-ha-cambiado">La regla que Google no ha cambiado en 20 años</h2>
         
         <p>Al final del día, Google quiere lo mismo desde hace 20 años: que resuelvas lo que busca tu usuario (Google Developers – Search Central).</p>
         
@@ -116,7 +115,7 @@ const BlogPost = () => {
         
         <p>Pero la disciplina permanece: resolver la necesidad del usuario mejor que nadie.</p>
 
-        <h2>¿Innovación real o espejismo de marketing?</h2>
+        <h2 id="innovacion-real-o-espejismo">¿Innovación real o espejismo de marketing?</h2>
         
         <p>Entonces, ¿qué son realmente la búsqueda por voz, la búsqueda visual y el AEO?</p>
         
@@ -126,7 +125,9 @@ const BlogPost = () => {
         
         <p>En las siguientes secciones, lo desnudaremos con datos, ejemplos y análisis. Porque si algo necesitamos hoy en SEO no son más siglas, sino más verdad.</p>
 
-        <h2>Voz: promesas gigantes, impacto limitado</h2>
+        <hr class="my-12 border-border">
+
+        <h2 id="voz-promesas-gigantes">Voz: promesas gigantes, impacto limitado</h2>
         
         <p>En 2016, Gartner predijo que para 2020, el 30% de las búsquedas se realizarían sin pantalla.</p>
         
@@ -138,19 +139,19 @@ const BlogPost = () => {
         
         <p>El resultado: miles de negocios invirtieron tiempo y dinero esperando un 2020 en el que los usuarios hablarían más de lo que escribían.</p>
 
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8">
+        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
           <p><strong>📌 La realidad fue mucho más modesta:</strong></p>
           <p>Según datos recopilados en 2020, menos del 20% de los usuarios en EE.UU. usaban la voz de manera habitual para buscar en internet (DemandSage, 2025).</p>
-          <p>Y de esos, la mayoría lo hacía para cosas simples: "¿Qué tiempo hace hoy?", "Pon música de Wendy Sulca", "Llama a mamá".</p>
+          <p class="mb-0">Y de esos, la mayoría lo hacía para cosas simples: "¿Qué tiempo hace hoy?", "Pon música de Wendy Sulca", "Llama a mamá".</p>
         </div>
 
         <h3>¿Por qué la voz no despegó?</h3>
         
-        <p><strong>Limitaciones de contexto:</strong> Hablarle al teléfono no siempre es cómodo ni viable. En transporte público, en la oficina o incluso en casa con más gente alrededor, dictar una búsqueda puede resultar invasivo.</p>
-        
-        <p><strong>Privacidad y confianza:</strong> El usuario aún desconfía de tener un micrófono abierto escuchando todo el tiempo. Casos como el de Alexa guardando conversaciones privadas generaron desconfianza.</p>
-        
-        <p><strong>Complejidad en búsquedas transaccionales:</strong> Una cosa es pedirle a Siri la hora del partido. Otra muy distinta es elegir un seguro médico o comprar un computador. La voz es excelente para microconsultas, pero insuficiente para procesos complejos.</p>
+        <ul class="space-y-4">
+          <li><strong>Limitaciones de contexto:</strong> Hablarle al teléfono no siempre es cómodo ni viable. En transporte público, en la oficina o incluso en casa con más gente alrededor, dictar una búsqueda puede resultar invasivo.</li>
+          <li><strong>Privacidad y confianza:</strong> El usuario aún desconfía de tener un micrófono abierto escuchando todo el tiempo. Casos como el de Alexa guardando conversaciones privadas generaron desconfianza.</li>
+          <li><strong>Complejidad en búsquedas transaccionales:</strong> Una cosa es pedirle a Siri la hora del partido. Otra muy distinta es elegir un seguro médico o comprar un computador. La voz es excelente para microconsultas, pero insuficiente para procesos complejos.</li>
+        </ul>
 
         <h3>Dónde la voz sí aporta: lo local</h3>
         
@@ -164,8 +165,8 @@ const BlogPost = () => {
         
         <p>Aquí la voz tiene todo el sentido: estás en movimiento, tienes prisa, necesitas un resultado inmediato.</p>
 
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8">
-          <p><strong>📌 Para un restaurante, un gimnasio o una ferretería, optimizar para voz (con datos correctos en Google Business Profile, reseñas y FAQ bien estructuradas) sí es una estrategia rentable.</strong></p>
+        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
+          <p class="mb-0"><strong>📌 Para un restaurante, un gimnasio o una ferretería, optimizar para voz (con datos correctos en Google Business Profile, reseñas y FAQ bien estructuradas) sí es una estrategia rentable.</strong></p>
         </div>
 
         <h3>Voice commerce: ruido alto, adopción baja</h3>
@@ -178,8 +179,8 @@ const BlogPost = () => {
           <li>Y de ese 2%, la mayoría se limitaba a productos recurrentes como pañales, detergente o comida para mascotas.</li>
         </ul>
 
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8">
-          <p><strong>📌 Nadie compra un televisor de $800 hablando con Alexa. Nadie decide su nuevo plan de salud con un comando de voz.</strong></p>
+        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
+          <p class="mb-0"><strong>📌 Nadie compra un televisor de $800 hablando con Alexa. Nadie decide su nuevo plan de salud con un comando de voz.</strong></p>
         </div>
 
         <p>El voice commerce existe, pero es marginal y limitado a productos de bajo riesgo.</p>
@@ -206,13 +207,15 @@ const BlogPost = () => {
 
         <h3>Lo que aprendimos del hype de la voz</h3>
         
-        <p><strong>No todo lo que brilla es revolución:</strong> Las cifras que sonaban tan redondas (30%, 50%) se convirtieron en titulares fáciles, pero nunca tuvieron respaldo en el uso real.</p>
-        
-        <p><strong>Optimizar sin perder la cabeza:</strong> Vale la pena asegurar que tu negocio local esté optimizado para búsquedas por voz. No vale la pena rediseñar toda tu estrategia SEO en torno a Alexa o Siri.</p>
-        
-        <p><strong>El SEO sigue siendo SEO:</strong> Incluso en voz, el principio no cambia: Google, Siri o Alexa responden con la información mejor estructurada y más confiable (Google Developers – Search Central).</p>
+        <ul class="space-y-2">
+          <li><strong>No todo lo que brilla es revolución:</strong> Las cifras que sonaban tan redondas (30%, 50%) se convirtieron en titulares fáciles, pero nunca tuvieron respaldo en el uso real.</li>
+          <li><strong>Optimizar sin perder la cabeza:</strong> Vale la pena asegurar que tu negocio local esté optimizado para búsquedas por voz. No vale la pena rediseñar toda tu estrategia SEO en torno a Alexa o Siri.</li>
+          <li><strong>El SEO sigue siendo SEO:</strong> Incluso en voz, el principio no cambia: Google, Siri o Alexa responden con la información mejor estructurada y más confiable (Google Developers – Search Central).</li>
+        </ul>
 
-        <h2>Búsqueda visual: revolución parcial, oportunidad real</h2>
+        <hr class="my-12 border-border">
+
+        <h2 id="busqueda-visual">Búsqueda visual: revolución parcial, oportunidad real</h2>
         
         <p>Así como la voz, la búsqueda visual también se presentó como el próximo gran disruptor del SEO. Pero, ¿qué sucedió en realidad?</p>
         
@@ -251,14 +254,14 @@ const BlogPost = () => {
 
         <h3>Dónde la visual sí es oro</h3>
         
-        <p><strong>Retail y moda:</strong> Un usuario ve un vestido en la calle, lo fotografía y encuentra opciones similares en línea.</p>
-        
-        <p><strong>Decoración:</strong> Apuntas la cámara a un mueble y descubres dónde comprarlo o cómo combinarlo.</p>
-        
-        <p><strong>Viajes y cultura:</strong> Con Lens puedes identificar monumentos, plantas, animales o lugares turísticos en segundos.</p>
+        <ul>
+          <li><strong>Retail y moda:</strong> Un usuario ve un vestido en la calle, lo fotografía y encuentra opciones similares en línea.</li>
+          <li><strong>Decoración:</strong> Apuntas la cámara a un mueble y descubres dónde comprarlo o cómo combinarlo.</li>
+          <li><strong>Viajes y cultura:</strong> Con Lens puedes identificar monumentos, plantas, animales o lugares turísticos en segundos.</li>
+        </ul>
 
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8">
-          <p><strong>📌 Para un e-commerce de ropa o muebles, ignorar la búsqueda visual sería perder un canal emergente de tráfico altamente cualificado.</strong></p>
+        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
+          <p class="mb-0"><strong>📌 Para un e-commerce de ropa o muebles, ignorar la búsqueda visual sería perder un canal emergente de tráfico altamente cualificado.</strong></p>
         </div>
 
         <h3>Cuando la cámara gana… y cuando no</h3>
@@ -275,21 +278,23 @@ const BlogPost = () => {
         
         <p>¿Por qué, con cifras tan grandes, la búsqueda visual no ha desplazado al SEO tradicional?</p>
         
-        <p><strong>La costumbre pesa más que la innovación:</strong> Escribir sigue siendo más natural para el 80% de las consultas. Para preguntar "mejor seguro de salud en Florida", el texto sigue siendo la vía lógica.</p>
-        
-        <p><strong>Dificultad en búsquedas abstractas:</strong> Muchas consultas no pueden representarse con imágenes: "Cómo hacer autoridad temática en SEO", "Plan de pensiones más rentable", "Mejores libros de filosofía en 2024".</p>
-        
-        <p><strong>El sesgo de datos inflados:</strong> Que Google Lens tenga 8.000 millones de consultas no significa 8.000 millones de compradores. Muchas búsquedas son educativas, curiosas o recreativas, no transaccionales.</p>
+        <ul class="space-y-2">
+          <li><strong>La costumbre pesa más que la innovación:</strong> Escribir sigue siendo más natural para el 80% de las consultas. Para preguntar "mejor seguro de salud en Florida", el texto sigue siendo la vía lógica.</li>
+          <li><strong>Dificultad en búsquedas abstractas:</strong> Muchas consultas no pueden representarse con imágenes: "Cómo hacer autoridad temática en SEO", "Plan de pensiones más rentable", "Mejores libros de filosofía en 2024".</li>
+          <li><strong>El sesgo de datos inflados:</strong> Que Google Lens tenga 8.000 millones de consultas no significa 8.000 millones de compradores. Muchas búsquedas son educativas, curiosas o recreativas, no transaccionales.</li>
+        </ul>
 
         <h3>Lecciones prácticas para decidir si te conviene</h3>
         
-        <p><strong>No todo sector debe correr:</strong> Si estás en moda, decoración o productos físicos, integra la búsqueda visual ya. Si estás en B2B o servicios complejos, prioriza el SEO clásico.</p>
-        
-        <p><strong>El SEO sigue gobernando el funnel:</strong> La visual ayuda en el descubrimiento, pero el cierre y la conversión siguen estando en búsquedas textuales y contenidos bien optimizados.</p>
-        
-        <p><strong>El marketing debe leer la intención:</strong> El error es obsesionarse con la herramienta. La clave es preguntarse: ¿Qué busca mi usuario? ¿Cómo lo busca? ¿Qué canal es más natural para resolverlo?</p>
+        <ul class="space-y-2">
+          <li><strong>No todo sector debe correr:</strong> Si estás en moda, decoración o productos físicos, integra la búsqueda visual ya. Si estás en B2B o servicios complejos, prioriza el SEO clásico.</li>
+          <li><strong>El SEO sigue gobernando el funnel:</strong> La visual ayuda en el descubrimiento, pero el cierre y la conversión siguen estando en búsquedas textuales y contenidos bien optimizados.</li>
+          <li><strong>El marketing debe leer la intención:</strong> El error es obsesionarse con la herramienta. La clave es preguntarse: ¿Qué busca mi usuario? ¿Cómo lo busca? ¿Qué canal es más natural para resolverlo?</li>
+        </ul>
 
-        <h2>AEO: ¿revolución costosa o etiqueta bonita?</h2>
+        <hr class="my-12 border-border">
+
+        <h2 id="aeo-revolucion-costosa">AEO: ¿revolución costosa o etiqueta bonita?</h2>
         
         <p>En 2018 apareció con fuerza un nuevo término en conferencias de SEO y marketing: AEO – Answer Engine Optimization.</p>
         
@@ -338,8 +343,8 @@ const BlogPost = () => {
         
         <p>El usuario, al no quedar satisfecho, vuelve a Google, compara varias opciones y toma la decisión como siempre lo ha hecho: leyendo, investigando y contrastando.</p>
 
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8">
-          <p><strong>📌 Moral: la "respuesta única" es atractiva en teoría, pero insuficiente en búsquedas complejas que requieren contexto, matices y confianza.</strong></p>
+        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
+          <p class="mb-0"><strong>📌 Moral: la "respuesta única" es atractiva en teoría, pero insuficiente en búsquedas complejas que requieren contexto, matices y confianza.</strong></p>
         </div>
 
         <h3>Cómo se vendió el miedo (y se cobró caro)</h3>
@@ -371,13 +376,15 @@ const BlogPost = () => {
 
         <h3>Lecciones para no morder el anzuelo</h3>
         
-        <p><strong>Los acrónimos venden más que los datos:</strong> AEO era básicamente SEO enfocado en snippets. Pero ponerle sigla nueva lo convirtió en tendencia global.</p>
-        
-        <p><strong>El usuario no cambia tan rápido:</strong> Aunque Google, Alexa o Siri muestren respuestas directas, el usuario sigue investigando, comparando y validando fuentes.</p>
-        
-        <p><strong>El SEO sigue siendo integral:</strong> Ninguna "moda" sustituye a la estrategia base: arquitectura, intención de búsqueda, autoridad temática y experiencia de usuario.</p>
+        <ul class="space-y-2">
+          <li><strong>Los acrónimos venden más que los datos:</strong> AEO era básicamente SEO enfocado en snippets. Pero ponerle sigla nueva lo convirtió en tendencia global.</li>
+          <li><strong>El usuario no cambia tan rápido:</strong> Aunque Google, Alexa o Siri muestren respuestas directas, el usuario sigue investigando, comparando y validando fuentes.</li>
+          <li><strong>El SEO sigue siendo integral:</strong> Ninguna "moda" sustituye a la estrategia base: arquitectura, intención de búsqueda, autoridad temática y experiencia de usuario.</li>
+        </ul>
 
-        <h2>Conclusión: el SEO que sí funciona en 2025 (y en 2030)</h2>
+        <hr class="my-12 border-border">
+
+        <h2 id="conclusion">Conclusión: el SEO que sí funciona en 2025 (y en 2030)</h2>
         
         <p>Durante la última década, hemos visto desfilar acrónimos y supuestas revoluciones:</p>
         <ul>
@@ -407,8 +414,8 @@ const BlogPost = () => {
 
         <h3>Lo único que Google siempre quiere: respuestas</h3>
 
-        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8">
-          <p><strong>📌 Google no quiere revoluciones. Quiere respuestas (Google Developers – Search Central).</strong></p>
+        <div class="bg-teal/10 border-l-4 border-teal p-6 my-8 rounded-r-lg">
+          <p class="mb-0"><strong>📌 Google no quiere revoluciones. Quiere respuestas (Google Developers – Search Central).</strong></p>
         </div>
         
         <p>Su negocio depende de que el usuario encuentre lo que busca lo más rápido posible.</p>
@@ -499,6 +506,27 @@ const BlogPost = () => {
         </ul>
         
         <p>El SEO seguirá vivo mientras existan personas con preguntas y negocios dispuestos a responderlas.</p>
+
+        <hr class="my-12 border-border">
+
+        <h3>Fuentes adicionales citadas</h3>
+        <ul class="text-sm text-muted-foreground space-y-1">
+          <li>Statcounter: Cuota de chatbots de IA.</li>
+          <li>SparkToro: Crecimiento de Google vs. ChatGPT.</li>
+          <li>SISTRIX: Impacto de búsquedas zero-click.</li>
+        </ul>
+
+        <h3>Referencias de investigación</h3>
+        <ul class="text-sm text-muted-foreground space-y-2">
+          <li>Google Ads & Commerce Blog — Shashi Thakur (03-10-2024): <a href="https://blog.google/products/ads-commerce/google-lens-ai-overviews-ads-marketers/" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Google Lens and AI Overviews: New ways for marketers to reach customers</a></li>
+          <li>DemandSage — <a href="https://www.demandsage.com/voice-search-statistics/" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Voice Search Statistics 2025</a> (24-07-2025)</li>
+          <li>Search Engine Land — Danny Goodwin (02-07-2024): <a href="https://searchengineland.com/google-search-zero-click-study-2024-443869" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Nearly 60% of Google searches end without a click in 2024</a></li>
+          <li>VentureBeat — <a href="https://venturebeat.com/ai/pinterest-lens-sees-600-million-visual-searches-every-month/" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Pinterest sees 600 million visual searches every month</a> (2018)</li>
+          <li>Backlinko — <a href="https://backlinko.com/voice-search-seo-study" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Voice Search SEO Study: Results From 10k Voice Searches</a></li>
+          <li>Stephan Spencer — <a href="https://www.stephanspencer.com/voice-search-featured-snippets/" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Want to Be the Answer People Hear on Google Voice Search? Featured Snippets Are the Key</a></li>
+          <li>ORR Consulting — <a href="https://www.orr-consulting.com/post/why-you-can-t-ignore-visual-search-62-of-millennials-prefer-it-over-text-based-search" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Why You Can't Ignore Visual Search: 62% of Millennials Prefer It Over Text-Based Search</a></li>
+          <li>Content Marketing Institute — Robert Rose (12-02-2025): <a href="https://contentmarketinginstitute.com/seo-for-content/answer-engine-optimization" class="text-teal hover:underline" target="_blank" rel="noopener noreferrer">Answer Engine Optimization Is a Familiar Trap</a></li>
+        </ul>
       `
     },
     "topical-authority-2025": {
