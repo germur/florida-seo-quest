@@ -1,24 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, TrendingUp, Users, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
 
-const CasosEstudio = () => {
+const CaseStudies = () => {
   const cases = [
     {
       id: "paramount",
       company: "Paramount Property Restoration",
-      industry: "Restauración de Propiedades",
+      industry: "Property Restoration",
       location: "Miami, FL",
-      challenge: "Baja visibilidad en búsquedas locales de servicios de emergencia y restauración",
-      solution: "Estrategia de SEO local + contenido de autoridad + optimización técnica",
+      challenge: "Low visibility in local searches for emergency and restoration services",
+      solution: "Local SEO strategy + authority content + technical optimization",
       results: [
-        "+180% leads calificados en 6 meses",
-        "+250% tráfico orgánico",
-        "Top 3 en 15+ keywords objetivo",
-        "+85% mejora en conversiones"
+        "+180% qualified leads in 6 months",
+        "+250% organic traffic",
+        "Top 3 in 15+ target keywords",
+        "+85% conversion improvement"
       ],
       metrics: {
-        duration: "6 meses",
+        duration: "6 months",
         investment: "$4,500",
         roi: "420%"
       },
@@ -28,18 +29,18 @@ const CasosEstudio = () => {
     {
       id: "1gc",
       company: "1GC Construction",
-      industry: "Construcción Comercial",
+      industry: "Commercial Construction",
       location: "Orlando, FL", 
-      challenge: "Competencia feroz en construcción comercial, necesitaban diferenciarse",
-      solution: "Arquitectura semántica + contenido técnico + link building estratégico",
+      challenge: "Fierce competition in commercial construction, needed differentiation",
+      solution: "Semantic architecture + technical content + strategic link building",
       results: [
-        "+95% visibilidad orgánica en 4 meses",
-        "+150% tráfico de calidad",
-        "Dominancia en 'construcción comercial Orlando'",
-        "+60% aumento en RFPs calificados"
+        "+95% organic visibility in 4 months",
+        "+150% quality traffic",
+        "Dominance in 'commercial construction Orlando'",
+        "+60% increase in qualified RFPs"
       ],
       metrics: {
-        duration: "4 meses",
+        duration: "4 months",
         investment: "$3,200", 
         roi: "280%"
       },
@@ -49,18 +50,18 @@ const CasosEstudio = () => {
     {
       id: "pura-piel",
       company: "Pura Piel",
-      industry: "Estética y Belleza",
+      industry: "Aesthetics & Beauty",
       location: "Fort Lauderdale, FL",
-      challenge: "Sitio web con múltiples problemas técnicos afectando indexación",
-      solution: "Auditoría técnica completa + fixes de indexación + nueva arquitectura",
+      challenge: "Website with multiple technical issues affecting indexation",
+      solution: "Complete technical audit + indexation fixes + new architecture",
       results: [
-        "120+ errores técnicos solucionados",
-        "+40% mejora en indexación",
-        "+75% aumento en sesiones orgánicas", 
-        "Reducción del 60% en bounce rate"
+        "120+ technical errors solved",
+        "+40% indexation improvement",
+        "+75% increase in organic sessions", 
+        "60% reduction in bounce rate"
       ],
       metrics: {
-        duration: "3 meses",
+        duration: "3 months",
         investment: "$2,800",
         roi: "190%"
       },
@@ -70,18 +71,18 @@ const CasosEstudio = () => {
     {
       id: "quintana",
       company: "Quintana",
-      industry: "Servicios Profesionales",
+      industry: "Professional Services",
       location: "Boca Raton, FL",
-      challenge: "Necesitaban posicionarse como autoridad en su sector",
-      solution: "Estrategia de autoridad tópica + contenido evergreen + PR digital",
+      challenge: "Needed to position themselves as authority in their sector",
+      solution: "Topical authority strategy + evergreen content + digital PR",
       results: [
-        "+200% menciones de marca",
-        "Top 5 en keywords de alta competencia",
-        "+90% tráfico orgánico cualificado",
-        "+45% leads desde búsqueda orgánica"
+        "+200% brand mentions",
+        "Top 5 in high-competition keywords",
+        "+90% qualified organic traffic",
+        "+45% leads from organic search"
       ],
       metrics: {
-        duration: "5 meses", 
+        duration: "5 months", 
         investment: "$3,800",
         roi: "350%"
       },
@@ -90,19 +91,19 @@ const CasosEstudio = () => {
     },
     {
       id: "roger-murillo",
-      company: "Roger Murillo Asesoría de Imagen",
-      industry: "Consultoría de Imagen",
+      company: "Roger Murillo Image Consulting",
+      industry: "Image Consulting",
       location: "Miami, FL",
-      challenge: "Mercado muy competitivo en servicios de imagen personal",
-      solution: "SEO local + personal branding + contenido de valor + link building",
+      challenge: "Very competitive market in personal image services",
+      solution: "Local SEO + personal branding + valuable content + link building",
       results: [
-        "+300% búsquedas de marca",
-        "Líder en 'asesor de imagen Miami'",
-        "+120% consultas calificadas",
-        "+80% aumento en bookings premium"
+        "+300% brand searches",
+        "Leader in 'image consultant Miami'",
+        "+120% qualified consultations",
+        "+80% increase in premium bookings"
       ],
       metrics: {
-        duration: "4 meses",
+        duration: "4 months",
         investment: "$2,900",
         roi: "240%"
       },
@@ -113,29 +114,31 @@ const CasosEstudio = () => {
 
   return (
     <main className="min-h-screen pt-16">
+      <Header />
+      
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl md:text-6xl font-black text-primary mb-6">
-              Casos de Éxito
+              Success Stories
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-              Resultados reales de empresas reales. Descubre cómo hemos ayudado a negocios de Florida a crecer con SEO.
+              Real results from real businesses. Discover how we've helped Florida companies grow with SEO.
             </p>
             
             <div className="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
               <div className="text-center">
                 <div className="text-3xl font-bold text-teal mb-2">+250%</div>
-                <div className="text-sm text-muted-foreground">Tráfico Promedio</div>
+                <div className="text-sm text-muted-foreground">Average Traffic</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-electric-blue mb-2">15+</div>
-                <div className="text-sm text-muted-foreground">Proyectos Exitosos</div>
+                <div className="text-sm text-muted-foreground">Successful Projects</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-bright-orange mb-2">ROI 280%</div>
-                <div className="text-sm text-muted-foreground">Retorno Promedio</div>
+                <div className="text-3xl font-bold text-bright-orange mb-2">280% ROI</div>
+                <div className="text-sm text-muted-foreground">Average Return</div>
               </div>
             </div>
           </div>
@@ -165,17 +168,17 @@ const CasosEstudio = () => {
                   
                   <div className="space-y-6">
                     <div>
-                      <h3 className="font-semibold text-primary mb-2">El Desafío</h3>
+                      <h3 className="font-semibold text-primary mb-2">The Challenge</h3>
                       <p className="text-muted-foreground">{caseStudy.challenge}</p>
                     </div>
                     
                     <div>
-                      <h3 className="font-semibold text-primary mb-2">La Solución</h3>
+                      <h3 className="font-semibold text-primary mb-2">The Solution</h3>
                       <p className="text-muted-foreground">{caseStudy.solution}</p>
                     </div>
                     
                     <div>
-                      <h3 className="font-semibold text-primary mb-3">Resultados</h3>
+                      <h3 className="font-semibold text-primary mb-3">Results</h3>
                       <ul className="space-y-2">
                         {caseStudy.results.map((result, resultIndex) => (
                           <li key={resultIndex} className="flex items-center">
@@ -188,7 +191,7 @@ const CasosEstudio = () => {
                   </div>
                   
                   <Button size="lg" className="mt-8 group">
-                    Ver Caso Completo
+                    View Complete Case Study
                     <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
@@ -198,12 +201,12 @@ const CasosEstudio = () => {
                     <div className="bg-card border border-border rounded-lg p-4 text-center">
                       <Clock className="h-6 w-6 text-muted-foreground mx-auto mb-2" />
                       <div className="font-bold text-primary">{caseStudy.metrics.duration}</div>
-                      <div className="text-xs text-muted-foreground">Duración</div>
+                      <div className="text-xs text-muted-foreground">Duration</div>
                     </div>
                     <div className="bg-card border border-border rounded-lg p-4 text-center">
                       <Users className="h-6 w-6 text-muted-foreground mx-auto mb-2" />
                       <div className="font-bold text-primary">{caseStudy.metrics.investment}</div>
-                      <div className="text-xs text-muted-foreground">Inversión</div>
+                      <div className="text-xs text-muted-foreground">Investment</div>
                     </div>
                     <div className="bg-card border border-border rounded-lg p-4 text-center">
                       <TrendingUp className={`h-6 w-6 text-${caseStudy.color} mx-auto mb-2`} />
@@ -214,10 +217,10 @@ const CasosEstudio = () => {
                   
                   <div className="bg-gradient-to-br from-secondary/20 to-background border border-border rounded-2xl p-8 text-center">
                     <div className="text-lg text-muted-foreground mb-4">
-                      "Los resultados han superado nuestras expectativas. El equipo de Calvo Creativo entendió perfectamente nuestro negocio y mercado local."
+                      "The results have exceeded our expectations. The Calvo Creativo team perfectly understood our business and local market."
                     </div>
                     <div className="font-semibold text-primary">
-                      — Equipo {caseStudy.company}
+                      — {caseStudy.company} Team
                     </div>
                   </div>
                 </div>
@@ -231,17 +234,17 @@ const CasosEstudio = () => {
       <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6">
-            ¿Tu empresa será la próxima?
+            Will Your Company Be Next?
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Conversemos sobre tu proyecto y cómo podemos ayudarte a lograr resultados similares.
+            Let's talk about your project and how we can help you achieve similar results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg">
-              Agendar Consultoría Gratuita
+              Schedule Free Consultation
             </Button>
             <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-              <Link to="/servicios">Ver Nuestros Servicios</Link>
+              <Link to="/services">View Our Services</Link>
             </Button>
           </div>
         </div>
@@ -250,4 +253,4 @@ const CasosEstudio = () => {
   );
 };
 
-export default CasosEstudio;
+export default CaseStudies;

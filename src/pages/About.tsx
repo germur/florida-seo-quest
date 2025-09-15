@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Users, TrendingUp, Heart, Target, Lightbulb } from "lucide-react";
+import Header from "@/components/Header";
 
 const About = () => {
   const values = [
@@ -48,6 +49,7 @@ const About = () => {
 
   return (
     <main className="min-h-screen pt-16">
+      <Header />
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-6">

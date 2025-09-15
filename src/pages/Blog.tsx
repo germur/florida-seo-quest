@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Tag, Search } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Header from "@/components/Header";
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -87,6 +88,7 @@ const Blog = () => {
 
   return (
     <main className="min-h-screen pt-16">
+      <Header />
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-6">
