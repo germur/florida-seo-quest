@@ -8,6 +8,7 @@ import Services from "./pages/Services";
 import CaseStudies from "./pages/CaseStudies";
 import HowWeWork from "./pages/HowWeWork";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import Resources from "./pages/Resources";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/how-we-work" element={<HowWeWork />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
