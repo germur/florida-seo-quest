@@ -8,8 +8,8 @@ const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
   const categories = [
-    { id: "all", name: "All", count: 24 },
-    { id: "seo-strategy", name: "SEO Strategy", count: 8, color: "teal" },
+    { id: "all", name: "All", count: 25 },
+    { id: "seo-strategy", name: "SEO Strategy", count: 9, color: "teal" },
     { id: "technical-seo", name: "Technical SEO", count: 6, color: "electric-blue" },
     { id: "seo-ai", name: "SEO with AI", count: 4, color: "bright-orange" },
     { id: "florida-seo", name: "Florida SEO", count: 3, color: "purple" },
@@ -17,6 +17,16 @@ const Blog = () => {
   ];
 
   const posts = [
+    {
+      id: "seo-no-murio-hype-estrategia",
+      title: "SEO no murió: del hype a la estrategia que sí funciona",
+      excerpt: "Análisis crítico de las modas del marketing digital: voz, visual y AEO. Por qué el SEO real sigue siendo lo que Google quiere desde hace 20 años.",
+      category: "seo-strategy",
+      readTime: "12 min",
+      date: "2025-01-15",
+      featured: true,
+      tags: ["SEO Myths", "Voice Search", "Visual Search", "AEO", "SEO Strategy"]
+    },
     {
       id: "topical-authority-2025",
       title: "Topical Authority: Why It Wins in 2025",
