@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Calculator, Wrench, FileText } from "lucide-react";
+import { Calculator, Target, FileText } from "lucide-react";
 import Header from "@/components/Header";
 import { Link } from "react-router-dom";
 import ROICalculator from "@/components/ROICalculator";
+import ClusterGenerator from "@/components/ClusterGenerator";
 
 const Resources = () => {
   const tools = [
@@ -14,10 +15,10 @@ const Resources = () => {
       color: "electric-blue"
     },
     {
-      name: "Checklist de Auditoría SEO",
-      description: "Lista completa para auditar cualquier website. Incluye aspectos técnicos, on-page y UX.",
-      icon: <Wrench className="h-8 w-8" />,
-      component: "checklist",
+      name: "Generador de Clusters Temáticos",
+      description: "Crea una arquitectura de contenido que construya autoridad temática en Google.",
+      icon: <Target className="h-8 w-8" />,
+      component: "cluster",
       color: "bright-orange"
     },
     {
@@ -89,6 +90,24 @@ const Resources = () => {
             </div>
             
             <ROICalculator />
+          </div>
+        </div>
+      </section>
+
+      {/* Cluster Generator Section */}
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="font-bold text-3xl text-foreground mb-4">
+                Generador de Clusters Temáticos SEO
+              </h2>
+              <p className="font-subtitle text-lg text-muted-foreground">
+                Crea una arquitectura de contenido que construya autoridad temática en Google
+              </p>
+            </div>
+            
+            <ClusterGenerator />
           </div>
         </div>
       </section>
