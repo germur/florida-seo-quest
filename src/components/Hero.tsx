@@ -47,10 +47,10 @@ const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <Button variant="hero" size="lg" className="group" asChild>
-              <Link to="/contact">
+              <a href="tel:+573046807443">
                 Book a Consultation
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </Button>
             
             <DiceRoller />

@@ -49,9 +49,9 @@ const Header = () => {
           {/* Desktop CTA Button */}
           <div className="hidden lg:block">
             <Button variant="hero" size="sm" asChild>
-              <Link to="/contact">
+              <a href="tel:+573046807443">
                 Book Consultation
-              </Link>
+              </a>
             </Button>
           </div>
 
@@ -120,9 +120,9 @@ const Header = () => {
               </Link>
               <div className="pt-4">
                 <Button variant="hero" size="sm" asChild className="w-full">
-                  <Link to="/contact" onClick={() => setIsMenuOpen(false)}>
+                  <a href="tel:+573046807443" onClick={() => setIsMenuOpen(false)}>
                     Book Consultation
-                  </Link>
+                  </a>
                 </Button>
               </div>
             </nav>

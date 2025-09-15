@@ -28,10 +28,10 @@ const FinalCTA = () => {
               className="bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-3xl transition-all duration-300 group"
               asChild
             >
-              <Link to="/contact">
+              <a href="tel:+573046807443">
                 Book a Consultation
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </Button>
             
             <Button 
