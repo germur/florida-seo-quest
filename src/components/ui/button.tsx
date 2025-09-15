@@ -9,14 +9,17 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm hover:shadow-md transition-all duration-200",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        outline: "border border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-gradient-to-r from-teal to-electric-blue text-white hover:from-teal/90 hover:to-electric-blue/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold",
-        dice: "bg-gradient-to-r from-bright-orange to-bright-orange/80 text-white hover:from-bright-orange/90 hover:to-bright-orange/70 border-2 border-bright-orange/30 hover:border-bright-orange/50 shadow-lg hover:shadow-xl transition-all duration-300 font-medium",
+        hero: "bg-electric-blue text-electric-blue-foreground hover:bg-electric-blue/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold",
+        orange: "bg-bright-orange text-bright-orange-foreground hover:bg-bright-orange/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold",
+        "outline-white": "border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary transition-all duration-200",
+        "outline-blue": "border-2 border-electric-blue bg-transparent text-electric-blue hover:bg-electric-blue hover:text-white transition-all duration-200",
+        "outline-orange": "border-2 border-bright-orange bg-transparent text-bright-orange hover:bg-bright-orange hover:text-white transition-all duration-200",
       },
       size: {
         default: "h-10 px-4 py-2",
