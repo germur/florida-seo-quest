@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, ExternalLink, Wrench, FileText, BookOpen } from "lucide-react";
 import Header from "@/components/Header";
+import { Link } from "react-router-dom";
 
 const Resources = () => {
   const resourceCategories = [
@@ -306,11 +307,15 @@ const Resources = () => {
             Get personalized guidance and advanced strategies with our SEO consulting services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
-              Schedule Consultation
+            <Button variant="secondary" size="lg" asChild>
+              <Link to="/contact">
+                Schedule Consultation
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-              View Services
+            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Link to="/services">
+                View Services
+              </Link>
             </Button>
           </div>
         </div>

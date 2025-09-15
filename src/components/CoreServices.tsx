@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Search, Settings, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CoreServices = () => {
   const services = [
@@ -49,9 +50,11 @@ const CoreServices = () => {
                 <h3 className="text-2xl font-semibold text-primary mb-4 font-poppins">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed mb-6 font-inter">{service.description}</p>
                 
-                <Button variant="outline" className="group w-full justify-between">
-                  {service.cta}
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <Button variant="outline" className="group w-full justify-between" asChild>
+                  <Link to={`/services#${service.title.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}`}>
+                    {service.cta}
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </Button>
               </div>
             ))}

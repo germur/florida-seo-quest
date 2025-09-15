@@ -127,10 +127,13 @@ const Services = () => {
                       ))}
                     </div>
 
-                    <Button size="lg" className="group">
-                      Start This Service
-                      <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button variant="secondary" size="lg" asChild>
+              <Link to="/contact">
+                Start This Service
+              </Link>
+            </Button>
+          </div>
                   </div>
 
                   <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
@@ -145,8 +148,10 @@ const Services = () => {
                           <span className="font-semibold text-primary">{service.duration}</span>
                         </div>
                         <div className="pt-4 border-t border-border">
-                          <Button variant="outline" className="w-full">
-                            Schedule Free Consultation
+                          <Button variant="outline" className="w-full" asChild>
+                            <Link to="/contact">
+                              Schedule Free Consultation
+                            </Link>
                           </Button>
                         </div>
                       </div>
@@ -197,10 +202,12 @@ const Services = () => {
             Let's discuss your project and how we can help you achieve sustainable SEO growth.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
-              Schedule Free Consultation
+            <Button variant="secondary" size="lg" asChild>
+              <Link to="/contact">
+                Schedule Free Consultation
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
+            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
               <Link to="/case-studies">See Our Results</Link>
             </Button>
           </div>

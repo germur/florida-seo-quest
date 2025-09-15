@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Clock, Users, Target, Lightbulb } from "lucide-react";
 import Header from "@/components/Header";
+import { Link } from "react-router-dom";
 
 const HowWeWork = () => {
   const methodology = {
@@ -356,11 +357,13 @@ const HowWeWork = () => {
             Let's discuss how our proven methodology can help your business grow with SEO.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
-              Schedule Free Consultation
+            <Button variant="secondary" size="lg" asChild>
+              <Link to="/contact">
+                Schedule Free Consultation
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-              View Our Results
+            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Link to="/case-studies">View Our Results</Link>
             </Button>
           </div>
         </div>

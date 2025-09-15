@@ -190,10 +190,12 @@ const CaseStudies = () => {
                     </div>
                   </div>
                   
-                  <Button size="lg" className="mt-8 group">
+                <Button size="lg" className="mt-8 group" asChild>
+                  <Link to="/contact">
                     View Complete Case Study
                     <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                  </Link>
+                </Button>
                 </div>
                 
                 <div className={index % 2 === 1 ? 'lg:col-start-1' : ''}>
@@ -240,11 +242,13 @@ const CaseStudies = () => {
             Let's talk about your project and how we can help you achieve similar results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
-              Schedule Free Consultation
+            <Button variant="secondary" size="lg" asChild>
+              <Link to="/contact">
+                Schedule Free Consultation
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-              <Link to="/services">View Our Services</Link>
+            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Link to="/services">View Services</Link>
             </Button>
           </div>
         </div>

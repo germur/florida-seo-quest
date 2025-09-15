@@ -215,6 +215,7 @@ function CaseStudyOverlay({ caseStudy, onClose, onRollAgain }: CaseStudyOverlayP
             onClick={() => {
               // Navigate to case study detail (you can implement this)
               window.location.href = `/case-studies#${caseStudy.id}`;
+              onClose();
             }}
             className="group"
           >

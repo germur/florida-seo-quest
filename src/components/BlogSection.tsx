@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const BlogSection = () => {
   const posts = [
@@ -68,9 +69,11 @@ const BlogSection = () => {
           </div>
           
           <div className="text-center">
-            <Button variant="outline" size="lg" className="group">
-              Visit the Blog
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            <Button variant="outline" size="lg" className="group" asChild>
+              <Link to="/blog">
+                Visit the Blog
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
           </div>
         </div>

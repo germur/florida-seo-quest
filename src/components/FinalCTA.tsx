@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Dice1 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FinalCTA = () => {
   return (
@@ -25,18 +26,24 @@ const FinalCTA = () => {
               variant="secondary" 
               size="lg" 
               className="bg-white text-primary hover:bg-white/90 shadow-2xl hover:shadow-3xl transition-all duration-300 group"
+              asChild
             >
-              Book a Consultation
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <Link to="/contact">
+                Book a Consultation
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </Button>
             
             <Button 
               variant="outline" 
               size="lg" 
               className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 group"
+              asChild
             >
-              <Dice1 className="mr-2 h-5 w-5 group-hover:rotate-45 transition-transform" />
-              See Case Studies
+              <Link to="/case-studies">
+                <Dice1 className="mr-2 h-5 w-5 group-hover:rotate-45 transition-transform" />
+                See Case Studies
+              </Link>
             </Button>
           </div>
           

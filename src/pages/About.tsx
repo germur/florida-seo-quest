@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Users, TrendingUp, Heart, Target, Lightbulb } from "lucide-react";
 import Header from "@/components/Header";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const values = [
@@ -94,10 +95,12 @@ const About = () => {
                   </p>
                 </div>
                 
-                <Button size="lg" className="mt-8 group">
-                  Learn About the MAES Framework
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
+            <Button size="lg" className="mt-8 group" asChild>
+              <Link to="/how-we-work">
+                Learn About the MAES Framework
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
               </div>
               
               <div className="grid grid-cols-2 gap-6">
@@ -236,11 +239,15 @@ const About = () => {
             let's talk about your project.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
-              Schedule Consultation
+            <Button variant="secondary" size="lg" asChild>
+              <Link to="/contact">
+                Schedule Consultation
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-              View Success Stories
+            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Link to="/case-studies">
+                View Success Stories
+              </Link>
             </Button>
           </div>
         </div>

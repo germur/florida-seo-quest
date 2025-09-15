@@ -39,8 +39,10 @@ const Header = () => {
             </Link>
           </nav>
           
-          <Button variant="hero" size="sm">
-            Book Consultation
+          <Button variant="hero" size="sm" asChild>
+            <Link to="/contact">
+              Book Consultation
+            </Link>
           </Button>
         </div>
       </div>

@@ -121,43 +121,46 @@ const Blog = () => {
               
               <div className="grid lg:grid-cols-2 gap-8 mb-16">
                 {featuredPosts.map((post) => (
-                  <article 
+                  <Link 
                     key={post.id}
-                    className="bg-gradient-to-br from-teal/5 to-electric-blue/5 border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
+                    to={`/blog/${post.id}`}
+                    className="block"
                   >
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                      <span className={`px-3 py-1 bg-${categories.find(c => c.id === post.category)?.color}/10 text-${categories.find(c => c.id === post.category)?.color} rounded-full font-medium`}>
-                        {categories.find(c => c.id === post.category)?.name}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-4 w-4" />
-                        {post.readTime}
-                      </span>
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-teal transition-colors">
-                      {post.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground leading-relaxed mb-6">
-                      {post.excerpt}
-                    </p>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        {post.tags.slice(0, 2).map((tag, tagIndex) => (
-                          <span key={tagIndex} className="text-xs bg-secondary text-muted-foreground px-2 py-1 rounded">
-                            {tag}
-                          </span>
-                        ))}
+                    <article className="bg-gradient-to-br from-teal/5 to-electric-blue/5 border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                        <span className={`px-3 py-1 bg-${categories.find(c => c.id === post.category)?.color}/10 text-${categories.find(c => c.id === post.category)?.color} rounded-full font-medium`}>
+                          {categories.find(c => c.id === post.category)?.name}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="h-4 w-4" />
+                          {post.readTime}
+                        </span>
                       </div>
                       
-                      <div className="flex items-center text-teal font-medium group-hover:text-electric-blue transition-colors">
-                        Read Article
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                      <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-teal transition-colors">
+                        {post.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground leading-relaxed mb-6">
+                        {post.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          {post.tags.slice(0, 2).map((tag, tagIndex) => (
+                            <span key={tagIndex} className="text-xs bg-secondary text-muted-foreground px-2 py-1 rounded">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        
+                        <div className="flex items-center text-teal font-medium group-hover:text-electric-blue transition-colors">
+                          Read Article
+                          <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
                       </div>
-                    </div>
-                  </article>
+                    </article>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -194,34 +197,37 @@ const Blog = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-3 gap-8">
               {filteredPosts.map((post) => (
-                <article 
+                <Link 
                   key={post.id}
-                  className="bg-card border border-border rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
+                  to={`/blog/${post.id}`}
+                  className="block"
                 >
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                    <span className="flex items-center gap-1">
-                      <Clock className="h-4 w-4" />
-                      {post.readTime}
-                    </span>
-                    <span>{new Date(post.date).toLocaleDateString()}</span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-teal transition-colors">
-                    {post.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground leading-relaxed mb-4 text-sm">
-                    {post.excerpt}
-                  </p>
-                  
-                  <div className="flex items-center justify-between">
-                    <span className={`px-2 py-1 bg-${categories.find(c => c.id === post.category)?.color}/10 text-${categories.find(c => c.id === post.category)?.color} text-xs rounded font-medium`}>
-                      {categories.find(c => c.id === post.category)?.name}
-                    </span>
+                  <article className="bg-card border border-border rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                      <span className="flex items-center gap-1">
+                        <Clock className="h-4 w-4" />
+                        {post.readTime}
+                      </span>
+                      <span>{new Date(post.date).toLocaleDateString()}</span>
+                    </div>
                     
-                    <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-teal group-hover:translate-x-1 transition-all" />
-                  </div>
-                </article>
+                    <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-teal transition-colors">
+                      {post.title}
+                    </h3>
+                    
+                    <p className="text-muted-foreground leading-relaxed mb-4 text-sm">
+                      {post.excerpt}
+                    </p>
+                    
+                    <div className="flex items-center justify-between">
+                      <span className={`px-2 py-1 bg-${categories.find(c => c.id === post.category)?.color}/10 text-${categories.find(c => c.id === post.category)?.color} text-xs rounded font-medium`}>
+                        {categories.find(c => c.id === post.category)?.name}
+                      </span>
+                      
+                      <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-teal group-hover:translate-x-1 transition-all" />
+                    </div>
+                  </article>
+                </Link>
               ))}
             </div>
             
@@ -244,14 +250,11 @@ const Blog = () => {
             Get weekly insights and strategies to grow your business with SEO.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input 
-              type="email" 
-              placeholder="Your email address"
-              className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30"
-            />
-            <Button variant="secondary" className="bg-white text-primary hover:bg-white/90">
-              Subscribe
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button variant="secondary" className="bg-white text-primary hover:bg-white/90" asChild>
+              <Link to="/contact">
+                Subscribe
+              </Link>
             </Button>
           </div>
         </div>

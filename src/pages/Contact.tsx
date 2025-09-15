@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail, Calendar, MessageSquare, Phone, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
 import Header from "@/components/Header";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +22,40 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    
+    // Create mailto link with form data
+    const subject = `SEO Consultation Request from ${formData.name}`;
+    const body = `
+Hello,
+
+My name is ${formData.name} and I'm interested in SEO services.
+
+Company: ${formData.company || 'Not specified'}
+Service of Interest: ${formData.service || 'Not specified'}
+
+Message:
+${formData.message}
+
+Please contact me at: ${formData.email}
+
+Best regards,
+${formData.name}
+    `.trim();
+    
+    const mailtoLink = `mailto:hello@calvocreativo.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+    
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      message: "",
+      service: ""
+    });
+    
+    // Show success message (you could add a toast here)
+    alert("Thank you! Your message has been prepared. Please send the email that just opened.");
   };
 
   const contactMethods = [
@@ -104,18 +138,23 @@ const Contact = () => {
                   key={index}
                   className={`bg-gradient-to-br from-${method.color}/10 to-${method.color}/5 border border-${method.color}/20 rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group`}
                 >
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-${method.color}/20 rounded-2xl mb-6 group-hover:bg-${method.color}/30 transition-all duration-300`}>
-                    <div className={`text-${method.color}`}>
+                  <Button 
+                    className={`inline-flex items-center justify-center w-20 h-20 bg-${method.color}/20 rounded-2xl mb-6 group-hover:bg-${method.color}/30 transition-all duration-300 text-${method.color}`}
+                    asChild
+                  >
+                    <Link to="/contact">
                       {method.icon}
-                    </div>
-                  </div>
+                    </Link>
+                  </Button>
                   
                   <h3 className="text-2xl font-semibold text-primary mb-4">{method.title}</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">{method.description}</p>
                   
-                  <Button variant="outline" className={`w-full group-hover:bg-${method.color} group-hover:text-white group-hover:border-${method.color} transition-all`}>
-                    {method.action}
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                  <Button variant="outline" className={`w-full group-hover:bg-${method.color} group-hover:text-white group-hover:border-${method.color} transition-all`} asChild>
+                    <a href={method.action === 'Schedule Now' ? '/contact' : method.action === 'Send Email' ? 'mailto:hello@calvocreativo.com' : 'https://wa.me/1234567890'}>
+                      {method.action}
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
                   </Button>
                 </div>
               ))}
@@ -290,11 +329,15 @@ const Contact = () => {
             Join the Florida businesses that have already transformed their online presence with strategic SEO.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg">
-              Schedule Free Consultation
+            <Button variant="secondary" size="lg" asChild>
+              <Link to="/contact">
+                Schedule Free Consultation
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
-              View Success Stories
+            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
+              <Link to="/case-studies">
+                View Success Stories
+              </Link>
             </Button>
           </div>
         </div>
