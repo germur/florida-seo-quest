@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import calvoCreativoLogo from "@/assets/calvo-creativo-logo-new.png";
+import calvoCreativoLogo from "@/assets/calvo-creativo-logo.svg";
 
 const Header = () => {
   return (
