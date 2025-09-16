@@ -1,7 +1,64 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
+import { useState } from "react";
+import Header from "@/components/Header";
 
 const Contacto = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    website: "",
+    service: "",
+    message: ""
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Create mailto link with form data
+    const subject = `Solicitud de Consultoría SEO de ${formData.name}`;
+    const body = `
+Hola,
+
+Mi nombre es ${formData.name} y estoy interesado en servicios de SEO.
+
+Empresa: ${formData.company || 'No especificada'}
+Sitio Web: ${formData.website || 'No especificado'}
+Tipo de Ayuda: ${formData.service || 'No especificado'}
+
+Mensaje:
+${formData.message}
+
+Por favor contáctame en: ${formData.email}
+
+Saludos,
+${formData.name}
+    `.trim();
+    
+    const mailtoLink = `mailto:rogermur1990@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+    
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      website: "",
+      service: "",
+      message: ""
+    });
+    
+    // Show success message
+    alert("¡Gracias! Tu mensaje ha sido preparado. Por favor envía el correo que se acaba de abrir.");
+  };
   const contactMethods = [
     {
       icon: <Mail className="h-6 w-6" />,
@@ -47,6 +104,7 @@ const Contacto = () => {
 
   return (
     <main className="min-h-screen pt-16">
+      <Header />
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-6">
@@ -116,14 +174,18 @@ const Contacto = () => {
                   Solicitar Consultoría Gratuita
                 </h3>
                 
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-primary mb-2">
                         Nombre *
                       </label>
                       <input 
-                        type="text" 
+                        type="text"
+                        name="name"
+                        required
+                        value={formData.name}
+                        onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal"
                         placeholder="Tu nombre"
                       />
@@ -133,7 +195,10 @@ const Contacto = () => {
                         Empresa
                       </label>
                       <input 
-                        type="text" 
+                        type="text"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal"
                         placeholder="Nombre de la empresa"
                       />
@@ -145,7 +210,11 @@ const Contacto = () => {
                       Email *
                     </label>
                     <input 
-                      type="email" 
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal"
                       placeholder="tu@email.com"
                     />
@@ -156,7 +225,10 @@ const Contacto = () => {
                       Sitio Web
                     </label>
                     <input 
-                      type="url" 
+                      type="url"
+                      name="website"
+                      value={formData.website}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal"
                       placeholder="https://tuempresa.com"
                     />
@@ -166,7 +238,12 @@ const Contacto = () => {
                     <label className="block text-sm font-medium text-primary mb-2">
                       ¿Qué tipo de ayuda necesitas?
                     </label>
-                    <select className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal">
+                    <select 
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal"
+                    >
                       <option value="">Selecciona un servicio</option>
                       <option value="estrategia">Estrategia SEO Completa</option>
                       <option value="auditoria">Auditoría SEO</option>
@@ -180,13 +257,17 @@ const Contacto = () => {
                       Cuéntame sobre tu proyecto *
                     </label>
                     <textarea 
+                      name="message"
+                      required
                       rows={4}
+                      value={formData.message}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-border rounded-lg bg-background focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal resize-none"
                       placeholder="Describe tu situación actual, objetivos y cualquier información relevante..."
                     ></textarea>
                   </div>
                   
-                  <Button size="lg" className="w-full group">
+                  <Button type="submit" size="lg" className="w-full group">
                     Solicitar Consultoría Gratuita
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
