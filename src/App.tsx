@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "@/components/Footer";
 import CookieNotice from "@/components/CookieNotice";
 import ScrollToTop from "@/components/ScrollToTop";
+import FloatingDice from "@/components/FloatingDice";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import CaseStudies from "./pages/CaseStudies";
@@ -30,6 +31,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <FloatingDice />
         <div className="flex flex-col min-h-screen">
           <div className="flex-1">
             <Routes>
