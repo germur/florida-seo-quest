@@ -6,6 +6,14 @@ import SocialShare from "@/components/SocialShare";
 import RelatedArticles from "@/components/RelatedArticles";
 import { useEffect } from "react";
 
+// SEO Article Images
+import voicePredictionsVsReality from "@/assets/seo-voice-predictions-vs-reality.jpg";
+import visualSearchUsage from "@/assets/seo-visual-search-usage.jpg";
+import hypeCyclePattern from "@/assets/seo-hype-cycle-pattern.jpg";
+import voiceUsageStats from "@/assets/seo-voice-usage-stats.jpg";
+import featuredSnippetsStats from "@/assets/seo-featured-snippets-stats.jpg";
+import acronymsVsReality from "@/assets/seo-acronyms-vs-reality.jpg";
+
 const BlogPost = () => {
   const { slug } = useParams();
 
@@ -266,6 +274,10 @@ const BlogPost = () => {
           
           <p class="leading-relaxed mb-6">The promise was irresistible. Who wouldn't want to get ahead of the revolution? The media amplified it. Marketing gurus showcased it at conferences as the coming extinction of traditional SEO. And thousands of companies shifted budgets to jump on the wave.</p>
 
+          <div class="mb-8">
+            <img src={voicePredictionsVsReality} alt="Evolution of Voice Search Predictions vs Reality - Chart showing the gap between predicted adoption rates and actual usage" class="w-full rounded-xl shadow-lg" />
+          </div>
+
           <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 my-8 rounded-r-lg">
             <div class="flex items-start gap-3">
               <div class="p-2 bg-red/10 rounded-lg mt-1">
@@ -393,6 +405,10 @@ const BlogPost = () => {
               <span class="w-2 h-2 bg-yellow rounded-full"></span>
               <span>👉 A far more modest reality.</span>
             </div>
+          </div>
+
+          <div class="mb-8">
+            <img src={hypeCyclePattern} alt="The Hype Cycle Pattern in SEO - Diagram showing how trends move from hype to reality" class="w-full rounded-xl shadow-lg" />
           </div>
 
           <div class="text-center py-8">
@@ -559,6 +575,10 @@ const BlogPost = () => {
         
           <p class="leading-relaxed mb-6">Agencies started selling "Voice SEO packages." Consultants filled conference slides with "The keyboard will die."</p>
 
+          <div class="mb-8">
+            <img src={voiceUsageStats} alt="Voice Search Usage Statistics - Infographic showing real adoption rates for voice search across different use cases" class="w-full rounded-xl shadow-lg" />
+          </div>
+
           <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 my-8 rounded-r-lg">
             <div class="flex items-start gap-3">
               <div class="p-2 bg-red/10 rounded-lg mt-1">
@@ -689,6 +709,10 @@ const BlogPost = () => {
 
           <p class="leading-relaxed mb-6">On paper, it looked like prophecy fulfilled.</p>
 
+          <div class="mb-8">
+            <img src={visualSearchUsage} alt="Visual Search Usage by Industry - Pie chart showing 74% retail/fashion vs 8% outside retail" class="w-full rounded-xl shadow-lg" />
+          </div>
+
           <h3 class="text-xl font-semibold text-primary mb-4">The context that cools the hype:</h3>
         
           <div class="grid gap-6 mb-8">
@@ -759,6 +783,10 @@ const BlogPost = () => {
         
           <p class="leading-relaxed mb-8">Fear spread fast. Agencies sold exclusive "AEO packages." Startups raised funding.</p>
 
+          <div class="mb-8">
+            <img src={featuredSnippetsStats} alt="Featured Snippets Reality - Chart showing only 11.84% of searches have snippets and 70% generate no clicks" class="w-full rounded-xl shadow-lg" />
+          </div>
+
           <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 my-8 rounded-r-lg">
             <div class="flex items-start gap-3">
               <div class="p-2 bg-red/10 rounded-lg mt-1">
@@ -827,6 +855,10 @@ const BlogPost = () => {
           </div>
         
           <p class="leading-relaxed mb-8">The narrative is always the same: "SEO is dead, everything has changed."</p>
+          
+          <div class="mb-8">
+            <img src={acronymsVsReality} alt="Marketing Acronyms vs Real SEO - Comparison showing temporary trends versus eternal SEO pillars" class="w-full rounded-xl shadow-lg" />
+          </div>
           
           <p class="leading-relaxed mb-8">But the data, failures, and mirages show otherwise: 👉 SEO never died. 👉 It evolved, adapted, but its essence remained: solving real user needs.</p>
 
