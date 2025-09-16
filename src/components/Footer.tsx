@@ -1,4 +1,4 @@
-import { ArrowUpRight, Phone, Mail, MapPin, ExternalLink } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -79,20 +79,6 @@ const Footer = () => {
             
             {/* Contact Info */}
             <div className="space-y-4">
-              <a 
-                href="tel:+573046807443" 
-                className="group flex items-center p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-electric-blue/30 hover:bg-white/10 transition-all duration-300"
-              >
-                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-electric-blue/20 group-hover:bg-electric-blue/30 transition-colors mr-4">
-                  <Phone className="h-5 w-5 text-electric-blue" />
-                </div>
-                <div>
-                  <div className="font-semibold text-primary-foreground">+57 304 680 7443</div>
-                  <div className="text-sm text-primary-foreground/70">
-                    {language === 'es' ? 'Llamar ahora' : 'Call now'}
-                  </div>
-                </div>
-              </a>
               
               <a 
                 href="mailto:rogermur1990@gmail.com" 
@@ -172,11 +158,11 @@ const Footer = () => {
                 }
               </p>
               <a 
-                href="tel:+573046807443"
+                href="mailto:rogermur1990@gmail.com?subject=Consultoría SEO Gratuita"
                 className="inline-flex items-center justify-center w-full px-4 py-3 bg-electric-blue/20 hover:bg-electric-blue/30 text-electric-blue hover:text-white border border-electric-blue/40 hover:border-electric-blue rounded-xl font-semibold transition-all duration-300"
               >
-                <Phone className="mr-2 h-4 w-4" />
-                {language === 'es' ? 'Llamar Ahora' : 'Call Now'}
+                <Mail className="mr-2 h-4 w-4" />
+                {language === 'es' ? 'Contactar Ahora' : 'Contact Now'}
                 <ArrowUpRight className="ml-2 h-4 w-4" />
               </a>
             </div>
