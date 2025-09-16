@@ -121,7 +121,7 @@ export const addSchema = (schema: SchemaConfig, id?: string) => {
 };
 
 // SEO configurations for each page
-export const seoConfigs = {
+export export const seoConfigs = {
   home: {
     title: 'Strategic SEO Consulting Florida | AI-Driven Growth Strategies',
     description: 'Elevate your Florida business with AI-driven strategic SEO consulting. Our 7+ years expertise delivers custom growth plans & measurable results. Partner with us!',
@@ -225,30 +225,126 @@ export const seoConfigs = {
     noindex: true
   },
 
-  // Spanish Pages (if you have them)
-  acercaDe: {
+  // Spanish Pages
+  homeEs: {
+    title: 'SEO y Marketing Digital en Florida | Calvo Creativo',
+    description: 'Especialista en SEO para empresas de Florida. Estrategias comprobadas que generan más tráfico, leads y ventas. Consultoría gratuita disponible.',
+    keywords: ['seo florida', 'marketing digital florida', 'consultor seo', 'seo miami', 'seo orlando'],
+    canonical: '/es'
+  },
+  servicesEs: {
+    title: 'Servicios de SEO y Marketing Digital | Calvo Creativo',
+    description: 'Servicios especializados de SEO: Consultoría Estratégica, Storytelling Digital, Automatización SEO y Marca Personal para empresas de Florida.',
+    keywords: ['servicios seo', 'consultoria seo', 'marketing digital', 'seo tecnico'],
+    canonical: '/es/servicios'
+  },
+  aboutEs: {
+    title: 'Sobre Calvo Creativo | Especialista SEO Florida',
+    description: 'Conoce la historia, valores y experiencia de Calvo Creativo. 7+ años ayudando empresas de Florida a crecer con SEO estratégico.',
+    keywords: ['calvo creativo', 'especialista seo', 'consultor seo florida'],
+    canonical: '/es/acerca-de'
+  },
+  contactEs: {
+    title: 'Contacto | Consultoría SEO Gratuita | Calvo Creativo',
+    description: 'Agenda una consultoría SEO gratuita. Respuesta garantizada en 24 horas. Especialista en empresas de Florida.',
+    keywords: ['contacto seo', 'consultoria gratuita', 'consultor seo florida'],
+    canonical: '/es/contacto'
+  },
+  resourcesEs: {
+    title: 'Recursos SEO Gratuitos | Herramientas y Plantillas | Calvo Creativo',
+    description: 'Herramientas, plantillas y recursos SEO gratuitos. Checklists, templates y guías para potenciar tu estrategia SEO.',
+    keywords: ['recursos seo', 'herramientas seo', 'plantillas seo', 'checklist seo'],
+    canonical: '/es/recursos'
+  },
+  caseStudiesEs: {
+    title: 'Casos de Éxito SEO | Resultados Comprobados | Calvo Creativo',
+    description: 'Descubre casos de éxito reales. Aumentos de +280% en tráfico orgánico y resultados medibles en empresas de Florida.',
+    keywords: ['casos de exito seo', 'resultados seo', 'casos estudio seo'],
+    canonical: '/es/casos-de-exito'
+  },
+  howWeWorkEs: {
+    title: 'Cómo Trabajamos | Framework MAES | Calvo Creativo',
+    description: 'Conoce nuestro Framework MAES: Mapear, Analizar, Ejecutar, Supervisar. Metodología probada para el éxito en SEO.',
+    keywords: ['framework maes', 'metodologia seo', 'como trabajamos seo'],
+    canonical: '/es/como-trabajamos'
+  },
+  blogEs: {
+    title: 'Blog SEO | Estrategias y Tendencias | Calvo Creativo',
+    description: 'Artículos sobre SEO, marketing digital y tendencias. Insights basados en experiencia real con empresas de Florida.',
+    keywords: ['blog seo', 'articulos seo', 'tendencias seo', 'marketing digital'],
+    canonical: '/es/blog'
+  },
+  privacyPolicyEs: {
+    title: 'Política de Privacidad | Calvo Creativo',
+    description: 'Política de privacidad de Calvo Creativo. Información sobre recopilación, uso y protección de datos personales.',
+    keywords: ['politica privacidad', 'proteccion datos'],
+    canonical: '/es/politica-de-privacidad'
+  },
+  termsOfServiceEs: {
+    title: 'Términos de Servicio | Calvo Creativo',
+    description: 'Términos y condiciones de los servicios de Calvo Creativo. Derechos, responsabilidades y condiciones de uso.',
+    keywords: ['terminos servicio', 'condiciones uso'],
+    canonical: '/es/terminos-de-servicio'
+  },
+  cookiePolicyEs: {
+    title: 'Política de Cookies | Calvo Creativo',
+    description: 'Información sobre el uso de cookies en el sitio web de Calvo Creativo. Tipos de cookies y gestión de preferencias.',
+    keywords: ['politica cookies', 'cookies web'],
+    canonical: '/es/politica-de-cookies'
+  },
+  sitemapEs: {
+    title: 'Mapa del Sitio | Calvo Creativo',
+    description: 'Mapa completo del sitio web de Calvo Creativo. Enlaces organizados a todas las páginas, servicios y recursos.',
+    keywords: ['mapa sitio', 'navegacion web'],
+    canonical: '/es/mapa-del-sitio'
+  },
     title: 'Acerca de Roger Murillo | Consultor SEO Florida',
     description: 'Conoce a Roger Murillo: 7+ años escalando marcas en Florida con estrategias SEO impulsadas por IA. Resultados medibles para tu crecimiento orgánico.',
     canonical: 'https://calvocreativo.com/acerca-de',
     keywords: 'roger murillo seo, consultor seo florida, experto seo ia'
   },
-  
-  contacto: {
+
+  // Spanish Pages  
+  homeEs: {
     title: 'Contacto Consultor SEO Florida | Consulta Estratégica Gratis',
     description: '¿Listo para escalar con SEO estratégico? Agenda tu consulta gratuita con Roger Murillo, experto SEO Florida. Estrategias IA, resultados comprobados.',
     canonical: 'https://calvocreativo.com/contacto',
     keywords: 'consulta seo florida, contacto experto seo, servicios seo'
+  sitemapEs: {
+    title: 'Mapa del Sitio | Calvo Creativo',
+    description: 'Mapa completo del sitio web de Calvo Creativo. Enlaces organizados a todas las páginas, servicios y recursos.',
+    keywords: ['mapa sitio', 'navegacion web'],
+    canonical: '/es/mapa-del-sitio'
   },
-  
-  recursos: {
-    title: 'Recursos SEO Gratis | Guías Completas y Herramientas',
-    description: 'Recursos SEO gratuitos para principiantes y profesionales: SEO técnico, link building, optimización. Conocimiento experto para mejorar tus rankings.',
-    canonical: 'https://calvocreativo.com/recursos',
-    keywords: 'recursos seo, guias seo gratis, herramientas seo'
+
+  // Service-specific pages for Spanish
+  strategicSeoEs: {
+    title: 'Consultoría SEO Estratégica | Especialista Florida | Calvo Creativo',
+    description: 'Consultoría SEO estratégica para empresas de Florida. Framework MAES comprobado para aumentar tráfico orgánico y conversiones.',
+    keywords: ['consultoria seo estrategica', 'especialista seo florida', 'framework maes'],
+    canonical: '/es/servicios/strategic-seo-consulting'
+  },
+  digitalStorytellingEs: {
+    title: 'Servicios de Storytelling Digital | Marketing de Contenidos | Calvo Creativo',
+    description: 'Servicios especializados de storytelling digital y marketing de contenidos para empresas de Florida. Narrativas que conectan y convierten.',
+    keywords: ['storytelling digital', 'marketing contenidos', 'narrativa marca florida'],
+    canonical: '/es/servicios/digital-storytelling-services'
+  },
+  seoAutomationEs: {
+    title: 'Automatización SEO | Herramientas y Procesos | Calvo Creativo',
+    description: 'Servicios de automatización SEO para empresas de Florida. Optimiza procesos, ahorra tiempo y mejora resultados con tecnología avanzada.',
+    keywords: ['automatizacion seo', 'herramientas seo', 'procesos seo automatizados'],
+    canonical: '/es/servicios/seo-automation'
+  },
+  personalBrandingEs: {
+    title: 'Consultoría de Marca Personal | SEO Personal | Calvo Creativo',
+    description: 'Consultoría especializada en marca personal y SEO personal para profesionales y emprendedores de Florida. Construye tu autoridad online.',
+    keywords: ['marca personal', 'seo personal', 'consultoria marca personal florida'],
+    canonical: '/es/servicios/personal-branding-consulting'
   }
 };
 
-// Schema configurations
+export { seoConfigs };
 export const schemaConfigs = {
   localBusiness: {
     "@context": "https://schema.org",
