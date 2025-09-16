@@ -6,16 +6,6 @@ import SocialShare from "@/components/SocialShare";
 import RelatedArticles from "@/components/RelatedArticles";
 import { useEffect } from "react";
 
-// SEO Article Images
-import voicePredictionsVsReality from "@/assets/voice-search-predictions-vs-reality-2025.webp";
-import hypeCycleVisualSearch from "@/assets/digital-marketing-hype-cycle-visual-search.webp";
-import seoStrategyPuzzle from "@/assets/seo-strategy-puzzle-pieces.webp";
-import hypeDataRealityLoop from "@/assets/hype-data-reality-loop.webp";
-import voiceSearchLocalUsage from "@/assets/voice-search-local-seo-usage.webp";
-import visualSearchConsumerAdoption from "@/assets/visual-search-consumer-adoption.webp";
-import aeoFadingSnippetData from "@/assets/aeo-fading-snippet-data.webp";
-import googleRuleTimeline from "@/assets/google-rule-timeline-solve-intent.webp";
-
 const BlogPost = () => {
   const { slug } = useParams();
 
@@ -277,7 +267,7 @@ const BlogPost = () => {
           <p class="leading-relaxed mb-6">The promise was irresistible. Who wouldn't want to get ahead of the revolution? The media amplified it. Marketing gurus showcased it at conferences as the coming extinction of traditional SEO. And thousands of companies shifted budgets to jump on the wave.</p>
 
           <div class="mb-8">
-            <img src={voicePredictionsVsReality} alt="Graph contrasting Gartner and ComScore voice search predictions vs actual adoption in 2025." class="w-full rounded-xl shadow-lg" />
+            <img src="/src/assets/voice-search-predictions-vs-reality-2025.webp" alt="Graph contrasting Gartner and ComScore voice search predictions vs actual adoption in 2025." class="w-full rounded-xl shadow-lg" />
           </div>
 
           <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 my-8 rounded-r-lg">
@@ -410,7 +400,7 @@ const BlogPost = () => {
           </div>
 
           <div class="mb-8">
-            <img src={hypeDataRealityLoop} alt="Flat design infographic showing hype vs data vs reality loop in digital marketing." class="w-full rounded-xl shadow-lg" />
+            <img src="/src/assets/hype-data-reality-loop.webp" alt="Flat design infographic showing hype vs data vs reality loop in digital marketing." class="w-full rounded-xl shadow-lg" />
           </div>
 
           <div class="text-center py-8">
@@ -490,7 +480,7 @@ const BlogPost = () => {
           </div>
 
           <div class="mb-8">
-            <img src={seoStrategyPuzzle} alt="Puzzle pieces infographic illustrating SEO strategy layers: voice, visual, and snippets connected to core SEO." class="w-full rounded-xl shadow-lg" />
+            <img src="/src/assets/seo-strategy-puzzle-pieces.webp" alt="Puzzle pieces infographic illustrating SEO strategy layers: voice, visual, and snippets connected to core SEO." class="w-full rounded-xl shadow-lg" />
           </div>
         </section>
 
@@ -518,7 +508,7 @@ const BlogPost = () => {
           </div>
 
           <div class="mb-8">
-            <img src={googleRuleTimeline} alt="Timeline infographic from 2000 to 2025 repeating Google's core rule: solve user intent." class="w-full rounded-xl shadow-lg" />
+            <img src="/src/assets/google-rule-timeline-solve-intent.webp" alt="Timeline infographic from 2000 to 2025 repeating Google's core rule: solve user intent." class="w-full rounded-xl shadow-lg" />
           </div>
 
           <p class="text-lg leading-relaxed mb-6">SEO is not a set of acronyms that are born and die every season.</p>
@@ -586,7 +576,7 @@ const BlogPost = () => {
           <p class="leading-relaxed mb-6">Agencies started selling "Voice SEO packages." Consultants filled conference slides with "The keyboard will die."</p>
 
           <div class="mb-8">
-            <img src={voiceSearchLocalUsage} alt="Isometric infographic highlighting voice search usage in local SEO with real adoption numbers." class="w-full rounded-xl shadow-lg" />
+            <img src="/src/assets/voice-search-local-seo-usage.webp" alt="Isometric infographic highlighting voice search usage in local SEO with real adoption numbers." class="w-full rounded-xl shadow-lg" />
           </div>
 
           <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 my-8 rounded-r-lg">
@@ -720,7 +710,7 @@ const BlogPost = () => {
           <p class="leading-relaxed mb-6">On paper, it looked like prophecy fulfilled.</p>
 
           <div class="mb-8">
-            <img src={visualSearchConsumerAdoption} alt="Chart showing visual search adoption by consumers in retail, décor, and fashion." class="w-full rounded-xl shadow-lg" />
+            <img src="/src/assets/visual-search-consumer-adoption.webp" alt="Chart showing visual search adoption by consumers in retail, décor, and fashion." class="w-full rounded-xl shadow-lg" />
           </div>
 
           <h3 class="text-xl font-semibold text-primary mb-4">The context that cools the hype:</h3>
@@ -794,7 +784,7 @@ const BlogPost = () => {
           <p class="leading-relaxed mb-8">Fear spread fast. Agencies sold exclusive "AEO packages." Startups raised funding.</p>
 
           <div class="mb-8">
-            <img src={aeoFadingSnippetData} alt="Infographic of AEO (Answer Engine Optimization) fading over time with limited snippet data." class="w-full rounded-xl shadow-lg" />
+            <img src="/src/assets/aeo-fading-snippet-data.webp" alt="Infographic of AEO (Answer Engine Optimization) fading over time with limited snippet data." class="w-full rounded-xl shadow-lg" />
           </div>
 
           <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 my-8 rounded-r-lg">
@@ -867,7 +857,7 @@ const BlogPost = () => {
           <p class="leading-relaxed mb-8">The narrative is always the same: "SEO is dead, everything has changed."</p>
           
           <div class="mb-8">
-            <img src={hypeCycleVisualSearch} alt="Infographic showing the digital marketing hype cycle with visual search as a partial revolution." class="w-full rounded-xl shadow-lg" />
+            <img src="/src/assets/digital-marketing-hype-cycle-visual-search.webp" alt="Infographic showing the digital marketing hype cycle with visual search as a partial revolution." class="w-full rounded-xl shadow-lg" />
           </div>
           
           <p class="leading-relaxed mb-8">But the data, failures, and mirages show otherwise: 👉 SEO never died. 👉 It evolved, adapted, but its essence remained: solving real user needs.</p>
