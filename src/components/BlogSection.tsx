@@ -5,25 +5,20 @@ import { Link } from "react-router-dom";
 const BlogSection = () => {
   const posts = [
     {
-      title: "Topical Authority: Why It Wins in 2025",
-      date: "Mar 15, 2024",
-      readTime: "5 min read",
-      excerpt: "How semantic SEO and content clusters drive sustainable growth.",
-      color: "from-electric-blue/10 to-transparent"
-    },
-    {
-      title: "AI in SEO: Practical Uses (No Hype)",
-      date: "Mar 10, 2024", 
-      readTime: "7 min read",
-      excerpt: "Real AI applications that actually improve SEO workflows.",
-      color: "from-electric-blue/10 to-transparent"
-    },
-    {
-      title: "Florida SEO: Strategies That Work",
-      date: "Mar 5, 2024",
-      readTime: "6 min read", 
-      excerpt: "Local insights and strategies for dominating Florida markets.",
+      id: "wordpress-affordable-solution-or-anchor",
+      title: "WordPress: Affordable Solution or Anchor of Problems?",
+      date: "Jan 20, 2025",
+      readTime: "10 min read",
+      excerpt: "WordPress powers 40% of websites, but is it really the ideal solution? A critical analysis of hidden costs, maintenance burdens, and performance issues.",
       color: "from-bright-orange/10 to-transparent"
+    },
+    {
+      id: "seo-no-murio-hype-estrategia",
+      title: "SEO Didn't Die: From Hype to Strategy That Actually Works",
+      date: "Jan 15, 2025", 
+      readTime: "12 min read",
+      excerpt: "Critical analysis of digital marketing trends: voice, visual and AEO. Why real SEO remains what Google has wanted for 20 years.",
+      color: "from-electric-blue/10 to-transparent"
     }
   ];
 
@@ -35,36 +30,37 @@ const BlogSection = () => {
             Learn SEO & AI in Action
           </h2>
           
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
             {posts.map((post, index) => (
-              <article 
-                key={index}
-                className={`bg-gradient-to-br ${post.color} bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer`}
-              >
-                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                  <span className="flex items-center gap-1">
-                    <Calendar className="h-4 w-4" />
-                    {post.date}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="h-4 w-4" />
-                    {post.readTime}
-                  </span>
-                </div>
-                
-                <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-electric-blue transition-colors">
-                  {post.title}
-                </h3>
-                
-                <p className="text-muted-foreground leading-relaxed mb-6">
-                  {post.excerpt}
-                </p>
-                
-                <div className="flex items-center text-electric-blue font-medium group-hover:text-bright-orange transition-colors">
-                  Read Article
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </div>
-              </article>
+              <Link key={index} to={`/blog/${post.id}`} className="block">
+                <article 
+                  className={`bg-gradient-to-br ${post.color} bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer`}
+                >
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                    <span className="flex items-center gap-1">
+                      <Calendar className="h-4 w-4" />
+                      {post.date}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Clock className="h-4 w-4" />
+                      {post.readTime}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold text-primary mb-4 group-hover:text-electric-blue transition-colors">
+                    {post.title}
+                  </h3>
+                  
+                  <p className="text-muted-foreground leading-relaxed mb-6">
+                    {post.excerpt}
+                  </p>
+                  
+                  <div className="flex items-center text-electric-blue font-medium group-hover:text-bright-orange transition-colors">
+                    Read Article
+                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </article>
+              </Link>
             ))}
           </div>
           
