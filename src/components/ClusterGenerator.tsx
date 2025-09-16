@@ -158,22 +158,22 @@ const ClusterGenerator = () => {
     content += `Número de Subtemas: ${count}\n`;
     content += `Fecha: ${new Date().toLocaleDateString()}\n\n`;
     
-    content += `ESTRUCTURA:\n`;
+    content += `STRUCTURE:\n`;
     content += `-----------\n`;
-    content += `1. Página Pilar: ${mainTopic} (5000+ palabras)\n`;
-    content += `   - Publicar primero\n`;
-    content += `   - Optimizar para keyword principal\n\n`;
+    content += `1. Pillar Page: ${mainTopic} (5000+ words)\n`;
+    content += `   - Publish first\n`;
+    content += `   - Optimize for main keyword\n\n`;
     
     clusterData.subtopics.forEach((topic, index) => {
-      content += `${index + 2}. Subtema: ${topic}\n`;
-      content += `   - 3 artículos de 2000+ palabras\n`;
-      content += `   - Enlazar a página pilar\n`;
-      content += `   - Keywords long-tail\n\n`;
+      content += `${index + 2}. Subtopic: ${topic}\n`;
+      content += `   - 3 articles of 2000+ words\n`;
+      content += `   - Link to pillar page\n`;
+      content += `   - Long-tail keywords\n\n`;
     });
     
-    content += `\nTOTAL: ${clusterData.totalPages} páginas de contenido\n`;
-    content += `TIEMPO ESTIMADO: ${clusterData.contentHours} horas de producción\n`;
-    content += `\nGenerado con Generador de Clusters Temáticos - Calvo Creativo`;
+    content += `\nTOTAL: ${clusterData.totalPages} content pages\n`;
+    content += `ESTIMATED TIME: ${clusterData.contentHours} production hours\n`;
+    content += `\nGenerated with Topic Cluster Generator - Calvo Creativo`;
     
     const blob = new Blob([content], { type: 'text/plain' });
     const url = window.URL.createObjectURL(blob);

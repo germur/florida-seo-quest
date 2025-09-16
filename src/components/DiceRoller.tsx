@@ -316,19 +316,19 @@ export default function DiceRoller({ size = "lg", className = "" }: DiceRollerPr
           <div className="flex items-center justify-center gap-2 mb-3">
             <MousePointer2 className="w-5 h-5 text-electric-blue animate-bounce" />
             <h3 className="text-xl font-title text-primary">
-              ¡Descubre un Caso de Éxito!
+              Discover a Success Story!
             </h3>
             <MousePointer2 className="w-5 h-5 text-bright-orange animate-bounce" style={{ animationDelay: '0.5s' }} />
           </div>
           <p className="text-sm text-muted-foreground mb-4">
-            Haz clic en el dado para ver resultados reales de nuestros clientes
+            Click the dice to see real results from our clients
           </p>
           
           {/* Visual hint with arrow pointing to dice */}
           {!isRolling && (
             <div className="flex items-center justify-center gap-2 text-xs text-electric-blue font-medium animate-pulse">
               <span>👆</span>
-              <span>¡Clickéame!</span>
+              <span>Click me!</span>
               <span>👆</span>
             </div>
           )}
@@ -344,7 +344,7 @@ export default function DiceRoller({ size = "lg", className = "" }: DiceRollerPr
               <div className="w-2 h-2 bg-electric-blue rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
             </div>
             <div className="text-sm text-muted-foreground animate-pulse">
-              Seleccionando caso de éxito...
+              Selecting success story...
             </div>
           </div>
         )}
@@ -352,7 +352,7 @@ export default function DiceRoller({ size = "lg", className = "" }: DiceRollerPr
         {/* Subtle instruction text */}
         {!isRolling && (
           <div className="text-center text-xs text-muted-foreground/70 max-w-xs">
-            Cada tirada revela métricas reales de proyectos completados
+            Each roll reveals real metrics from completed projects
           </div>
         )}
       </div>

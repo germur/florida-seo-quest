@@ -1141,45 +1141,45 @@ const BlogPost = () => {
         
         <div class="grid gap-4 mb-8">
           <div class="p-4 bg-green/5 border border-green/20 rounded-xl">
-            <p class="font-semibold text-green mb-1">Para locales</p>
-            <p class="text-sm mb-0">Voz + "near me" es vital.</p>
+            <p class="font-semibold text-green mb-1">For Local</p>
+            <p class="text-sm mb-0">Voice + "near me" is vital.</p>
           </div>
           
           <div class="p-4 bg-blue/5 border border-blue/20 rounded-xl">
-            <p class="font-semibold text-blue mb-1">Para marcas globales</p>
-            <p class="text-sm mb-0">La voz es un canal más, útil para recordatorios, FAQs o tareas simples.</p>
+            <p class="font-semibold text-blue mb-1">For Global Brands</p>
+            <p class="text-sm mb-0">Voice is just another channel, useful for reminders, FAQs or simple tasks.</p>
           </div>
           
           <div class="p-4 bg-purple/5 border border-purple/20 rounded-xl">
-            <p class="font-semibold text-purple mb-1">Para sectores complejos</p>
-            <p class="text-sm mb-0">Salud, legal, B2B: su impacto es casi irrelevante.</p>
+            <p class="font-semibold text-purple mb-1">For Complex Sectors</p>
+            <p class="text-sm mb-0">Healthcare, legal, B2B: its impact is almost irrelevant.</p>
           </div>
         </div>
 
-        <p class="leading-relaxed mb-6">Es un recordatorio de que en marketing digital las promesas absolutas suelen esconder humo.</p>
+        <p class="leading-relaxed mb-6">It's a reminder that in digital marketing, absolute promises often hide smoke and mirrors.</p>
         
-        <p class="leading-relaxed mb-6">Imagina a un usuario buscando "cómo declarar impuestos como freelancer en EE.UU.".</p>
+        <p class="leading-relaxed mb-6">Imagine a user searching for "how to file taxes as a freelancer in the US."</p>
         
-        <p class="leading-relaxed mb-6">¿De verdad va a preguntarle a Alexa y confiar en una respuesta de un solo párrafo?</p>
+        <p class="leading-relaxed mb-6">Are they really going to ask Alexa and trust a single paragraph response?</p>
         
-        <p class="leading-relaxed mb-8">La realidad es que terminará en un artículo completo, en un video explicativo o en un tutorial paso a paso. La voz es el inicio de la conversación, no el final del embudo.</p>
+        <p class="leading-relaxed mb-8">The reality is they'll end up in a comprehensive article, an explanatory video, or a step-by-step tutorial. Voice is the beginning of the conversation, not the end of the funnel.</p>
 
-        <h3 class="text-xl font-semibold text-primary mb-4">Lo que aprendimos del hype de la voz</h3>
+        <h3 class="text-xl font-semibold text-primary mb-4">What we learned from the voice hype</h3>
         
         <div class="grid gap-4 mb-8">
           <div class="p-4 bg-yellow/5 border border-yellow/20 rounded-xl">
-            <h4 class="font-semibold text-yellow mb-2">No todo lo que brilla es revolución</h4>
-            <p class="text-sm mb-0">Las cifras que sonaban tan redondas (30%, 50%) se convirtieron en titulares fáciles, pero nunca tuvieron respaldo en el uso real.</p>
+            <h4 class="font-semibold text-yellow mb-2">Not everything that glitters is revolution</h4>
+            <p class="text-sm mb-0">The numbers that sounded so round (30%, 50%) became easy headlines, but never had backing in real usage.</p>
           </div>
           
           <div class="p-4 bg-orange/5 border border-orange/20 rounded-xl">
-            <h4 class="font-semibold text-orange mb-2">Optimizar sin perder la cabeza</h4>
-            <p class="text-sm mb-0">Vale la pena asegurar que tu negocio local esté optimizado para búsquedas por voz. No vale la pena rediseñar toda tu estrategia SEO en torno a Alexa o Siri.</p>
+            <h4 class="font-semibold text-orange mb-2">Optimize without losing your head</h4>
+            <p class="text-sm mb-0">It's worth ensuring your local business is optimized for voice searches. It's not worth redesigning your entire SEO strategy around Alexa or Siri.</p>
           </div>
           
           <div class="p-4 bg-green/5 border border-green/20 rounded-xl">
-            <h4 class="font-semibold text-green mb-2">El SEO sigue siendo SEO</h4>
-            <p class="text-sm mb-0">Incluso en voz, el principio no cambia: Google, Siri o Alexa responden con la información mejor estructurada y más confiable (Google Developers – Search Central).</p>
+            <h4 class="font-semibold text-green mb-2">SEO is still SEO</h4>
+            <p class="text-sm mb-0">Even in voice, the principle doesn't change: Google, Siri or Alexa respond with the best structured and most reliable information (Google Developers – Search Central).</p>
           </div>
         </div>
       </section>

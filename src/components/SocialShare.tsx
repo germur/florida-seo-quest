@@ -20,13 +20,13 @@ const SocialShare = ({ url, title, description }: SocialShareProps) => {
     try {
       await navigator.clipboard.writeText(shareUrl);
       toast({
-        title: "¡Enlace copiado!",
-        description: "El enlace del artículo se ha copiado al portapapeles.",
+        title: "Link copied!",
+        description: "The article link has been copied to clipboard.",
       });
     } catch (err) {
       toast({
         title: "Error",
-        description: "No se pudo copiar el enlace.",
+        description: "Could not copy the link.",
         variant: "destructive",
       });
     }
@@ -59,11 +59,11 @@ const SocialShare = ({ url, title, description }: SocialShareProps) => {
         <div className="p-2 bg-primary/10 rounded-lg">
           <Share2 className="w-5 h-5 text-primary" />
         </div>
-        <h3 className="text-xl font-bold text-primary">Compartir artículo</h3>
+        <h3 className="text-xl font-bold text-primary">Share Article</h3>
       </div>
       
       <p className="text-muted-foreground mb-6">
-        ¿Te resultó útil este artículo? ¡Compártelo con otros profesionales!
+        Found this article helpful? Share it with other professionals!
       </p>
       
       <div className="flex flex-wrap gap-3">
@@ -87,7 +87,7 @@ const SocialShare = ({ url, title, description }: SocialShareProps) => {
           onClick={copyToClipboard}
         >
           <Link className="w-4 h-4 mr-2" />
-          Copiar enlace
+          Copy Link
         </Button>
       </div>
     </div>

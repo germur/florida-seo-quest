@@ -62,7 +62,7 @@ const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps)
         <div className="p-2 bg-primary/10 rounded-lg">
           <BookOpen className="w-5 h-5 text-primary" />
         </div>
-        <h3 className="text-xl font-bold text-primary">Más artículos</h3>
+        <h3 className="text-xl font-bold text-primary">Related Articles</h3>
       </div>
 
       <div className="grid gap-6">
@@ -119,7 +119,7 @@ const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps)
       <div className="mt-8 text-center">
         <Button asChild variant="outline">
           <Link to="/blog">
-            Ver todos los artículos
+            View All Articles
             <ArrowRight className="w-4 h-4 ml-2" />
           </Link>
         </Button>
