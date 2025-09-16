@@ -266,7 +266,7 @@ export const schemaConfigs = {
     "name": "Calvo Creativo",
     "description": "Strategic SEO consulting and digital growth services for Florida businesses",
     "url": "https://calvocreativo.com",
-    "telephone": "+1-573-046-8074",
+    "telephone": "+57-304-680-7443",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Miami",
