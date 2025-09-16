@@ -5,6 +5,7 @@ import CoreServices from "@/components/CoreServices";
 import CaseStudies from "@/components/CaseStudies";
 import ProcessSection from "@/components/ProcessSection";
 import BlogSection from "@/components/BlogSection";
+import ProgrammaticLinksSection from "@/components/ProgrammaticLinksSection";
 import FinalCTA from "@/components/FinalCTA";
 import InternalLinkHub from "@/components/InternalLinkHub";
 import SEO from "@/components/SEO";
@@ -69,6 +70,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+      
+      {/* Programmatic Links Section */}
+      <ProgrammaticLinksSection />
       
       <FinalCTA />
     </main>
