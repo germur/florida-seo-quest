@@ -66,7 +66,7 @@ const Footer = () => {
               <img 
                 src={calvoCreativoLogo} 
                 alt="Calvo Creativo" 
-                className="h-16 w-auto"
+                className="h-24 w-auto"
               />
             </Link>
             

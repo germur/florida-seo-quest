@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Award, Users, TrendingUp, Heart, Target, Lightbulb } from "lucide-react";
+import Header from "@/components/Header";
+import SEO from "@/components/SEO";
 
 const AcercaDe = () => {
   const values = [
@@ -48,6 +50,11 @@ const AcercaDe = () => {
 
   return (
     <main className="min-h-screen pt-16">
+      <SEO 
+        page="aboutEs" 
+        customCanonical="/es/acerca-de"
+      />
+      <Header />
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-6">
