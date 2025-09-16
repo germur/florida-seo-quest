@@ -3,47 +3,89 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, RotateCcw, Sparkles, X, Zap } from "lucide-react";
 
-// Same case studies data as original
+// Real case studies data
 const CASE_STUDIES = [
   {
     id: "paramount-property-restoration",
-    company: "Paramount",
+    company: "Paramount Property Restoration",
     industry: "Property Restoration",
-    location: "Miami, FL",
-    result: "+180% qualified leads in 6 months",
+    location: "Florida, USA",
+    result: "200+ optimized pages, dozens of keywords in top 3",
     metrics: {
-      leads: "+180% qualified leads",
-      traffic: "+250% organic traffic", 
-      roi: "+420% ROI improvement",
-      rankings: "Top 3 in local restoration keywords"
+      leads: "Emergency leads from SEO",
+      traffic: "Multi-city coverage achieved",
+      roi: "Results in <6 months",
+      rankings: "Top 3 for dozens of local keywords"
     },
     color: "electric-blue"
   },
   {
-    id: "1gc-construction",
-    company: "1GC Construction", 
-    industry: "Commercial Construction",
-    location: "Orlando, FL",
-    result: "+95% organic visibility in 4 months",
+    id: "flo-car-rental",
+    company: "Flo Car Rental", 
+    industry: "Car Rental",
+    location: "Miami, USA",
+    result: "+120% growth in Google Business Profile actions",
     metrics: {
-      visibility: "+95% organic visibility",
-      traffic: "+150% quality traffic",
-      roi: "+280% ROI improvement", 
-      rankings: "Dominance in commercial construction Orlando"
+      visibility: "+120% GBP actions growth",
+      traffic: "Higher booking conversions",
+      roi: "CTR boost on rental queries", 
+      rankings: "Improved local search visibility"
     },
     color: "bright-orange"
   },
   {
-    id: "pura-piel-aesthetics",
-    company: "Pura Piel",
-    industry: "Aesthetics & Beauty", 
-    location: "Fort Lauderdale, FL",
-    result: "120+ technical errors fixed, +40% indexation",
+    id: "puff-cleaning",
+    company: "Puff Cleaning",
+    industry: "Cleaning Services", 
+    location: "Bogotá, Colombia",
+    result: "From 0 to ~2,000 monthly organic visits",
     metrics: {
-      fixes: "120+ technical SEO errors solved",
-      indexation: "+40% indexation improvement", 
-      roi: "+190% ROI improvement",
-      sessions: "+75% increase in organic sessions"
+      fixes: "Built from zero digital presence",
+      indexation: "Top 3 local rankings achieved", 
+      roi: "Strong local pack presence",
+      sessions: "~2,000 monthly visits in year one"
+    },
+    color: "teal"
+  },
+  {
+    id: "edu1st-preschools",
+    company: "Edu1st Preschools",
+    industry: "Education",
+    location: "Florida, USA", 
+    result: "+80% increase in Google Maps actions",
+    metrics: {
+      engagement: "+80% GMB actions increase",
+      traffic: "Significant blog growth",
+      roi: "More tour bookings achieved",
+      sessions: "Enhanced parent engagement"
+    },
+    color: "electric-blue"
+  },
+  {
+    id: "craftd-london",
+    company: "CRAFTD London",
+    industry: "Men's Jewelry",
+    location: "UK & US",
+    result: "50+ keywords in top 10 within 4 months", 
+    metrics: {
+      keywords: "50+ keywords in top 10",
+      traffic: "Higher category visibility",
+      roi: "CTR lift from rich snippets",
+      rankings: "4 months to achieve results"
+    },
+    color: "bright-orange"
+  },
+  {
+    id: "le-gramme", 
+    company: "LE GRAMME",
+    industry: "Luxury Jewelry",
+    location: "France & Global",
+    result: "+40% impressions on flagship collections",
+    metrics: {
+      impressions: "+40% flagship impressions", 
+      visibility: "International market expansion",
+      roi: "Luxury brand SEO alignment",
+      keywords: "Multiple top 10 luxury keywords"
     },
     color: "teal"
   }

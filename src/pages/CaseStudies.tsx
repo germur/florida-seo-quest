@@ -166,7 +166,7 @@ const CaseStudies = () => {
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto space-y-32">
             {cases.map((caseStudy, index) => (
-              <article key={caseStudy.id} className="space-y-16">
+              <article key={caseStudy.id} className="space-y-16 group">
                 {/* Header */}
                 <div className="text-center">
                   <div className="flex items-center justify-center gap-4 mb-4">
@@ -179,69 +179,69 @@ const CaseStudies = () => {
                     </div>
                   </div>
                   
-                  <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+                  <h2 className="text-4xl md:text-5xl font-bold text-foreground group-hover:text-electric-blue transition-colors duration-300">
                     {caseStudy.company}
                   </h2>
                 </div>
 
                 {/* Phase 01 - The Challenge */}
-                <div className="space-y-6">
+                <div className="space-y-6 hover-scale">
                   <div className="flex items-center gap-4">
-                    <div className="text-4xl font-bold text-muted-foreground/30">01</div>
+                    <div className="text-4xl font-bold text-muted-foreground/30 group-hover:text-electric-blue/50 transition-colors duration-300">01</div>
                     <h3 className="text-2xl font-bold text-foreground">The Challenge</h3>
                   </div>
-                  <p className="text-lg text-muted-foreground leading-relaxed pl-16">
+                  <p className="text-lg text-muted-foreground leading-relaxed pl-16 group-hover:text-foreground/80 transition-colors duration-300">
                     {caseStudy.challenge}
                   </p>
                 </div>
 
                 {/* Phase 02 - The Solution */}
-                <div className="space-y-6">
+                <div className="space-y-6 hover-scale">
                   <div className="flex items-center gap-4">
-                    <div className="text-4xl font-bold text-muted-foreground/30">02</div>
+                    <div className="text-4xl font-bold text-muted-foreground/30 group-hover:text-bright-orange/50 transition-colors duration-300">02</div>
                     <h3 className="text-2xl font-bold text-foreground">The Solution</h3>
                   </div>
-                  <p className="text-lg text-muted-foreground leading-relaxed pl-16">
+                  <p className="text-lg text-muted-foreground leading-relaxed pl-16 group-hover:text-foreground/80 transition-colors duration-300">
                     {caseStudy.solution}
                   </p>
                 </div>
 
                 {/* Phase 03 - The Results */}
-                <div className="space-y-6">
+                <div className="space-y-6 hover-scale">
                   <div className="flex items-center gap-4">
-                    <div className="text-4xl font-bold text-muted-foreground/30">03</div>
+                    <div className="text-4xl font-bold text-muted-foreground/30 group-hover:text-teal/50 transition-colors duration-300">03</div>
                     <h3 className="text-2xl font-bold text-foreground">The Results</h3>
                   </div>
                   <div className="pl-16 space-y-4">
                     {caseStudy.results.map((result, resultIndex) => (
-                      <div key={resultIndex} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 bg-foreground rounded-full mt-2 flex-shrink-0"></div>
-                        <div className="text-lg text-muted-foreground leading-relaxed">{result}</div>
+                      <div key={resultIndex} className="flex items-start gap-3 animate-fade-in" style={{ animationDelay: `${resultIndex * 100}ms` }}>
+                        <div className="w-1.5 h-1.5 bg-foreground rounded-full mt-2 flex-shrink-0 animate-pulse"></div>
+                        <div className="text-lg text-muted-foreground leading-relaxed group-hover:text-foreground/80 transition-colors duration-300">{result}</div>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Phase 04 - By the Numbers */}
-                <div className="space-y-6">
+                <div className="space-y-6 hover-scale">
                   <div className="flex items-center gap-4">
-                    <div className="text-4xl font-bold text-muted-foreground/30">04</div>
+                    <div className="text-4xl font-bold text-muted-foreground/30 group-hover:text-electric-blue/50 transition-colors duration-300">04</div>
                     <h3 className="text-2xl font-bold text-foreground">By the Numbers</h3>
                   </div>
                   <div className="pl-16 grid md:grid-cols-3 gap-8">
-                    <div>
+                    <div className="bg-gradient-to-br from-background to-secondary/10 border border-border rounded-xl p-6 hover:border-electric-blue/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                       <div className="text-3xl font-bold text-foreground mb-2">
                         {caseStudy.metrics.duration}
                       </div>
                       <div className="text-muted-foreground">Timeline</div>
                     </div>
-                    <div>
+                    <div className="bg-gradient-to-br from-background to-secondary/10 border border-border rounded-xl p-6 hover:border-bright-orange/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                       <div className="text-3xl font-bold text-foreground mb-2">
                         {Object.values(caseStudy.metrics)[1]}
                       </div>
                       <div className="text-muted-foreground">{Object.keys(caseStudy.metrics)[1].replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())}</div>
                     </div>
-                    <div>
+                    <div className="bg-gradient-to-br from-background to-secondary/10 border border-border rounded-xl p-6 hover:border-teal/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                       <div className="text-3xl font-bold text-foreground mb-2">
                         {Object.values(caseStudy.metrics)[2]}
                       </div>
@@ -250,18 +250,24 @@ const CaseStudies = () => {
                   </div>
                   
                   <div className="pl-16 mt-6">
-                    <div className="text-sm text-muted-foreground">
-                      Site: <span className="text-foreground font-medium">{caseStudy.website}</span>
-                    </div>
+                    <a 
+                      href={`https://${caseStudy.website}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-electric-blue transition-colors group"
+                    >
+                      <span>Visit: <span className="font-medium">{caseStudy.website}</span></span>
+                      <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
                   </div>
                 </div>
 
                 {/* CTA */}
-                <div className="text-center pt-8 border-t border-border">
+                <div className="text-center pt-8 border-t border-border hover:border-electric-blue/30 transition-colors duration-300">
                   <h4 className="text-xl font-semibold text-foreground mb-4">
                     Want similar results for your business?
                   </h4>
-                  <Button size="lg" asChild>
+                  <Button size="lg" asChild className="hover-scale">
                     <a href="tel:+573046807443">
                       Schedule Your Free Consultation
                       <ArrowRight className="ml-2 h-4 w-4" />

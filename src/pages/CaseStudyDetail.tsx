@@ -1,6 +1,6 @@
 import { useParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
-import { ArrowLeft, TrendingUp, Users, Search, Target } from "lucide-react";
+import { ArrowLeft, TrendingUp, Users, Search, Target, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -270,10 +270,19 @@ const CaseStudyDetail = () => {
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 {caseStudy.hero.challenge}
               </p>
-              <div className="bg-gradient-to-r from-electric-blue/10 to-bright-orange/10 border border-electric-blue/20 rounded-2xl p-6">
-                <div className="text-2xl font-bold text-foreground mb-2">Key Result</div>
-                <div className="text-lg text-muted-foreground">{caseStudy.hero.result}</div>
-              </div>
+            <div className="text-sm text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Project Duration: <span className="font-medium text-foreground">{caseStudy.duration}</span>
+              <span className="mx-2">•</span>
+              <a 
+                href={`https://${caseStudy.website}`} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-electric-blue hover:text-electric-blue/80 transition-colors group"
+              >
+                Visit {caseStudy.website}
+                <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+            </div>
             </div>
           </div>
         </div>
