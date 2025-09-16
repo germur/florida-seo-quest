@@ -29,17 +29,17 @@ const Header = () => {
               </Link>
               <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="p-4 space-y-2">
-                  <Link to="/services/strategic-seo" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                  <Link to="/services/strategic-seo-consulting" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     Strategic SEO Consulting
                   </Link>
-                  <Link to="/services/digital-storytelling" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
-                    Digital Storytelling
+                  <Link to="/services/digital-storytelling-services" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                    Digital Storytelling Services
                   </Link>
                   <Link to="/services/seo-automation" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     SEO Automation
                   </Link>
                   <Link to="/services/personal-branding-consulting" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
-                    Personal Branding
+                    Personal Branding Consulting
                   </Link>
                 </div>
               </div>

@@ -15,9 +15,10 @@ const Index = () => {
     {
       title: "SEO Services",
       links: [
-        { name: "MAES Strategy Framework", href: "/services", description: "Complete SEO roadmap & implementation" },
-        { name: "Technical SEO Audit", href: "/services", description: "Deep technical analysis & fixes" },
-        { name: "SEO Consulting", href: "/services", description: "Strategic guidance for teams" },
+        { name: "Strategic SEO Consulting", href: "/services/strategic-seo-consulting", description: "AI-driven SEO strategy & implementation" },
+        { name: "Digital Storytelling Services", href: "/services/digital-storytelling-services", description: "Transform your brand through compelling narratives" },
+        { name: "SEO Automation", href: "/services/seo-automation", description: "Scale your SEO with AI-powered automation" },
+        { name: "Personal Branding Consulting", href: "/services/personal-branding-consulting", description: "Build your professional authority" },
       ]
     },
     {

@@ -6,24 +6,35 @@ const CoreServices = () => {
   const services = [
     {
       icon: <Search className="h-8 w-8" />,
-      title: "SEO Strategy (MAES Framework)",
-      description: "A complete roadmap: research, semantic architecture, content, and a growth plan.",
-      cta: "Explore SEO Strategy",
+      title: "Strategic SEO Consulting",
+      description: "AI-driven SEO strategy and implementation with the MAES framework for measurable growth.",
+      cta: "Explore Strategic SEO",
+      href: "/services/strategic-seo-consulting",
       color: "teal"
     },
     {
       icon: <Settings className="h-8 w-8" />,
-      title: "SEO Audit & Technical Fixes",
-      description: "Spot and solve on-page, technical, and indexing issues with a clear action plan.",
-      cta: "See Audit Details",
+      title: "Digital Storytelling Services",
+      description: "Transform your brand through compelling narratives that drive engagement and conversions.",
+      cta: "See Storytelling Services",
+      href: "/services/digital-storytelling-services",
       color: "electric-blue"
     },
     {
       icon: <Users className="h-8 w-8" />,
-      title: "SEO Consulting & Advisory",
-      description: "Ongoing guidance for founders and in-house teams ready to scale.",
-      cta: "Start Consulting",
+      title: "SEO Automation & Data",
+      description: "Scale your SEO efforts with AI-powered automation and advanced data analytics.",
+      cta: "Discover Automation",
+      href: "/services/seo-automation",
       color: "bright-orange"
+    },
+    {
+      icon: <Users className="h-8 w-8" />,
+      title: "Personal Branding Consulting",
+      description: "Build your professional authority and online presence in your industry niche.",
+      cta: "Build Your Brand",
+      href: "/services/personal-branding-consulting",
+      color: "purple"
     }
   ];
 
@@ -35,7 +46,7 @@ const CoreServices = () => {
             What I Do
           </h2>
           
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-4 gap-6">
             {services.map((service, index) => (
               <div 
                 key={index}
@@ -44,12 +55,14 @@ const CoreServices = () => {
                 <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6 transition-all duration-300 ${
                   service.color === 'teal' ? 'bg-teal/10 group-hover:bg-teal/20' :
                   service.color === 'electric-blue' ? 'bg-electric-blue/10 group-hover:bg-electric-blue/20' :
-                  'bg-bright-orange/10 group-hover:bg-bright-orange/20'
+                  service.color === 'bright-orange' ? 'bg-bright-orange/10 group-hover:bg-bright-orange/20' :
+                  'bg-purple/10 group-hover:bg-purple/20'
                 }`}>
                   <div className={`${
                     service.color === 'teal' ? 'text-teal' :
                     service.color === 'electric-blue' ? 'text-electric-blue' :
-                    'text-bright-orange'
+                    service.color === 'bright-orange' ? 'text-bright-orange' :
+                    'text-purple'
                   }`}>
                     {service.icon}
                   </div>
@@ -60,7 +73,7 @@ const CoreServices = () => {
                 
                 <div className="space-y-3">
                   <Button variant="outline" className="group w-full justify-between" asChild>
-                    <Link to="/services">
+                    <Link to={service.href}>
                       {service.cta}
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -70,17 +83,22 @@ const CoreServices = () => {
                   <div className="text-sm text-center">
                     {index === 0 && (
                       <Link to="/case-studies/paramount-property-restoration" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
-                        See MAES Framework Results →
+                        See Strategic SEO Results →
                       </Link>
                     )}
                     {index === 1 && (
-                      <Link to="/case-studies/puff-cleaning" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
-                        View Technical SEO Case →
+                      <Link to="/services/digital-storytelling-services/miami-fl/" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
+                        View Miami Storytelling →
                       </Link>
                     )}
                     {index === 2 && (
-                      <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
-                        Schedule Strategy Call →
+                      <Link to="/services/seo-automation/orlando-fl/" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
+                        See Orlando Automation →
+                      </Link>
+                    )}
+                    {index === 3 && (
+                      <Link to="/services/personal-branding-consulting/tampa-fl/" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
+                        See Tampa Branding →
                       </Link>
                     )}
                   </div>

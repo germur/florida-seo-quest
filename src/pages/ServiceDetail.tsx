@@ -23,11 +23,11 @@ const ServiceDetail = () => {
   }, [serviceNode]);
 
   const serviceDetails = {
-    'strategic-seo': {
+    'strategic-seo-consulting': {
       hero: {
         subtitle: "AI-Driven SEO Strategy & Implementation",
         description: "Complete roadmap based on deep research, solid semantic architecture, and content that converts. Our MAES framework delivers measurable growth.",
-        features: ["Market research & competitive analysis", "Semantic information architecture", "Content strategy based on search intent", "Prioritized implementation roadmap", "KPIs and tracking metrics"],
+        features: ["AI-powered market research & competitive analysis", "Semantic information architecture", "Content strategy based on search intent", "Prioritized implementation roadmap", "KPIs and tracking metrics"],
         price: "From $2,500",
         duration: "4-6 weeks"
       },
@@ -44,11 +44,11 @@ const ServiceDetail = () => {
         "Establish topical authority in your niche"
       ]
     },
-    'digital-storytelling': {
+    'digital-storytelling-services': {
       hero: {
         subtitle: "Transform Your Brand Through Compelling Narratives",
         description: "We craft digital stories that resonate with your audience, build emotional connections, and drive conversions through strategic narrative design.",
-        features: ["Brand story development", "Content narrative strategy", "Emotional connection mapping", "Multi-platform storytelling", "Performance measurement"],
+        features: ["Brand story development & positioning", "Content narrative strategy", "Emotional connection mapping", "Multi-platform storytelling approach", "Performance measurement & optimization"],
         price: "From $1,800",
         duration: "3-4 weeks"
       },
@@ -69,8 +69,8 @@ const ServiceDetail = () => {
       hero: {
         subtitle: "Scale Your SEO with AI-Powered Automation",
         description: "Leverage cutting-edge AI tools and automation to streamline keyword research, content optimization, and performance tracking at scale.",
-        features: ["AI-powered keyword research", "Automated content optimization", "Performance monitoring dashboards", "Competitive intelligence", "Scalable reporting systems"],
-        price: "From $3,200",
+        features: ["AI-powered keyword research & tracking", "Automated content optimization", "Performance monitoring dashboards", "Competitive intelligence automation", "Scalable reporting systems"],
+        price: "From $2,200",
         duration: "2-3 weeks setup"
       },
       process: [
@@ -90,8 +90,8 @@ const ServiceDetail = () => {
       hero: {
         subtitle: "Build Your Professional Authority & Online Presence",
         description: "Establish yourself as a thought leader in your industry through strategic personal branding and SEO-optimized digital presence.",
-        features: ["Personal brand strategy development", "Professional profile optimization", "Content & thought leadership strategy", "Online reputation management", "Industry authority building"],
-        price: "From $2,200",
+        features: ["Personal brand strategy development", "Professional profile optimization", "Content & thought leadership strategy", "Online reputation management", "Industry authority building campaigns"],
+        price: "From $1,500",
         duration: "4-5 weeks"
       },
       process: [
@@ -266,7 +266,7 @@ const ServiceDetail = () => {
               {FLORIDA_CITIES.map((city, index) => (
                 <Link
                   key={index}
-                  to={`/services/${service}/${city.slug}`}
+                  to={`/services/${service}/${city.slug}/`}
                   className="group"
                 >
                   <div className="bg-card border border-border rounded-xl p-4 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
