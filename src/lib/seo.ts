@@ -225,28 +225,6 @@ export const seoConfigs = {
     noindex: true
   },
 
-  // Spanish Pages (if you have them)
-  acercaDe: {
-    title: 'Acerca de Roger Murillo | Consultor SEO Florida',
-    description: 'Conoce a Roger Murillo: 7+ años escalando marcas en Florida con estrategias SEO impulsadas por IA. Resultados medibles para tu crecimiento orgánico.',
-    canonical: 'https://calvocreativo.com/acerca-de',
-    keywords: 'roger murillo seo, consultor seo florida, experto seo ia'
-  },
-  
-  contacto: {
-    title: 'Contacto Consultor SEO Florida | Consulta Estratégica Gratis',
-    description: '¿Listo para escalar con SEO estratégico? Agenda tu consulta gratuita con Roger Murillo, experto SEO Florida. Estrategias IA, resultados comprobados.',
-    canonical: 'https://calvocreativo.com/contacto',
-    keywords: 'consulta seo florida, contacto experto seo, servicios seo'
-  },
-  
-  recursos: {
-    title: 'Recursos SEO Gratis | Guías Completas y Herramientas',
-    description: 'Recursos SEO gratuitos para principiantes y profesionales: SEO técnico, link building, optimización. Conocimiento experto para mejorar tus rankings.',
-    canonical: 'https://calvocreativo.com/recursos',
-    keywords: 'recursos seo, guias seo gratis, herramientas seo'
-  },
-  
   // Service detail pages
   serviceDetail: {
     title: 'SEO Services in Florida | {serviceName} Consulting',
