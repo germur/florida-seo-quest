@@ -175,14 +175,14 @@ export const seoConfigs = {
   strategicSeo: {
     title: 'Strategic SEO Consulting Florida | AI-Driven Growth Strategies',
     description: 'Elevate your Florida business with AI-driven strategic SEO consulting. Our 7+ years expertise delivers custom growth plans & measurable results. Partner with us!',
-    canonical: 'https://calvocreativo.com/services/strategic-seo',
+    canonical: 'https://calvocreativo.com/services/strategic-seo-consulting',
     keywords: 'strategic seo consulting, seo strategy florida, ai driven seo, florida seo expert'
   },
   
   digitalStorytelling: {
     title: 'Digital Storytelling for Brands | Connect & Convert with Narrative',
     description: 'Transform your brand narrative with expert digital storytelling services. We craft compelling content that connects deeply with your US audience. See how we build brands!',
-    canonical: 'https://calvocreativo.com/services/digital-storytelling',
+    canonical: 'https://calvocreativo.com/services/digital-storytelling-services',
     keywords: 'digital storytelling, brand narrative, content marketing florida, storytelling consulting'
   },
   
@@ -198,6 +198,53 @@ export const seoConfigs = {
     description: 'Expert personal branding consultancy for Florida professionals. Leverage our AI-driven strategies to optimize your profile & rank on Google. Schedule a free diagnostic!',
     canonical: 'https://calvocreativo.com/services/personal-branding-consulting',
     keywords: 'personal branding consulting, consultant branding florida, professional branding, thought leadership seo'
+  },
+
+  // Legal Pages
+  privacyPolicy: {
+    title: 'Privacy Policy | Calvo Creativo SEO Services',
+    description: 'Read our comprehensive privacy policy. Learn how Calvo Creativo protects your personal information and data when you use our SEO services.',
+    canonical: 'https://calvocreativo.com/privacy-policy',
+    keywords: 'privacy policy, data protection, seo services privacy',
+    noindex: true
+  },
+  
+  termsOfService: {
+    title: 'Terms of Service | Calvo Creativo SEO Consulting',
+    description: 'Review our terms of service for SEO consulting and digital marketing services. Understand your rights and responsibilities as our client.',
+    canonical: 'https://calvocreativo.com/terms-of-service',
+    keywords: 'terms of service, seo consulting terms, service agreement',
+    noindex: true
+  },
+  
+  cookiePolicy: {
+    title: 'Cookie Policy | Calvo Creativo Website',
+    description: 'Learn about our cookie usage policy. Understand how we use cookies to improve your experience on our SEO consulting website.',
+    canonical: 'https://calvocreativo.com/cookie-policy',
+    keywords: 'cookie policy, website cookies, privacy',
+    noindex: true
+  },
+
+  // Spanish Pages (if you have them)
+  acercaDe: {
+    title: 'Acerca de Roger Murillo | Consultor SEO Florida',
+    description: 'Conoce a Roger Murillo: 7+ años escalando marcas en Florida con estrategias SEO impulsadas por IA. Resultados medibles para tu crecimiento orgánico.',
+    canonical: 'https://calvocreativo.com/acerca-de',
+    keywords: 'roger murillo seo, consultor seo florida, experto seo ia'
+  },
+  
+  contacto: {
+    title: 'Contacto Consultor SEO Florida | Consulta Estratégica Gratis',
+    description: '¿Listo para escalar con SEO estratégico? Agenda tu consulta gratuita con Roger Murillo, experto SEO Florida. Estrategias IA, resultados comprobados.',
+    canonical: 'https://calvocreativo.com/contacto',
+    keywords: 'consulta seo florida, contacto experto seo, servicios seo'
+  },
+  
+  recursos: {
+    title: 'Recursos SEO Gratis | Guías Completas y Herramientas',
+    description: 'Recursos SEO gratuitos para principiantes y profesionales: SEO técnico, link building, optimización. Conocimiento experto para mejorar tus rankings.',
+    canonical: 'https://calvocreativo.com/recursos',
+    keywords: 'recursos seo, guias seo gratis, herramientas seo'
   }
 };
 

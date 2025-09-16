@@ -37,13 +37,34 @@ const SEO: React.FC<SEOProps> = ({
         addSchema(schemaConfigs.service('SEO Consulting Services', 'Comprehensive SEO consulting and digital growth services'), 'service-schema');
         break;
       case 'about':
+      case 'acercaDe':
         addSchema(schemaConfigs.person, 'person-schema');
+        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
         break;
       case 'caseStudies':
         addSchema(schemaConfigs.localBusiness, 'local-business-schema');
         break;
       case 'contact':
+      case 'contacto':
         addSchema(schemaConfigs.localBusiness, 'local-business-schema');
+        break;
+      case 'blog':
+        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
+        break;
+      case 'resources':
+      case 'recursos':
+        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
+        break;
+      case 'howWeWork':
+        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
+        addSchema(schemaConfigs.service('SEO Process & Methodology', 'Our proven SEO methodology and process for delivering results'), 'methodology-schema');
+        break;
+      case 'strategicSeo':
+      case 'digitalStorytelling':
+      case 'seoAutomation':
+      case 'personalBranding':
+        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
+        addSchema(schemaConfigs.service(config.title.split(' | ')[0], config.description), 'service-schema');
         break;
     }
 

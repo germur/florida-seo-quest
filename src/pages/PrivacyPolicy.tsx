@@ -1,8 +1,10 @@
 import Header from "@/components/Header";
+import SEO from "@/components/SEO";
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO page="privacyPolicy" />
       <Header />
       <main className="container mx-auto px-6 py-24">
         <div className="max-w-4xl mx-auto">
