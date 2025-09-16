@@ -2,24 +2,24 @@ import React, { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, RotateCcw, Sparkles, MousePointer2 } from "lucide-react";
 
-// Case studies data - using the same structure as in CaseStudies page
+// Case studies data - using real cases from CaseStudies component
 const CASE_STUDIES = [
   {
-    id: "paramount",
-    company: "Paramount Property Restoration",
+    id: "paramount-property-restoration",
+    company: "Paramount",
     industry: "Property Restoration",
     location: "Miami, FL",
     result: "+180% qualified leads in 6 months",
     metrics: {
-      traffic: "+250% organic traffic",
-      leads: "+180% qualified leads", 
-      rankings: "Top 3 in 15+ target keywords",
-      conversions: "+85% conversion improvement"
+      leads: "+180% qualified leads",
+      traffic: "+250% organic traffic", 
+      roi: "+420% ROI improvement",
+      rankings: "Top 3 in local restoration keywords"
     },
-    color: "teal"
+    color: "electric-blue"
   },
   {
-    id: "1gc",
+    id: "1gc-construction",
     company: "1GC Construction", 
     industry: "Commercial Construction",
     location: "Orlando, FL",
@@ -27,52 +27,24 @@ const CASE_STUDIES = [
     metrics: {
       visibility: "+95% organic visibility",
       traffic: "+150% quality traffic",
-      rankings: "Dominance in 'commercial construction Orlando'",
-      rfps: "+60% increase in qualified RFPs"
+      roi: "+280% ROI improvement", 
+      rankings: "Dominance in commercial construction Orlando"
     },
-    color: "electric-blue"
+    color: "bright-orange"
   },
   {
-    id: "pura-piel",
+    id: "pura-piel-aesthetics",
     company: "Pura Piel",
     industry: "Aesthetics & Beauty", 
     location: "Fort Lauderdale, FL",
     result: "120+ technical errors fixed, +40% indexation",
     metrics: {
-      fixes: "120+ technical errors solved",
+      fixes: "120+ technical SEO errors solved",
       indexation: "+40% indexation improvement", 
-      sessions: "+75% increase in organic sessions",
-      bounce: "60% reduction in bounce rate"
+      roi: "+190% ROI improvement",
+      sessions: "+75% increase in organic sessions"
     },
-    color: "bright-orange"
-  },
-  {
-    id: "quintana",
-    company: "Quintana",
-    industry: "Professional Services",
-    location: "Boca Raton, FL", 
-    result: "+200% brand mentions",
-    metrics: {
-      mentions: "+200% brand mentions",
-      rankings: "Top 5 in high-competition keywords",
-      traffic: "+90% qualified organic traffic",
-      leads: "+45% leads from organic search"
-    },
-    color: "purple"
-  },
-  {
-    id: "roger-murillo",
-    company: "Roger Murillo Image Consulting",
-    industry: "Image Consulting",
-    location: "Miami, FL",
-    result: "+300% brand searches",
-    metrics: {
-      searches: "+300% brand searches",
-      rankings: "Leader in 'image consultant Miami'",
-      consultations: "+120% qualified consultations", 
-      bookings: "+80% increase in premium bookings"
-    },
-    color: "green"
+    color: "teal"
   }
 ];
 
@@ -246,8 +218,7 @@ function CaseStudyOverlay({ caseStudy, onClose, onRollAgain }: CaseStudyOverlayP
             caseStudy.color === 'teal' ? 'bg-teal/10 text-teal' :
             caseStudy.color === 'electric-blue' ? 'bg-electric-blue/10 text-electric-blue' :
             caseStudy.color === 'bright-orange' ? 'bg-bright-orange/10 text-bright-orange' :
-            caseStudy.color === 'purple' ? 'bg-purple-500/10 text-purple-600' :
-            'bg-green-500/10 text-green-600'
+            'bg-electric-blue/10 text-electric-blue'
           }`}>
             {caseStudy.industry} • {caseStudy.location}
           </div>
@@ -274,8 +245,8 @@ function CaseStudyOverlay({ caseStudy, onClose, onRollAgain }: CaseStudyOverlayP
           <Button 
             size="lg" 
             onClick={() => {
-              // Navigate to case study detail (you can implement this)
-              window.location.href = `/case-studies#${caseStudy.id}`;
+              // Navigate to case study detail page
+              window.location.href = `/case-studies/${caseStudy.id}`;
               onClose();
             }}
             className="group"
