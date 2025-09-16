@@ -27,13 +27,13 @@ const Footer = () => {
     { name: "Flo Car Rental (Miami)", href: "/case-studies/flo-car-rental" },
     { name: "Puff Cleaning (Local)", href: "/case-studies/puff-cleaning" },
     { name: "Edu1st (Education)", href: "/case-studies/edu1st-preschools" },
-    { name: "LE GRAMME (Luxury)", href: "/case-studies/legramme" },
+    { name: "LE GRAMME (Luxury)", href: "/case-studies/le-gramme" },
   ];
 
   const legalLinks = [
-    { name: "Privacy Policy", href: "/privacy" },
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Cookie Policy", href: "/cookies" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms of Service", href: "/terms-of-service" },
+    { name: "Cookie Policy", href: "/cookie-policy" },
   ];
 
   return (
