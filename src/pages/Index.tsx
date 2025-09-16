@@ -8,11 +8,14 @@ import BlogSection from "@/components/BlogSection";
 import ProgrammaticLinksSection from "@/components/ProgrammaticLinksSection";
 import FinalCTA from "@/components/FinalCTA";
 import SEO from "@/components/SEO";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
+  const { language } = useLanguage();
+  
   return (
     <main className="min-h-screen">
-      <SEO page="home" />
+      <SEO page={language === 'es' ? 'homeEs' : 'home'} />
       <Header />
       <Hero />
       <WhyWorkWithMe />

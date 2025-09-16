@@ -29,6 +29,10 @@ import NotFound from "./pages/NotFound";
 import AcercaDe from "./pages/AcercaDe";
 import Contacto from "./pages/Contacto";
 import Recursos from "./pages/Recursos";
+import ServiciosEs from "./pages/ServiciosEs";
+import CasosDeExitoEs from "./pages/CasosDeExitoEs";
+import ComoTrabajamosEs from "./pages/ComoTrabajamosEs";
+import BlogEs from "./pages/BlogEs";
 
 const queryClient = new QueryClient();
 
@@ -65,13 +69,13 @@ const App = () => (
                 
                 {/* Spanish Routes */}
                 <Route path="/es" element={<Index />} />
-                <Route path="/es/servicios" element={<Services />} />
+                <Route path="/es/servicios" element={<ServiciosEs />} />
                 <Route path="/es/servicios/:service" element={<ServiceDetail />} />
                 <Route path="/es/servicios/:service/:city" element={<ServiceCityDetail />} />
-                <Route path="/es/casos-de-exito" element={<CaseStudies />} />
+                <Route path="/es/casos-de-exito" element={<CasosDeExitoEs />} />
                 <Route path="/es/casos-de-exito/:slug" element={<CaseStudyDetail />} />
-                <Route path="/es/como-trabajamos" element={<HowWeWork />} />
-                <Route path="/es/blog" element={<Blog />} />
+                <Route path="/es/como-trabajamos" element={<ComoTrabajamosEs />} />
+                <Route path="/es/blog" element={<BlogEs />} />
                 <Route path="/es/blog/:slug" element={<BlogPost />} />
                 <Route path="/es/recursos" element={<Recursos />} />
                 <Route path="/es/herramientas" element={<Recursos />} />
