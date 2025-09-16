@@ -6,92 +6,97 @@ const PrivacyPolicy = () => {
       <Header />
       <main className="container mx-auto px-6 py-24">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold mb-8 text-center">Política de Privacidad</h1>
+          <h1 className="text-4xl font-bold mb-8 text-center">Privacy Policy</h1>
           
           <div className="prose prose-lg max-w-none space-y-8">
             <section>
-              <h2 className="text-2xl font-semibold mb-4">1. Información que Recopilamos</h2>
+              <h2 className="text-2xl font-semibold mb-4">1. Information We Collect</h2>
               <p className="mb-4">
-                En Calvo Creativo, recopilamos información que nos proporcionas directamente cuando:
+                At Calvo Creativo, we collect information that you provide directly to us when:
               </p>
               <ul className="list-disc ml-6 space-y-2">
-                <li>Te pones en contacto con nosotros a través de nuestros formularios</li>
-                <li>Solicitas una consulta gratuita</li>
-                <li>Te suscribes a nuestro blog o recursos</li>
-                <li>Interactúas con nuestras redes sociales</li>
+                <li>You contact us through our forms</li>
+                <li>You request a free consultation</li>
+                <li>You subscribe to our blog or resources</li>
+                <li>You interact with our social media</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">2. Cómo Utilizamos tu Información</h2>
-              <p className="mb-4">Utilizamos la información recopilada para:</p>
+              <h2 className="text-2xl font-semibold mb-4">2. How We Use Your Information</h2>
+              <p className="mb-4">We use the collected information to:</p>
               <ul className="list-disc ml-6 space-y-2">
-                <li>Responder a tus consultas y proporcionarte nuestros servicios</li>
-                <li>Enviarte información relevante sobre marketing digital y SEO</li>
-                <li>Mejorar nuestros servicios y experiencia del usuario</li>
-                <li>Cumplir con obligaciones legales</li>
+                <li>Respond to your inquiries and provide our services</li>
+                <li>Send you relevant information about digital marketing and SEO</li>
+                <li>Improve our services and user experience</li>
+                <li>Comply with legal obligations</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">3. Compartir Información</h2>
+              <h2 className="text-2xl font-semibold mb-4">3. Information Sharing</h2>
               <p>
-                No vendemos, comercializamos ni transferimos tu información personal a terceros, 
-                excepto cuando sea necesario para proporcionar nuestros servicios o cuando lo requiera la ley.
+                We do not sell, trade, or transfer your personal information to third parties, 
+                except when necessary to provide our services or when required by law.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">4. Cookies y Tecnologías Similares</h2>
+              <h2 className="text-2xl font-semibold mb-4">4. Cookies and Similar Technologies</h2>
               <p>
-                Utilizamos cookies para mejorar tu experiencia en nuestro sitio web. 
-                Para más información, consulta nuestra Política de Cookies.
+                We use cookies to improve your experience on our website. 
+                For more information, see our Cookie Policy.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">5. Seguridad de los Datos</h2>
+              <h2 className="text-2xl font-semibold mb-4">5. Data Security</h2>
               <p>
-                Implementamos medidas de seguridad técnicas y organizativas apropiadas para 
-                proteger tu información personal contra acceso no autorizado, alteración, 
-                divulgación o destrucción.
+                We implement appropriate technical and organizational measures to protect 
+                your personal information against unauthorized access, alteration, disclosure, or destruction.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">6. Tus Derechos</h2>
-              <p className="mb-4">Tienes derecho a:</p>
+              <h2 className="text-2xl font-semibold mb-4">6. Your Rights</h2>
+              <p className="mb-4">You have the right to:</p>
               <ul className="list-disc ml-6 space-y-2">
-                <li>Acceder a tu información personal</li>
-                <li>Rectificar datos incorrectos o incompletos</li>
-                <li>Solicitar la eliminación de tus datos</li>
-                <li>Oponerte al procesamiento de tus datos</li>
-                <li>Portabilidad de datos</li>
+                <li>Access your personal information</li>
+                <li>Correct inaccurate information</li>
+                <li>Delete your information (right to be forgotten)</li>
+                <li>Object to processing of your information</li>
+                <li>Data portability</li>
               </ul>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">7. Contacto</h2>
+              <h2 className="text-2xl font-semibold mb-4">7. Data Retention</h2>
               <p>
-                Si tienes preguntas sobre esta Política de Privacidad, puedes contactarnos en:
-              </p>
-              <p className="mt-4">
-                <strong>Email:</strong> info@calvocreativo.com<br />
-                <strong>Teléfono:</strong> +57 304 680 7443<br />
-                <strong>Dirección:</strong> Medellín, Colombia
+                We retain your personal information only for as long as necessary to provide 
+                our services and comply with legal obligations.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold mb-4">8. Cambios a esta Política</h2>
+              <h2 className="text-2xl font-semibold mb-4">8. Updates to This Policy</h2>
               <p>
-                Podemos actualizar esta Política de Privacidad ocasionalmente. 
-                Te notificaremos sobre cualquier cambio publicando la nueva política en esta página.
-              </p>
-              <p className="mt-4">
-                <strong>Última actualización:</strong> Septiembre 2024
+                We may update this Privacy Policy from time to time. We will notify you of 
+                any changes by posting the new policy on this page with an updated effective date.
               </p>
             </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold mb-4">9. Contact Information</h2>
+              <p>If you have any questions about this Privacy Policy, please contact us:</p>
+              <ul className="list-none mt-4 space-y-2">
+                <li><strong>Email:</strong> info@calvocreativo.com</li>
+                <li><strong>Website:</strong> calvocreativo.com</li>
+              </ul>
+            </section>
+
+            <p className="text-sm text-muted-foreground mt-8">
+              <strong>Effective Date:</strong> January 15, 2025
+            </p>
           </div>
         </div>
       </main>
