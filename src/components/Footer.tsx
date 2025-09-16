@@ -25,6 +25,8 @@ const Footer = () => {
     { name: "SEO Orlando, FL", href: "/services/strategic-seo-consulting/orlando-fl/" },
     { name: "SEO Tampa, FL", href: "/services/digital-storytelling-services/tampa-fl/" },
     { name: "SEO Jacksonville, FL", href: "/services/seo-automation/jacksonville-fl/" },
+    { name: "Personal Branding Miami", href: "/services/personal-branding-consulting/miami-fl/" },
+    { name: "Personal Branding Tampa", href: "/services/personal-branding-consulting/tampa-fl/" },
   ];
 
   const resourceLinks = [
@@ -64,7 +66,7 @@ const Footer = () => {
       <div className="container mx-auto px-6 relative z-10">
         {/* Main Footer Content */}
         <div className="py-20">
-          <div className="grid lg:grid-cols-5 md:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-12 lg:gap-16">
             
             {/* Company Info - Enhanced */}
             <div className="lg:col-span-2 space-y-8">
@@ -72,8 +74,8 @@ const Footer = () => {
                 <Link to="/" className="inline-block mb-8 transition-transform duration-300 hover:scale-105">
                   <div className="flex items-center space-x-4 p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-electric-blue/30 transition-all duration-300">
                     <img 
-                      src="/favicon.svg" 
-                      alt="Calvo Creativo" 
+                      src="/src/assets/calvo-creativo-logo.svg" 
+                      alt="Calvo Creativo Logo" 
                       className="h-12 w-12"
                     />
                     <div>
@@ -158,7 +160,49 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Resources - Modern */}
+            {/* Services - Modern */}
+            <div className="space-y-6">
+              <h3 className="text-xl font-bold text-primary-foreground mb-8 flex items-center">
+                <div className="w-1 h-8 bg-electric-blue rounded-full mr-3"></div>
+                Services
+              </h3>
+              <ul className="space-y-3">
+                {serviceLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link 
+                      to={link.href} 
+                      className="group flex items-center text-primary-foreground/80 hover:text-primary-foreground transition-all duration-300 py-2 px-3 rounded-lg hover:bg-white/5"
+                    >
+                      <span className="group-hover:translate-x-1 transition-transform duration-300 text-sm">{link.name}</span>
+                      <ArrowUpRight className="ml-auto h-4 w-4 opacity-0 group-hover:opacity-100 group-hover:text-electric-blue transition-all duration-300" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              
+              {/* Florida Cities Section */}
+              <div className="mt-8">
+                <h4 className="text-lg font-semibold text-primary-foreground mb-4 flex items-center">
+                  <div className="w-1 h-6 bg-teal rounded-full mr-2"></div>
+                  Florida Cities
+                </h4>
+                <ul className="space-y-2">
+                  {cityLinks.map((link) => (
+                    <li key={link.name}>
+                      <Link 
+                        to={link.href} 
+                        className="group flex items-center text-primary-foreground/70 hover:text-primary-foreground transition-all duration-300 py-1 px-2 rounded-lg hover:bg-white/5"
+                      >
+                        <span className="group-hover:translate-x-1 transition-transform duration-300 text-xs">{link.name}</span>
+                        <ArrowUpRight className="ml-auto h-3 w-3 opacity-0 group-hover:opacity-100 group-hover:text-teal transition-all duration-300" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Resources & Success Stories - Modern */}
             <div className="space-y-6">
               <h3 className="text-xl font-bold text-primary-foreground mb-8 flex items-center">
                 <div className="w-1 h-8 bg-bright-orange rounded-full mr-3"></div>
@@ -171,34 +215,40 @@ const Footer = () => {
                       to={link.href} 
                       className="group flex items-center text-primary-foreground/80 hover:text-primary-foreground transition-all duration-300 py-2 px-3 rounded-lg hover:bg-white/5"
                     >
-                      <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
+                      <span className="group-hover:translate-x-1 transition-transform duration-300 text-sm">{link.name}</span>
                       <ArrowUpRight className="ml-auto h-4 w-4 opacity-0 group-hover:opacity-100 group-hover:text-bright-orange transition-all duration-300" />
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
 
-            {/* Success Stories - Modern */}
-            <div className="space-y-6">
-              <h3 className="text-xl font-bold text-primary-foreground mb-8 flex items-center">
-                <div className="w-1 h-8 bg-teal rounded-full mr-3"></div>
-                Success Stories
-              </h3>
-              <ul className="space-y-3">
-                {caseStudyLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link 
-                      to={link.href} 
-                      className="group flex items-center text-primary-foreground/80 hover:text-primary-foreground transition-all duration-300 py-2 px-3 rounded-lg hover:bg-white/5"
-                    >
-                      <span className="group-hover:translate-x-1 transition-transform duration-300 text-sm">{link.name}</span>
-                      <ArrowUpRight className="ml-auto h-4 w-4 opacity-0 group-hover:opacity-100 group-hover:text-teal transition-all duration-300" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-
+              {/* Success Stories Section */}
+              <div className="mt-8">
+                <h4 className="text-lg font-semibold text-primary-foreground mb-4 flex items-center">
+                  <div className="w-1 h-6 bg-teal rounded-full mr-2"></div>
+                  Success Stories
+                </h4>
+                <ul className="space-y-2">
+                  {caseStudyLinks.slice(0, 4).map((link) => (
+                    <li key={link.name}>
+                      <Link 
+                        to={link.href} 
+                        className="group flex items-center text-primary-foreground/70 hover:text-primary-foreground transition-all duration-300 py-1 px-2 rounded-lg hover:bg-white/5"
+                      >
+                        <span className="group-hover:translate-x-1 transition-transform duration-300 text-xs">{link.name}</span>
+                        <ArrowUpRight className="ml-auto h-3 w-3 opacity-0 group-hover:opacity-100 group-hover:text-teal transition-all duration-300" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Link 
+                  to="/case-studies"
+                  className="inline-flex items-center mt-3 text-xs text-electric-blue hover:text-bright-orange transition-colors"
+                >
+                  View All Case Studies
+                  <ArrowUpRight className="ml-1 h-3 w-3" />
+                </Link>
+              </div>
               {/* Modern CTA Card */}
               <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-electric-blue/10 to-bright-orange/10 backdrop-blur-sm border border-white/20 hover:border-electric-blue/40 transition-all duration-300 group">
                 <div className="flex items-center mb-3">
