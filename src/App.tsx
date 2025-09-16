@@ -33,6 +33,14 @@ import ServiciosEs from "./pages/ServiciosEs";
 import CasosDeExitoEs from "./pages/CasosDeExitoEs";
 import ComoTrabajamosEs from "./pages/ComoTrabajamosEs";
 import BlogEs from "./pages/BlogEs";
+import ServicioDetalle from "./pages/ServicioDetalle";
+import ServicioCiudadDetalle from "./pages/ServicioCiudadDetalle";
+import CasoDeExitoDetalle from "./pages/CasoDeExitoDetalle";
+import BlogPostEs from "./pages/BlogPostEs";
+import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
+import TerminosServicio from "./pages/TerminosServicio";
+import PoliticaCookies from "./pages/PoliticaCookies";
+import MapaDelSitio from "./pages/MapaDelSitio";
 
 const queryClient = new QueryClient();
 
@@ -70,21 +78,21 @@ const App = () => (
                 {/* Spanish Routes */}
                 <Route path="/es" element={<Index />} />
                 <Route path="/es/servicios" element={<ServiciosEs />} />
-                <Route path="/es/servicios/:service" element={<ServiceDetail />} />
-                <Route path="/es/servicios/:service/:city" element={<ServiceCityDetail />} />
+                <Route path="/es/servicios/:service" element={<ServicioDetalle />} />
+                <Route path="/es/servicios/:service/:city" element={<ServicioCiudadDetalle />} />
                 <Route path="/es/casos-de-exito" element={<CasosDeExitoEs />} />
-                <Route path="/es/casos-de-exito/:slug" element={<CaseStudyDetail />} />
+                <Route path="/es/casos-de-exito/:slug" element={<CasoDeExitoDetalle />} />
                 <Route path="/es/como-trabajamos" element={<ComoTrabajamosEs />} />
                 <Route path="/es/blog" element={<BlogEs />} />
-                <Route path="/es/blog/:slug" element={<BlogPost />} />
+                <Route path="/es/blog/:slug" element={<BlogPostEs />} />
                 <Route path="/es/recursos" element={<Recursos />} />
                 <Route path="/es/herramientas" element={<Recursos />} />
                 <Route path="/es/acerca-de" element={<AcercaDe />} />
                 <Route path="/es/contacto" element={<Contacto />} />
-                <Route path="/es/politica-de-privacidad" element={<PrivacyPolicy />} />
-                <Route path="/es/terminos-de-servicio" element={<TermsOfService />} />
-                <Route path="/es/politica-de-cookies" element={<CookiePolicy />} />
-                <Route path="/es/mapa-del-sitio" element={<Sitemap />} />
+                <Route path="/es/politica-de-privacidad" element={<PoliticaPrivacidad />} />
+                <Route path="/es/terminos-de-servicio" element={<TerminosServicio />} />
+                <Route path="/es/politica-de-cookies" element={<PoliticaCookies />} />
+                <Route path="/es/mapa-del-sitio" element={<MapaDelSitio />} />
                 
                 <Route path="*" element={<NotFound />} />
               </Routes>

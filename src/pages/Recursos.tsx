@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download, ExternalLink, Wrench, FileText, BookOpen } from "lucide-react";
+import Header from "@/components/Header";
+import SEO from "@/components/SEO";
 
 const Recursos = () => {
   const resourceCategories = [
@@ -112,6 +114,11 @@ const Recursos = () => {
 
   return (
     <main className="min-h-screen pt-16">
+      <SEO 
+        page="resourcesEs" 
+        customCanonical="/es/recursos"
+      />
+      <Header />
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-6">
