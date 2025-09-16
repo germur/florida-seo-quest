@@ -2,7 +2,7 @@ import { ArrowUpRight, Mail, MapPin, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import calvoCreativoLogo from "@/assets/calvo-creativo-logo.svg";
+import calvoCreativoLogo from "@/assets/calvo-creativo-logo-transparent.png";
 
 const Footer = () => {
   const { language, getLocalizedPath } = useLanguage();
