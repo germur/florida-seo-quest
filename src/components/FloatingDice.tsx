@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, RotateCcw, Sparkles, X, Zap } from "lucide-react";
 
@@ -250,9 +251,10 @@ interface CaseStudyOverlayProps {
   caseStudy: typeof CASE_STUDIES[0] | null;
   onClose: () => void;
   onRollAgain: () => void;
+  navigate: (path: string) => void;
 }
 
-function CaseStudyOverlay({ caseStudy, onClose, onRollAgain }: CaseStudyOverlayProps) {
+function CaseStudyOverlay({ caseStudy, onClose, onRollAgain, navigate }: CaseStudyOverlayProps) {
   if (!caseStudy) return null;
 
   return (
@@ -290,7 +292,7 @@ function CaseStudyOverlay({ caseStudy, onClose, onRollAgain }: CaseStudyOverlayP
           <Button 
             size="sm" 
             onClick={() => {
-              window.location.href = `/case-studies/${caseStudy.id}`;
+              navigate(`/case-studies/${caseStudy.id}`);
               onClose();
             }}
             className="group w-full"
@@ -326,6 +328,7 @@ function CaseStudyOverlay({ caseStudy, onClose, onRollAgain }: CaseStudyOverlayP
 }
 
 export default function FloatingDice() {
+  const navigate = useNavigate();
   const [selectedCase, setSelectedCase] = useState<typeof CASE_STUDIES[0] | null>(null);
   const [isRolling, setIsRolling] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
@@ -425,6 +428,7 @@ export default function FloatingDice() {
         caseStudy={selectedCase}
         onClose={handleClose}
         onRollAgain={handleRollAgain}
+        navigate={navigate}
       />
     </>
   );
