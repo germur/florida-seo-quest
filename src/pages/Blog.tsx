@@ -39,9 +39,10 @@ const Blog = () => {
   const featuredPosts = posts.filter(post => post.featured);
   const regularPosts = posts.filter(post => !post.featured);
 
+  // Filter all posts for the main grid (not just regular posts)
   const filteredPosts = selectedCategory === "all" 
-    ? regularPosts 
-    : regularPosts.filter(post => post.category === selectedCategory);
+    ? posts 
+    : posts.filter(post => post.category === selectedCategory);
 
   return (
     <main className="min-h-screen pt-16">
@@ -85,7 +86,11 @@ const Blog = () => {
                   >
                     <article className="bg-gradient-to-br from-teal/5 to-electric-blue/5 border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
                       <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                        <span className={`px-3 py-1 bg-${categories.find(c => c.id === post.category)?.color}/10 text-${categories.find(c => c.id === post.category)?.color} rounded-full font-medium`}>
+                        <span className={`px-3 py-1 rounded-full font-medium ${
+                          post.category === 'seo-strategy' ? 'bg-electric-blue/10 text-electric-blue' :
+                          post.category === 'web-development' ? 'bg-bright-orange/10 text-bright-orange' :
+                          'bg-teal/10 text-teal'
+                        }`}>
                           {categories.find(c => c.id === post.category)?.name}
                         </span>
                         <span className="flex items-center gap-1">
@@ -136,7 +141,9 @@ const Blog = () => {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                     selectedCategory === category.id
-                      ? `bg-${category.color || 'teal'} text-white` 
+                      ? category.id === 'seo-strategy' ? 'bg-electric-blue text-white' :
+                        category.id === 'web-development' ? 'bg-bright-orange text-white' :
+                        'bg-teal text-white'
                       : 'bg-card text-muted-foreground hover:bg-muted hover:text-primary'
                   }`}
                 >
@@ -177,7 +184,11 @@ const Blog = () => {
                     </p>
                     
                     <div className="flex items-center justify-between">
-                      <span className={`px-2 py-1 bg-${categories.find(c => c.id === post.category)?.color}/10 text-${categories.find(c => c.id === post.category)?.color} text-xs rounded font-medium`}>
+                      <span className={`px-2 py-1 text-xs rounded font-medium ${
+                        post.category === 'seo-strategy' ? 'bg-electric-blue/10 text-electric-blue' :
+                        post.category === 'web-development' ? 'bg-bright-orange/10 text-bright-orange' :
+                        'bg-teal/10 text-teal'
+                      }`}>
                         {categories.find(c => c.id === post.category)?.name}
                       </span>
                       
