@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
+import { Mail, Phone, MapPin, ChevronRight, ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const navigationLinks = [
+    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
+    { name: "Case Studies", href: "/case-studies" },
+    { name: "How We Work", href: "/how-we-work" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
+  ];
 
   const serviceLinks = [
     { name: "Strategic SEO Consulting", href: "/services/strategic-seo" },
