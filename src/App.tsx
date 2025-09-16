@@ -3,7 +3,6 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { LanguageProvider } from "@/contexts/LanguageContext";
 import Footer from "@/components/Footer";
 import CookieNotice from "@/components/CookieNotice";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -25,22 +24,6 @@ import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
-// Spanish pages
-import AcercaDe from "./pages/AcercaDe";
-import Contacto from "./pages/Contacto";
-import Recursos from "./pages/Recursos";
-import ServiciosEs from "./pages/ServiciosEs";
-import CasosDeExitoEs from "./pages/CasosDeExitoEs";
-import ComoTrabajamosEs from "./pages/ComoTrabajamosEs";
-import BlogEs from "./pages/BlogEs";
-import ServicioDetalle from "./pages/ServicioDetalle";
-import ServicioCiudadDetalle from "./pages/ServicioCiudadDetalle";
-import CasoDeExitoDetalle from "./pages/CasoDeExitoDetalle";
-import BlogPostEs from "./pages/BlogPostEs";
-import PoliticaPrivacidad from "./pages/PoliticaPrivacidad";
-import TerminosServicio from "./pages/TerminosServicio";
-import PoliticaCookies from "./pages/PoliticaCookies";
-import MapaDelSitio from "./pages/MapaDelSitio";
 
 const queryClient = new QueryClient();
 
@@ -50,57 +33,48 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <LanguageProvider>
-          <ScrollToTop />
-          <FloatingDice />
-          <div className="flex flex-col min-h-screen">
-            <div className="flex-1">
-              <Routes>
-                {/* English Routes */}
-                <Route path="/" element={<Index />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/services/:service" element={<ServiceDetail />} />
-                <Route path="/services/:service/:city" element={<ServiceCityDetail />} />
-                <Route path="/case-studies" element={<CaseStudies />} />
-                <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
-                <Route path="/how-we-work" element={<HowWeWork />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/resources" element={<Resources />} />
-                <Route path="/tools" element={<Resources />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                <Route path="/terms-of-service" element={<TermsOfService />} />
-                <Route path="/cookie-policy" element={<CookiePolicy />} />
-                <Route path="/sitemap" element={<Sitemap />} />
-                
-                {/* Spanish Routes */}
-                <Route path="/es" element={<Index />} />
-                <Route path="/es/servicios" element={<ServiciosEs />} />
-                <Route path="/es/servicios/:service" element={<ServicioDetalle />} />
-                <Route path="/es/servicios/:service/:city" element={<ServicioCiudadDetalle />} />
-                <Route path="/es/casos-de-exito" element={<CasosDeExitoEs />} />
-                <Route path="/es/casos-de-exito/:slug" element={<CasoDeExitoDetalle />} />
-                <Route path="/es/como-trabajamos" element={<ComoTrabajamosEs />} />
-                <Route path="/es/blog" element={<BlogEs />} />
-                <Route path="/es/blog/:slug" element={<BlogPostEs />} />
-                <Route path="/es/recursos" element={<Recursos />} />
-                <Route path="/es/herramientas" element={<Recursos />} />
-                <Route path="/es/acerca-de" element={<AcercaDe />} />
-                <Route path="/es/contacto" element={<Contacto />} />
-                <Route path="/es/politica-de-privacidad" element={<PoliticaPrivacidad />} />
-                <Route path="/es/terminos-de-servicio" element={<TerminosServicio />} />
-                <Route path="/es/politica-de-cookies" element={<PoliticaCookies />} />
-                <Route path="/es/mapa-del-sitio" element={<MapaDelSitio />} />
-                
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </div>
-            <Footer />
-            <CookieNotice />
+        <ScrollToTop />
+        <FloatingDice />
+        <div className="flex flex-col min-h-screen">
+          <div className="flex-1">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              
+              {/* Services SILO Structure */}
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:service" element={<ServiceDetail />} />
+          <Route path="/services/:service/:city" element={<ServiceCityDetail />} />
+              
+              {/* Case Studies */}
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
+              
+              {/* Content & Education */}
+              <Route path="/how-we-work" element={<HowWeWork />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogPost />} />
+              
+              {/* Resources & Tools - Now using Resources as main tools page */}
+              <Route path="/resources" element={<Resources />} />
+              <Route path="/tools" element={<Resources />} />
+              
+              {/* Company Pages */}
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              
+              {/* Legal Pages */}
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/cookie-policy" element={<CookiePolicy />} />
+              
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="/sitemap" element={<Sitemap />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
           </div>
-        </LanguageProvider>
+          <Footer />
+          <CookieNotice />
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

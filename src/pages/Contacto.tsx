@@ -6,21 +6,21 @@ const Contacto = () => {
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      value: "rogermur1990@gmail.com",
+      value: "hola@calvocreativo.com",
       description: "Para consultas generales y propuestas",
       color: "teal"
     },
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Teléfono",
-      value: "+57 304 680 7443",
+      value: "+1 (305) 555-0123",
       description: "Llamadas directas de Lunes a Viernes",
       color: "electric-blue"
     },
     {
       icon: <MessageCircle className="h-6 w-6" />,
       title: "WhatsApp",
-      value: "+57 304 680 7443", 
+      value: "+1 (305) 555-0123", 
       description: "Para consultas rápidas y urgentes",
       color: "bright-orange"
     },
@@ -90,44 +90,30 @@ const Contacto = () => {
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              {contactMethods.map((method, index) => {
-                const isClickable = method.title === "Email" || method.title === "Teléfono" || method.title === "WhatsApp";
-                const href = method.title === "Email" 
-                  ? `mailto:${method.value}` 
-                  : method.title === "WhatsApp"
-                  ? `https://wa.me/573046807443?text=Hola, me interesa una consultoría SEO`
-                  : method.title === "Teléfono"
-                  ? `tel:+573046807443`
-                  : undefined;
-
-                const Component = isClickable ? 'a' : 'div';
-                
-                return (
-                  <Component
-                    key={index}
-                    href={href}
-                    className={`bg-gradient-to-br from-${method.color}/5 to-${method.color}/10 border border-${method.color}/20 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group ${isClickable ? 'cursor-pointer' : ''}`}
-                  >
-                    <div className={`inline-flex items-center justify-center w-12 h-12 bg-${method.color}/10 rounded-xl mb-4 group-hover:bg-${method.color}/20 transition-colors`}>
-                      <div className={`text-${method.color}`}>
-                        {method.icon}
-                      </div>
+              {contactMethods.map((method, index) => (
+                <div 
+                  key={index}
+                  className={`bg-gradient-to-br from-${method.color}/5 to-${method.color}/10 border border-${method.color}/20 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group`}
+                >
+                  <div className={`inline-flex items-center justify-center w-12 h-12 bg-${method.color}/10 rounded-xl mb-4 group-hover:bg-${method.color}/20 transition-colors`}>
+                    <div className={`text-${method.color}`}>
+                      {method.icon}
                     </div>
-                    
-                    <h3 className="font-semibold text-primary mb-2">
-                      {method.title}
-                    </h3>
-                    
-                    <div className={`text-lg font-bold text-${method.color} mb-2`}>
-                      {method.value}
-                    </div>
-                    
-                    <p className="text-sm text-muted-foreground">
-                      {method.description}
-                    </p>
-                  </Component>
-                );
-              })}
+                  </div>
+                  
+                  <h3 className="font-semibold text-primary mb-2">
+                    {method.title}
+                  </h3>
+                  
+                  <div className={`text-lg font-bold text-${method.color} mb-2`}>
+                    {method.value}
+                  </div>
+                  
+                  <p className="text-sm text-muted-foreground">
+                    {method.description}
+                  </p>
+                </div>
+              ))}
             </div>
 
             {/* Contact Form */}
@@ -308,11 +294,9 @@ const Contacto = () => {
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
             No esperes más. Cada día sin una estrategia SEO sólida es una oportunidad perdida de crecer.
           </p>
-          <Button variant="secondary" size="lg" className="group" asChild>
-            <a href="tel:+573046807443">
-              Agendar Llamada Ahora
-              <Phone className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
-            </a>
+          <Button variant="secondary" size="lg" className="group">
+            Agendar Llamada Ahora
+            <Phone className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
           </Button>
         </div>
       </section>
