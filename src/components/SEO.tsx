@@ -55,6 +55,13 @@ const SEO: React.FC<SEOProps> = ({
       case 'recursos':
         addSchema(schemaConfigs.localBusiness, 'local-business-schema');
         break;
+      case 'serviceDetail':
+      case 'cityService':
+        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
+        if (customTitle && customDescription) {
+          addSchema(schemaConfigs.service(customTitle, customDescription), 'service-schema');
+        }
+        break;
       case 'howWeWork':
         addSchema(schemaConfigs.localBusiness, 'local-business-schema');
         addSchema(schemaConfigs.service('SEO Process & Methodology', 'Our proven SEO methodology and process for delivering results'), 'methodology-schema');
@@ -68,10 +75,12 @@ const SEO: React.FC<SEOProps> = ({
         break;
     }
 
-    // Add any additional schemas
-    additionalSchemas.forEach(({ schema, id }, index) => {
-      addSchema(schema, id || `additional-schema-${index}`);
-    });
+    // Add programmatic page schemas
+    if (additionalSchemas) {
+      additionalSchemas.forEach(({ schema, id }, index) => {
+        addSchema(schema, id || `additional-schema-${index}`);
+      });
+    }
   }, [page, customTitle, customDescription, customCanonical, additionalSchemas]);
 
   return null;

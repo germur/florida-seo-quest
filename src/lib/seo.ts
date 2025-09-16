@@ -138,19 +138,19 @@ export const seoConfigs = {
     title: 'Florida SEO Success Stories | Real Case Studies, Proven Results',
     description: 'Explore our detailed SEO case studies from Florida businesses. Discover how our strategic SEO delivered triple leads, increased visibility & real organic growth.',
     canonical: 'https://calvocreativo.com/case-studies',
-    keywords: 'seo case studies florida, seo success stories, organic growth results'
+    keywords: 'seo case studies florida, seo success stories, organic growth results, florida seo agency'
   },
   blog: {
     title: 'AI in SEO: Strategies, Tools & Future | Calvo Creativo Insights',
     description: 'Dive deep into AI SEO: automated keyword research, content creation & technical optimization. Stay ahead with expert insights & practical AI strategies.',
     canonical: 'https://calvocreativo.com/blog',
-    keywords: 'ai seo strategies, seo automation tools, technical seo optimization'
+    keywords: 'ai seo strategies, seo automation tools, technical seo optimization, future of seo'
   },
   resources: {
-    title: 'Comprehensive SEO Guides: Master Basics, Technical & Link Building',
-    description: 'Free SEO guides for beginners & pros: technical SEO, link building, on-page. Unlock expert knowledge to boost your rankings & understand Google algorithms.',
+    title: 'Free SEO Tools & Resources | Comprehensive Guides for Growth',
+    description: 'Free SEO resources for beginners & professionals: technical SEO guides, keyword research tools, link building strategies. Master SEO with expert knowledge.',
     canonical: 'https://calvocreativo.com/resources',
-    keywords: 'seo guides, technical seo, link building, on-page optimization'
+    keywords: 'free seo tools, seo guides, technical seo resources, keyword research tools'
   },
   about: {
     title: 'Roger Murillo | Florida SEO Expert & AI Strategy Consultant',
@@ -245,7 +245,23 @@ export const seoConfigs = {
     description: 'Recursos SEO gratuitos para principiantes y profesionales: SEO técnico, link building, optimización. Conocimiento experto para mejorar tus rankings.',
     canonical: 'https://calvocreativo.com/recursos',
     keywords: 'recursos seo, guias seo gratis, herramientas seo'
-  }
+  },
+  
+  // Service detail pages
+  serviceDetail: {
+    title: 'SEO Services in Florida | {serviceName} Consulting',
+    description: 'Professional {serviceName} services for Florida businesses. AI-driven strategies, proven results, and measurable growth for your business.',
+    canonical: 'https://calvocreativo.com/services/{serviceSlug}',
+    keywords: '{serviceName}, seo services florida, {serviceSlug} consulting'
+  },
+  
+  // City service pages  
+  cityService: {
+    title: '{serviceName} in {cityName}, FL | Local SEO Expert',
+    description: 'Expert {serviceName} services for {cityName} businesses. Local market knowledge, proven strategies, and measurable results in {region}.',
+    canonical: 'https://calvocreativo.com/services/{serviceSlug}/{citySlug}',
+    keywords: '{serviceName} {cityName}, local seo {cityName}, {serviceSlug} florida'
+  },
 };
 
 // Schema configurations
@@ -258,7 +274,6 @@ export const schemaConfigs = {
     "url": "https://calvocreativo.com",
     "logo": "https://calvocreativo.com/lovable-uploads/15b81203-d4a9-4da9-ace4-976c55d22c82.png",
     "image": "https://calvocreativo.com/og-home.jpg",
-    "telephone": "+573046807443",
     "email": "rogermur1990@gmail.com",
     "address": {
       "@type": "PostalAddress",
@@ -348,5 +363,39 @@ export const schemaConfigs = {
         "text": faq.answer
       }
     }))
+  }),
+  
+  breadcrumb: (items: Array<{name: string, url: string}>) => ({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": item.name,
+      "item": item.url
+    }))
+  }),
+
+  localService: (serviceName: string, serviceArea: string, description: string) => ({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://calvocreativo.com#business",
+    "name": "Calvo Creativo",
+    "alternateName": serviceName,
+    "description": description,
+    "url": "https://calvocreativo.com",
+    "logo": "https://calvocreativo.com/lovable-uploads/15b81203-d4a9-4da9-ace4-976c55d22c82.png",
+    "image": "https://calvocreativo.com/og-home.jpg",
+    "email": "rogermur1990@gmail.com",
+    "areaServed": {
+      "@type": "City",
+      "name": serviceArea
+    },
+    "serviceType": serviceName,
+    "provider": {
+      "@type": "Person",
+      "name": "Roger Murillo",
+      "jobTitle": "SEO Strategist & Consultant"
+    }
   })
 };
