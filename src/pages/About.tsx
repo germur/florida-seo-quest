@@ -230,6 +230,43 @@ const About = () => {
         </div>
       </section>
 
+      {/* Music Section */}
+      <section className="py-24 bg-gradient-to-br from-secondary/30 to-background">
+        <div className="container mx-auto px-6">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-primary mb-6">
+                What I Listen to While Working
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Music fuels creativity and focus. Here's my go-to playlist for deep SEO work and strategic thinking sessions.
+              </p>
+            </div>
+            
+            <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+              <div className="aspect-video max-w-2xl mx-auto">
+                <iframe 
+                  data-testid="embed-iframe" 
+                  style={{borderRadius: "12px"}} 
+                  src="https://open.spotify.com/embed/playlist/0TgYKz1vLPy1NjUnzdgiOG?utm_source=generator" 
+                  width="100%" 
+                  height="352" 
+                  frameBorder="0" 
+                  allowFullScreen={true}
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <div className="text-center mt-6">
+                <p className="text-sm text-muted-foreground">
+                  Perfect background music for analyzing data, building strategies, and crafting SEO solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white">
         <div className="container mx-auto px-6 text-center">
@@ -242,8 +279,8 @@ const About = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <a href="tel:+573046807443">
-                Schedule Consultation
+              <a href="mailto:rogermur1990@gmail.com">
+                Get Free Consultation
               </a>
             </Button>
             <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
