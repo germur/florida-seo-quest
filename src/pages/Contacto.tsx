@@ -1,35 +1,28 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, Phone, MapPin, Clock, MessageCircle } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 
 const Contacto = () => {
   const contactMethods = [
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      value: "hola@calvocreativo.com",
+      value: "rogermur1990@gmail.com",
       description: "Para consultas generales y propuestas",
       color: "teal"
     },
     {
-      icon: <Phone className="h-6 w-6" />,
-      title: "Teléfono",
-      value: "+1 (305) 555-0123",
-      description: "Llamadas directas de Lunes a Viernes",
-      color: "electric-blue"
-    },
-    {
       icon: <MessageCircle className="h-6 w-6" />,
-      title: "WhatsApp",
-      value: "+1 (305) 555-0123", 
-      description: "Para consultas rápidas y urgentes",
-      color: "bright-orange"
+      title: "Consultoría",
+      value: "Solicitar consulta gratuita", 
+      description: "Análisis inicial sin compromiso",
+      color: "electric-blue"
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Ubicación",
-      value: "Miami, Florida",
+      value: "Florida, Estados Unidos",
       description: "Atendemos todo el estado de Florida",
-      color: "purple"
+      color: "bright-orange"
     }
   ];
 
@@ -89,7 +82,7 @@ const Contacto = () => {
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div className="grid md:grid-cols-3 gap-6 mb-16">
               {contactMethods.map((method, index) => (
                 <div 
                   key={index}
@@ -294,10 +287,13 @@ const Contacto = () => {
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
             No esperes más. Cada día sin una estrategia SEO sólida es una oportunidad perdida de crecer.
           </p>
-          <Button variant="secondary" size="lg" className="group">
-            Agendar Llamada Ahora
-            <Phone className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button variant="secondary" size="lg" asChild>
+              <a href="mailto:rogermur1990@gmail.com">
+                Consultoría Gratuita
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
     </main>

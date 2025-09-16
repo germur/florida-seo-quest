@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, Calendar, MessageSquare, Phone, MapPin, Clock } from "lucide-react";
+import { ArrowRight, Mail, Calendar, MessageSquare, MapPin, Clock } from "lucide-react";
 import { useState } from "react";
 import Header from "@/components/Header";
 import { Link } from "react-router-dom";
@@ -61,13 +61,6 @@ ${formData.name}
 
   const contactMethods = [
     {
-      icon: <Calendar className="h-6 w-6" />,
-      title: "Schedule a Call",
-      description: "Book a free 30-minute consultation to discuss your SEO needs",
-      action: "Schedule Now",
-      color: "teal"
-    },
-    {
       icon: <Mail className="h-6 w-6" />,
       title: "Email Direct",
       description: "Send us a message and we'll respond within 24 hours",
@@ -76,10 +69,10 @@ ${formData.name}
     },
     {
       icon: <MessageSquare className="h-6 w-6" />,
-      title: "WhatsApp",
-      description: "Quick questions? Chat with us on WhatsApp",
-      action: "Chat Now",
-      color: "bright-orange"
+      title: "Business Inquiry",
+      description: "For detailed proposals and business discussions",
+      action: "Contact Us",
+      color: "teal"
     }
   ];
 
@@ -132,9 +125,9 @@ ${formData.name}
       <section className="py-24">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-primary text-center mb-12">Choose Your Preferred Contact Method</h2>
+            <h2 className="text-3xl font-bold text-primary text-center mb-12">Get in Touch Via Email</h2>
             
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
               {contactMethods.map((method, index) => (
                 <div 
                   key={index}
@@ -157,14 +150,9 @@ ${formData.name}
                   
                   <Button variant="outline" className={`w-full transition-all ${
                     method.color === 'teal' ? 'group-hover:bg-teal group-hover:text-white group-hover:border-teal' :
-                    method.color === 'electric-blue' ? 'group-hover:bg-electric-blue group-hover:text-white group-hover:border-electric-blue' :
-                    'group-hover:bg-bright-orange group-hover:text-white group-hover:border-bright-orange'
+                    'group-hover:bg-electric-blue group-hover:text-white group-hover:border-electric-blue'
                   }`} asChild>
-                    <a href={
-                      method.action === 'Schedule Now' ? 'tel:+573046807443' : 
-                      method.action === 'Send Email' ? 'mailto:rogermur1990@gmail.com' : 
-                      'https://wa.me/573046807443?text=Hi! I\'m interested in your SEO services.'
-                    }>
+                    <a href="mailto:rogermur1990@gmail.com">
                       {method.action}
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </a>
@@ -196,8 +184,8 @@ ${formData.name}
                     <span className="text-muted-foreground">Response within 24 hours</span>
                   </div>
                   <div className="flex items-center">
-                    <Phone className="h-5 w-5 text-electric-blue mr-3" />
-                    <span className="text-muted-foreground">Free consultation call</span>
+                    <Mail className="h-5 w-5 text-electric-blue mr-3" />
+                    <span className="text-muted-foreground">Free consultation via email</span>
                   </div>
                   <div className="flex items-center">
                     <MapPin className="h-5 w-5 text-bright-orange mr-3" />
@@ -343,8 +331,8 @@ ${formData.name}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <a href="tel:+573046807443">
-                Schedule Free Consultation
+              <a href="mailto:rogermur1990@gmail.com">
+                Get Free Consultation
               </a>
             </Button>
             <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>

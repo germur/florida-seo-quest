@@ -94,24 +94,8 @@ const Footer = () => {
                   <span className="text-electric-blue"> Helping companies achieve sustainable growth</span> through data-driven optimization.
                 </p>
                 
-                {/* Contact Info - Modern Cards */}
+                 {/* Contact Info - Modern Cards */}
                 <div className="space-y-4">
-                  <a 
-                    href="tel:+573046807443" 
-                    className="group flex items-center p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-electric-blue/30 hover:bg-white/10 transition-all duration-300"
-                  >
-                    <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-electric-blue/20 group-hover:bg-electric-blue/30 transition-colors mr-4">
-                      <Phone className="h-5 w-5 text-electric-blue" />
-                    </div>
-                    <div>
-                      <div className="text-sm text-primary-foreground/70">Call Direct</div>
-                      <div className="font-semibold text-primary-foreground group-hover:text-electric-blue transition-colors">
-                        +57 304 680 7443
-                      </div>
-                    </div>
-                    <ChevronRight className="ml-auto h-5 w-5 text-primary-foreground/50 group-hover:text-electric-blue group-hover:translate-x-1 transition-all" />
-                  </a>
-                  
                   <a 
                     href="mailto:rogermur1990@gmail.com" 
                     className="group flex items-center p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-electric-blue/30 hover:bg-white/10 transition-all duration-300"
@@ -251,21 +235,21 @@ const Footer = () => {
                   <ArrowUpRight className="ml-1 h-3 w-3" />
                 </Link>
               </div>
-              {/* Modern CTA Card */}
+               {/* Modern CTA Card */}
               <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-electric-blue/10 to-bright-orange/10 backdrop-blur-sm border border-white/20 hover:border-electric-blue/40 transition-all duration-300 group">
                 <div className="flex items-center mb-3">
                   <div className="w-2 h-2 bg-electric-blue rounded-full mr-2 animate-pulse"></div>
                   <h4 className="font-bold text-primary-foreground">Ready to Grow?</h4>
                 </div>
                 <p className="text-sm text-primary-foreground/80 mb-4 leading-relaxed">
-                  Free SEO consultation & strategy session
+                  Get a free SEO consultation via email
                 </p>
                 <a 
-                  href="tel:+573046807443"
+                  href="mailto:rogermur1990@gmail.com"
                   className="inline-flex items-center justify-center w-full px-4 py-3 bg-electric-blue/20 hover:bg-electric-blue/30 text-electric-blue hover:text-white border border-electric-blue/40 hover:border-electric-blue rounded-xl font-semibold transition-all duration-300 group-hover:scale-105"
                 >
-                  <Phone className="mr-2 h-4 w-4" />
-                  Call Now
+                  <Mail className="mr-2 h-4 w-4" />
+                  Contact Us
                   <ArrowUpRight className="ml-2 h-4 w-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </a>
               </div>
@@ -302,7 +286,7 @@ const Footer = () => {
                 ))}
               </div>
 
-              {/* Social Links - Modern Cards */}
+               {/* Social Links - Modern Cards */}
               <div className="flex items-center gap-3">
                 <span className="text-primary-foreground/60 text-sm font-medium">Connect:</span>
                 <div className="flex gap-2">
@@ -315,12 +299,10 @@ const Footer = () => {
                     <span className="text-xs font-bold text-primary-foreground/70 group-hover:text-electric-blue">Li</span>
                   </a>
                   <a 
-                    href="https://wa.me/573046807443" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                    href="mailto:rogermur1990@gmail.com" 
                     className="group flex items-center justify-center w-10 h-10 bg-white/5 hover:bg-bright-orange/20 border border-white/10 hover:border-bright-orange/40 rounded-xl transition-all duration-300 hover:scale-110"
                   >
-                    <span className="text-xs font-bold text-primary-foreground/70 group-hover:text-bright-orange">Wa</span>
+                    <span className="text-xs font-bold text-primary-foreground/70 group-hover:text-bright-orange">@</span>
                   </a>
                 </div>
               </div>
