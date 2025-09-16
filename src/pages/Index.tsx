@@ -7,6 +7,7 @@ import ProcessSection from "@/components/ProcessSection";
 import BlogSection from "@/components/BlogSection";
 import FinalCTA from "@/components/FinalCTA";
 import InternalLinkHub from "@/components/InternalLinkHub";
+import SEO from "@/components/SEO";
 
 const Index = () => {
   // Strategic link groups for internal linking
@@ -39,6 +40,7 @@ const Index = () => {
 
   return (
     <main className="min-h-screen">
+      <SEO page="home" />
       <Header />
       <Hero />
       <WhyWorkWithMe />

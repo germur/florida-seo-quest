@@ -3,6 +3,7 @@ import { ArrowRight, Clock, Tag, Search } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
+import SEO from "@/components/SEO";
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -46,6 +47,7 @@ const Blog = () => {
 
   return (
     <main className="min-h-screen pt-16">
+      <SEO page="blog" />
       <Header />
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">

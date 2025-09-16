@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import { ArrowLeft, TrendingUp, Users, Search, Target, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
+import { addSchema } from "@/lib/seo";
 
 const CaseStudyDetail = () => {
   const { slug } = useParams();

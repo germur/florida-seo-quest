@@ -3,6 +3,7 @@ import { ArrowRight, Mail, Calendar, MessageSquare, Phone, MapPin, Clock } from 
 import { useState } from "react";
 import Header from "@/components/Header";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -111,6 +112,7 @@ ${formData.name}
 
   return (
     <main className="min-h-screen pt-16">
+      <SEO page="contact" />
       <Header />
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">

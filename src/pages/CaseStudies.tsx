@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, TrendingUp, Users, Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
+import SEO from "@/components/SEO";
 
 const CaseStudies = () => {
   const cases = [
@@ -130,6 +131,7 @@ const CaseStudies = () => {
 
   return (
     <main className="min-h-screen pt-16">
+      <SEO page="caseStudies" />
       <Header />
       
       {/* Hero Section */}

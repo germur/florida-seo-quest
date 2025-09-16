@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ROICalculator from "@/components/ROICalculator";
 import ClusterGenerator from "@/components/ClusterGenerator";
 import TitleAnalyzer from "@/components/TitleAnalyzer";
+import SEO from "@/components/SEO";
 
 const Resources = () => {
   const tools = [
@@ -33,6 +34,7 @@ const Resources = () => {
 
   return (
     <main className="min-h-screen pt-16">
+      <SEO page="resources" />
       <Header />
       
       {/* Hero Section */}

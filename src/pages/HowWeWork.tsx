@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Clock, Users, Target, Lightbulb } from "lucide-react";
 import Header from "@/components/Header";
 import { Link } from "react-router-dom";
+import SEO from "@/components/SEO";
 
 const HowWeWork = () => {
   const methodology = {
@@ -133,6 +134,7 @@ const HowWeWork = () => {
 
   return (
     <main className="min-h-screen pt-16">
+      <SEO page="howWeWork" />
       <Header />
       
       {/* Hero Section */}

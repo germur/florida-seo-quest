@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import SocialShare from "@/components/SocialShare";
 import RelatedArticles from "@/components/RelatedArticles";
 import { useEffect } from "react";
+import SEO from "@/components/SEO";
+import { schemaConfigs, addSchema } from "@/lib/seo";
 
 const BlogPost = () => {
   const { slug } = useParams();
