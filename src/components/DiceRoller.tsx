@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, RotateCcw } from "lucide-react";
+import { ExternalLink, RotateCcw, Sparkles, MousePointer2 } from "lucide-react";
 
 // Case studies data - using the same structure as in CaseStudies page
 const CASE_STUDIES = [
@@ -123,11 +123,41 @@ const diceStyles = `
   80% { transform: rotate(480deg) scale(0.99); }
   100% { transform: rotate(600deg) scale(1); }
 }
+
+@keyframes float-dice {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--electric-blue) / 0.3), 0 0 40px hsl(var(--electric-blue) / 0.1); }
+  50% { box-shadow: 0 0 30px hsl(var(--electric-blue) / 0.5), 0 0 60px hsl(var(--electric-blue) / 0.2); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+@keyframes click-invitation {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
 .dice-rolling { 
   animation: roll-dice 1000ms cubic-bezier(0.2, 0.9, 0.2, 1) both; 
 }
 .dice-face-changing {
   animation: pulse 100ms ease-in-out infinite;
+}
+.dice-floating {
+  animation: float-dice 3s ease-in-out infinite;
+}
+.dice-glowing {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+.dice-invitation {
+  animation: click-invitation 2s ease-in-out infinite;
 }
 `;
 
@@ -155,22 +185,47 @@ function DiceButton({ onRollEnd, disabled }: { onRollEnd: () => void; disabled: 
   };
 
   return (
-    <button
-      type="button"
-      onClick={startRoll}
-      disabled={disabled || rolling}
-      className={`
-        group flex items-center justify-center w-20 h-20 rounded-2xl 
-        bg-card border border-border shadow-xl
-        hover:shadow-2xl hover:scale-105 
-        active:scale-95 transition-all duration-200
-        disabled:opacity-50 disabled:cursor-not-allowed
-        ${rolling ? "dice-rolling" : ""}
-        ${rolling ? "dice-face-changing" : ""}
-      `}
-    >
-      <DiceFace n={face} />
-    </button>
+    <div className="relative">
+      {/* Sparkle effects around the dice */}
+      <div className="absolute -inset-8 pointer-events-none">
+        <Sparkles className="absolute top-0 left-2 w-4 h-4 text-electric-blue animate-[sparkle_3s_ease-in-out_infinite]" />
+        <Sparkles className="absolute top-2 right-0 w-3 h-3 text-bright-orange animate-[sparkle_3s_ease-in-out_infinite_0.5s]" />
+        <Sparkles className="absolute bottom-0 left-0 w-3 h-3 text-electric-blue animate-[sparkle_3s_ease-in-out_infinite_1s]" />
+        <Sparkles className="absolute bottom-2 right-2 w-4 h-4 text-bright-orange animate-[sparkle_3s_ease-in-out_infinite_1.5s]" />
+      </div>
+      
+      <button
+        type="button"
+        onClick={startRoll}
+        disabled={disabled || rolling}
+        className={`
+          group relative flex items-center justify-center w-24 h-24 rounded-2xl 
+          bg-gradient-to-br from-white to-secondary border-2 cursor-pointer
+          transition-all duration-300 ease-out
+          shadow-[0_8px_32px_-8px_hsl(var(--electric-blue)/0.3)]
+          
+          ${!rolling && !disabled ? 'dice-floating dice-glowing dice-invitation hover:shadow-[0_12px_48px_-8px_hsl(var(--electric-blue)/0.5)]' : ''}
+          ${!rolling && !disabled ? 'hover:scale-110 hover:-translate-y-2' : ''}
+          ${!rolling && !disabled ? 'border-electric-blue/30 hover:border-electric-blue/60' : 'border-border'}
+          
+          active:scale-95 active:translate-y-0
+          disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:translate-y-0
+          
+          ${rolling ? "dice-rolling" : ""}
+          ${rolling ? "dice-face-changing" : ""}
+          
+          before:absolute before:inset-0 before:rounded-2xl 
+          before:bg-gradient-to-br before:from-electric-blue/5 before:to-bright-orange/5
+          before:opacity-0 before:transition-opacity before:duration-300
+          hover:before:opacity-100
+        `}
+      >
+        <DiceFace n={face} />
+        
+        {/* Ripple effect on click */}
+        <div className="absolute inset-0 rounded-2xl bg-electric-blue/20 opacity-0 group-active:opacity-100 group-active:animate-ping" />
+      </button>
+    </div>
   );
 }
 
@@ -284,14 +339,49 @@ export default function DiceRoller({ size = "lg", className = "" }: DiceRollerPr
     <>
       <style>{diceStyles}</style>
       
-      <div className={`flex flex-col items-center gap-4 ${className}`}>
+      <div className={`flex flex-col items-center gap-6 ${className}`}>
+        {/* Engaging header with clear call to action */}
+        <div className="text-center max-w-md mx-auto">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <MousePointer2 className="w-5 h-5 text-electric-blue animate-bounce" />
+            <h3 className="text-xl font-title text-primary">
+              ¡Descubre un Caso de Éxito!
+            </h3>
+            <MousePointer2 className="w-5 h-5 text-bright-orange animate-bounce" style={{ animationDelay: '0.5s' }} />
+          </div>
+          <p className="text-sm text-muted-foreground mb-4">
+            Haz clic en el dado para ver resultados reales de nuestros clientes
+          </p>
+          
+          {/* Visual hint with arrow pointing to dice */}
+          {!isRolling && (
+            <div className="flex items-center justify-center gap-2 text-xs text-electric-blue font-medium animate-pulse">
+              <span>👆</span>
+              <span>¡Clickéame!</span>
+              <span>👆</span>
+            </div>
+          )}
+        </div>
+        
         <DiceButton onRollEnd={handleRoll} disabled={isRolling} />
         
         {isRolling && (
           <div className="text-center animate-fade-in">
-            <div className="text-sm text-muted-foreground animate-pulse">
-              Rolling the dice...
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <div className="w-2 h-2 bg-electric-blue rounded-full animate-bounce"></div>
+              <div className="w-2 h-2 bg-bright-orange rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+              <div className="w-2 h-2 bg-electric-blue rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
             </div>
+            <div className="text-sm text-muted-foreground animate-pulse">
+              Seleccionando caso de éxito...
+            </div>
+          </div>
+        )}
+        
+        {/* Subtle instruction text */}
+        {!isRolling && (
+          <div className="text-center text-xs text-muted-foreground/70 max-w-xs">
+            Cada tirada revela métricas reales de proyectos completados
           </div>
         )}
       </div>
