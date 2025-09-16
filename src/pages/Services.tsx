@@ -7,13 +7,13 @@ import SEO from "@/components/SEO";
 const Services = () => {
   const services = [
     {
-      id: "seo-strategy",
+      id: "strategic-seo-consulting",
       icon: <Search className="h-12 w-12" />,
-      title: "SEO Strategy (MAES Framework)",
-      subtitle: "Initial Research + Semantic Architecture + Content Strategy + Roadmap & Measurement",
-      description: "A complete roadmap based on deep research, solid semantic architecture, and content that converts.",
+      title: "Strategic SEO Consulting",
+      subtitle: "AI-Driven Growth Strategies for Florida Businesses",
+      description: "Comprehensive SEO strategy development with advanced AI tools and local market expertise.",
       features: [
-        "Keyword research and competitive analysis",
+        "AI-powered keyword research and competitive analysis",
         "Semantic information architecture", 
         "Content strategy based on search intent",
         "Prioritized implementation roadmap",
@@ -24,38 +24,55 @@ const Services = () => {
       duration: "4-6 weeks"
     },
     {
-      id: "seo-audit",
+      id: "digital-storytelling-services",
       icon: <Settings className="h-12 w-12" />,
-      title: "SEO Audit & Technical Fixes",
-      subtitle: "On-Page + Technical + Indexation",
-      description: "We identify and solve on-page, technical, and indexation issues with a clear action plan.",
+      title: "Digital Storytelling Services",
+      subtitle: "Brand Narrative & Content Marketing",
+      description: "Transform your brand narrative with compelling digital storytelling that connects with audiences.",
       features: [
-        "Complete technical analysis (Core Web Vitals, crawling, indexation)",
-        "Comprehensive on-page audit",
-        "URL architecture and internal linking review",
-        "Impact-prioritized fixes plan",
-        "Post-implementation tracking"
+        "Brand story development and positioning",
+        "Content marketing strategy",
+        "Narrative-driven SEO content",
+        "Multi-platform storytelling approach",
+        "Audience engagement optimization"
       ],
       color: "electric-blue", 
-      price: "From $1,500",
+      price: "From $1,800",
+      duration: "3-4 weeks"
+    },
+    {
+      id: "seo-automation",
+      icon: <Users className="h-12 w-12" />,
+      title: "SEO Automation & Data",
+      subtitle: "AI-Powered Efficiency Tools",
+      description: "Streamline your SEO processes with advanced automation tools and data-driven insights.",
+      features: [
+        "Automated keyword research and tracking",
+        "AI-powered content optimization",
+        "Automated reporting and analytics",
+        "Technical SEO monitoring",
+        "Performance tracking dashboards"
+      ],
+      color: "bright-orange",
+      price: "From $2,200",
       duration: "2-3 weeks"
     },
     {
-      id: "seo-consulting",
+      id: "personal-branding-consulting",
       icon: <Users className="h-12 w-12" />,
-      title: "SEO Consulting & Advisory",
-      subtitle: "For Teams + Founders",
-      description: "Ongoing guidance for founders and internal teams ready to scale their SEO strategy.",
+      title: "Personal Branding Consulting",
+      subtitle: "Build Your Professional Authority",
+      description: "Establish thought leadership and professional authority with strategic personal branding.",
       features: [
-        "Monthly strategic sessions",
-        "Content and optimization reviews",
-        "Internal team training",
-        "Strategic guidance for scaling",
-        "Access to exclusive resources"
+        "Personal brand strategy development",
+        "Professional profile optimization",
+        "Thought leadership content planning",
+        "Online reputation management",
+        "Authority building campaigns"
       ],
       color: "bright-orange",
-      price: "From $3,000/month",
-      duration: "Ongoing"
+      price: "From $1,500",
+      duration: "4-5 weeks"
     }
   ];
 

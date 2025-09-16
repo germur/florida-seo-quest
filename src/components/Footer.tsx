@@ -14,17 +14,17 @@ const Footer = () => {
   ];
 
   const serviceLinks = [
-    { name: "Strategic SEO Consulting", href: "/services/strategic-seo" },
-    { name: "Digital Storytelling", href: "/services/digital-storytelling" },
+    { name: "Strategic SEO Consulting", href: "/services/strategic-seo-consulting" },
+    { name: "Digital Storytelling Services", href: "/services/digital-storytelling-services" },
     { name: "SEO Automation", href: "/services/seo-automation" },
-    { name: "Personal Branding", href: "/services/personal-branding-consulting" },
+    { name: "Personal Branding Consulting", href: "/services/personal-branding-consulting" },
   ];
 
   const cityLinks = [
-    { name: "SEO Miami", href: "/services/strategic-seo/miami" },
-    { name: "SEO Orlando", href: "/services/strategic-seo/orlando" },
-    { name: "SEO Tampa", href: "/services/strategic-seo/tampa" },
-    { name: "SEO Jacksonville", href: "/services/strategic-seo/jacksonville" },
+    { name: "SEO Miami, FL", href: "/services/strategic-seo-consulting/miami-fl/" },
+    { name: "SEO Orlando, FL", href: "/services/strategic-seo-consulting/orlando-fl/" },
+    { name: "SEO Tampa, FL", href: "/services/digital-storytelling-services/tampa-fl/" },
+    { name: "SEO Jacksonville, FL", href: "/services/seo-automation/jacksonville-fl/" },
   ];
 
   const resourceLinks = [

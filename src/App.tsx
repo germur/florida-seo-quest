@@ -40,9 +40,9 @@ const App = () => (
               <Route path="/" element={<Index />} />
               
               {/* Services SILO Structure */}
-              <Route path="/services" element={<Services />} />
-              <Route path="/services/:service" element={<ServiceDetail />} />
-              <Route path="/services/:service/:city" element={<ServiceCityDetail />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/services/:service" element={<ServiceDetail />} />
+          <Route path="/services/:service/:city" element={<ServiceCityDetail />} />
               
               {/* Case Studies */}
               <Route path="/case-studies" element={<CaseStudies />} />
