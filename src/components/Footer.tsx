@@ -1,16 +1,20 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, ExternalLink, ArrowUpRight, ChevronRight } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const navigationLinks = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "Case Studies", href: "/case-studies" },
-    { name: "How We Work", href: "/how-we-work" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
+  const serviceLinks = [
+    { name: "Strategic SEO Consulting", href: "/services/strategic-seo" },
+    { name: "Digital Storytelling", href: "/services/digital-storytelling" },
+    { name: "SEO Automation", href: "/services/seo-automation" },
+    { name: "Personal Branding", href: "/services/personal-branding-consulting" },
+  ];
+
+  const cityLinks = [
+    { name: "SEO Miami", href: "/services/strategic-seo/miami" },
+    { name: "SEO Orlando", href: "/services/strategic-seo/orlando" },
+    { name: "SEO Tampa", href: "/services/strategic-seo/tampa" },
+    { name: "SEO Jacksonville", href: "/services/strategic-seo/jacksonville" },
   ];
 
   const resourceLinks = [

@@ -169,6 +169,35 @@ export const seoConfigs = {
     description: 'Discover our proven SEO methodology: strategic audits, AI automation, content optimization & growth tracking. See how we deliver results for Florida businesses.',
     canonical: 'https://calvocreativo.com/how-we-work',
     keywords: 'seo process, seo methodology, florida seo agency workflow'
+  },
+  
+  // SILO Service Pages
+  strategicSeo: {
+    title: 'Strategic SEO Consulting Florida | AI-Driven Growth Strategies',
+    description: 'Elevate your Florida business with AI-driven strategic SEO consulting. Our 7+ years expertise delivers custom growth plans & measurable results. Partner with us!',
+    canonical: 'https://calvocreativo.com/services/strategic-seo',
+    keywords: 'strategic seo consulting, seo strategy florida, ai driven seo, florida seo expert'
+  },
+  
+  digitalStorytelling: {
+    title: 'Digital Storytelling for Brands | Connect & Convert with Narrative',
+    description: 'Transform your brand narrative with expert digital storytelling services. We craft compelling content that connects deeply with your US audience. See how we build brands!',
+    canonical: 'https://calvocreativo.com/services/digital-storytelling',
+    keywords: 'digital storytelling, brand narrative, content marketing florida, storytelling consulting'
+  },
+  
+  seoAutomation: {
+    title: 'AI SEO Automation & Data | Maximize Efficiency in Florida',
+    description: 'Streamline SEO with advanced AI automation: keyword research, scraping, reporting. Get data-driven insights & boost efficiency for your Florida business. Start optimizing today!',
+    canonical: 'https://calvocreativo.com/services/seo-automation',
+    keywords: 'seo automation, ai seo tools, seo data analysis, automated seo florida'
+  },
+  
+  personalBranding: {
+    title: 'Personal Branding for Consultants in FL | Build Your Authority',
+    description: 'Expert personal branding consultancy for Florida professionals. Leverage our AI-driven strategies to optimize your profile & rank on Google. Schedule a free diagnostic!',
+    canonical: 'https://calvocreativo.com/services/personal-branding-consulting',
+    keywords: 'personal branding consulting, consultant branding florida, professional branding, thought leadership seo'
   }
 };
 

@@ -23,9 +23,27 @@ const Header = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-            <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors text-sm xl:text-base">
-              Services
-            </Link>
+            <div className="relative group">
+              <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors text-sm xl:text-base flex items-center">
+                Services
+              </Link>
+              <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="p-4 space-y-2">
+                  <Link to="/services/strategic-seo" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                    Strategic SEO Consulting
+                  </Link>
+                  <Link to="/services/digital-storytelling" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                    Digital Storytelling
+                  </Link>
+                  <Link to="/services/seo-automation" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                    SEO Automation
+                  </Link>
+                  <Link to="/services/personal-branding-consulting" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                    Personal Branding
+                  </Link>
+                </div>
+              </div>
+            </div>
             <Link to="/case-studies" className="text-muted-foreground hover:text-primary transition-colors text-sm xl:text-base">
               Case Studies
             </Link>

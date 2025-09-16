@@ -143,10 +143,15 @@ const Services = () => {
 
                     <div className="flex flex-col sm:flex-row gap-4">
                       <Button variant="hero" size="lg" asChild>
-                        <Link to="/contact">
-                          Start This Service
+                        <Link to={`/services/${service.id}`}>
+                          Learn More
                           <ArrowRight className="ml-2 h-4 w-4" />
                         </Link>
+                      </Button>
+                      <Button variant="outline" size="lg" asChild>
+                        <a href="tel:+573046807443">
+                          Get Quote
+                        </a>
                       </Button>
                     </div>
                   </div>
