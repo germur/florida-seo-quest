@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, ChevronRight, ArrowUpRight } from "lucide-react";
+import calvoCreativoLogo from "@/assets/calvo-creativo-logo.svg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -73,10 +74,16 @@ const Footer = () => {
               <div className="group">
                 <Link to="/" className="inline-block mb-8 transition-transform duration-300 hover:scale-105">
                   <div className="flex items-center space-x-4 p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-electric-blue/30 transition-all duration-300">
+                    {/* Logo completo en desktop, solo favicon en mobile */}
                     <img 
-                      src="/src/assets/calvo-creativo-logo.svg" 
+                      src={calvoCreativoLogo} 
                       alt="Calvo Creativo Logo" 
-                      className="h-12 w-12"
+                      className="hidden sm:block h-12 w-auto"
+                    />
+                    <img 
+                      src="/favicon.svg" 
+                      alt="Calvo Creativo" 
+                      className="sm:hidden h-12 w-12"
                     />
                     <div>
                       <div className="font-bold text-xl text-primary-foreground">Calvo Creativo</div>
