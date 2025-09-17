@@ -1,15 +1,8 @@
-import { ArrowRight, BookOpen, Clock, Tag } from "lucide-react";
+import { ArrowRight, Calendar, Clock, Tag, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-
-interface Article {
-  slug: string;
-  title: string;
-  excerpt: string;
-  readTime: string;
-  category: string;
-  tags: string[];
-}
+import { useEffect, useState } from "react";
+import { getRelatedPosts, Post } from "@/lib/posts";
 
 interface RelatedArticlesProps {
   currentSlug: string;
@@ -17,33 +10,20 @@ interface RelatedArticlesProps {
 }
 
 const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps) => {
-  // Mock data - in a real app this would come from your blog data
-  const allArticles: Article[] = [
-    {
-      slug: "seo-no-murio-hype-estrategia",
-      title: "SEO Didn't Die: From Hype to Strategy That Actually Works",
-      excerpt: "A deep analysis of SEO trends and what strategies actually work in 2025.",
-      readTime: "12 min",
-      category: "SEO Strategy",
-      tags: ["SEO Myths", "Voice Search", "Visual Search", "AEO"]
-    },
-    {
-      slug: "wordpress-affordable-solution-or-anchor",
-      title: "WordPress: Affordable Solution or Anchor of Problems?",
-      excerpt: "Exploring the real pros and cons of WordPress for your next project and when it becomes more of a hindrance than help.",
-      readTime: "15 min",
-      category: "Web Development",
-      tags: ["WordPress", "CMS", "Performance", "SEO Issues"]
-    }
-  ];
+  const [articles, setArticles] = useState<Post[]>([]);
 
-  // Filter out current article and get related articles
-  const relatedArticles = allArticles
-    .filter(article => article.slug !== currentSlug)
-    .slice(0, 2);
+  useEffect(() => {
+    const fetchRelatedPosts = async () => {
+      const relatedPosts = await getRelatedPosts(currentSlug, currentCategory);
+      setArticles(relatedPosts);
+    };
 
-  // If no related articles, show all except current
-  const articlesToShow = relatedArticles.length > 0 ? relatedArticles : allArticles.filter(a => a.slug !== currentSlug).slice(0, 2);
+    fetchRelatedPosts();
+  }, [currentSlug, currentCategory]);
+
+  if (articles.length === 0) {
+    return null;
+  }
 
   const getCategoryColor = (category: string) => {
     switch (category) {
@@ -66,7 +46,7 @@ const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps)
       </div>
 
       <div className="grid gap-6">
-        {articlesToShow.map((article) => (
+        {articles.map((article) => (
           <Link
             key={article.slug}
             to={`/blog/${article.slug}`}
@@ -89,7 +69,7 @@ const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps)
             </h4>
 
             <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-              {article.excerpt}
+              {article.metaDescription}
             </p>
 
             <div className="flex items-center justify-between">

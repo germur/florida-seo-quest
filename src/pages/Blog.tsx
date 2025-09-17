@@ -1,54 +1,60 @@
+import { useState, useEffect } from "react";
+import { Search, Calendar, Clock, Tag, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Tag, Search } from "lucide-react";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import SEO from "@/components/SEO";
+import { getAllPosts, getFeaturedPosts, getPostsByCategory, Post } from "@/lib/posts";
 
 const Blog = () => {
-  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [featuredPosts, setFeaturedPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  const categories = [
-    { id: "all", name: "All", count: 2 },
-    { id: "seo-strategy", name: "SEO Strategy", count: 1, color: "electric-blue" },
-    { id: "web-development", name: "Web Development", count: 1, color: "bright-orange" }
-  ];
+  const categories = ["All", "SEO Strategy", "Web Development", "Digital Marketing", "Case Studies"];
 
-  const posts = [
-    {
-      id: "wordpress-affordable-solution-or-anchor",
-      title: "WordPress: Affordable Solution or Anchor of Problems?",
-      excerpt: "WordPress powers 40% of websites, but is it really the ideal solution? A critical analysis of hidden costs, maintenance burdens, and performance issues.",
-      category: "web-development",
-      readTime: "10 min",
-      date: "2025-01-20",
-      featured: true,
-      tags: ["WordPress", "Web Development", "Performance", "CMS", "Maintenance"]
-    },
-    {
-      id: "seo-no-murio-hype-estrategia",
-      title: "SEO Didn't Die: From Hype to Strategy That Actually Works",
-      excerpt: "Critical analysis of digital marketing trends: voice, visual and AEO. Why real SEO remains what Google has wanted for 20 years.",
-      category: "seo-strategy",
-      readTime: "12 min",
-      date: "2025-01-15",
-      featured: true,
-      tags: ["SEO Myths", "Voice Search", "Visual Search", "AEO", "SEO Strategy"]
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      try {
+        const [allPosts, featured] = await Promise.all([
+          getAllPosts(),
+          getFeaturedPosts()
+        ]);
+        setPosts(allPosts);
+        setFeaturedPosts(featured);
+      } catch (error) {
+        console.error('Failed to fetch posts:', error);
+      }
+      setLoading(false);
+    };
+
+    fetchPosts();
+  }, []);
+
+  useEffect(() => {
+    const fetchFilteredPosts = async () => {
+      const filtered = await getPostsByCategory(selectedCategory);
+      setPosts(filtered);
+    };
+
+    if (selectedCategory) {
+      fetchFilteredPosts();
     }
-  ];
+  }, [selectedCategory]);
 
-  const featuredPosts = posts.filter(post => post.featured);
+  // Filter posts based on selected category
   const regularPosts = posts.filter(post => !post.featured);
-
-  // Filter all posts for the main grid (not just regular posts)
-  const filteredPosts = selectedCategory === "all" 
-    ? posts 
-    : posts.filter(post => post.category === selectedCategory);
+  const filteredPosts = selectedCategory === "All" 
+    ? regularPosts 
+    : regularPosts.filter(post => post.category === selectedCategory);
 
   return (
     <main className="min-h-screen pt-16">
       <SEO page="blog" />
       <Header />
+      
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-6">
@@ -72,8 +78,8 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Featured Posts */}
-      {featuredPosts.length > 0 && (
+      {/* Featured Articles */}
+      {!loading && featuredPosts.length > 0 && (
         <section className="py-24">
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto">
@@ -82,18 +88,18 @@ const Blog = () => {
               <div className="grid lg:grid-cols-2 gap-8 mb-16">
                 {featuredPosts.map((post) => (
                   <Link 
-                    key={post.id}
-                    to={`/blog/${post.id}`}
+                    key={post.slug}
+                    to={`/blog/${post.slug}`}
                     className="block"
                   >
                     <article className="bg-gradient-to-br from-teal/5 to-electric-blue/5 border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
                       <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                         <span className={`px-3 py-1 rounded-full font-medium ${
-                          post.category === 'seo-strategy' ? 'bg-electric-blue/10 text-electric-blue' :
-                          post.category === 'web-development' ? 'bg-bright-orange/10 text-bright-orange' :
+                          post.category === 'SEO Strategy' ? 'bg-electric-blue/10 text-electric-blue' :
+                          post.category === 'Web Development' ? 'bg-bright-orange/10 text-bright-orange' :
                           'bg-teal/10 text-teal'
                         }`}>
-                          {categories.find(c => c.id === post.category)?.name}
+                          {post.category}
                         </span>
                         <span className="flex items-center gap-1">
                           <Clock className="h-4 w-4" />
@@ -106,7 +112,7 @@ const Blog = () => {
                       </h3>
                       
                       <p className="text-muted-foreground leading-relaxed mb-6">
-                        {post.excerpt}
+                        {post.metaDescription}
                       </p>
                       
                       <div className="flex items-center justify-between">
@@ -139,17 +145,15 @@ const Blog = () => {
             <div className="flex flex-wrap gap-3 justify-center">
               {categories.map((category) => (
                 <button
-                  key={category.id}
-                  onClick={() => setSelectedCategory(category.id)}
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                    selectedCategory === category.id
-                      ? category.id === 'seo-strategy' ? 'bg-electric-blue text-white' :
-                        category.id === 'web-development' ? 'bg-bright-orange text-white' :
-                        'bg-teal text-white'
+                    selectedCategory === category
+                      ? 'bg-teal text-white'
                       : 'bg-card text-muted-foreground hover:bg-muted hover:text-primary'
                   }`}
                 >
-                  {category.name} ({category.count})
+                  {category}
                 </button>
               ))}
             </div>
@@ -157,58 +161,83 @@ const Blog = () => {
         </div>
       </section>
 
-      {/* Posts Grid */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post) => (
-                <Link 
-                  key={post.id}
-                  to={`/blog/${post.id}`}
-                  className="block"
-                >
-                  <article className="bg-card border border-border rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
-                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                      <span className="flex items-center gap-1">
-                        <Clock className="h-4 w-4" />
-                        {post.readTime}
-                      </span>
-                      <span>{new Date(post.date).toLocaleDateString()}</span>
-                    </div>
-                    
-                    <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-teal transition-colors">
-                      {post.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground leading-relaxed mb-4 text-sm">
-                      {post.excerpt}
-                    </p>
-                    
-                    <div className="flex items-center justify-between">
-                      <span className={`px-2 py-1 text-xs rounded font-medium ${
-                        post.category === 'seo-strategy' ? 'bg-electric-blue/10 text-electric-blue' :
-                        post.category === 'web-development' ? 'bg-bright-orange/10 text-bright-orange' :
-                        'bg-teal/10 text-teal'
-                      }`}>
-                        {categories.find(c => c.id === post.category)?.name}
-                      </span>
-                      
-                      <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-teal group-hover:translate-x-1 transition-all" />
-                    </div>
-                  </article>
-                </Link>
-              ))}
-            </div>
-            
-            {filteredPosts.length === 0 && (
-              <div className="text-center py-16">
-                <p className="text-lg text-muted-foreground">No articles found in this category.</p>
+      {/* Blog Posts Grid */}
+      {loading ? (
+        <section className="py-24">
+          <div className="container mx-auto px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-8">
+                {[...Array(4)].map((_, i) => (
+                  <div key={i} className="animate-pulse">
+                    <div className="h-8 bg-muted rounded mb-4"></div>
+                    <div className="h-4 bg-muted rounded mb-2"></div>
+                    <div className="h-4 bg-muted rounded mb-8"></div>
+                    <div className="h-32 bg-muted rounded"></div>
+                  </div>
+                ))}
               </div>
-            )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : (
+        <section className="py-24">
+          <div className="container mx-auto px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="grid lg:grid-cols-2 gap-8">
+                {filteredPosts.length === 0 ? (
+                  <div className="col-span-2 text-center py-12">
+                    <p className="text-muted-foreground text-lg">No articles found for this category.</p>
+                  </div>
+                ) : (
+                  filteredPosts.map((post) => (
+                    <Link 
+                      key={post.slug}
+                      to={`/blog/${post.slug}`}
+                      className="block"
+                    >
+                      <article className="bg-card border border-border rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+                        <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                          <span className="flex items-center gap-1">
+                            <Clock className="h-4 w-4" />
+                            {post.readTime}
+                          </span>
+                          <span>{new Date(post.date).toLocaleDateString()}</span>
+                        </div>
+                        
+                        <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-teal transition-colors">
+                          {post.title}
+                        </h3>
+                        
+                        <p className="text-muted-foreground leading-relaxed mb-6">
+                          {post.metaDescription}
+                        </p>
+                        
+                        <div className="flex items-center justify-between">
+                          <span className={`px-2 py-1 text-xs rounded font-medium ${
+                            post.category === 'SEO Strategy' ? 'bg-electric-blue/10 text-electric-blue' :
+                            post.category === 'Web Development' ? 'bg-bright-orange/10 text-bright-orange' :
+                            'bg-teal/10 text-teal'
+                          }`}>
+                            {post.category}
+                          </span>
+                          
+                          <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-teal group-hover:translate-x-1 transition-all" />
+                        </div>
+                      </article>
+                    </Link>
+                  ))
+                )}
+              </div>
+              
+              {filteredPosts.length === 0 && (
+                <div className="text-center py-16">
+                  <p className="text-lg text-muted-foreground">No articles found in this category.</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Newsletter CTA */}
       <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white">
