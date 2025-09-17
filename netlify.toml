@@ -1,16 +1,3 @@
 [build]
   command = "npm run build"
   publish = "dist"
-
-# Fuerza que Netlify sirva los HTML como HTML (evita que se vean como texto)
-[[headers]]
-  for = "/index.html"
-  [headers.values]
-    Content-Type = "text/html; charset=utf-8"
-    Cache-Control = "no-cache"
-
-[[headers]]
-  for = "/404.html"
-  [headers.values]
-    Content-Type = "text/html; charset=utf-8"
-    Cache-Control = "no-cache"
