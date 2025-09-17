@@ -338,23 +338,4 @@
     <priority>0.5</priority>
   </url>
 
-  <!-- Legal Pages -->
-  <url>
-    <loc>https://calvocreativo.com/privacy-policy/</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://calvocreativo.com/terms-of-service/</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://calvocreativo.com/cookie-policy/</loc>
-    <lastmod>2025-01-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
 </urlset>
