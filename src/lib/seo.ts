@@ -1,379 +1,256 @@
-interface SEOConfig {
-  title: string;
-  description: string;
+// src/lib/seo.ts
+// ------------------------------------------------------------
+// Helpers SEO para Calvo Creativo (versión estable y simple)
+// - addSchema(schema: any) para evitar fricciones de TypeScript
+// - updatePageSEO() -> title, description, canonical (con "/")
+// - ensureTrailingSlash()
+// - schemaConfigs (Service de índice) y seoConfigs (metas base)
+// - webSiteSchema y localBusinessSchema listos para usar
+// ------------------------------------------------------------
+
+/* =========================
+ *   Utilidades generales
+ * ========================= */
+
+export const SITE = "https://calvocreativo.com";
+
+export const ensureTrailingSlash = (url: string) =>
+  url ? (url.endsWith("/") ? url : `${url}/`) : url;
+
+const setMeta = (name: string, content?: string) => {
+  if (!content) return;
+  let el =
+    document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`) ||
+    document.createElement("meta");
+  el.setAttribute("name", name);
+  el.setAttribute("content", content);
+  if (!el.parentNode) document.head.appendChild(el);
+};
+
+const setOG = (property: string, content?: string) => {
+  if (!content) return;
+  let el =
+    document.querySelector<HTMLMetaElement>(
+      `meta[property="${property}"]`
+    ) || document.createElement("meta");
+  el.setAttribute("property", property);
+  el.setAttribute("content", content);
+  if (!el.parentNode) document.head.appendChild(el);
+};
+
+const setTwitter = (name: string, content?: string) => {
+  if (!content) return;
+  let el =
+    document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`) ||
+    document.createElement("meta");
+  el.setAttribute("name", name);
+  el.setAttribute("content", content);
+  if (!el.parentNode) document.head.appendChild(el);
+};
+
+const setCanonical = (href: string) => {
+  if (!href) return;
+  const normalized = ensureTrailingSlash(href);
+  let link =
+    document.querySelector<HTMLLinkElement>('link[rel="canonical"]') ||
+    document.createElement("link");
+  link.setAttribute("rel", "canonical");
+  link.setAttribute("href", normalized);
+  if (!link.parentNode) document.head.appendChild(link);
+  setOG("og:url", normalized);
+};
+
+/* =========================
+ *    API pública SEO
+ * ========================= */
+
+export function updatePageSEO(opts: {
+  title?: string;
+  description?: string;
   canonical?: string;
-  noindex?: boolean;
   keywords?: string;
+}) {
+  const { title, description, canonical, keywords } = opts;
+
+  if (title) {
+    document.title = title;
+    setOG("og:title", title);
+    setTwitter("twitter:title", title);
+  }
+  if (description) {
+    setMeta("description", description);
+    setOG("og:description", description);
+    setTwitter("twitter:description", description);
+  }
+  if (keywords) setMeta("keywords", keywords);
+  if (canonical) setCanonical(canonical);
 }
 
-interface SchemaConfig {
-  "@context": string;
-  "@type": string;
-  [key: string]: any;
+// 👇 A propósito super-permisiva para NO romper el build.
+// Acepta cualquier JSON-LD (con @type o con @graph).
+export function addSchema(schema: any, id: string) {
+  if (!schema || !id) return;
+  const existing = document.getElementById(id);
+  if (existing) existing.remove();
+
+  const el = document.createElement("script");
+  el.type = "application/ld+json";
+  el.id = id;
+  el.text = JSON.stringify(schema);
+  document.head.appendChild(el);
 }
 
-export const updatePageSEO = (config: SEOConfig) => {
-  // Update title
-  document.title = config.title;
-  
-  // Update meta description
-  const metaDescription = document.querySelector('meta[name="description"]');
-  if (metaDescription) {
-    metaDescription.setAttribute('content', config.description);
-  } else {
-    const newMetaDescription = document.createElement('meta');
-    newMetaDescription.name = 'description';
-    newMetaDescription.content = config.description;
-    document.head.appendChild(newMetaDescription);
-  }
-  
-  // Update canonical URL
-  if (config.canonical) {
-    let canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.setAttribute('href', config.canonical);
-    } else {
-      canonical = document.createElement('link');
-      canonical.setAttribute('rel', 'canonical');
-      canonical.setAttribute('href', config.canonical);
-      document.head.appendChild(canonical);
-    }
-  }
-  
-  // Update keywords
-  if (config.keywords) {
-    let metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', config.keywords);
-    } else {
-      metaKeywords = document.createElement('meta');
-      metaKeywords.setAttribute('name', 'keywords');
-      metaKeywords.setAttribute('content', config.keywords);
-      document.head.appendChild(metaKeywords);
-    }
-  }
-  
-  // Handle noindex
-  if (config.noindex) {
-    let robotsMeta = document.querySelector('meta[name="robots"]');
-    if (robotsMeta) {
-      robotsMeta.setAttribute('content', 'noindex, nofollow');
-    } else {
-      robotsMeta = document.createElement('meta');
-      robotsMeta.setAttribute('name', 'robots');
-      robotsMeta.setAttribute('content', 'noindex, nofollow');
-      document.head.appendChild(robotsMeta);
-    }
-  }
+/* =========================
+ *   Configs de SCHEMAS
+ * ========================= */
 
-  // Update Open Graph
-  const updateOGMeta = (property: string, content: string) => {
-    let ogMeta = document.querySelector(`meta[property="${property}"]`);
-    if (ogMeta) {
-      ogMeta.setAttribute('content', content);
-    } else {
-      ogMeta = document.createElement('meta');
-      ogMeta.setAttribute('property', property);
-      ogMeta.setAttribute('content', content);
-      document.head.appendChild(ogMeta);
-    }
-  };
-
-  updateOGMeta('og:title', config.title);
-  updateOGMeta('og:description', config.description);
-  if (config.canonical) {
-    updateOGMeta('og:url', config.canonical);
-  }
-
-  // Update Twitter Card
-  const updateTwitterMeta = (name: string, content: string) => {
-    let twitterMeta = document.querySelector(`meta[name="${name}"]`);
-    if (twitterMeta) {
-      twitterMeta.setAttribute('content', content);
-    } else {
-      twitterMeta = document.createElement('meta');
-      twitterMeta.setAttribute('name', name);
-      twitterMeta.setAttribute('content', content);
-      document.head.appendChild(twitterMeta);
-    }
-  };
-
-  updateTwitterMeta('twitter:title', config.title);
-  updateTwitterMeta('twitter:description', config.description);
-};
-
-export const addSchema = (schema: SchemaConfig, id?: string) => {
-  // Remove existing schema with same ID if it exists
-  if (id) {
-    const existingSchema = document.getElementById(id);
-    if (existingSchema) {
-      existingSchema.remove();
-    }
-  }
-  
-  const script = document.createElement('script');
-  script.type = 'application/ld+json';
-  if (id) {
-    script.id = id;
-  }
-  script.textContent = JSON.stringify(schema);
-  document.head.appendChild(script);
-};
-
-// SEO configurations for each page
-export const seoConfigs = {
-  home: {
-    title: 'Strategic SEO Consulting Florida | AI-Driven Growth Strategies',
-    description: 'Elevate your Florida business with AI-driven strategic SEO consulting. Our 7+ years expertise delivers custom growth plans & measurable results. Partner with us!',
-    canonical: 'https://calvocreativo.com/',
-    keywords: 'seo consultant florida, strategic seo consulting, ai-driven seo, florida seo expert'
-  },
-  services: {
-    title: 'AI SEO Services Florida | Strategic Consulting & Digital Growth',
-    description: 'Transform your Florida business with AI-powered SEO services: strategic consulting, automation, digital storytelling & personal branding. Get results that matter.',
-    canonical: 'https://calvocreativo.com/services',
-    keywords: 'seo services florida, ai seo automation, digital storytelling, personal branding consulting'
-  },
-  caseStudies: {
-    title: 'Florida SEO Success Stories | Real Case Studies, Proven Results',
-    description: 'Explore our detailed SEO case studies from Florida businesses. Discover how our strategic SEO delivered triple leads, increased visibility & real organic growth.',
-    canonical: 'https://calvocreativo.com/case-studies',
-    keywords: 'seo case studies florida, seo success stories, organic growth results, florida seo agency'
-  },
-  blog: {
-    title: 'AI in SEO: Strategies, Tools & Future | Calvo Creativo Insights',
-    description: 'Dive deep into AI SEO: automated keyword research, content creation & technical optimization. Stay ahead with expert insights & practical AI strategies.',
-    canonical: 'https://calvocreativo.com/blog',
-    keywords: 'ai seo strategies, seo automation tools, technical seo optimization, future of seo'
-  },
-  resources: {
-    title: 'Free SEO Tools & Resources | Comprehensive Guides for Growth',
-    description: 'Free SEO resources for beginners & professionals: technical SEO guides, keyword research tools, link building strategies. Master SEO with expert knowledge.',
-    canonical: 'https://calvocreativo.com/resources',
-    keywords: 'free seo tools, seo guides, technical seo resources, keyword research tools'
-  },
-  about: {
-    title: 'Roger Murillo | Florida SEO Expert & AI Strategy Consultant',
-    description: 'Meet Roger Murillo: 7+ years scaling Florida brands with AI-driven SEO strategies. From startups to enterprises, delivering measurable organic growth results.',
-    canonical: 'https://calvocreativo.com/about',
-    keywords: 'roger murillo seo, florida seo consultant, ai seo expert'
-  },
-  contact: {
-    title: 'Contact Florida SEO Expert | Free Strategic Consultation',
-    description: 'Ready to scale with strategic SEO? Book your free consultation with Florida SEO expert Roger Murillo. AI-driven strategies, proven results, measurable growth.',
-    canonical: 'https://calvocreativo.com/contact',
-    keywords: 'seo consultation florida, contact seo expert, florida seo services'
-  },
-  howWeWork: {
-    title: 'Our SEO Process | Data-Driven Methodology & Florida Expertise',
-    description: 'Discover our proven SEO methodology: strategic audits, AI automation, content optimization & growth tracking. See how we deliver results for Florida businesses.',
-    canonical: 'https://calvocreativo.com/how-we-work',
-    keywords: 'seo process, seo methodology, florida seo agency workflow'
-  },
-  
-  // SILO Service Pages
-  strategicSeo: {
-    title: 'Strategic SEO Consulting Florida | AI-Driven Growth Strategies',
-    description: 'Elevate your Florida business with AI-driven strategic SEO consulting. Our 7+ years expertise delivers custom growth plans & measurable results. Partner with us!',
-    canonical: 'https://calvocreativo.com/services/strategic-seo-consulting',
-    keywords: 'strategic seo consulting, seo strategy florida, ai driven seo, florida seo expert'
-  },
-  
-  digitalStorytelling: {
-    title: 'Digital Storytelling for Brands | Connect & Convert with Narrative',
-    description: 'Transform your brand narrative with expert digital storytelling services. We craft compelling content that connects deeply with your US audience. See how we build brands!',
-    canonical: 'https://calvocreativo.com/services/digital-storytelling-services',
-    keywords: 'digital storytelling, brand narrative, content marketing florida, storytelling consulting'
-  },
-  
-  seoAutomation: {
-    title: 'AI SEO Automation & Data | Maximize Efficiency in Florida',
-    description: 'Streamline SEO with advanced AI automation: keyword research, scraping, reporting. Get data-driven insights & boost efficiency for your Florida business. Start optimizing today!',
-    canonical: 'https://calvocreativo.com/services/seo-automation',
-    keywords: 'seo automation, ai seo tools, seo data analysis, automated seo florida'
-  },
-  
-  personalBranding: {
-    title: 'Personal Branding for Consultants in FL | Build Your Authority',
-    description: 'Expert personal branding consultancy for Florida professionals. Leverage our AI-driven strategies to optimize your profile & rank on Google. Schedule a free diagnostic!',
-    canonical: 'https://calvocreativo.com/services/personal-branding-consulting',
-    keywords: 'personal branding consulting, consultant branding florida, professional branding, thought leadership seo'
-  },
-
-  // Legal Pages
-  privacyPolicy: {
-    title: 'Privacy Policy | Calvo Creativo SEO Services',
-    description: 'Read our comprehensive privacy policy. Learn how Calvo Creativo protects your personal information and data when you use our SEO services.',
-    canonical: 'https://calvocreativo.com/privacy-policy',
-    keywords: 'privacy policy, data protection, seo services privacy',
-    noindex: true
-  },
-  
-  termsOfService: {
-    title: 'Terms of Service | Calvo Creativo SEO Consulting',
-    description: 'Review our terms of service for SEO consulting and digital marketing services. Understand your rights and responsibilities as our client.',
-    canonical: 'https://calvocreativo.com/terms-of-service',
-    keywords: 'terms of service, seo consulting terms, service agreement',
-    noindex: true
-  },
-  
-  cookiePolicy: {
-    title: 'Cookie Policy | Calvo Creativo Website',
-    description: 'Learn about our cookie usage policy. Understand how we use cookies to improve your experience on our SEO consulting website.',
-    canonical: 'https://calvocreativo.com/cookie-policy',
-    keywords: 'cookie policy, website cookies, privacy',
-    noindex: true
-  },
-
-  // Service detail pages
-  serviceDetail: {
-    title: 'SEO Services in Florida | {serviceName} Consulting',
-    description: 'Professional {serviceName} services for Florida businesses. AI-driven strategies, proven results, and measurable growth for your business.',
-    canonical: 'https://calvocreativo.com/services/{serviceSlug}',
-    keywords: '{serviceName}, seo services florida, {serviceSlug} consulting'
-  },
-  
-  // City service pages  
-  cityService: {
-    title: '{serviceName} in {cityName}, FL | Local SEO Expert',
-    description: 'Expert {serviceName} services for {cityName} businesses. Local market knowledge, proven strategies, and measurable results in {region}.',
-    canonical: 'https://calvocreativo.com/services/{serviceSlug}/{citySlug}',
-    keywords: '{serviceName} {cityName}, local seo {cityName}, {serviceSlug} florida'
-  },
-};
-
-// Schema configurations
 export const schemaConfigs = {
-  localBusiness: {
+  // Para /services (índice). NO usar en detalle.
+  service: (name: string, description: string, url?: string) => ({
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Calvo Creativo",
-    "description": "Strategic SEO consulting and AI-driven digital growth services for Florida businesses",
-    "url": "https://calvocreativo.com",
-    "logo": "https://calvocreativo.com/lovable-uploads/15b81203-d4a9-4da9-ace4-976c55d22c82.png",
-    "image": "https://calvocreativo.com/og-home.jpg",
-    "email": "rogermur1990@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressRegion": "FL",
-      "addressCountry": "US"
+    "@type": "Service",
+    name,
+    description,
+    serviceType: "SEO Consulting",
+    category: "Digital Marketing",
+    provider: {
+      "@type": "ProfessionalService",
+      name: "Calvo Creativo",
+      areaServed: "Florida",
+      url: SITE + "/",
+      image: `${SITE}/og-home.jpg`,
     },
-    "areaServed": [
-      {"@type": "State", "name": "Florida"},
-      {"@type": "Country", "name": "United States"}
-    ],
-    "serviceType": ["SEO Consulting", "Digital Marketing", "Content Strategy"],
-    "founder": {
-      "@type": "Person",
-      "name": "Roger Murillo",
-      "jobTitle": "SEO Strategist & Consultant"
-    },
-    "sameAs": ["https://x.com/Rogermu47429637"]
-  },
-  
+    url: url ? ensureTrailingSlash(url) : undefined,
+  }),
+
+  // Si quieres Person, úsalo solo en About (opcional).
   person: {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Roger Murillo",
-    "jobTitle": "SEO Strategist & AI Consultant",
-    "description": "Florida-based SEO expert specializing in AI-driven strategies and organic growth",
-    "url": "https://calvocreativo.com/about",
-    "image": "https://calvocreativo.com/og-home.jpg",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Calvo Creativo"
-    },
-    "sameAs": ["https://x.com/Rogermu47429637"],
-    "knowsAbout": ["SEO", "Digital Marketing", "AI Automation", "Content Strategy"],
-    "hasOccupation": {
-      "@type": "Occupation",
-      "name": "SEO Consultant",
-      "occupationLocation": {
-        "@type": "State",
-        "name": "Florida"
-      }
-    }
+    name: "Roger Murillo",
+    url: `${SITE}/about/`,
+    image: `${SITE}/og-home.jpg`,
+    jobTitle: "SEO Strategist & Consultant",
+    worksFor: { "@type": "Organization", name: "Calvo Creativo" },
+    sameAs: ["https://x.com/Rogermu47429637", "https://linkedin.com/in/rogermurillo"],
   },
+};
 
-  service: (serviceName: string, description: string) => ({
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": serviceName,
-    "description": description,
-    "provider": {
-      "@type": "ProfessionalService",
-      "name": "Calvo Creativo",
-      "areaServed": "Florida"
-    },
-    "serviceType": "SEO Consulting",
-    "category": "Digital Marketing"
-  }),
+/* =========================
+ *   Configs de PAGE SEO
+ * ========================= */
 
-  article: (title: string, description: string, url: string, datePublished: string) => ({
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": title,
-    "description": description,
-    "url": url,
-    "datePublished": datePublished,
-    "author": {
-      "@type": "Person",
-      "name": "Roger Murillo"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Calvo Creativo",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://calvocreativo.com/lovable-uploads/15b81203-d4a9-4da9-ace4-976c55d22c82.png"
-      }
-    }
-  }),
+type SEOConfig = {
+  title: string;
+  description: string;
+  keywords?: string;
+  canonical?: string;
+};
 
-  faq: (faqs: Array<{question: string, answer: string}>) => ({
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer
-      }
-    }))
-  }),
-  
-  breadcrumb: (items: Array<{name: string, url: string}>) => ({
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": items.map((item, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "name": item.name,
-      "item": item.url
-    }))
-  }),
+export const seoConfigs: Record<string, SEOConfig> = {
+  home: {
+    title: "Calvo Creativo | SEO Strategy & Consulting",
+    description:
+      "AI-driven SEO strategy, technical audits, and storytelling that converts. Programmatic SEO, topical authority, and automation.",
+    canonical: `${SITE}/`,
+    keywords:
+      "seo strategy, programmatic seo, topical authority, seo consultant florida",
+  },
+  services: {
+    title: "Services | Calvo Creativo",
+    description:
+      "Strategic SEO consulting, digital storytelling, SEO automation, and personal branding consulting.",
+    canonical: `${SITE}/services/`,
+  },
+  serviceDetail: {
+    title: "Service | Calvo Creativo",
+    description: "Detail of a specific service by Calvo Creativo.",
+  },
+  cityService: {
+    title: "Local Service | Calvo Creativo",
+    description: "Local service page for a specific Florida city.",
+  },
+  blog: {
+    title: "Blog | Calvo Creativo",
+    description: "SEO strategy, growth and storytelling insights.",
+    canonical: `${SITE}/blog/`,
+  },
+  resources: {
+    title: "Resources | Calvo Creativo",
+    description: "SEO tools and resources to scale your growth.",
+    canonical: `${SITE}/resources/`,
+  },
+  caseStudies: {
+    title: "Case Studies | Calvo Creativo",
+    description: "Real success stories and measurable results.",
+    canonical: `${SITE}/case-studies/`,
+  },
+  howWeWork: {
+    title: "How We Work | Calvo Creativo",
+    description: "Our methodology and process to deliver results.",
+    canonical: `${SITE}/how-we-work/`,
+  },
+  about: {
+    title: "About | Calvo Creativo",
+    description: "Meet Roger Murillo and the Calvo Creativo philosophy.",
+    canonical: `${SITE}/about/`,
+  },
+  contact: {
+    title: "Contact | Calvo Creativo",
+    description: "Book a consultation and let’s plan your growth.",
+    canonical: `${SITE}/contact/`,
+  },
+  privacyPolicy: {
+    title: "Privacy Policy | Calvo Creativo",
+    description: "Our commitment to your privacy.",
+    canonical: `${SITE}/privacy-policy/`,
+  },
+  terms: {
+    title: "Terms | Calvo Creativo",
+    description: "Terms and conditions.",
+    canonical: `${SITE}/terms/`,
+  },
+  termsOfService: {
+    title: "Terms of Service | Calvo Creativo",
+    description: "Terms of service for Calvo Creativo.",
+    canonical: `${SITE}/terms-of-service/`,
+  },
+  cookiePolicy: {
+    title: "Cookie Policy | Calvo Creativo",
+    description: "How we use cookies on this site.",
+    canonical: `${SITE}/cookie-policy/`,
+  },
+};
 
-  localService: (serviceName: string, serviceArea: string, description: string) => ({
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://calvocreativo.com#business",
-    "name": "Calvo Creativo",
-    "alternateName": serviceName,
-    "description": description,
-    "url": "https://calvocreativo.com",
-    "logo": "https://calvocreativo.com/lovable-uploads/15b81203-d4a9-4da9-ace4-976c55d22c82.png",
-    "image": "https://calvocreativo.com/og-home.jpg",
-    "email": "rogermur1990@gmail.com",
-    "areaServed": {
-      "@type": "City",
-      "name": serviceArea
-    },
-    "serviceType": serviceName,
-    "provider": {
-      "@type": "Person",
-      "name": "Roger Murillo",
-      "jobTitle": "SEO Strategist & Consultant"
-    }
-  })
+/* =========================
+ *  WebSite & LocalBusiness
+ * ========================= */
+
+export const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  url: `${SITE}/`,
+  name: "Calvo Creativo",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: `${SITE}/search?q={search_term_string}`,
+    "query-input": "required name=search_term_string",
+  },
+};
+
+export const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Calvo Creativo",
+  url: `${SITE}/`,
+  image: `${SITE}/logo.png`,
+  telephone: "+573046807443", // usa tu número real
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Miami",
+    addressRegion: "FL",
+    postalCode: "33130",
+    addressCountry: "US",
+  },
+  sameAs: ["https://www.linkedin.com/in/rogermurillo/"],
 };
