@@ -30,5 +30,3 @@ Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
-
-# Puedes agregar otros a medida que aparezcan
