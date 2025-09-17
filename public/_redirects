@@ -1,3 +1,9 @@
+# Canonical domain
+http://calvocreativo.com/*        https://calvocreativo.com/:splat   301!
+http://www.calvocreativo.com/*    https://calvocreativo.com/:splat   301!
+https://www.calvocreativo.com/*   https://calvocreativo.com/:splat   301!
+
+# SPA routes
 /about               /index.html   200
 /services/*          /index.html   200
 /case-studies/*      /index.html   200
@@ -6,8 +12,10 @@
 /contact             /index.html   200
 /sitemap             /index.html   200
 
+# Legales (renderizan app pero van con noindex en el <head>)
 /privacy-policy      /index.html   200
 /terms-of-service    /index.html   200
 /cookie-policy       /index.html   200
 
+# 404 real
 /*                   /404.html     404
