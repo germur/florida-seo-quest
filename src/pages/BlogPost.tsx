@@ -14,6 +14,7 @@ const BlogPost = () => {
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // All hooks must be at the top level - never after conditional returns
   useEffect(() => {
     const fetchPost = async () => {
       if (!slug) return;
@@ -26,6 +27,12 @@ const BlogPost = () => {
 
     fetchPost();
   }, [slug]);
+
+  useEffect(() => {
+    if (post?.schema) {
+      addSchema(post.schema, 'article');
+    }
+  }, [post]);
 
   if (loading) {
     return (
@@ -67,19 +74,13 @@ const BlogPost = () => {
     );
   }
 
-  useEffect(() => {
-    if (post?.schema) {
-      addSchema('article', post.schema);
-    }
-  }, [post]);
-
   return (
     <>
       <SEO 
-        page="blogpost"
-        title={post.metaTitle}
-        description={post.metaDescription}
-        canonical={`https://calvocreativo.com/blog/${post.slug}`}
+        page="blog"
+        customTitle={post.metaTitle}
+        customDescription={post.metaDescription}
+        customCanonical={`https://calvocreativo.com/blog/${post.slug}`}
       />
       <Header />
       <main className="min-h-screen bg-background">
