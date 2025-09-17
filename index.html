@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <title>SEO Strategy & Consulting for Florida Businesses | Calvo Creativo</title>
   <meta name="description" content="7+ years scaling brands with SEO strategy, technical audits, and content that converts. Programmatic SEO, topical authority, and automation. Book a consultation." />
   <meta name="author" content="Roger Murillo – Calvo Creativo" />
@@ -13,7 +13,7 @@
   <link rel="apple-touch-icon" href="/favicon.svg">
   <meta name="theme-color" content="#0ea5e9" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (valen como fallback; Helmet/SEO.tsx los sobrescribe por ruta) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Calvo Creativo" />
   <meta property="og:title" content="SEO Strategy & Consulting for Florida Businesses | Calvo Creativo" />
@@ -48,71 +48,11 @@
     gtag('config', 'G-GF57274CF0');
   </script>
 
-  <!-- Schema: WebSite -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"Calvo Creativo",
-    "url":"https://calvocreativo.com",
-    "publisher":{
-      "@type":"Organization",
-      "name":"Calvo Creativo",
-      "logo":{"@type":"ImageObject","url":"https://calvocreativo.com/calvo_creativo_logo.svg"}
-    },
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://calvocreativo.com/search?q={search_term_string}",
-      "query-input":"required name=search_term_string"
-    }
-  }
-  </script>
-
-  <!-- Schema: Organization -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ProfessionalService",
-    "name":"Calvo Creativo",
-    "url":"https://calvocreativo.com",
-    "logo":"https://calvocreativo.com/calvo_creativo_logo.svg",
-    "image":"https://calvocreativo.com/og-home.jpg",
-    "description":"SEO strategy, technical audits, programmatic SEO, and automation for Florida & global brands.",
-    "areaServed":["US-FL","Global"],
-    "sameAs":["https://x.com/Rogermu47429637"],
-    "founder":{
-      "@type":"Person",
-      "name":"Roger Murillo",
-      "jobTitle":"SEO Consultant",
-      "url":"https://calvocreativo.com/about/"
-    },
-    "contactPoint":[{
-      "@type":"ContactPoint",
-      "contactType":"sales",
-      "email":"rogermur1990@gmail.com",
-      "areaServed":"US-FL",
-      "availableLanguage":["en","es"]
-    }]
-  }
-  </script>
-
-  <!-- Schema: Person -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Roger Murillo",
-    "url":"https://calvocreativo.com/about/",
-    "image":"https://calvocreativo.com/og-home.jpg",
-    "jobTitle":"SEO Strategist & Consultant",
-    "worksFor":{"@type":"Organization","name":"Calvo Creativo"},
-    "sameAs":["https://x.com/Rogermu47429637"]
-  }
-  </script>
+  <!-- ❌ OJO: Ya NO hay JSON-LD aquí. Los añade SEO.tsx (schema-website, schema-localbusiness) y ServiceDetail (service-schema). -->
 </head>
 <body>
   <div id="root"></div>
-  <!-- ESTE script monta tu app. Si falta, no se renderiza nada. -->
+  <!-- App -->
   <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
