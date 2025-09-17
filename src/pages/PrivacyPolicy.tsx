@@ -1,5 +1,4 @@
 import Header from "@/components/Header";
-import SEO from "@/components/SEO";
 import { Helmet } from "react-helmet-async";
 
 const PrivacyPolicy = () => {
@@ -10,8 +9,6 @@ const PrivacyPolicy = () => {
         <meta name="robots" content="noindex,follow" />
         <link rel="canonical" href="https://calvocreativo.com/privacy-policy/" />
       </Helmet>
-
-      <SEO page="privacyPolicy" />
       <Header />
       <main className="container mx-auto px-6 py-24">
         <div className="max-w-4xl mx-auto">
