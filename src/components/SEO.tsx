@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom'; // ⬅️ NUEVO
 import { updatePageSEO, addSchema, seoConfigs, schemaConfigs } from '@/lib/seo';
+
+const BASE = 'https://calvocreativo.com'; // ⬅️ NUEVO
 
 interface SEOProps {
   page: keyof typeof seoConfigs;
@@ -24,20 +27,23 @@ const SEO: React.FC<SEOProps> = ({
   customCanonical,
   additionalSchemas = [],
 }) => {
+  const { pathname } = useLocation(); // ⬅️ NUEVO
+  const withSlash = pathname.endsWith('/') ? pathname : `${pathname}/`; // ⬅️ NUEVO
+  const fallbackCanonical = `${BASE}${withSlash}`; // ⬅️ NUEVO
+
   useEffect(() => {
     const config = seoConfigs[page];
     const isLegal = LEGAL_PAGES.has(page);
 
     // Páginas legales: NO tocamos title/description/robots/canonical desde aquí.
-    // (Eso lo maneja <Helmet> dentro de cada página legal)
     if (isLegal) return;
 
-    // Páginas normales → actualizar meta base (aquí sí pasamos objeto completo)
+    // Páginas normales → actualizar meta base (ahora con canónica de respaldo)
     updatePageSEO({
       title: customTitle ?? config.title,
       description: customDescription ?? config.description,
-      canonical: customCanonical ?? config.canonical,
-      keywords: config.keywords,
+      canonical: customCanonical ?? config.canonical ?? fallbackCanonical, // ⬅️ usa fallback
+      keywords: (config as any).keywords,
     });
 
     // Schemas por página (evitamos legales)
@@ -113,7 +119,14 @@ const SEO: React.FC<SEOProps> = ({
     additionalSchemas.forEach(({ schema, id }, index) => {
       addSchema(schema, id || `additional-schema-${index}`);
     });
-  }, [page, customTitle, customDescription, customCanonical, additionalSchemas]);
+  }, [
+    page,
+    customTitle,
+    customDescription,
+    customCanonical,
+    additionalSchemas,
+    pathname, // ⬅️ para recalcular si cambia la ruta
+  ]);
 
   return null;
 };
