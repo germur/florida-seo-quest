@@ -36,141 +36,340 @@ export const post = {
     "keywords": ["SEO", "Digital Marketing", "Voice Search", "Visual Search", "AEO", "Marketing Strategy"]
   },
   content: `
-    <div class="table-of-contents bg-gradient-to-br from-electric-blue/5 to-electric-blue/10 border border-electric-blue/20 rounded-2xl p-8 mb-12">
-      <div class="flex items-center gap-3 mb-6">
-        <div class="p-2 bg-electric-blue/10 rounded-lg">
-          <svg class="w-5 h-5 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
-          </svg>
-        </div>
-        <h2 class="text-xl font-bold text-primary mb-0">Table of Contents</h2>
-      </div>
-      <nav class="space-y-2">
-        <a href="#when-hype-dressed-up" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
-          <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
-          When Hype Dressed Up as the Future
-        </a>
-        <a href="#how-hype-is-manufactured" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
-          <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
-          How Hype Is Manufactured (and Why We Believe It)
-        </a>
-        <a href="#acronyms-that-sell-smoke" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
-          <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
-          Acronyms That Sell Smoke: AEO and Friends
-        </a>
-        <a href="#viral-predictions-vs-reality" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
-          <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
-          Viral Predictions vs. Reality: The Repeated Pattern
-        </a>
-        <a href="#what-actually-works" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
-          <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
-          What Actually Works (and When)
-        </a>
-        <a href="#google-unchanged-rule" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
-          <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
-          The Rule Google Hasn't Changed in 20 Years
-        </a>
-        <a href="#real-innovation-or-mirage" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
-          <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
-          Real Innovation or Just Marketing Mirage?
-        </a>
-        <a href="#voice-big-promises" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
-          <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
-          Voice: Big Promises, Limited Impact
-        </a>
-        <a href="#visual-search" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
-          <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
-          Visual Search: Partial Revolution, Real Opportunity
-        </a>
-        <a href="#aeo-expensive-revolution" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
-          <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
-          AEO: Expensive Revolution or Just a Pretty Label?
-        </a>
-        <a href="#conclusion" class="flex items-center gap-2 text-muted-foreground hover:text-electric-blue transition-colors p-2 rounded-lg hover:bg-electric-blue/5">
-          <span class="w-2 h-2 bg-electric-blue/30 rounded-full"></span>
-          Conclusion: The SEO That Works in 2025 (and 2030)
-        </a>
-      </nav>
+    <div class="mb-8">
+      <p class="text-lg text-muted-foreground mb-4">
+        <strong>Roger Murillo</strong><br>
+        SEO Strategist | Search Intent & Topical Authority | Web Architecture & Organic Growth | AI Automation | AI tools
+      </p>
+      <p class="text-sm text-muted-foreground">August 28, 2025</p>
     </div>
 
     <section id="when-hype-dressed-up">
-      <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
-        <div class="p-2 bg-red/10 rounded-lg">
-          <svg class="w-6 h-6 text-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-        </div>
-        When Hype Dressed Up as the Future
-      </h2>
-      <p class="text-lg leading-relaxed mb-6">For several years, digital marketing conferences have been filled with predictions that sound more like science fiction than business reality. <strong class="text-electric-blue">"Voice search will dominate 50% of searches by 2020"</strong>, <strong class="text-electric-blue">"Visual search will revolutionize e-commerce by 2022"</strong>, <strong class="text-electric-blue">"AEO (Answer Engine Optimization) is the new SEO"</strong>. The pattern is always the same: a new acronym, impressive statistics, and the promise that everything we know is about to become obsolete.</p>
+      <h2 class="text-3xl font-bold text-primary mb-6">When Hype Dressed Up as the Future</h2>
+      <p class="text-lg leading-relaxed mb-6">
+        In 2016, Gartner launched a headline that spread like wildfire: "By 2020, 30% of searches will be screenless." A year later, ComScore poured more fuel: "Half of all searches will be voice-based."
+      </p>
+      <p class="leading-relaxed mb-6">
+        The promise was irresistible. Who wouldn't want to get ahead of the revolution? The media amplified it. Marketing gurus showcased it at conferences as the coming extinction of traditional SEO. And thousands of companies shifted budgets to jump on the wave.
+      </p>
+      <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 my-8 rounded-r-lg">
+        <p class="font-semibold text-red mb-2">📌 The painful contrast:</p>
+        <p class="mb-0">By 2020, fewer than 20% of users in the U.S. regularly used voice search (DemandSage, 2025). And most of them used it for trivial tasks: "Alexa, play music," "Siri, what's the weather today?"</p>
+      </div>
+      <p class="leading-relaxed mb-8 text-xl font-semibold text-primary">So… where was the revolution?</p>
       
-      <p class="leading-relaxed mb-8">The problem is not technological innovation—that's real and necessary. The problem is the marketing machine that transforms every incremental advance into a "disruptive revolution" that will make traditional SEO disappear. This creates confusion, wasted investment, and above all, distraction from what actually works.</p>
+      <img src="/src/assets/seo-strategy-puzzle-pieces.webp" alt="Isometric puzzle pieces with labels: Voice → Local SEO, Visual → Retail, Snippets → Informational" class="w-full rounded-lg mb-8" />
+    </section>
+
+    <section id="how-hype-is-manufactured">
+      <h2 class="text-3xl font-bold text-primary mb-6">How Hype Is Manufactured (and Why We Believe It)</h2>
+      <p class="leading-relaxed mb-6">The same thing happened with visual search.</p>
+      <p class="leading-relaxed mb-6">
+        When Pinterest launched Lens in 2017 and Google followed with Google Lens, headlines were apocalyptic: "The camera will replace words."
+      </p>
+      <p class="leading-relaxed mb-6">And yes, the numbers were impressive:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li>Pinterest Lens: over 600M monthly searches (VentureBeat, 2018).</li>
+        <li>Google Lens: over 8B monthly searches (Google Ads & Commerce Blog, 2024).</li>
+      </ul>
+      <p class="leading-relaxed mb-6">
+        But behind the shiny figures, reality looked different: most queries were about fashion, décor, or lifestyle (ORR Consulting). If you're a lawyer, doctor, or financial consultant, Lens is not your new sales channel.
+      </p>
+      <p class="leading-relaxed mb-8 text-lg font-semibold italic">
+        Hype shines like fireworks: loud, dazzling, but short-lived.
+      </p>
+    </section>
+
+    <section id="acronyms-that-sell-smoke">
+      <h2 class="text-3xl font-bold text-primary mb-6">Acronyms That Sell Smoke: AEO and Friends</h2>
+      <p class="leading-relaxed mb-6">Then came AEO (Answer Engine Optimization).</p>
+      <p class="leading-relaxed mb-6">
+        The name seemed designed to sell consulting packages. "The future of SEO," they called it.
+      </p>
+      <p class="leading-relaxed mb-6">
+        The thesis: response engines like Alexa or Siri would replace Google, and only those who optimized for AEO would survive.
+      </p>
+      <div class="bg-gradient-to-r from-blue/10 to-electric-blue/10 border-l-4 border-blue p-6 my-8 rounded-r-lg">
+        <p class="font-semibold text-blue mb-2">📊 Reality check:</p>
+        <p class="mb-0">only 11.84% of global searches display featured snippets (Ahrefs). Nine out of ten searches don't even participate in this supposed "market of the future."</p>
+      </div>
+      <p class="leading-relaxed mb-8">
+        AEO turned out to be what many suspected: more marketing smoke than technological revolution.
+      </p>
+      
+      <img src="/src/assets/aeo-fading-snippet-data.webp" alt="AEO fading over desert dunes with stats showing 11.84% snippets and limited impact" class="w-full rounded-lg mb-8" />
+    </section>
+
+    <section id="viral-predictions-vs-reality">
+      <h2 class="text-3xl font-bold text-primary mb-6">Viral Predictions vs. Reality: The Repeated Pattern</h2>
+      <p class="leading-relaxed mb-6">Each of these trends follows the same pattern:</p>
+      <ol class="list-decimal pl-6 space-y-2 mb-6">
+        <li>👉 A prediction with round numbers.</li>
+        <li>👉 Viral headlines and premium consulting packages.</li>
+        <li>👉 A far more modest reality.</li>
+      </ol>
+      <p class="leading-relaxed mb-8">
+        SEO seems stuck in an endless déjà vu of unfulfilled promises.
+      </p>
+      
+      <img src="/src/assets/hype-data-reality-loop.webp" alt="Flat design infographic showing the hype cycle in SEO and digital marketing: megaphone for Hype, bar chart for Data, and magnifying glass for Reality, arranged in a circular loop" class="w-full rounded-lg mb-8" />
+    </section>
+
+    <section id="what-actually-works">
+      <h2 class="text-3xl font-bold text-primary mb-6">What Actually Works (and When)</h2>
+      <p class="leading-relaxed mb-6">
+        Saying that voice or visual "don't work" would be just as irresponsible as the exaggerated predictions.
+      </p>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Voice</strong> does matter for local searches ("near me"), accessibility, and quick tasks.</li>
+        <li><strong>Visual</strong> is pure gold for e-commerce in fashion, décor, and physical products.</li>
+        <li><strong>AEO</strong>, though limited, can be strategic in industries where snippets dominate.</li>
+      </ul>
+      <p class="leading-relaxed mb-8">
+        The problem isn't the technology. The problem is selling it as the new gospel when they're really just specific pieces in a much bigger puzzle.
+      </p>
+      
+      <img src="/src/assets/seo-strategy-puzzle-pieces.webp" alt="Isometric infographic of four puzzle pieces illustrating SEO strategy: central piece labeled SEO, connected with Voice → Local SEO, Visual → Retail, and Snippets → Informational" class="w-full rounded-lg mb-8" />
     </section>
 
     <section id="google-unchanged-rule">
-      <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
-        <div class="p-2 bg-green/10 rounded-lg">
-          <svg class="w-6 h-6 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-          </svg>
-        </div>
-        The Rule Google Hasn't Changed in 20 Years
-      </h2>
-      <p class="text-lg leading-relaxed mb-6">While SEO consultants debate whether voice search or visual search will "kill" traditional SEO, Google continues to apply the same fundamental principle it established two decades ago: <strong class="text-electric-blue">reward content that best solves the user's search intent</strong>.</p>
+      <h2 class="text-3xl font-bold text-primary mb-6">The Rule Google Hasn't Changed in 20 Years</h2>
+      <p class="text-lg leading-relaxed mb-6">
+        At the end of the day, Google still wants the same thing it did 20 years ago: <strong class="text-electric-blue">solve what the user is looking for</strong> (Google Developers – Search Central).
+      </p>
+      <p class="leading-relaxed mb-6">
+        SEO is not a set of acronyms that are born and die every season.
+      </p>
+      <p class="leading-relaxed mb-6">
+        SEO is strategy, architecture, creativity. It's about understanding the intent behind every search.
+      </p>
+      <p class="leading-relaxed mb-6">
+        The acronyms change. Gurus invent new terms. Conferences need fresh headlines.
+      </p>
+      <p class="leading-relaxed mb-8 text-lg font-semibold">
+        But the discipline remains: resolve the user's need better than anyone else.
+      </p>
       
-      <div class="bg-gradient-to-r from-green/10 to-electric-blue/10 border-l-4 border-green p-6 my-8 rounded-r-lg">
-        <div class="flex items-start gap-3">
-          <div class="p-2 bg-green/10 rounded-lg mt-1">
-            <svg class="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <div>
-            <p class="font-semibold text-green mb-2">💡 Key Insight</p>
-            <p class="mb-0">Whether the user searches by voice, text, or image, Google's mission remains the same: <strong>understand what they want and deliver the most relevant result</strong>. The interface changes, but the core algorithm doesn't.</p>
-          </div>
-        </div>
+      <img src="/src/assets/google-rule-timeline-solve-intent.webp" alt="Flat design infographic showing a timeline from 2000 to 2025 with an open book icon, repeating the phrase 'Solve user intent' to highlight the timeless principle of SEO" class="w-full rounded-lg mb-8" />
+    </section>
+
+    <section id="real-innovation-or-mirage">
+      <h2 class="text-3xl font-bold text-primary mb-6">Real Innovation or Just Marketing Mirage?</h2>
+      <p class="leading-relaxed mb-6">
+        So, what are voice search, visual search, and AEO really? Undervalued innovations we haven't fully tapped? Or mirages built by digital marketing to sell smoke?
+      </p>
+      <p class="leading-relaxed mb-8">
+        In the following sections, we'll strip them down with data, examples, and analysis. Because what SEO needs today is not more acronyms, but more truth.
+      </p>
+    </section>
+
+    <section id="voice-big-promises">
+      <h2 class="text-3xl font-bold text-primary mb-6">Voice: Big Promises, Limited Impact</h2>
+      <p class="leading-relaxed mb-6">
+        In 2016, Gartner predicted that by 2020, 30% of searches would be screenless. A year later, ComScore doubled down: "Half of all searches will be voice."
+      </p>
+      <p class="leading-relaxed mb-6">
+        The headlines were so viral it was impossible not to feel FOMO. Which business would want to be left behind?
+      </p>
+      <p class="leading-relaxed mb-6">
+        Agencies started selling "Voice SEO packages." Consultants filled conference slides with "The keyboard will die."
+      </p>
+      <div class="bg-gradient-to-r from-red/10 to-orange/10 border-l-4 border-red p-6 my-8 rounded-r-lg">
+        <p class="font-semibold text-red mb-2">📌 The reality was much more modest:</p>
+        <p class="mb-0">By 2020, fewer than 20% of U.S. users used voice search regularly (DemandSage, 2025). And most used it for simple tasks: "What's the weather today?", "Play Wendy Sulca," "Call mom."</p>
       </div>
       
-      <p class="leading-relaxed mb-6">This means that good SEO in 2025 is the same as good SEO in 2005: understand your audience, create valuable content, optimize the user experience, and build authority. The tactics evolve, but the strategy remains constant.</p>
+      <h3 class="text-2xl font-bold text-primary mb-4">Why voice didn't take off:</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Context limitations:</strong> Talking to your phone isn't always comfortable.</li>
+        <li><strong>Privacy concerns:</strong> Users distrust "always-on" microphones.</li>
+        <li><strong>Complexity:</strong> Fine for micro-queries, insufficient for complex processes.</li>
+      </ul>
+
+      <h3 class="text-2xl font-bold text-primary mb-4">Where voice does deliver:</h3>
+      <p class="leading-relaxed mb-4">
+        <strong>Local intent:</strong> "Dentist near me", "Best pizza near me." 58% of U.S. consumers have used voice to find local businesses (DemandSage, 2025).
+      </p>
+      <p class="leading-relaxed mb-6">
+        For restaurants, gyms, or hardware stores, optimizing Google Business Profile, reviews, and FAQs is profitable.
+      </p>
+
+      <h3 class="text-2xl font-bold text-primary mb-4">Voice commerce? Loud noise, weak adoption:</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li>Only 2% of Alexa owners in the U.S. made regular purchases with the device (Forbes).</li>
+        <li>Most purchases were low-risk, repetitive goods (diapers, detergent, pet food).</li>
+      </ul>
+      <p class="leading-relaxed mb-6">Nobody buys an $800 TV through Alexa.</p>
+      
+      <img src="/src/assets/voice-search-local-seo-usage.webp" alt="Voice search usage statistics showing 58% local business searches" class="w-full rounded-lg mb-6" />
+
+      <p class="leading-relaxed mb-6 text-lg font-semibold">Voice is a layer, not a substitute.</p>
+      
+      <div class="bg-gradient-to-r from-green/10 to-electric-blue/10 border-l-4 border-green p-6 my-8 rounded-r-lg">
+        <p class="font-semibold text-green mb-2">The lesson from the voice hype:</p>
+        <ul class="list-disc pl-4 space-y-1 mb-0">
+          <li>Not everything shiny is a revolution.</li>
+          <li>Optimize for local if it makes sense, but don't redesign your SEO around Alexa or Siri.</li>
+          <li>SEO remains SEO: even in voice, the best-structured, most trustworthy content wins.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="visual-search">
+      <h2 class="text-3xl font-bold text-primary mb-6">Visual Search: Partial Revolution, Real Opportunity</h2>
+      <p class="leading-relaxed mb-6">
+        Like voice, visual search was also hyped as the next great disruptor.
+      </p>
+      <p class="leading-relaxed mb-6">
+        In 2017, Pinterest presented Lens: "Point your camera and buy what you see." Google followed with Google Lens. Headlines screamed: "Visual will change SEO as we know it."
+      </p>
+      
+      <h3 class="text-2xl font-bold text-primary mb-4">📊 The numbers:</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li>Google Lens: 8B+ monthly searches (Google Ads, 2024).</li>
+        <li>Pinterest Lens: 600M monthly searches (VentureBeat, 2018).</li>
+        <li>74% of consumers say visual search influences purchase decisions (ORR Consulting).</li>
+        <li>36% of online shoppers have used visual search (eMarketer).</li>
+      </ul>
+      <p class="leading-relaxed mb-6">On paper, it looked like prophecy fulfilled.</p>
+
+      <h3 class="text-2xl font-bold text-primary mb-4">The context that cools the hype:</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Concentrated in specific verticals:</strong> fashion, décor, lifestyle.</li>
+        <li>Less than 8% of queries outside retail (Gartner).</li>
+        <li><strong>Aspirational, not always transactional:</strong> saving outfits ≠ buying them.</li>
+        <li><strong>Adoption barrier:</strong> fewer than 17% of Google users in the U.S. used Lens monthly in 2022 (eMarketer).</li>
+      </ul>
+
+      <h3 class="text-2xl font-bold text-primary mb-4">Where visual is pure gold:</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li>Retail & fashion.</li>
+        <li>Home décor.</li>
+        <li>Travel & culture.</li>
+      </ul>
+      <p class="leading-relaxed mb-6">
+        For e-commerce in these niches, ignoring visual search means losing qualified traffic.
+      </p>
+      <p class="leading-relaxed mb-8">
+        But for B2B, SaaS, or complex services, text still rules.
+      </p>
+      
+      <img src="/src/assets/visual-search-consumer-adoption.webp" alt="Flat design infographic showing visual search in retail: smartphone scanning black Nike shoe with 'Find similar' overlay, alongside bar chart highlighting 74% retail/lifestyle use vs 8% outside retail" class="w-full rounded-lg mb-6" />
+      
+      <p class="leading-relaxed mb-8 text-lg font-semibold">
+        👉 Visual isn't a replacement. It's an accelerator in specific contexts.
+      </p>
+    </section>
+
+    <section id="aeo-expensive-revolution">
+      <h2 class="text-3xl font-bold text-primary mb-6">AEO: Expensive Revolution or Just a Pretty Label?</h2>
+      <p class="leading-relaxed mb-6">
+        In 2018, a new buzzword hit SEO conferences: AEO – Answer Engine Optimization.
+      </p>
+      <p class="leading-relaxed mb-6">
+        The pitch: "SEO is dead. Only those optimized for Alexa, Siri, and Google Assistant will survive."
+      </p>
+      <p class="leading-relaxed mb-6">
+        Fear spread fast. Agencies sold exclusive "AEO packages." Startups raised funding.
+      </p>
+      
+      <h3 class="text-2xl font-bold text-primary mb-4">📊 But the data deflated the hype:</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li>Only 11.84% of searches have snippets (Ahrefs).</li>
+        <li>Most snippets appear in simple informational queries.</li>
+        <li>70%+ of snippets generate no clicks — users get the answer directly on Google.</li>
+      </ul>
+      
+      <p class="leading-relaxed mb-6">
+        <strong>The single-answer illusion:</strong> Great for theory. Useless for complex queries (insurance, health, B2B).
+      </p>
+      <p class="leading-relaxed mb-6">
+        The real fuel of AEO wasn't results — it was fear.
+      </p>
+      <p class="leading-relaxed mb-8">
+        Snippets are useful. But they're just a bonus, not a revolution.
+      </p>
+      
+      <img src="/src/assets/aeo-fading-snippet-data.webp" alt="Flat design infographic showing AEO fading over desert dunes, with stats highlighting 11.84% snippets and 70% no extra clicks, illustrating the decline of Answer Engine Optimization in SEO results" class="w-full rounded-lg mb-8" />
     </section>
 
     <section id="conclusion">
-      <h2 class="flex items-center gap-3 text-3xl font-bold text-primary mb-6">
-        <div class="p-2 bg-purple/10 rounded-lg">
-          <svg class="w-6 h-6 text-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-          </svg>
-        </div>
-        Conclusion: The SEO That Works in 2025 (and 2030)
-      </h2>
-      <p class="text-lg leading-relaxed mb-6">SEO didn't die—it simply stopped being a bag of tricks and became what it always should have been: <strong class="text-electric-blue">a user-centered strategy</strong>. Voice search, visual search, and AEO are not revolutions that eliminate traditional SEO; they are simply new ways to access the same information that good SEO has always optimized.</p>
-      
-      <p class="leading-relaxed mb-6">Instead of chasing every new acronym that appears at conferences, focus on the fundamentals:</p>
-      
+      <h2 class="text-3xl font-bold text-primary mb-6">Conclusion: The SEO That Works in 2025 (and 2030)</h2>
+      <p class="leading-relaxed mb-6">Over the last decade, we've seen acronyms parade:</p>
       <ul class="list-disc pl-6 space-y-2 mb-6">
-        <li><strong>Understand your audience</strong> and their real problems</li>
-        <li><strong>Create content that actually solves</strong> those problems</li>
-        <li><strong>Optimize the user experience</strong> across all devices and formats</li>
-        <li><strong>Build genuine authority</strong> in your sector</li>
-        <li><strong>Measure results</strong> based on business impact, not vanity metrics</li>
+        <li>VEO (Voice).</li>
+        <li>VSEO (Visual).</li>
+        <li>AEO.</li>
       </ul>
+      <p class="leading-relaxed mb-6">And tomorrow, there will be more.</p>
+      <p class="leading-relaxed mb-6">The narrative is always the same: "SEO is dead, everything has changed."</p>
+      <p class="leading-relaxed mb-6">But the data, failures, and mirages show otherwise:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li>👉 SEO never died.</li>
+        <li>👉 It evolved, adapted, but its essence remained: solving real user needs.</li>
+      </ul>
+
+      <h3 class="text-2xl font-bold text-primary mb-4">Why do we fall for hype?</h3>
+      <p class="leading-relaxed mb-6">
+        Because smoke sells easier than hard work. "We need 6 months of solid strategy" doesn't excite clients. "There's a revolution — get on board today or die" opens wallets.
+      </p>
+
+      <h3 class="text-2xl font-bold text-primary mb-4">The only thing Google always wants: Answers.</h3>
+      <p class="leading-relaxed mb-6">
+        Whether it's voice, visual, or snippets — Google rewards clear, structured, trustworthy content that solves intent.
+      </p>
+
+      <h3 class="text-2xl font-bold text-primary mb-4">The fake funeral pattern:</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li><strong>Voice:</strong> useful only locally.</li>
+        <li><strong>Visual:</strong> gold in retail, marginal elsewhere.</li>
+        <li><strong>AEO:</strong> snippets sold as revolution.</li>
+      </ul>
+      <p class="leading-relaxed mb-6">
+        All share the same cycle: Exaggeration → Expensive packages → Limited results.
+      </p>
+
+      <h3 class="text-2xl font-bold text-primary mb-4">The brand that ignored the hype (and won):</h3>
+      <p class="leading-relaxed mb-4">Those who focused on:</p>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li>Understanding their audience.</li>
+        <li>Creating truly helpful content.</li>
+        <li>Building authority.</li>
+        <li>Solid SEO foundations.</li>
+      </ul>
+      <p class="leading-relaxed mb-6">They grew while others paid for hype.</p>
+
+      <h3 class="text-2xl font-bold text-primary mb-4">The roadmap that actually matters:</h3>
+      <ul class="list-disc pl-6 space-y-2 mb-6">
+        <li>Search intent.</li>
+        <li>Clear site architecture.</li>
+        <li>Thematic & brand authority.</li>
+        <li>Trust (Google E-E-A-T).</li>
+      </ul>
+      <p class="leading-relaxed mb-8">
+        Everything else — voice, visual, AEO, or whatever acronym comes tomorrow — are layers. Useful in some contexts, never replacements.
+      </p>
       
-      <p class="leading-relaxed mb-6">The hype will continue. New acronyms will emerge. Consultants will continue to promise that "everything is changing." But Google's mission—and therefore effective SEO—will remain the same: help users find exactly what they're looking for.</p>
+      <img src="/src/assets/seo-hype-cycle-pattern.jpg" alt="Flat design infographic of a tree symbolizing SEO fundamentals: roots labeled Intention, Architecture, Authority, with balloons VEO, VSEO, and AEO floating and popping to represent fleeting trends versus long-term authority" class="w-full rounded-lg mb-8" />
       
       <div class="bg-gradient-to-r from-electric-blue/10 to-purple/10 border-l-4 border-electric-blue p-6 my-8 rounded-r-lg">
-        <div class="flex items-start gap-3">
-          <div class="p-2 bg-electric-blue/10 rounded-lg mt-1">
-            <svg class="w-5 h-5 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
-            </svg>
-          </div>
-          <div>
-            <p class="font-semibold text-electric-blue mb-2">🎯 Final Takeaway</p>
-            <p class="mb-0">The best SEO strategy for 2025 is the same as for 2005: <strong>focus on your users, not on search engines</strong>. Technology will continue to evolve, but user needs remain surprisingly constant.</p>
-          </div>
-        </div>
+        <p class="font-semibold text-electric-blue mb-2 text-xl">👉 SEO doesn't die. What dies are the shortcuts sold as revolutions.</p>
       </div>
+
+      <h3 class="text-2xl font-bold text-primary mb-4">📚 References</h3>
+      <ul class="list-disc pl-6 space-y-1 mb-0 text-sm text-muted-foreground">
+        <li>Google Ads & Commerce Blog — Shashi Thakur (2024)</li>
+        <li>DemandSage: Voice Search Statistics 2025</li>
+        <li>Search Engine Land — Danny Goodwin (2024)</li>
+        <li>TechCrunch — Sarah Perez (2022)</li>
+        <li>Doors Studio Blog (2025)</li>
+        <li>VentureBeat (2018)</li>
+        <li>Google Developers Blog (2019)</li>
+        <li>Backlinko Voice Search Study</li>
+        <li>Stephan Spencer: Featured Snippets</li>
+        <li>ORR Consulting</li>
+        <li>Content Marketing Institute — Robert Rose (2025)</li>
+      </ul>
     </section>
   `
 };
