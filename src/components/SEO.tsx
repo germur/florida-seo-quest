@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom'; // ⬅️ NUEVO
+import { useLocation } from 'react-router-dom';
 import { updatePageSEO, addSchema, seoConfigs, schemaConfigs } from '@/lib/seo';
 
-const BASE = 'https://calvocreativo.com'; // ⬅️ NUEVO
+const BASE = 'https://calvocreativo.com';
 
 interface SEOProps {
   page: keyof typeof seoConfigs;
@@ -20,6 +20,39 @@ const LEGAL_PAGES = new Set<SEOProps["page"]>([
   "cookiePolicy" as SEOProps["page"],
 ]);
 
+// ---------- JSON-LD GLOBALS (UN SOLO LUGAR) ----------
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": "https://calvocreativo.com/",
+  "name": "Calvo Creativo",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://calvocreativo.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Calvo Creativo",
+  "url": "https://calvocreativo.com/",
+  "image": "https://calvocreativo.com/logo.png",
+  "telephone": "+1-305-555-1234", // ← cámbialo por tu número real
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Miami",
+    "addressRegion": "FL",
+    "postalCode": "33130",
+    "addressCountry": "US"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/rogermurillo/" // ← agrega más si quieres
+  ]
+};
+// -----------------------------------------------------
+
 const SEO: React.FC<SEOProps> = ({
   page,
   customTitle,
@@ -27,68 +60,71 @@ const SEO: React.FC<SEOProps> = ({
   customCanonical,
   additionalSchemas = [],
 }) => {
-  const { pathname } = useLocation(); // ⬅️ NUEVO
-  const withSlash = pathname.endsWith('/') ? pathname : `${pathname}/`; // ⬅️ NUEVO
-  const fallbackCanonical = `${BASE}${withSlash}`; // ⬅️ NUEVO
+  const { pathname } = useLocation();
+  const withSlash = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  const fallbackCanonical = `${BASE}${withSlash}`;
 
   useEffect(() => {
     const config = seoConfigs[page];
     const isLegal = LEGAL_PAGES.has(page);
 
-    // Páginas legales: NO tocamos title/description/robots/canonical desde aquí.
-    if (isLegal) return;
+    // 1) META base (no tocar en páginas legales)
+    if (!isLegal) {
+      updatePageSEO({
+        title: customTitle ?? config.title,
+        description: customDescription ?? config.description,
+        canonical: customCanonical ?? (config as any).canonical ?? fallbackCanonical,
+        keywords: (config as any).keywords,
+      });
+    }
 
-    // Páginas normales → actualizar meta base (ahora con canónica de respaldo)
-    updatePageSEO({
-      title: customTitle ?? config.title,
-      description: customDescription ?? config.description,
-      canonical: customCanonical ?? config.canonical ?? fallbackCanonical, // ⬅️ usa fallback
-      keywords: (config as any).keywords,
-    });
+    // 2) SCHEMAS GLOBALS (inserta 1 vez con IDs estables)
+    addSchema(webSiteSchema, 'schema-website');
+    addSchema(localBusinessSchema, 'schema-localbusiness');
 
-    // Schemas por página (evitamos legales)
+    // 3) SCHEMAS ESPECÍFICOS POR TIPO DE PÁGINA
     switch (page) {
-      case 'home':
-        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
-        addSchema(schemaConfigs.person, 'person-schema');
+      case 'home': {
+        // persona opcional si la tienes en schemaConfigs
+        if ((schemaConfigs as any).person) {
+          addSchema((schemaConfigs as any).person, 'person-schema');
+        }
         break;
+      }
 
-      case 'services':
-        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
+      case 'services': {
+        // Página índice de servicios → puedes exponer un Service genérico (opcional)
         addSchema(
           schemaConfigs.service(
             'SEO Consulting Services',
             'Comprehensive SEO consulting and digital growth services'
           ),
-          'service-schema'
+          'service-index-schema'
         );
         break;
+      }
 
-      case 'about':
-        addSchema(schemaConfigs.person, 'person-schema');
-        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
+      case 'about': {
+        if ((schemaConfigs as any).person) {
+          addSchema((schemaConfigs as any).person, 'person-schema');
+        }
         break;
-
-      case 'caseStudies':
-      case 'contact':
-      case 'blog':
-      case 'resources':
-        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
-        break;
+      }
 
       case 'serviceDetail':
-      case 'cityService':
-        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
+      case 'cityService': {
+        // En detalle de servicio, si pasas título/desc custom, añade Service específico
         if (customTitle && customDescription) {
           addSchema(
             schemaConfigs.service(customTitle, customDescription),
             'service-schema'
           );
         }
+        // Nota: Además, en ServiceDetail ya se inyecta schema desde generateSILOSchema()
         break;
+      }
 
-      case 'howWeWork':
-        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
+      case 'howWeWork': {
         addSchema(
           schemaConfigs.service(
             'SEO Process & Methodology',
@@ -97,25 +133,17 @@ const SEO: React.FC<SEOProps> = ({
           'methodology-schema'
         );
         break;
-
-      case 'strategicSeo':
-      case 'digitalStorytelling':
-      case 'seoAutomation':
-      case 'personalBranding': {
-        addSchema(schemaConfigs.localBusiness, 'local-business-schema');
-        const safeTitle = (config.title || '').split(' | ')[0];
-        addSchema(
-          schemaConfigs.service(safeTitle, config.description),
-          'service-schema'
-        );
-        break;
       }
 
+      case 'blog':
+      case 'resources':
+      case 'caseStudies':
       default:
+        // sin schemas adicionales aquí para evitar ruido/duplicados
         break;
     }
 
-    // Schemas extra (si los pasas)
+    // 4) Schemas extra que quieras pasar desde la página
     additionalSchemas.forEach(({ schema, id }, index) => {
       addSchema(schema, id || `additional-schema-${index}`);
     });
@@ -125,7 +153,7 @@ const SEO: React.FC<SEOProps> = ({
     customDescription,
     customCanonical,
     additionalSchemas,
-    pathname, // ⬅️ para recalcular si cambia la ruta
+    pathname,
   ]);
 
   return null;
