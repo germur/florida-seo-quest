@@ -1,3 +1,4 @@
+// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -39,36 +40,30 @@ const App = () => (
           <div className="flex-1">
             <Routes>
               <Route path="/" element={<Index />} />
-              
-              {/* Services SILO Structure */}
-          <Route path="/services" element={<Services />} />
-          <Route path="/services/:service" element={<ServiceDetail />} />
-          <Route path="/services/:service/:city" element={<ServiceCityDetail />} />
-              
+              {/* Services SILO */}
+              <Route path="/services" element={<Services />} />
+              <Route path="/services/:service" element={<ServiceDetail />} />
+              <Route path="/services/:service/:city" element={<ServiceCityDetail />} />
               {/* Case Studies */}
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
-              
-              {/* Content & Education */}
+              {/* Content */}
               <Route path="/how-we-work" element={<HowWeWork />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
-              
-              {/* Resources & Tools - Now using Resources as main tools page */}
+              {/* Resources */}
               <Route path="/resources" element={<Resources />} />
               <Route path="/tools" element={<Resources />} />
-              
-              {/* Company Pages */}
+              {/* Company */}
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              
-              {/* Legal Pages */}
+              {/* Legal */}
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
               <Route path="/cookie-policy" element={<CookiePolicy />} />
-              
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              {/* Sitemap HTML */}
               <Route path="/sitemap" element={<Sitemap />} />
+              {/* Catch-all */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>
