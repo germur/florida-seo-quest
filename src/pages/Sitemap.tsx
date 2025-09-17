@@ -57,7 +57,7 @@ const Sitemap = () => {
     },
     { 
       name: "SEO Didn't Die: From Hype to Strategy That Works", 
-      url: "/blog/seo-no-murio-hype-estrategia", 
+      url: "/blog/seo-didnt-die-hype-strategy", 
       description: "Debunking digital marketing myths and trends" 
     }
   ];

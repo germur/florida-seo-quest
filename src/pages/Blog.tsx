@@ -41,6 +41,10 @@ const Blog = () => {
 
     if (selectedCategory) {
       fetchFilteredPosts();
+      console.log('Posts loaded:', posts);
+      console.log('Featured posts:', featuredPosts);
+      console.log('Regular posts:', regularPosts);
+      console.log('Filtered posts:', filteredPosts);
     }
   }, [selectedCategory]);
 

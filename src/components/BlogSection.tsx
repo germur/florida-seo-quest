@@ -13,7 +13,7 @@ const BlogSection = () => {
       color: "from-bright-orange/10 to-transparent"
     },
     {
-      id: "seo-no-murio-hype-estrategia",
+      id: "seo-didnt-die-hype-strategy",
       title: "SEO Didn't Die: From Hype to Strategy That Actually Works",
       date: "Jan 15, 2025", 
       readTime: "12 min read",

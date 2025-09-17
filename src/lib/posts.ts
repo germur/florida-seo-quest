@@ -29,7 +29,7 @@ export const loadPost = async (slug: string): Promise<Post | null> => {
 export const getAllPosts = async (): Promise<Post[]> => {
   const postSlugs = [
     'wordpress-affordable-solution-or-anchor',
-    'seo-no-murio-hype-estrategia'
+    'seo-didnt-die-hype-strategy'
   ];
   
   const posts = await Promise.all(
