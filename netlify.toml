@@ -9,26 +9,13 @@
 [build.processing]
   skip_processing = false
 
-# Plugin de prerenderizado
+# Plugin de prerenderizado - CONFIGURACIÓN CORRECTA
 [[plugins]]
   package = "netlify-plugin-prerender-spa"
 
   [plugins.inputs]
-    # URLs importantes para prerender
-    routes = [
-      "/",
-      "/about",
-      "/services", 
-      "/services/strategic-seo-consulting",
-      "/services/digital-storytelling-services", 
-      "/services/seo-automation",
-      "/services/personal-branding-consulting",
-      "/case-studies",
-      "/blog",
-      "/how-we-work",
-      "/contact",
-      "/resources"
-    ]
+    # Directorio fuente (donde está tu dist/build)
+    source = "dist"
 
 # Headers para SEO
 [[headers]]
