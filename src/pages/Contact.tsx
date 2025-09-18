@@ -1,328 +1,325 @@
-import React, { useMemo, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// src/pages/Contact.tsx
+import React, { useMemo, useState } from "react";
 import SEO from "@/components/SEO";
-import { addSchema, SITE } from "@/lib/seo";
+
+type Status = "idle" | "loading" | "success" | "error";
+
+const services = [
+  "Strategic SEO",
+  "Digital Storytelling",
+  "SEO Automation",
+  "Personal Branding",
+];
+
+const budgets = [
+  "Not sure yet",
+  "Under $2,000",
+  "$2,000 – $5,000",
+  "$5,000 – $10,000",
+  "$10,000+",
+];
 
 const encode = (data: Record<string, string>) =>
   Object.keys(data)
-    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key] || "")}`)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&");
 
 const Contact: React.FC = () => {
-  // ======= Schemas (Breadcrumbs + ContactPage) =======
-  const breadcrumbs = useMemo(
-    () => ({
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
-        { "@type": "ListItem", position: 2, name: "Contact", item: `${SITE}/contact` },
-      ],
-    }),
-    []
-  );
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
-  const contactPageSchema = useMemo(
-    () => ({
-      "@context": "https://schema.org",
-      "@type": "ContactPage",
-      name: "Contact – Calvo Creativo",
-      url: `${SITE}/contact`,
-      publisher: {
-        "@type": "Organization",
-        name: "Calvo Creativo",
-        url: `${SITE}/`,
-        logo: `${SITE}/calvo_creativo_logo.svg`,
-      },
-    }),
-    []
-  );
-
-  useEffect(() => {
-    addSchema(breadcrumbs, "breadcrumbs-contact");
-    addSchema(contactPageSchema, "contactpage-schema");
-  }, [breadcrumbs, contactPageSchema]);
-
-  // ======= Form (Netlify Forms + fetch POST) =======
   const [form, setForm] = useState({
     name: "",
     email: "",
     phone: "",
     company: "",
-    service: "",
-    budget: "",
+    service: services[0],
+    budget: budgets[0],
     message: "",
+    // honeypot
+    botField: "",
   });
-  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
 
-  const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setForm((f) => ({ ...f, [name]: value }));
-  };
+  const isValid = useMemo(() => {
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
+    return form.name.trim().length > 1 && emailOk && form.message.trim().length > 2;
+  }, [form]);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const onChange =
+    (key: keyof typeof form) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+      setForm((prev) => ({ ...prev, [key]: e.target.value }));
+    };
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("sending");
+    setErrorMsg("");
+    if (!isValid) {
+      setErrorMsg("Please complete name, a valid email and a short project description.");
+      return;
+    }
+
     try {
-      await fetch("/", {
+      setStatus("loading");
+
+      const payload: Record<string, string> = {
+        "form-name": "contact",
+        "bot-field": form.botField,
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        company: form.company,
+        service: form.service,
+        budget: form.budget,
+        message: form.message,
+      };
+
+      const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...form }),
+        body: encode(payload),
       });
-      setStatus("ok");
+
+      if (!res.ok) throw new Error(`Netlify returned ${res.status}`);
+
+      setStatus("success");
       setForm({
         name: "",
         email: "",
         phone: "",
         company: "",
-        service: "",
-        budget: "",
+        service: services[0],
+        budget: budgets[0],
         message: "",
+        botField: "",
       });
-    } catch {
+    } catch (err: any) {
       setStatus("error");
+      setErrorMsg("Something went wrong sending your message. Please try again.");
+      console.error("Contact form error:", err);
     }
   };
 
   return (
     <>
+      {/* SEO base (title/desc/canonical) desde /src/lib/seo.ts */}
       <SEO page="contact" />
 
-      {/* HERO */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-secondary/20 to-background">
+      {/* Hero */}
+      <section className="pt-24 md:pt-28">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-black text-primary mb-4">
-              Contact Calvo Creativo
+          <div className="max-w-5xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-black text-primary tracking-tight">
+              Tell us about your project
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground">
-              Tell us about your goals. We’ll build a clear, measurable growth plan with
-              strategic SEO, semantic IA, and content that converts.
+            <p className="text-lg md:text-xl text-muted-foreground mt-4 max-w-3xl">
+              Share context, goals and timeline. We’ll reply in 24–48h with next steps and a quick call slot.
             </p>
 
-            {/* CTAs */}
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <a
-                href="tel:+573046807443"
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm bg-electric-blue text-electric-blue-foreground hover:bg-electric-blue/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold h-11 rounded-md px-6"
-              >
-                Call now
-              </a>
-              <a
-                href="mailto:rogermur1990@gmail.com"
-                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200 h-11 rounded-md px-6"
-              >
-                Email us
-              </a>
-            </div>
+            <ul className="mt-6 space-y-2 text-muted-foreground">
+              <li>• English/Spanish available</li>
+              <li>• Florida-based focus (statewide and national too)</li>
+              <li>• Strategic SEO + storytelling + automation</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* INFO GRID */}
-      <section className="py-12">
+      {/* Form card */}
+      <section className="py-10">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-xl border border-border bg-card">
-              <div className="text-sm text-muted-foreground">Phone</div>
-              <a href="tel:+573046807443" className="text-xl font-semibold text-primary mt-1 inline-block">
-                +57 304 680 7443
-              </a>
-              <p className="text-sm text-muted-foreground mt-2">Mon–Fri, 9am–5pm (ET)</p>
-            </div>
-            <div className="p-6 rounded-xl border border-border bg-card">
-              <div className="text-sm text-muted-foreground">Email</div>
-              <a
-                href="mailto:rogermur1990@gmail.com"
-                className="text-xl font-semibold text-primary mt-1 inline-block"
-              >
-                rogermur1990@gmail.com
-              </a>
-              <p className="text-sm text-muted-foreground mt-2">We reply within 1–2 business days</p>
-            </div>
-            <div className="p-6 rounded-xl border border-border bg-card">
-              <div className="text-sm text-muted-foreground">Location</div>
-              <div className="text-xl font-semibold text-primary mt-1">Florida, USA</div>
-              <p className="text-sm text-muted-foreground mt-2">Serving Florida & global clients</p>
-            </div>
-          </div>
-        </div>
-      </section>
+          <div className="max-w-5xl mx-auto">
+            <div className="border border-border rounded-2xl bg-card p-6 md:p-8 shadow-sm">
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Left quick notes */}
+                <div className="space-y-4">
+                  <div className="rounded-xl bg-secondary/30 border border-border p-4">
+                    <h3 className="font-semibold text-primary mb-2">What will happen next?</h3>
+                    <ol className="list-decimal list-inside text-sm text-muted-foreground space-y-1">
+                      <li>We’ll read your context and goals.</li>
+                      <li>We’ll email you back with 2–3 time slots.</li>
+                      <li>Quick call (15–20min) to confirm fit and scope.</li>
+                    </ol>
+                  </div>
 
-      {/* FORM (Netlify) */}
-      <section className="py-16 bg-secondary/30">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-start">
-            <div>
-              <h2 className="text-3xl font-bold text-primary mb-3">Tell us about your project</h2>
-              <p className="text-muted-foreground mb-6">
-                Share context, goals and timeline. We’ll get back to you within 24–48h with next steps
-                and a quick call slot.
-              </p>
-              <ul className="text-sm text-muted-foreground space-y-2">
-                <li>• English/Spanish available</li>
-                <li>• Florida-based focus (statewide and national too)</li>
-                <li>• Strategic SEO + storytelling + automation</li>
-              </ul>
-            </div>
+                  <div className="rounded-xl bg-secondary/30 border border-border p-4">
+                    <h3 className="font-semibold text-primary mb-2">Prefer to talk?</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Call or WhatsApp:{" "}
+                      <a className="text-primary underline" href="tel:+573046807443">
+                        +57 304 680 7443
+                      </a>
+                    </p>
+                  </div>
 
-            <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              netlify-honeypot="bot-field"
-              onSubmit={handleSubmit}
-              className="p-6 rounded-xl border border-border bg-card"
-            >
-              {/* Netlify requires these hidden fields */}
-              <input type="hidden" name="form-name" value="contact" />
-              <p className="hidden">
-                <label>
-                  Don’t fill this out if you’re human: <input name="bot-field" onChange={() => {}} />
-                </label>
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-sm text-muted-foreground mb-1">Full name</label>
-                  <input
-                    name="name"
-                    value={form.name}
-                    onChange={onChange}
-                    required
-                    className="w-full rounded-md border border-border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-primary/40"
-                    placeholder="Your name"
-                  />
+                  <div className="flex gap-3 pt-2">
+                    <a
+                      href="/case-studies"
+                      className="inline-flex items-center justify-center h-10 px-4 rounded-md border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition"
+                    >
+                      View case studies
+                    </a>
+                    <a
+                      href="tel:+573046807443"
+                      className="inline-flex items-center justify-center h-10 px-4 rounded-md bg-electric-blue text-electric-blue-foreground hover:bg-electric-blue/90 transition"
+                    >
+                      Book a call
+                    </a>
+                  </div>
                 </div>
+
+                {/* Form */}
                 <div>
-                  <label className="block text-sm text-muted-foreground mb-1">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={onChange}
-                    required
-                    className="w-full rounded-md border border-border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-primary/40"
-                    placeholder="you@email.com"
-                  />
+                  {status === "success" ? (
+                    <div className="rounded-lg border border-teal/30 bg-teal/10 p-4 text-sm">
+                      <div className="font-semibold text-teal">Thanks! We’ll get back to you within 24–48h.</div>
+                      <div className="text-muted-foreground mt-1">
+                        You’ll receive a confirmation in your inbox shortly.
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {status === "error" && errorMsg ? (
+                    <div className="rounded-lg border border-red-300 bg-red-50 p-3 mb-4 text-red-700 text-sm">
+                      {errorMsg}
+                    </div>
+                  ) : null}
+
+                  <form
+                    name="contact"
+                    method="POST"
+                    data-netlify="true"
+                    netlify-honeypot="bot-field"
+                    onSubmit={onSubmit}
+                    className="space-y-4"
+                    noValidate
+                  >
+                    {/* Netlify needs this hidden field to map submission to the form name */}
+                    <input type="hidden" name="form-name" value="contact" />
+
+                    {/* Honeypot */}
+                    <div className="hidden">
+                      <label>
+                        Don’t fill this out: <input name="bot-field" value={form.botField} onChange={onChange("botField")} />
+                      </label>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm text-muted-foreground mb-1">Full name</label>
+                        <input
+                          className="w-full h-11 px-3 rounded-md border border-border bg-background"
+                          type="text"
+                          name="name"
+                          value={form.name}
+                          onChange={onChange("name")}
+                          placeholder="Your name"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm text-muted-foreground mb-1">Email</label>
+                        <input
+                          className="w-full h-11 px-3 rounded-md border border-border bg-background"
+                          type="email"
+                          name="email"
+                          value={form.email}
+                          onChange={onChange("email")}
+                          placeholder="you@company.com"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm text-muted-foreground mb-1">Phone (optional)</label>
+                        <input
+                          className="w-full h-11 px-3 rounded-md border border-border bg-background"
+                          type="tel"
+                          name="phone"
+                          value={form.phone}
+                          onChange={onChange("phone")}
+                          placeholder="+1 305 ..."
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm text-muted-foreground mb-1">Company (optional)</label>
+                        <input
+                          className="w-full h-11 px-3 rounded-md border border-border bg-background"
+                          type="text"
+                          name="company"
+                          value={form.company}
+                          onChange={onChange("company")}
+                          placeholder="Company name"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-sm text-muted-foreground mb-1">Service interest</label>
+                        <select
+                          className="w-full h-11 px-3 rounded-md border border-border bg-background"
+                          name="service"
+                          value={form.service}
+                          onChange={onChange("service")}
+                        >
+                          {services.map((s) => (
+                            <option key={s} value={s}>
+                              {s}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label className="block text-sm text-muted-foreground mb-1">Budget (optional)</label>
+                        <select
+                          className="w-full h-11 px-3 rounded-md border border-border bg-background"
+                          name="budget"
+                          value={form.budget}
+                          onChange={onChange("budget")}
+                        >
+                          {budgets.map((b) => (
+                            <option key={b} value={b}>
+                              {b}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm text-muted-foreground mb-1">Project details</label>
+                      <textarea
+                        className="w-full min-h-[140px] px-3 py-2 rounded-md border border-border bg-background"
+                        name="message"
+                        placeholder="What do you need? Goals, timeline, examples…"
+                        value={form.message}
+                        onChange={onChange("message")}
+                        required
+                      />
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-3 pt-2">
+                      <button
+                        type="submit"
+                        disabled={status === "loading" || !isValid}
+                        className="inline-flex items-center justify-center h-11 px-6 rounded-md bg-electric-blue text-electric-blue-foreground hover:bg-electric-blue/90 disabled:opacity-60 disabled:cursor-not-allowed transition"
+                      >
+                        {status === "loading" ? "Sending…" : "Send message"}
+                      </button>
+                      <a
+                        href="/case-studies"
+                        className="inline-flex items-center justify-center h-11 px-6 rounded-md border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition"
+                      >
+                        View case studies
+                      </a>
+                    </div>
+                  </form>
                 </div>
               </div>
-
-              <div className="grid md:grid-cols-2 gap-4 mt-4">
-                <div>
-                  <label className="block text-sm text-muted-foreground mb-1">Phone (optional)</label>
-                  <input
-                    name="phone"
-                    value={form.phone}
-                    onChange={onChange}
-                    className="w-full rounded-md border border-border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-primary/40"
-                    placeholder="e.g. +1 305…"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm text-muted-foreground mb-1">Company (optional)</label>
-                  <input
-                    name="company"
-                    value={form.company}
-                    onChange={onChange}
-                    className="w-full rounded-md border border-border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-primary/40"
-                    placeholder="Company"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-4">
-                <label className="block text-sm text-muted-foreground mb-1">Service interest</label>
-                <select
-                  name="service"
-                  value={form.service}
-                  onChange={onChange}
-                  className="w-full rounded-md border border-border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-primary/40"
-                >
-                  <option value="">Select…</option>
-                  <option>Strategic SEO</option>
-                  <option>Digital Storytelling</option>
-                  <option>SEO Automation</option>
-                  <option>Personal Branding</option>
-                </select>
-              </div>
-
-              <div className="mt-4">
-                <label className="block text-sm text-muted-foreground mb-1">Budget (optional)</label>
-                <select
-                  name="budget"
-                  value={form.budget}
-                  onChange={onChange}
-                  className="w-full rounded-md border border-border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-primary/40"
-                >
-                  <option value="">Not sure yet</option>
-                  <option>Under $2,500</option>
-                  <option>$2,500–$5,000</option>
-                  <option>$5,000–$10,000</option>
-                  <option>$10,000+</option>
-                </select>
-              </div>
-
-              <div className="mt-4">
-                <label className="block text-sm text-muted-foreground mb-1">Project details</label>
-                <textarea
-                  name="message"
-                  value={form.message}
-                  onChange={onChange}
-                  rows={6}
-                  required
-                  className="w-full rounded-md border border-border bg-background px-3 py-2 outline-none focus:ring-2 focus:ring-primary/40"
-                  placeholder="Goals, timeline, current SEO status, competitors…"
-                />
-              </div>
-
-              <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                <button
-                  type="submit"
-                  disabled={status === "sending"}
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm bg-electric-blue text-electric-blue-foreground hover:bg-electric-blue/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold h-11 rounded-md px-6 disabled:opacity-60"
-                >
-                  {status === "sending" ? "Sending…" : status === "ok" ? "Sent ✓" : "Send message"}
-                </button>
-                <Link
-                  to="/case-studies"
-                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200 h-11 rounded-md px-6"
-                >
-                  View case studies
-                </Link>
-              </div>
-
-              {status === "error" && (
-                <p className="text-sm text-red-600 mt-3">
-                  Something went wrong. Please try again or email us at rogermur1990@gmail.com.
-                </p>
-              )}
-              {status === "ok" && (
-                <p className="text-sm text-teal mt-3">Thanks! We’ll get back to you within 24–48h.</p>
-              )}
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* INTERNAL LINKS */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-3 gap-6">
-            <Link to="/services" className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-all">
-              <h3 className="text-lg font-semibold text-primary mb-1">Services</h3>
-              <p className="text-sm text-muted-foreground">Strategic SEO, storytelling, and automation.</p>
-            </Link>
-            <Link to="/case-studies" className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-all">
-              <h3 className="text-lg font-semibold text-primary mb-1">Case Studies</h3>
-              <p className="text-sm text-muted-foreground">Real outcomes and learnings from clients.</p>
-            </Link>
-            <Link to="/resources" className="p-6 rounded-xl border border-border bg-card hover:shadow-lg transition-all">
-              <h3 className="text-lg font-semibold text-primary mb-1">SEO Tools</h3>
-              <p className="text-sm text-muted-foreground">Utilities to scale your workflow.</p>
-            </Link>
+            </div>
           </div>
         </div>
       </section>
