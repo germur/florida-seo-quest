@@ -1,32 +1,3 @@
 [build]
   publish = "dist"
   command = "npm run build"
-
-# Prerendering para SEO
-[build.processing.html]
-  pretty_urls = true
-
-[build.processing]
-  skip_processing = false
-
-# Plugin de prerenderizado - CONFIGURACIÓN CORRECTA
-[[plugins]]
-  package = "netlify-plugin-prerender-spa"
-
-  [plugins.inputs]
-    # Directorio fuente (donde está tu dist/build)
-    source = "dist"
-
-# Headers para SEO
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "same-origin"
-
-[[headers]]
-  for = "/sitemap.xml"
-  [headers.values]
-    Content-Type = "application/xml"
