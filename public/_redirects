@@ -1,12 +1,3 @@
-# Trailing slash fixes (SEO crítico)
-/about/                          /about                              301!
-/services/                       /services                           301!
-/case-studies/                   /case-studies                       301!
-/how-we-work/                    /how-we-work                        301!
-/blog/                           /blog                               301!
-/resources/                      /resources                          301!
-/contact/                        /contact                            301!
-
-# Básicos para SPA
 /assets/* /assets/:splat 200
+/api/* /.netlify/functions/:splat 200
 /* /index.html 200
