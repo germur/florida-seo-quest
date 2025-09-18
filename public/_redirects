@@ -1,33 +1,3 @@
-# Domain canonicalization
-http://calvocreativo.com/* https://calvocreativo.com/:splat 301!
-http://www.calvocreativo.com/* https://calvocreativo.com/:splat 301!
-https://www.calvocreativo.com/* https://calvocreativo.com/:splat 301!
-
-# Trailing slash normalization (301 redirects)
-/about/ /about 301!
-/services/ /services 301!
-/case-studies/ /case-studies 301!
-/how-we-work/ /how-we-work 301!
-/blog/ /blog 301!
-/resources/ /resources 301!
-/contact/ /contact 301!
-
-# Static assets (antes del catch-all)
 /assets/* /assets/:splat 200
-/robots.txt /robots.txt 200
-/sitemap.xml /sitemap.xml 200
-
-# SPA rewrites (específicos antes del catch-all)
-/about /index.html 200
-/services /index.html 200
-/services/* /index.html 200
-/case-studies /index.html 200
-/case-studies/* /index.html 200
-/blog /index.html 200
-/blog/* /index.html 200
-/how-we-work /index.html 200
-/resources /index.html 200
-/contact /index.html 200
-
-# Catch-all final
+/api/* /.netlify/functions/:splat 200
 /* /index.html 200
