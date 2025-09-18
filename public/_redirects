@@ -6,51 +6,64 @@ http://www.calvocreativo.com/*    https://calvocreativo.com/:splat   301!
 https://www.calvocreativo.com/*   https://calvocreativo.com/:splat   301!
 
 # ==============================
-# Normalización de trailing slash → sin slash
-# (Poner SIEMPRE antes de los rewrites de SPA)
+# (ELIMINADO) Normalización de trailing slash en rutas base
+#  — Evitamos 301 aquí para no crear bucles con los rewrites.
 # ==============================
-/services/                                   /services                                   301!
-/blog/                                       /blog                                       301!
-/case-studies/                               /case-studies                               301!
-/resources/                                  /resources                                  301!
-/about/                                      /about                                      301!
-/contact/                                    /contact                                    301!
-/sitemap/                                    /sitemap                                    301!
+# /services/      /services      301!
+# /blog/          /blog          301!
+# /case-studies/  /case-studies  301!
+# /resources/     /resources     301!
+# /about/         /about         301!
+# /contact/       /contact       301!
+# /sitemap/       /sitemap       301!
 
-# Detalle case studies con slash final → sin slash
-/case-studies/:slug/                         /case-studies/:slug                         301!
+# Detalle case studies con slash final → sin slash (OK)
+ /case-studies/:slug/                         /case-studies/:slug                         301!
 
-# Servicios programáticos (cualquier servicio/ciudad) → sin slash
-/services/:service/:city/                    /services/:service/:city                    301!
+# Servicios programáticos con slash final → sin slash (OK)
+ /services/:service/:city/                    /services/:service/:city                    301!
 
 # Alias comunes → URL real
 /cookies                                     /cookie-policy                              301!
 /privacy                                     /privacy-policy                             301!
 /terms                                       /terms-of-service                           301!
 
-# Opcional: evita duplicado /index.html
-/index.html                                  /                                            301!
+# (ELIMINADA) Evitar duplicado /index.html para no interferir con rewrites
+# /index.html                                  /                                            301!
 
 # ==============================
-# SPA routes (rewrites a la app)
+# SPA routes (rewrites a la app) — base y wildcard
 # ==============================
-/about                                       /index.html                                  200
-/services                                    /index.html                                  200   # ← añadido
-/services/*                                  /index.html                                  200
-/case-studies                                /index.html                                  200   # ← añadido
-/case-studies/*                              /index.html                                  200
-/blog                                        /index.html                                  200   # ← añadido
-/blog/*                                      /index.html                                  200
-/resources                                   /index.html                                  200
-/contact                                     /index.html                                  200
-/sitemap                                     /index.html                                  200
+/about                                        /index.html                                 200
+/about/                                       /index.html                                 200
 
-# Legales (renderiza app; puedes poner noindex en <head>)
-/privacy-policy                              /index.html                                  200
-/terms-of-service                            /index.html                                  200
-/cookie-policy                               /index.html                                  200
+/services                                     /index.html                                 200
+/services/                                    /index.html                                 200
+/services/*                                   /index.html                                 200
+
+/case-studies                                 /index.html                                 200
+/case-studies/                                /index.html                                 200
+/case-studies/*                               /index.html                                 200
+
+/blog                                         /index.html                                 200
+/blog/                                        /index.html                                 200
+/blog/*                                       /index.html                                 200
+
+/resources                                    /index.html                                 200
+/resources/                                   /index.html                                 200
+
+/contact                                      /index.html                                 200
+/contact/                                     /index.html                                 200
+
+/sitemap                                      /index.html                                 200
+/sitemap/                                     /index.html                                 200
+
+# Legales (renderiza app; noindex en <head>)
+/privacy-policy                               /index.html                                 200
+/terms-of-service                             /index.html                                 200
+/cookie-policy                                /index.html                                 200
 
 # ==============================
 # 404 real (fallback)
 # ==============================
-/*                                           /404.html                                    404
+/*                                            /404.html                                   404
