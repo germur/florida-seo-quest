@@ -1,0 +1,45 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Prerendering para SEO
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing]
+  skip_processing = false
+
+# Plugin de prerenderizado
+[[plugins]]
+  package = "netlify-plugin-prerender-spa"
+
+  [plugins.inputs]
+    # URLs importantes para prerender
+    routes = [
+      "/",
+      "/about",
+      "/services", 
+      "/services/strategic-seo-consulting",
+      "/services/digital-storytelling-services", 
+      "/services/seo-automation",
+      "/services/personal-branding-consulting",
+      "/case-studies",
+      "/blog",
+      "/how-we-work",
+      "/contact",
+      "/resources"
+    ]
+
+# Headers para SEO
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "same-origin"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml"
