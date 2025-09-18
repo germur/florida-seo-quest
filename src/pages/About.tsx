@@ -1,341 +1,457 @@
+// src/pages/About.tsx
 import React from "react";
-import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
-import { SITE, schemaConfigs } from "@/lib/seo";
-import { BarChart, Shield, Users, Search, List, Rocket, TrendingUp } from "lucide-react";
+import { SITE } from "@/lib/seo";
 
+/* ================================================
+ *  Schemas específicos de About
+ * ================================================ */
+// Breadcrumbs para About
+const breadcrumbs = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+    { "@type": "ListItem", position: 2, name: "About", item: `${SITE}/about/` },
+  ],
+};
+
+// Person (local, porque schemaConfigs.person no existe en tu seo.ts)
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Roger Murillo",
+  url: `${SITE}/about/`,
+  image: `${SITE}/og-home.jpg`,
+  jobTitle: "SEO Strategist & Consultant",
+  worksFor: { "@type": "Organization", name: "Calvo Creativo" },
+  sameAs: [
+    "https://x.com/Rogermu47429637",
+    "https://linkedin.com/in/rogermurillo",
+  ],
+};
+
+/* ================================================
+ *  Logos / Social proof
+ * ================================================ */
+type Brand = { name: string; src: string; href?: string };
+
+const brands: Brand[] = [
+  { name: "Craft", src: "/assets/logos/craftd.svg" },
+  { name: "Le gramme", src: "/assets/logos/le-gramme.svg" },
+  { name: "Flo Car Rental", src: "/assets/logos/flo-car-rental.svg" },
+  { name: "Puff Cleaning", src: "/assets/logos/puff-cleaning.svg" },
+  {
+    name: "Paramount Property Restoration",
+    src: "/assets/logos/paramount.svg", // súbelo cuando lo tengas
+    href: "/case-studies/paramount-property-restoration",
+  },
+  { name: "Eduf1st", src: "/assets/logos/edu1st.svg" },
+  { name: "Bull Fintech", src: "/assets/logos/bull-fintech.svg" },
+  { name: "Sakura Advisors", src: "/assets/logos/sakura-advisors.svg" },
+];
+
+/* ================================================
+ *  FAQ (las que enviaste)
+ * ================================================ */
+type FAQ = { q: string; a: JSX.Element };
+
+const faqs: FAQ[] = [
+  {
+    q: "1. What is Calvo Creativo and what do you specialize in?",
+    a: (
+      <p>
+        At Calvo Creativo, we specialize in <strong>strategic SEO</strong>,{" "}
+        <strong>digital storytelling</strong>, and <strong>growth hacking</strong>{" "}
+        for ambitious American businesses, particularly those in Florida. Our core
+        mission is to transform your online presence into a robust pillar of{" "}
+        <strong>topical authority</strong>, helping you attract high-quality
+        organic leads and reduce dependence on paid ads for sustainable growth.
+      </p>
+    ),
+  },
+  {
+    q: "2. How does your approach to SEO differ from traditional agencies?",
+    a: (
+      <p>
+        We employ an <strong>AI-driven strategic SEO</strong> approach. We build{" "}
+        <strong>semantic architecture</strong> y <strong>content clusters</strong>{" "}
+        to establish your site as a definitive authority. Combinamos esto con{" "}
+        <strong>digital storytelling</strong> que conecta con tu audiencia y
+        priorizamos <strong>casos reales y resultados medibles</strong> — no solo
+        “hablar de SEO”.
+      </p>
+    ),
+  },
+  {
+    q: "3. What types of businesses are the best fit for Calvo Creativo's services?",
+    a: (
+      <p>
+        High-ticket services en Florida (contratistas, real estate, law firms,
+        educación/salud especializados), <strong>B2B</strong> que quieren escalar
+        más allá de lo local y <strong>agencias</strong> que buscan expertise SEO
+        externo. También potenciamos <strong>personal branding</strong> para
+        profesionales y coaches.
+      </p>
+    ),
+  },
+  {
+    q: "4. How do you integrate “digital storytelling” into SEO to benefit my brand?",
+    a: (
+      <p>
+        Un producto no cambia vidas si no <em>conecta</em>. Nuestro{" "}
+        <strong>digital storytelling</strong> crea narrativas que resuenan con tu
+        audiencia y, integradas a una <strong>content strategy</strong> inteligente,
+        elevan rankings, engagement y lealtad — construyendo una marca inspiradora.
+      </p>
+    ),
+  },
+  {
+    q: "5. How do you leverage AI and automation in your SEO strategies?",
+    a: (
+      <p>
+        La IA es un <strong>catalizador</strong> para eficiencia — no reemplaza la
+        estrategia. Usamos IA para <strong>keyword research</strong>,
+        scraping competitivo y reporting automatizado. Escalamos contenido con datos
+        en tiempo real para decisiones precisas y <strong>ventaja competitiva</strong>.
+      </p>
+    ),
+  },
+  {
+    q: "6. What kind of results can I expect, and how do you measure success?",
+    a: (
+      <p>
+        Éxito = <strong>resultados medibles</strong>: Top-3 para keywords clave,
+        +200% de tráfico orgánico en el primer año y 3-5% de conversión desde
+        contenido. Medimos con GSC, GA4 y suites SEO, con KPIs claros y optimización
+        continua.
+      </p>
+    ),
+  },
+  {
+    q: "7. What makes your “7+ years of experience in Florida” so valuable?",
+    a: (
+      <p>
+        Más de <strong>7 años</strong> operando con empresas en Florida nos dan{" "}
+        conocimiento local profundo: audiencia, dinámicas y el paisaje de{" "}
+        <strong>Local SEO Florida</strong>. Implementamos estrategias hiper-relevantes
+        que generan leads de calidad en un entorno competitivo.
+      </p>
+    ),
+  },
+  {
+    q: "8. Can you help with personal branding?",
+    a: (
+      <p>
+        ¡Sí! El <strong>personal branding consulting</strong> es clave: construimos{" "}
+        <strong>autoridad personal</strong> con roadmap estratégico de contenido,
+        optimización de LinkedIn y narrativas que posicionan tu expertise como
+        referencia innegable.
+      </p>
+    ),
+  },
+];
+
+/* ================================================
+ *  Página
+ * ================================================ */
 const About: React.FC = () => {
-  const canonical = `${SITE}/about`;
-  const title = "About Calvo Creativo — AI-Driven SEO Strategy for Florida Businesses";
-  const description =
-    "Meet the team behind Florida's premier SEO agency. Our AI-driven strategies and proven MAES method deliver 200-400% organic growth for businesses across Florida.";
-
-  const breadcrumbsSchema = schemaConfigs.breadcrumbs([
-    { name: "Home", item: `${SITE}/` },
-    { name: "About", item: canonical },
-  ]);
-
-  // Organization schema (E-E-A-T)
-  const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Calvo Creativo",
-    url: `${SITE}/about`,
-    logo: `${SITE}/calvo_creartivo_logo.svg`,
-    founder: {
-      "@type": "Person",
-      name: "Roger Murillo",
-      jobTitle: "SEO Strategist & Consultant"
-    },
-    sameAs: [
-      "https://x.com/Rogermu47429637",
-      "https://www.linkedin.com/in/rogermurillo/",
-    ],
-    areaServed: "Florida, United States",
-    serviceArea: {
-      "@type": "State",
-      name: "Florida"
-    }
-  };
-
   return (
     <>
+      {/* SEO base + schemas específicos */}
       <SEO
         page="about"
-        customTitle={title}
-        customDescription={description}
-        customCanonical={canonical}
         additionalSchemas={[
-          { schema: breadcrumbsSchema, id: "breadcrumbs-schema" },
-          { schema: organizationSchema, id: "organization-schema" },
+          { schema: personSchema, id: "schema-person" },
+          { schema: breadcrumbs, id: "schema-breadcrumbs" },
         ]}
       />
 
       <main className="min-h-screen">
-        {/* Hero Section with Background */}
-        <section 
-          className="relative flex min-h-[60vh] items-end bg-cover bg-center text-white"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.6) 100%), url('/og-home.jpg')`
-          }}
-        >
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                AI-Driven SEO Strategy for Florida Businesses
+        {/* HERO — sin imagen de fondo, consistente con el resto */}
+        <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto text-center">
+              <h1 className="text-5xl md:text-6xl font-black text-primary mb-6">
+                About Calvo Creativo
               </h1>
-              <p className="mt-6 max-w-2xl text-lg text-white/90">
-                We leverage cutting-edge AI to craft bespoke SEO strategies, ensuring your business ranks higher and attracts more customers. Our micro-proof KPIs guarantee measurable results.
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
+                Strategic SEO, Digital Storytelling &amp; AI-driven growth — built
+                for Florida businesses ready to scale with authority.
               </p>
-              <div className="mt-10">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-base font-bold text-primary-foreground shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
+                Combinamos arquitectura semántica, inteligencia de datos y narrativas
+                que convierten para crear crecimiento sostenible y autoridad temática.
+              </p>
+
+              {/* CTAs principales */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="tel:+573046807443"
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-electric-blue text-electric-blue-foreground hover:bg-electric-blue/90 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold h-11 rounded-md px-8"
                 >
-                  Get Started
-                </Link>
+                  Book Consultation
+                </a>
+                <a
+                  className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200 h-11 rounded-md px-8"
+                  href="/case-studies"
+                >
+                  View Success Stories
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Why Choose Calvo Creativo */}
-        <section className="py-16 sm:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Why Choose Calvo Creativo?</h2>
-              <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">Your trusted partner in navigating the digital landscape.</p>
-            </div>
-            <div className="mt-12 grid gap-8 md:grid-cols-3">
-              <div className="rounded-xl border border-border bg-card p-8 text-center shadow-sm">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <BarChart size={28} />
-                </div>
-                <h3 className="mt-6 text-xl font-bold">Data-Driven Results</h3>
-                <p className="mt-2 text-base text-muted-foreground">We make decisions based on data, not guesswork, to ensure optimal performance.</p>
-              </div>
-              <div className="rounded-xl border border-border bg-card p-8 text-center shadow-sm">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Shield size={28} />
-                </div>
-                <h3 className="mt-6 text-xl font-bold">Proven Expertise</h3>
-                <p className="mt-2 text-base text-muted-foreground">Our team consists of industry veterans with a track record of success.</p>
-              </div>
-              <div className="rounded-xl border border-border bg-card p-8 text-center shadow-sm">
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Users size={28} />
-                </div>
-                <h3 className="mt-6 text-xl font-bold">Client-Centric Approach</h3>
-                <p className="mt-2 text-base text-muted-foreground">We succeed when you succeed. Your goals are our top priority.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Our Story */}
-        <section className="bg-secondary/30 py-16 sm:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+        {/* QUIÉNES SOMOS / PROPUESTA */}
+        <section className="py-20">
+          <div className="container mx-auto px-6">
+            <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
               <div>
-                <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Our Story</h2>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  Founded by Roger Murillo, a seasoned SEO strategist with over 7 years of experience, Calvo Creativo was born out of a passion for helping Florida businesses thrive online. Roger's deep understanding of AI-driven SEO strategies and commitment to ethical practices have driven the agency's success.
+                <h2 className="text-3xl font-bold text-primary mb-6">
+                  We build authority, not noise
+                </h2>
+                <p className="text-muted-foreground mb-4">
+                  No perseguimos “tácticas sueltas”. Diseñamos{" "}
+                  <strong>arquitectura semántica</strong> y <strong>content clusters</strong>{" "}
+                  que posicionan tu marca como referencia: del{" "}
+                  <em>keyword research</em> avanzado a la ejecución con{" "}
+                  <strong>storytelling</strong> y UX que convierte.
                 </p>
-                <p className="mt-4 text-lg text-muted-foreground">
-                  Starting as an in-house SEO specialist fixing crawling issues and thin content, the turning point came when building semantic maps and programmatic pages for multi-city services. Today, we combine technical SEO, AI automation, and UX writing to deliver predictable growth for our clients.
+                <p className="text-muted-foreground">
+                  Nuestro enfoque <strong>AI-driven</strong> acelera investigación,
+                  priorización y reporting — para que la estrategia impacte al negocio,
+                  no solo al ranking.
                 </p>
               </div>
-              <div className="mt-10 lg:mt-0">
-                <img 
-                  alt="Roger Murillo, Founder of Calvo Creativo" 
-                  className="rounded-xl shadow-lg w-full" 
-                  src="/og-home.jpg"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* The MAES Method */}
-        <section className="py-16 sm:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">The MAES Method</h2>
-              <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">A four-step process for sustainable growth.</p>
-            </div>
-            <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              <div className="rounded-xl p-6">
-                <div className="text-primary mb-4">
-                  <Search size={32} />
+              <div className="bg-gradient-to-br from-secondary/20 to-background border border-border rounded-2xl p-8">
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal text-white text-xs font-bold">
+                      1
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-semibold text-primary">
+                        Strategic SEO
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Arquitectura, clusters y priorización basada en impacto.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal text-white text-xs font-bold">
+                      2
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-semibold text-primary">
+                        Digital Storytelling
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Historias y formatos que conectan con intención y contexto.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-teal text-white text-xs font-bold">
+                      3
+                    </span>
+                    <div>
+                      <h3 className="text-lg font-semibold text-primary">
+                        AI &amp; Automation
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        Datos en tiempo real, eficiencia y escalabilidad sin perder
+                        criterio.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold">Market Research</h3>
-                <p className="mt-2 text-base text-muted-foreground">In-depth analysis of your industry, competitors, and target audience.</p>
-              </div>
-              <div className="rounded-xl p-6">
-                <div className="text-primary mb-4">
-                  <List size={32} />
-                </div>
-                <h3 className="text-xl font-bold">Architecture</h3>
-                <p className="mt-2 text-base text-muted-foreground">Crafting a robust website structure and content strategy for optimal search engine visibility.</p>
-              </div>
-              <div className="rounded-xl p-6">
-                <div className="text-primary mb-4">
-                  <Rocket size={32} />
-                </div>
-                <h3 className="text-xl font-bold">Execution</h3>
-                <p className="mt-2 text-base text-muted-foreground">Implementing proven SEO techniques, including on-page optimization and link building.</p>
-              </div>
-              <div className="rounded-xl p-6">
-                <div className="text-primary mb-4">
-                  <TrendingUp size={32} />
-                </div>
-                <h3 className="text-xl font-bold">Scaling</h3>
-                <p className="mt-2 text-base text-muted-foreground">Continuous monitoring and refinement to maximize your long-term SEO performance.</p>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Trusted by Florida's Finest */}
-        <section className="bg-secondary/20 py-16 sm:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Trusted by Florida's Finest</h2>
-              <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">We're proud to have partnered with a diverse range of businesses.</p>
-            </div>
-            <div className="mt-12 grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
-              <div className="col-span-1 flex justify-center items-center bg-card p-8 rounded-lg border border-border">
-                <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Users size={24} className="text-primary" />
-                </div>
-              </div>
-              <div className="col-span-1 flex justify-center items-center bg-card p-8 rounded-lg border border-border">
-                <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Shield size={24} className="text-primary" />
-                </div>
-              </div>
-              <div className="col-span-1 flex justify-center items-center bg-card p-8 rounded-lg border border-border">
-                <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <BarChart size={24} className="text-primary" />
-                </div>
-              </div>
-              <div className="col-span-1 flex justify-center items-center bg-card p-8 rounded-lg border border-border">
-                <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Search size={24} className="text-primary" />
-                </div>
-              </div>
-              <div className="col-span-1 flex justify-center items-center bg-card p-8 rounded-lg border border-border">
-                <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <Rocket size={24} className="text-primary" />
-                </div>
-              </div>
-              <div className="col-span-1 flex justify-center items-center bg-card p-8 rounded-lg border border-border">
-                <div className="h-12 w-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <TrendingUp size={24} className="text-primary" />
+                <div className="pt-6 mt-6 border-t border-border">
+                  <a
+                    href="/services"
+                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 border border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-200 h-10 px-4 py-2 w-full"
+                  >
+                    Explore Services
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-16 sm:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">What Our Clients Say</h2>
-            </div>
-            <div className="grid gap-12 lg:grid-cols-3">
-              <div className="rounded-xl border border-border p-8 shadow-sm bg-card">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <Users size={24} className="text-primary" />
-                </div>
-                <blockquote className="text-lg font-medium">
-                  <p>"Calvo Creativo transformed our online presence. We've seen a significant increase in organic traffic and leads."</p>
-                </blockquote>
-                <div className="mt-4 text-sm text-muted-foreground">— Home Services Company</div>
+        {/* LOGOS / SOCIAL PROOF – MARQUEE (TAMAÑO UNIFORME) */}
+        <section className="py-16 bg-secondary/30">
+          <div className="container mx-auto px-6">
+            <div className="max-w-6xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl font-semibold text-primary">
+                  Trusted by Florida brands
+                </h2>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Selected collaborations and projects
+                </p>
               </div>
-              <div className="rounded-xl border border-border p-8 shadow-sm bg-card">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <BarChart size={24} className="text-primary" />
+
+              <style>{`
+                @keyframes cc-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+                .cc-marquee {
+                  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+                  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+                }
+                .cc-track {
+                  display: flex;
+                  gap: 1.5rem;
+                  width: max-content;
+                  animation: cc-scroll 28s linear infinite;
+                }
+                .cc-marquee:hover .cc-track { animation-play-state: paused; }
+                .cc-card {
+                  min-width: 200px;
+                  height: 120px;
+                  padding: 1.25rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  border-radius: 0.75rem;
+                  border: 1px solid hsl(var(--border));
+                  background: hsl(var(--card));
+                  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+                }
+                @media (min-width: 768px) {
+                  .cc-card { min-width: 220px; height: 130px; }
+                }
+                .cc-card:hover { box-shadow: 0 10px 25px rgba(0,0,0,.08); transform: translateY(-2px); }
+                .cc-logo {
+                  height: 56px;
+                  width: auto;
+                  object-fit: contain;
+                  opacity: .9;
+                  filter: grayscale(1);
+                  transition: opacity .2s ease, filter .2s ease, transform .2s ease;
+                }
+                @media (min-width: 768px) {
+                  .cc-logo { height: 64px; }
+                }
+                .cc-card:hover .cc-logo { opacity: 1; filter: grayscale(0); transform: scale(1.02); }
+              `}</style>
+
+              <div className="relative overflow-hidden cc-marquee">
+                <div className="cc-track">
+                  {[...brands, ...brands].map((b, idx) => (
+                    <a
+                      key={`${b.name}-${idx}`}
+                      href={b.href || "#"}
+                      target={b.href ? "_blank" : undefined}
+                      rel={b.href ? "noopener noreferrer" : undefined}
+                      aria-label={b.name}
+                      className="cc-card"
+                    >
+                      <img
+                        src={b.src}
+                        alt={`${b.name} logo`}
+                        className="cc-logo"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </a>
+                  ))}
                 </div>
-                <blockquote className="text-lg font-medium">
-                  <p>"Their strategic approach and attention to detail are unmatched. Highly recommend!"</p>
-                </blockquote>
-                <div className="mt-4 text-sm text-muted-foreground">— B2B Services</div>
-              </div>
-              <div className="rounded-xl border border-border p-8 shadow-sm bg-card">
-                <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <Shield size={24} className="text-primary" />
-                </div>
-                <blockquote className="text-lg font-medium">
-                  <p>"Roger and his team are true SEO experts. They delivered exceptional results for our business."</p>
-                </blockquote>
-                <div className="mt-4 text-sm text-muted-foreground">— SMB Founder</div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Ready to Elevate CTA */}
-        <section className="bg-primary/5 py-16 sm:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Ready to Elevate Your Online Presence?</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              Schedule a free consultation and discover how Calvo Creativo can help your business achieve its SEO goals.
+        {/* TESTIMONIOS (placeholder) */}
+        <section className="py-20">
+          <div className="container mx-auto px-6">
+            <div className="max-w-5xl mx-auto text-center mb-12">
+              <h2 className="text-3xl font-bold text-primary mb-4">
+                What clients say
+              </h2>
+              <p className="text-muted-foreground">
+                Próximamente agregaremos testimonios reales y verificados. Si quieres
+                incluir logos con cita, los montamos aquí.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {[1, 2, 3].map((i) => (
+                <div
+                  key={i}
+                  className="bg-card border border-border rounded-xl p-6 text-left"
+                >
+                  <div className="text-sm text-muted-foreground italic">
+                    “Calvo Creativo nos ayudó a estructurar el SEO con claridad
+                    estratégica y foco en resultados. Flujo de leads en aumento.”
+                  </div>
+                  <div className="mt-4 text-sm font-semibold text-primary">
+                    Client Name
+                  </div>
+                  <div className="text-xs text-muted-foreground">Role, Company</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-20 bg-secondary/30">
+          <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-primary mb-6">
+                Frequently Asked Questions
+              </h2>
+
+              <div className="space-y-4">
+                {faqs.map((item, idx) => (
+                  <details
+                    key={idx}
+                    className="group bg-card border border-border rounded-xl p-5"
+                  >
+                    <summary className="cursor-pointer list-none flex items-start justify-between">
+                      <h3 className="text-lg font-semibold text-primary pr-4">
+                        {item.q}
+                      </h3>
+                      <span className="text-muted-foreground group-open:rotate-180 transition-transform">
+                        ▼
+                      </span>
+                    </summary>
+                    <div className="mt-3 text-sm text-muted-foreground">
+                      {item.a}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA FINAL */}
+        <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white">
+          <div className="container mx-auto px-6 text-center">
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
+              Ready to Grow with Strategic SEO?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Let’s align your content, architecture, and storytelling to win
+              consistently in Florida.
             </p>
-            <div className="mt-8">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center rounded-lg bg-primary px-8 py-3 text-base font-bold text-primary-foreground shadow-lg transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="tel:+573046807443"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 rounded-md px-8"
               >
-                Get a Free SEO Audit
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Frequently Asked Questions */}
-        <section className="py-16 sm:py-24">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-center text-3xl font-extrabold tracking-tight sm:text-4xl">Frequently Asked Questions</h2>
-              <div className="mt-12 space-y-4">
-                <details className="group rounded-lg border border-border bg-card p-6">
-                  <summary className="flex cursor-pointer items-center justify-between text-lg font-medium">
-                    What is SEO?
-                    <svg className="h-6 w-6 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
-                    </svg>
-                  </summary>
-                  <p className="mt-4 text-base text-muted-foreground">
-                    Search Engine Optimization (SEO) is the process of improving your website's visibility in search engine results pages (SERPs). This involves optimizing various elements of your website, such as content, structure, and technical aspects, to rank higher for relevant keywords and attract more organic traffic.
-                  </p>
-                </details>
-                <details className="group rounded-lg border border-border bg-card p-6">
-                  <summary className="flex cursor-pointer items-center justify-between text-lg font-medium">
-                    How long does it take to see results?
-                    <svg className="h-6 w-6 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
-                    </svg>
-                  </summary>
-                  <p className="mt-4 text-base text-muted-foreground">
-                    SEO is a long-term strategy. While some improvements can be seen within a few weeks, significant results typically take 4-6 months. The exact timeline depends on factors like your industry's competitiveness, your website's current state, and the scope of our engagement.
-                  </p>
-                </details>
-                <details className="group rounded-lg border border-border bg-card p-6">
-                  <summary className="flex cursor-pointer items-center justify-between text-lg font-medium">
-                    What's included in your SEO services?
-                    <svg className="h-6 w-6 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
-                    </svg>
-                  </summary>
-                  <p className="mt-4 text-base text-muted-foreground">
-                    Our comprehensive SEO services include a full technical audit, keyword research, on-page optimization, content strategy, quality link building, and regular performance reporting. We tailor each package to your specific needs.
-                  </p>
-                </details>
-                <details className="group rounded-lg border border-border bg-card p-6">
-                  <summary className="flex cursor-pointer items-center justify-between text-lg font-medium">
-                    How do you measure success?
-                    <svg className="h-6 w-6 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
-                    </svg>
-                  </summary>
-                  <p className="mt-4 text-base text-muted-foreground">
-                    We focus on key performance indicators (KPIs) that matter to your business, such as organic traffic growth, keyword ranking improvements, conversion rate, and ultimately, return on investment (ROI).
-                  </p>
-                </details>
-                <details className="group rounded-lg border border-border bg-card p-6">
-                  <summary className="flex cursor-pointer items-center justify-between text-lg font-medium">
-                    What industries do you specialize in?
-                    <svg className="h-6 w-6 transform transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 9l-7 7-7-7" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
-                    </svg>
-                  </summary>
-                  <p className="mt-4 text-base text-muted-foreground">
-                    We have extensive experience working with businesses in various sectors across Florida, including tourism, real estate, professional services, and e-commerce. Our strategies are adaptable to any industry.
-                  </p>
-                </details>
-              </div>
+                Schedule Free Consultation
+              </a>
+              <a
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border bg-transparent hover:text-primary-foreground transition-all duration-200 h-11 rounded-md px-8 border-white/30 text-white hover:bg-white/10"
+                href="/services"
+              >
+                Explore Services
+              </a>
             </div>
           </div>
         </section>
