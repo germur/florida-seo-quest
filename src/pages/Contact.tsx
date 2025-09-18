@@ -1,381 +1,216 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Mail, Calendar, MessageSquare, MapPin, Clock } from "lucide-react";
-import { useState } from "react";
-import Header from "@/components/Header";
-import { Link } from "react-router-dom";
+import React from "react";
 import SEO from "@/components/SEO";
-import { Helmet } from "react-helmet-async";
+import { SITE, schemaConfigs } from "@/lib/seo";
+import { Link } from "react-router-dom";
 
-const Contact = () => {
-  const canonical = "https://calvocreativo.com/contact";
+const Contact: React.FC = () => {
+  const canonical = `${SITE}/contact`;
+  const title = "Contact Calvo Creativo — Book a Strategic SEO Consultation";
+  const description =
+    "Let’s map your growth: quick diagnostic, priorities, and a 90-day plan. Phone, email, and calendar.";
 
-  // JSON-LD: ContactPage + Breadcrumbs (+ FAQPage opcional)
-  const contactSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ContactPage",
-        "@id": "https://calvocreativo.com/contact#webpage",
-        "url": canonical,
-        "name": "Contact Calvo Creativo",
-        "isPartOf": { "@id": "https://calvocreativo.com/#website" },
-        "breadcrumb": { "@id": "https://calvocreativo.com/contact#breadcrumb" }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://calvocreativo.com/contact#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://calvocreativo.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Contact", "item": canonical }
-        ]
-      }
-    ]
-  };
-
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How long does it take to see SEO results?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Typically, you'll start seeing improvements in 3–4 months, with significant results in 6–8 months, depending on competitiveness and current site condition."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you work with businesses outside of Florida?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We specialize in Florida but also work remotely across the US (EN/ES)."
-        }
-      }
-    ]
-  };
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-    service: ""
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const subject = `SEO Consultation Request from ${formData.name}`;
-    const body = `
-Hello,
-
-My name is ${formData.name} and I'm interested in SEO services.
-
-Company: ${formData.company || 'Not specified'}
-Service of Interest: ${formData.service || 'Not specified'}
-
-Message:
-${formData.message}
-
-Please contact me at: ${formData.email}
-
-Best regards,
-${formData.name}
-    `.trim();
-
-    const mailtoLink = `mailto:rogermur1990@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
-
-    setFormData({ name: "", email: "", company: "", message: "", service: "" });
-    alert("Thank you! Your message has been prepared. Please send the email that just opened.");
-  };
-
-  const contactMethods = [
-    {
-      icon: <Mail className="h-6 w-6" />,
-      title: "Email Direct",
-      description: "Send us a message and we'll respond within 24 hours",
-      action: "Send Email",
-      color: "electric-blue"
-    },
-    {
-      icon: <MessageSquare className="h-6 w-6" />,
-      title: "Business Inquiry",
-      description: "For detailed proposals and business discussions",
-      action: "Contact Us",
-      color: "teal"
-    }
-  ];
-
-  const services = [
-    "SEO Strategy (MAES Framework)",
-    "SEO Audit & Technical Fixes", 
-    "SEO Consulting & Advisory",
-    "Local SEO for Florida",
-    "Other - I'll explain in the message"
-  ];
-
-  const faqs = [
-    {
-      question: "How long does it take to see SEO results?",
-      answer: "Typically, you'll start seeing improvements in 3-4 months, with significant results in 6-8 months. However, this depends on your industry competitiveness and current site condition."
-    },
-    {
-      question: "Do you work with businesses outside of Florida?",
-      answer: "While we specialize in the Florida market, we also work with businesses in other US states. Our local expertise in Florida gives us deep insights into US market dynamics."
-    },
-    {
-      question: "What's included in the MAES Framework?",
-      answer: "The MAES Framework includes Market research, Architecture planning, Execution strategy, and Scaling optimization. It's our comprehensive approach to sustainable SEO growth."
-    },
-    {
-      question: "Do you offer ongoing SEO management?",
-      answer: "Yes, we offer monthly consulting and ongoing optimization services. Many clients start with our strategy or audit services and then continue with ongoing support."
-    }
-  ];
+  const breadcrumbsSchema = schemaConfigs.breadcrumbs([
+    { name: "Home", item: `${SITE}/` },
+    { name: "Contact", item: canonical },
+  ]);
 
   return (
-    <main className="min-h-screen pt-16">
-      {/* Head */}
-      <Helmet>
-        <link rel="canonical" href={canonical} />
-        <script type="application/ld+json">{JSON.stringify(contactSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+    <>
+      <SEO
+        page="contact"
+        customTitle={title}
+        customDescription={description}
+        customCanonical={canonical}
+        additionalSchemas={[{ schema: breadcrumbsSchema, id: "breadcrumbs-schema" }]}
+      />
 
-      <SEO page="contact" />
-      <Header />
-
-      {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-black text-primary mb-6">
-              Let's Talk About Your SEO
+      <main className="min-h-screen">
+        {/* Hero con beneficio */}
+        <section className="py-20 bg-gradient-to-br from-secondary/20 to-background border-b border-border">
+          <div className="container mx-auto px-6 max-w-4xl">
+            <h1 className="text-4xl md:text-5xl font-black text-primary mb-4">
+              Book a strategic SEO consultation
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-              Ready to grow your Florida business with strategic SEO? Let's discuss how we can help you achieve sustainable growth.
+            <p className="text-lg text-muted-foreground">
+              We’ll identify quick wins, map your architecture, and outline a
+              90-day plan.
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Methods */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-primary text-center mb-12">Get in Touch Via Email</h2>
-            <div className="grid md:grid-cols-2 gap-8 mb-16">
-              {contactMethods.map((method, index) => (
-                <div 
-                  key={index}
-                  className={`rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group ${
-                    method.color === 'teal' ? 'bg-gradient-to-br from-teal/10 to-teal/5 border border-teal/20' :
-                    method.color === 'electric-blue' ? 'bg-gradient-to-br from-electric-blue/10 to-electric-blue/5 border border-electric-blue/20' :
-                    'bg-gradient-to-br from-bright-orange/10 to-bright-orange/5 border border-bright-orange/20'
-                  }`}
-                >
-                  <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl mb-6 transition-all duration-300 ${
-                    method.color === 'teal' ? 'bg-teal/20 group-hover:bg-teal/30 text-teal' :
-                    method.color === 'electric-blue' ? 'bg-electric-blue/20 group-hover:bg-electric-blue/30 text-electric-blue' :
-                    'bg-bright-orange/20 group-hover:bg-bright-orange/30 text-bright-orange'
-                  }`}>
-                    {method.icon}
-                  </div>
-                  <h3 className="text-2xl font-semibold text-primary mb-4">{method.title}</h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">{method.description}</p>
-                  <Button variant="outline" className={`w-full transition-all ${
-                    method.color === 'teal' ? 'group-hover:bg-teal group-hover:text-white group-hover:border-teal' :
-                    'group-hover:bg-electric-blue group-hover:text-white group-hover:border-electric-blue'
-                  }`} asChild>
-                    <a href="mailto:rogermur1990@gmail.com">
-                      {method.action}
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
-                </div>
+            <ul className="mt-6 grid sm:grid-cols-3 gap-3 text-sm text-muted-foreground">
+              {[
+                "Quick diagnostic",
+                "90-day priorities & KPIs",
+                "Clear next steps",
+              ].map((b) => (
+                <li key={b} className="bg-card border border-border rounded-lg p-3">
+                  {b}
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Contact Form */}
-      <section className="py-24 bg-secondary/30">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 items-start">
-              <div>
-                <h2 className="text-3xl font-bold text-primary mb-6">
-                  Send Us a Message
+        {/* Form + Alternativas */}
+        <section className="py-16">
+          <div className="container mx-auto px-6 max-w-4xl grid lg:grid-cols-3 gap-8">
+            {/* Form (simple, listo para mailto) */}
+            <div className="lg:col-span-2">
+              <div className="bg-card border border-border rounded-xl p-6">
+                <h2 className="text-xl font-semibold text-primary mb-4">
+                  Tell us about your project
                 </h2>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Tell us about your business and SEO goals. The more details you provide, 
-                  the better we can prepare for our conversation.
-                </p>
-                <div className="space-y-6">
-                  <div className="flex items-center">
-                    <Clock className="h-5 w-5 text-teal mr-3" />
-                    <span className="text-muted-foreground">Response within 24 hours</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Mail className="h-5 w-5 text-electric-blue mr-3" />
-                    <span className="text-muted-foreground">Free consultation via email</span>
-                  </div>
-                  <div className="flex items-center">
-                    <MapPin className="h-5 w-5 text-bright-orange mr-3" />
-                    <span className="text-muted-foreground">Serving all of Florida</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-card border border-border rounded-2xl p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-primary mb-2">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal"
-                        placeholder="Your name"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-primary mb-2">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-primary mb-2">
-                      Company Name
-                    </label>
+                <form
+                  className="grid gap-4"
+                  method="POST"
+                  action="mailto:rogermur1990@gmail.com"
+                >
+                  <label className="grid gap-1">
+                    <span className="text-sm text-muted-foreground">Name</span>
                     <input
+                      className="h-10 rounded-md border border-border bg-background px-3 text-sm"
                       type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal"
-                      placeholder="Your company"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-primary mb-2">
-                      Service of Interest
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal"
-                    >
-                      <option value="">Select a service</option>
-                      {services.map((service, index) => (
-                        <option key={index} value={service}>{service}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-primary mb-2">
-                      Message *
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
+                      name="name"
+                      placeholder="Your name"
                       required
-                      rows={6}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal resize-none"
-                      placeholder="Tell us about your business, current challenges, and SEO goals..."
-                    ></textarea>
-                  </div>
-
-                  <Button type="submit" size="lg" className="w-full group">
-                    Send Message
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                  
-                  <p className="text-sm text-muted-foreground text-center">
-                    By submitting this form, you agree to our privacy policy and terms of service.
+                    />
+                  </label>
+                  <label className="grid gap-1">
+                    <span className="text-sm text-muted-foreground">Email</span>
+                    <input
+                      className="h-10 rounded-md border border-border bg-background px-3 text-sm"
+                      type="email"
+                      name="email"
+                      placeholder="you@email.com"
+                      required
+                    />
+                  </label>
+                  <label className="grid gap-1">
+                    <span className="text-sm text-muted-foreground">Website</span>
+                    <input
+                      className="h-10 rounded-md border border-border bg-background px-3 text-sm"
+                      type="url"
+                      name="website"
+                      placeholder="https://yourdomain.com"
+                    />
+                  </label>
+                  <label className="grid gap-1">
+                    <span className="text-sm text-muted-foreground">
+                      Goals / blockers / target locations
+                    </span>
+                    <textarea
+                      className="min-h-[120px] rounded-md border border-border bg-background px-3 py-2 text-sm"
+                      name="message"
+                      placeholder="Tell us about your goals, blockers, and target cities/services..."
+                      required
+                    />
+                  </label>
+                  <p className="text-xs text-muted-foreground">
+                    We’ll only use your info to reply. No spam.
                   </p>
+                  <button
+                    type="submit"
+                    className="inline-flex items-center px-4 py-2 rounded-md bg-electric-blue text-electric-blue-foreground hover:bg-electric-blue/90 transition w-full sm:w-auto"
+                  >
+                    Send
+                  </button>
                 </form>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* FAQs */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-primary text-center mb-12">Frequently Asked Questions</h2>
-            <div className="space-y-6">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-card border border-border rounded-xl p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-3">{faq.question}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
-                </div>
-              ))}
-            </div>
-            <div className="text-center mt-12">
-              <p className="text-muted-foreground mb-4">Don't see your question answered?</p>
-              <Button variant="outline" size="lg">
-                Ask Your Question
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+            {/* Alternativas / NAP / Links */}
+            <aside className="space-y-6">
+              <div className="bg-secondary/20 border border-border rounded-xl p-6">
+                <h3 className="font-semibold text-primary mb-2">Quick contact</h3>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  <li>
+                    Phone:{" "}
+                    <a className="text-primary hover:underline" href="tel:+573046807443">
+                      +57 304 680 7443
+                    </a>
+                  </li>
+                  <li>
+                    Email:{" "}
+                    <a
+                      className="text-primary hover:underline"
+                      href="mailto:rogermur1990@gmail.com"
+                    >
+                      rogermur1990@gmail.com
+                    </a>
+                  </li>
+                </ul>
+              </div>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Ready to Grow Your Business?
-          </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Join the Florida businesses that have already transformed their online presence with strategic SEO.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
-              <a href="mailto:rogermur1990@gmail.com">Get Free Consultation</a>
-            </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
-              <Link to="/case-studies">View Success Stories</Link>
-            </Button>
+              <div className="bg-secondary/20 border border-border rounded-xl p-6">
+                <h3 className="font-semibold text-primary mb-2">Service area</h3>
+                <p className="text-sm text-muted-foreground">
+                  Miami, FL — Mon–Fri 9:00–18:00
+                </p>
+              </div>
+
+              <div className="bg-secondary/20 border border-border rounded-xl p-6">
+                <h3 className="font-semibold text-primary mb-2">Explore next</h3>
+                <ul className="list-disc list-inside text-sm">
+                  <li>
+                    <Link to="/services" className="text-primary hover:underline">
+                      Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="/services/strategic-seo-consulting"
+                      className="text-primary hover:underline"
+                    >
+                      Strategic SEO Consulting
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/case-studies" className="text-primary hover:underline">
+                      Case Studies
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </aside>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+
+        {/* FAQs (evitar soft-404; cubrir intención) */}
+        <section className="py-16 bg-secondary/20">
+          <div className="container mx-auto px-6 max-w-4xl">
+            <h2 className="text-2xl font-bold text-primary mb-6">FAQs</h2>
+            <div className="space-y-4 text-sm text-muted-foreground">
+              <details className="bg-card border border-border rounded-lg p-4">
+                <summary className="font-medium text-primary">
+                  What happens after I submit the form?
+                </summary>
+                <p className="mt-2">
+                  We confirm, review your site, and propose time slots for a 15–30 min call.
+                </p>
+              </details>
+              <details className="bg-card border border-border rounded-lg p-4">
+                <summary className="font-medium text-primary">
+                  Is the consultation free?
+                </summary>
+                <p className="mt-2">Yes, it’s a strategic assessment call.</p>
+              </details>
+              <details className="bg-card border border-border rounded-lg p-4">
+                <summary className="font-medium text-primary">
+                  How long does a typical engagement last?
+                </summary>
+                <p className="mt-2">Initial 8–12 weeks; ongoing optimization optional.</p>
+              </details>
+              <details className="bg-card border border-border rounded-lg p-4">
+                <summary className="font-medium text-primary">
+                  Do you work with in-house teams?
+                </summary>
+                <p className="mt-2">
+                  Yes—we spec tasks and ship dev/content tickets ready to implement.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
   );
 };
 

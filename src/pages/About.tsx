@@ -1,301 +1,242 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Award, Users, TrendingUp, Heart, Target, Lightbulb } from "lucide-react";
-import Header from "@/components/Header";
+import React from "react";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
-import { Helmet } from "react-helmet-async";
+import { SITE, schemaConfigs } from "@/lib/seo";
 
-const About = () => {
-  const canonical = "https://calvocreativo.com/about";
+const About: React.FC = () => {
+  const canonical = `${SITE}/about`;
+  const title = "About Calvo Creativo — Strategic SEO Consultant in Florida";
+  const description =
+    "7+ years driving AI-driven SEO strategies, programmatic pages, and technical audits. See our method, proof, and real outcomes.";
 
-  // JSON-LD: AboutPage + Breadcrumbs (específico, sin duplicar Organization/Website)
-  const aboutSchema = {
+  const breadcrumbsSchema = schemaConfigs.breadcrumbs([
+    { name: "Home", item: `${SITE}/` },
+    { name: "About", item: canonical },
+  ]);
+
+  // Person schema (E-E-A-T)
+  const personSchema = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "AboutPage",
-        "@id": "https://calvocreativo.com/about#webpage",
-        "url": canonical,
-        "name": "About Calvo Creativo",
-        "isPartOf": { "@id": "https://calvocreativo.com/#website" },
-        "breadcrumb": { "@id": "https://calvocreativo.com/about#breadcrumb" }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://calvocreativo.com/about#breadcrumb",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://calvocreativo.com/" },
-          { "@type": "ListItem", "position": 2, "name": "About", "item": canonical }
-        ]
-      }
-    ]
+    "@type": "Person",
+    name: "Roger Murillo",
+    url: `${SITE}/about`,
+    image: `${SITE}/og-home.jpg`,
+    jobTitle: "SEO Strategist & Consultant",
+    worksFor: { "@type": "Organization", name: "Calvo Creativo" },
+    sameAs: [
+      "https://x.com/Rogermu47429637",
+      "https://www.linkedin.com/in/rogermurillo/",
+    ],
   };
 
-  const values = [
-    {
-      icon: <Target className="h-8 w-8" />,
-      title: "Measurable Results", 
-      description: "Every strategy is based on real data and metrics. We don't do SEO for SEO's sake, we do it to generate real business growth.",
-      color: "teal"
-    },
-    {
-      icon: <Lightbulb className="h-8 w-8" />,
-      title: "Total Transparency",
-      description: "We explain every step, share our processes, and keep you informed. SEO shouldn't be a black box.",
-      color: "electric-blue"
-    },
-    {
-      icon: <Heart className="h-8 w-8" />,
-      title: "Human-Centered Approach", 
-      description: "Behind every keyword are real people with real needs. We optimize for algorithms, but think about humans.",
-      color: "bright-orange"
-    }
-  ];
-
-  const stats = [
-    { number: "7+", label: "Years in SEO", color: "teal" },
-    { number: "50+", label: "Successful Projects", color: "electric-blue" },
-    { number: "+280%", label: "Average Growth", color: "bright-orange" },
-    { number: "100%", label: "Focused on Florida", color: "purple" }
-  ];
-
   return (
-    <main className="min-h-screen pt-16">
-      {/* Head */}
-      <Helmet>
-        <link rel="canonical" href={canonical} />
-        <script type="application/ld+json">{JSON.stringify(aboutSchema)}</script>
-      </Helmet>
+    <>
+      <SEO
+        page="about"
+        customTitle={title}
+        customDescription={description}
+        customCanonical={canonical}
+        additionalSchemas={[
+          { schema: breadcrumbsSchema, id: "breadcrumbs-schema" },
+          { schema: personSchema, id: "person-schema" },
+        ]}
+      />
 
-      {/* Tu SEO general (title/description) */}
-      <SEO page="about" />
-      <Header />
-
-      {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-black text-primary mb-6">
+      <main className="min-h-screen">
+        {/* Hero (piramide invertida: valor inmediato + micro-proof) */}
+        <section className="py-20 bg-gradient-to-br from-secondary/20 to-background border-b border-border">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <h1 className="text-4xl md:text-5xl font-black text-primary mb-4">
               About Calvo Creativo
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-              Helping Florida businesses grow with SEO since 2017. 
-              Specialist in topical authority and search intent-based strategies.
+            <p className="text-lg text-muted-foreground max-w-3xl">
+              AI-driven SEO strategy for Florida businesses: semantic architecture,
+              programmatic pages, and UX writing that converts.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4 mt-8">
+              {[
+                { k: "Organic Growth", v: "200–400% (6–9 months)" },
+                { k: "Qualified Leads", v: "3.1× avg" },
+                { k: "Top-3 Money KWs", v: "12+" },
+              ].map((m) => (
+                <div
+                  key={m.k}
+                  className="bg-card border border-border rounded-xl p-4"
+                >
+                  <div className="text-sm text-muted-foreground">{m.k}</div>
+                  <div className="text-xl font-bold text-primary">{m.v}</div>
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-3 mt-8">
+              <Link
+                to="/contact"
+                className="inline-flex items-center px-4 py-2 rounded-md bg-electric-blue text-electric-blue-foreground hover:bg-electric-blue/90 transition"
+              >
+                Book Consultation
+              </Link>
+              <Link
+                to="/case-studies"
+                className="inline-flex items-center px-4 py-2 rounded-md border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition"
+              >
+                View Case Studies
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Why work with us */}
+        <section className="py-16">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <h2 className="text-2xl font-bold text-primary mb-4">
+              Why work with us
+            </h2>
+            <ul className="grid md:grid-cols-3 gap-4">
+              {[
+                "Strategic, not just checklists.",
+                "Semantic architecture + programmatic SEO.",
+                "Data storytelling that drives conversions.",
+              ].map((b, i) => (
+                <li
+                  key={i}
+                  className="bg-secondary/20 border border-border rounded-xl p-4 text-sm text-muted-foreground"
+                >
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        {/* Founder story (storytelling breve) */}
+        <section className="py-8">
+          <div className="container mx-auto px-6 max-w-3xl prose prose-neutral">
+            <h2 className="text-2xl font-bold text-primary">Founder’s story</h2>
+            <p>
+              I started as an in-house SEO fixing crawling issues and thin
+              content. The turning point was building semantic maps and
+              programmatic pages for multi-city services. Today, I combine
+              technical SEO, AI, and UX writing to ship predictable growth.
             </p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Story Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="text-4xl font-bold text-primary mb-6">
-                  My SEO Journey
-                </h2>
-                <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-                  <p>
-                    I started in SEO in 2017, when the rules of the game were different. 
-                    Since then, I've seen how SEO evolved from being about "tricks" 
-                    to becoming a strategic discipline centered on user experience.
-                  </p>
-                  <p>
-                    My approach has always been to deeply understand the Florida local market. 
-                    From Miami to Jacksonville, each city has its particularities, 
-                    its unique competition, and its specific opportunities.
-                  </p>
-                  <p>
-                    I developed the MAES Framework after years of trial and error, 
-                    studying what really works in the US market and, 
-                    specifically, in Florida's business ecosystem.
-                  </p>
-                </div>
-                <Button size="lg" className="mt-8 group" asChild>
-                  <Link to="/how-we-work">
-                    Learn About the MAES Framework
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-2 gap-6">
-                {stats.map((stat, index) => (
-                  <div 
-                    key={index}
-                    className={`bg-gradient-to-br from-${stat.color}/10 to-${stat.color}/5 border border-${stat.color}/20 rounded-2xl p-6 text-center`}
-                  >
-                    <div className={`text-4xl font-black text-${stat.color} mb-2`}>
-                      {stat.number}
-                    </div>
-                    <div className="text-sm text-muted-foreground font-medium">
-                      {stat.label}
-                    </div>
+        {/* Method (MAES) */}
+        <section className="py-16 bg-secondary/30">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <h2 className="text-2xl font-bold text-primary mb-6">
+              Our MAES method
+            </h2>
+            <div className="grid md:grid-cols-4 gap-6">
+              {[
+                {
+                  t: "Market research",
+                  d: "Competitive mapping, SERP anatomy, intent gaps.",
+                },
+                {
+                  t: "Architecture",
+                  d: "Clusters, silos, internal links, breadcrumbs.",
+                },
+                {
+                  t: "Execution",
+                  d: "Content playbooks & programmatic SEO.",
+                },
+                {
+                  t: "Scaling",
+                  d: "Testing, dashboards, compounding interlinks.",
+                },
+              ].map((s) => (
+                <div key={s.t} className="bg-card border border-border rounded-xl p-6">
+                  <div className="text-lg font-semibold text-primary mb-1">
+                    {s.t}
                   </div>
-                ))}
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Values Section */}
-      <section className="py-24 bg-gradient-to-br from-secondary/30 to-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-primary mb-6">
-                My Values
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                The principles that guide every project and strategic decision
-              </p>
-            </div>
-            <div className="grid md:grid-cols-3 gap-8">
-              {values.map((value, index) => (
-                <div 
-                  key={index}
-                  className="bg-card border border-border rounded-2xl p-8 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
-                >
-                  <div className={`inline-flex items-center justify-center w-16 h-16 bg-${value.color}/10 rounded-2xl mb-6`}>
-                    <div className={`text-${value.color}`}>
-                      {value.icon}
-                    </div>
-                  </div>
-                  <h3 className="text-2xl font-semibold text-primary mb-4">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {value.description}
-                  </p>
+                  <div className="text-sm text-muted-foreground">{s.d}</div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Expertise Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-primary mb-6">
-                My Expertise
-              </h2>
-              <p className="text-lg text-muted-foreground">
-                Specialized in strategies that work specifically for the Florida market
-              </p>
-            </div>
-            <div className="space-y-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-card border border-border rounded-2xl p-6">
-                  <div className="flex items-center mb-4">
-                    <Award className="h-6 w-6 text-teal mr-3" />
-                    <h3 className="text-xl font-semibold text-primary">Advanced Technical SEO</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Core Web Vitals, site architecture, indexation, crawling, 
-                    and performance optimization for complex sites.
-                  </p>
-                </div>
-                <div className="bg-card border border-border rounded-2xl p-6">
-                  <div className="flex items-center mb-4">
-                    <Users className="h-6 w-6 text-electric-blue mr-3" />
-                    <h3 className="text-xl font-semibold text-primary">Topical Authority</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Authority building through topic clusters, 
-                    semantic architecture, and content hubs that rank.
-                  </p>
-                </div>
-              </div>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-card border border-border rounded-2xl p-6">
-                  <div className="flex items-center mb-4">
-                    <Target className="h-6 w-6 text-bright-orange mr-3" />
-                    <h3 className="text-xl font-semibold text-primary">Florida Local SEO</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Specific strategies for Florida local markets: 
-                    Miami, Orlando, Tampa, Jacksonville, and the entire region.
-                  </p>
-                </div>
-                <div className="bg-card border border-border rounded-2xl p-6">
-                  <div className="flex items-center mb-4">
-                    <TrendingUp className="h-6 w-6 text-purple mr-3" />
-                    <h3 className="text-xl font-semibold text-primary">Growth SEO</h3>
-                  </div>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    SEO focused on business growth: leads, conversions, 
-                    revenue, and metrics that directly impact the business.
-                  </p>
-                </div>
-              </div>
-            </div>
+        {/* Proof (mini-testimonios / sectores) */}
+        <section className="py-12">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <h2 className="text-2xl font-bold text-primary mb-4">Proof</h2>
+            <ul className="grid md:grid-cols-3 gap-4 text-sm text-muted-foreground">
+              <li className="bg-secondary/20 border border-border rounded-xl p-4">
+                “From scattered content to a semantic structure that actually
+                ranks and converts.” — Home Services
+              </li>
+              <li className="bg-secondary/20 border border-border rounded-xl p-4">
+                “Playbooks + automation cut our time-to-publish in half.” — B2B
+                Services
+              </li>
+              <li className="bg-secondary/20 border border-border rounded-xl p-4">
+                “Predictable growth milestones and clean dev tickets.” — SMB
+                Founder
+              </li>
+            </ul>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Music Section */}
-      <section className="py-24 bg-gradient-to-br from-secondary/30 to-background">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-primary mb-6">
-                What I Listen to While Working
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Music fuels creativity and focus. Here's my go-to playlist for deep SEO work and strategic thinking sessions.
-              </p>
-            </div>
-            <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
-              <div className="aspect-video max-w-2xl mx-auto">
-                <iframe 
-                  data-testid="embed-iframe" 
-                  style={{borderRadius: "12px"}} 
-                  src="https://open.spotify.com/embed/playlist/0TgYKz1vLPy1NjUnzdgiOG?utm_source=generator" 
-                  width="100%" 
-                  height="352" 
-                  frameBorder="0" 
-                  allowFullScreen={true}
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                  loading="lazy"
-                ></iframe>
-              </div>
-              <div className="text-center mt-6">
-                <p className="text-sm text-muted-foreground">
-                  Perfect background music for analyzing data, building strategies, and crafting SEO solutions.
+        {/* Internal links */}
+        <section className="py-12 border-t border-border">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <h3 className="font-semibold text-primary mb-3">Explore next</h3>
+            <ul className="list-disc list-inside text-sm">
+              <li>
+                <Link to="/services/strategic-seo-consulting" className="text-primary hover:underline">
+                  Strategic SEO Consulting
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/seo-automation" className="text-primary hover:underline">
+                  SEO Automation
+                </Link>
+              </li>
+              <li>
+                <Link to="/case-studies" className="text-primary hover:underline">
+                  Case Studies
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        {/* FAQs */}
+        <section className="py-16 bg-secondary/20">
+          <div className="container mx-auto px-6 max-w-4xl">
+            <h2 className="text-2xl font-bold text-primary mb-6">FAQs</h2>
+            <div className="space-y-4 text-sm text-muted-foreground">
+              <details className="bg-card border border-border rounded-lg p-4">
+                <summary className="font-medium text-primary">
+                  What industries do you specialize in?
+                </summary>
+                <p className="mt-2">
+                  Home services, professional services, and B2B. Multi-service,
+                  multi-city models fit perfectly with our architecture.
                 </p>
-              </div>
+              </details>
+              <details className="bg-card border border-border rounded-lg p-4">
+                <summary className="font-medium text-primary">
+                  How fast can we see results?
+                </summary>
+                <p className="mt-2">
+                  Early traction in 60–90 days; compounding growth by months 6–9.
+                </p>
+              </details>
+              <details className="bg-card border border-border rounded-lg p-4">
+                <summary className="font-medium text-primary">
+                  Do you handle content production?
+                </summary>
+                <p className="mt-2">
+                  Yes—playbooks + AI-assisted workflows for quality and speed.
+                </p>
+              </details>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Shall We Work Together?
-          </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            If your company is ready to grow with a serious, results-based SEO strategy, 
-            let's talk about your project.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
-              <a href="mailto:rogermur1990@gmail.com">Get Free Consultation</a>
-            </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
-              <Link to="/case-studies">View Success Stories</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </>
   );
 };
 
