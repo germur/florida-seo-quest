@@ -136,6 +136,19 @@ https://www.calvocreativo.com/*   https://calvocreativo.com/:splat   301!
 /cookie-policy                  /index.html                         200
 
 # ==============================
-# Catch-all - 404 para URLs no válidas (AL FINAL)
+# SPA catch-all (después de rewrites específicos, antes del 404)
 # ==============================
-/*                              /404.html                           404
+# Assets y archivos estáticos
+/robots.txt                         /robots.txt                       200
+/sitemap.xml                        /sitemap.xml                      200
+/image-sitemap.xml                  /image-sitemap.xml                200
+/assets/*                           /assets/:splat                    200
+/.well-known/*                      /.well-known/:splat               200
+
+# Catch-all para todas las rutas de SPA no listadas arriba
+/*                                  /index.html                       200
+
+# ==============================
+# 404 real - Solo para casos extremos que no deberían ocurrir
+# ==============================
+# (El catch-all de arriba maneja todo, esto es backup)

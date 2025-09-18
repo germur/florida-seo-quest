@@ -42,33 +42,34 @@ const SEO: React.FC<SEOProps> = ({
 
   useEffect(() => {
     const cfg = seoConfigs[page];
+    const isLegalPage = LEGAL_PAGES.includes(page);
 
     // 1) Meta + Canonical
     const rawCanonical =
       customCanonical || cfg.canonical || `${SITE}${pathname}`;
     const canonical = rawCanonical.replace(/\/+$/, "");
 
-    if (!LEGAL_PAGES.includes(page)) {
-      updatePageSEO({
-        title: customTitle ?? cfg.title,
-        description: customDescription ?? cfg.description,
-        canonical,
-        keywords: keywords ?? cfg.keywords,
-      });
-    }
+    // 2) Update page SEO with special handling for legal pages
+    updatePageSEO({
+      title: customTitle ?? cfg.title,
+      description: customDescription ?? cfg.description,
+      canonical,
+      keywords: keywords ?? cfg.keywords,
+      robots: isLegalPage ? "noindex, follow" : "index, follow",
+    });
 
-    // 2) Schemas globales (siempre)
+    // 3) Schemas globales (siempre)
     addSchema(webSiteSchema, "schema-website");
     addSchema(localBusinessSchema, "schema-localbusiness");
 
-    // 3) Schemas por tipo de página
+    // 4) Schemas por tipo de página
     if (page === "services") {
       // Solo en el índice de servicios
       addSchema(
         schemaConfigs.service(
           "SEO Consulting Services",
           "Comprehensive SEO consulting and digital growth services",
-          `${SITE}/services/`
+          `${SITE}/services`
         ),
         "service-index-schema"
       );
@@ -76,7 +77,7 @@ const SEO: React.FC<SEOProps> = ({
     // En detalle y programáticas NO metemos ese genérico
     // (ServiceDetail.tsx ya inyecta 'service-schema' con @graph)
 
-    // 4) Cualquier schema adicional pasado por props
+    // 5) Cualquier schema adicional pasado por props
     additionalSchemas.forEach(({ schema, id }, i) => {
       addSchema(schema, id || `additional-schema-${i}`);
     });

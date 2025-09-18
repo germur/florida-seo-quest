@@ -26,6 +26,26 @@ export const FLORIDA_CITIES = [
   { name: 'Gainesville, FL', slug: 'gainesville-fl', population: '140,000+', region: 'North Florida', businessCount: '12,000+', keyIndustries: ['Education','Healthcare','Technology','Agriculture'] },
 ];
 
+// H1 por ciudad / servicio (opcionalmente personalizados)
+const cityServiceTitles: Record<string, Record<string, string>> = {
+  'strategic-seo-consulting': {
+    'miami-fl': 'Strategic SEO Consulting in Miami, FL',
+    'orlando-fl': 'Strategic SEO Consulting for Businesses in Orlando, FL'
+  },
+  'digital-storytelling-services': {
+    'tampa-fl': 'Digital Storytelling Services in Tampa, FL',
+    'fort-lauderdale-fl': 'Digital Storytelling Solutions in Fort Lauderdale, FL'
+  },
+  'seo-automation': {
+    'jacksonville-fl': 'SEO Automation in Jacksonville, FL',
+    'orlando-fl': 'AI-Driven SEO Automation in Orlando, FL'
+  },
+  'personal-branding-consulting': {
+    'miami-fl': 'Personal Branding Consulting in Miami, FL',
+    'tampa-fl': 'Personal Branding SEO Consulting in Tampa, FL'
+  }
+};
+
 // Main SILO Structure
 export const SILO_STRUCTURE: { [key: string]: SILONode } = {
   // ROOT PILLAR: Services
@@ -92,65 +112,6 @@ export const SILO_STRUCTURE: { [key: string]: SILONode } = {
     metaTitle: 'Personal Branding for Consultants in FL | Build Your Authority',
     metaDescription: 'Expert personal branding consultancy for Florida professionals. Leverage our AI-driven strategies to optimize your profile & rank on Google. Schedule a free diagnostic!',
     schemaType: 'Service'
-  },
-
-  // EDUCATION PILLAR (ejemplo)
-  'education': {
-    id: 'education',
-    title: 'SEO Education & Guides',
-    path: '/education',
-    type: 'pillar',
-    children: ['seo-guides','technical-seo','link-building','content-optimization'],
-    keywords: ['seo education','seo guides florida','learn seo','seo training'],
-    metaTitle: 'Comprehensive SEO Guides: Master Basics, Technical & Link Building',
-    metaDescription: 'Free SEO guides for beginners & pros: technical SEO, link building, on-page. Unlock expert knowledge to boost your rankings & understand Google algorithms. Start learning now!',
-    schemaType: 'EducationalOrganization'
-  },
-
-  // TOOLS PILLAR (ejemplo)
-  'tools': {
-    id: 'tools',
-    title: 'SEO Tools & Resources',
-    path: '/tools',
-    type: 'pillar',
-    children: ['keyword-clustering','roi-calculator','title-analyzer','site-audit'],
-    keywords: ['seo tools','free seo tools','seo calculator','keyword tools'],
-    metaTitle: 'Free SEO Tools & Calculators | Professional Analysis & Reports',
-    metaDescription: 'Access professional SEO tools: keyword clustering, ROI calculator, title analyzer & site audit. Get instant insights to improve your Florida business rankings.',
-    schemaType: 'SoftwareApplication'
-  },
-
-  // BLOG CATEGORY (ejemplo)
-  'blog-ai-seo': {
-    id: 'blog-ai-seo',
-    title: 'AI in SEO: Strategies & Tools',
-    path: '/blog/ai-seo',
-    parent: 'blog',
-    type: 'category',
-    keywords: ['ai seo','artificial intelligence seo','seo automation','machine learning seo'],
-    metaTitle: 'AI in SEO: Strategies, Tools & Future | Calvo Creativo Insights',
-    metaDescription: 'Dive deep into AI SEO: automated keyword research, content creation & technical optimization. Stay ahead with expert insights & practical AI strategies for search dominance.',
-    schemaType: 'BlogPosting'
-  }
-};
-
-// H1 por ciudad / servicio (opcionalmente personalizados)
-const cityServiceTitles: Record<string, Record<string, string>> = {
-  'strategic-seo-consulting': {
-    'miami-fl': 'Strategic SEO Consulting in Miami, FL',
-    'orlando-fl': 'Strategic SEO Consulting for Businesses in Orlando, FL'
-  },
-  'digital-storytelling-services': {
-    'tampa-fl': 'Digital Storytelling Services in Tampa, FL',
-    'fort-lauderdale-fl': 'Digital Storytelling Solutions in Fort Lauderdale, FL'
-  },
-  'seo-automation': {
-    'jacksonville-fl': 'SEO Automation in Jacksonville, FL',
-    'orlando-fl': 'AI-Driven SEO Automation in Orlando, FL'
-  },
-  'personal-branding-consulting': {
-    'miami-fl': 'Personal Branding Consulting in Miami, FL',
-    'tampa-fl': 'Personal Branding SEO Consulting in Tampa, FL'
   }
 };
 
@@ -160,7 +121,7 @@ FLORIDA_CITIES.forEach(city => {
   SILO_STRUCTURE[`strategic-seo-consulting-${city.slug}`] = {
     id: `strategic-seo-consulting-${city.slug}`,
     title: cityServiceTitles['strategic-seo-consulting']?.[city.slug] || `Strategic SEO Consulting ${city.name}`,
-    path: `/services/strategic-seo-consulting/${city.slug}/`,
+    path: `/services/strategic-seo-consulting/${city.slug}`,
     parent: 'strategic-seo-consulting',
     type: 'city',
     isProgrammatic: true,
@@ -175,7 +136,7 @@ FLORIDA_CITIES.forEach(city => {
   SILO_STRUCTURE[`digital-storytelling-services-${city.slug}`] = {
     id: `digital-storytelling-services-${city.slug}`,
     title: cityServiceTitles['digital-storytelling-services']?.[city.slug] || `Digital Storytelling Services ${city.name}`,
-    path: `/services/digital-storytelling-services/${city.slug}/`,
+    path: `/services/digital-storytelling-services/${city.slug}`,
     parent: 'digital-storytelling-services',
     type: 'city',
     isProgrammatic: true,
@@ -190,7 +151,7 @@ FLORIDA_CITIES.forEach(city => {
   SILO_STRUCTURE[`seo-automation-${city.slug}`] = {
     id: `seo-automation-${city.slug}`,
     title: cityServiceTitles['seo-automation']?.[city.slug] || `SEO Automation Services ${city.name}`,
-    path: `/services/seo-automation/${city.slug}/`,
+    path: `/services/seo-automation/${city.slug}`,
     parent: 'seo-automation',
     type: 'city',
     isProgrammatic: true,
@@ -205,7 +166,7 @@ FLORIDA_CITIES.forEach(city => {
   SILO_STRUCTURE[`personal-branding-consulting-${city.slug}`] = {
     id: `personal-branding-consulting-${city.slug}`,
     title: cityServiceTitles['personal-branding-consulting']?.[city.slug] || `Personal Branding Consulting ${city.name}`,
-    path: `/services/personal-branding-consulting/${city.slug}/`,
+    path: `/services/personal-branding-consulting/${city.slug}`,
     parent: 'personal-branding-consulting',
     type: 'city',
     isProgrammatic: true,
@@ -229,7 +190,7 @@ export const getCityDataBySlug = (slug: string) => {
   return FLORIDA_CITIES.find(city => city.slug === slug);
 };
 
-// ====== NEW: Schema generator with Service + BreadcrumbList (@graph) ======
+// Schema generator with Service + BreadcrumbList (@graph)
 export const generateSILOSchema = (node: SILONode, cityData?: any) => {
   const site = "https://calvocreativo.com";
   const nodeUrl = `${site}${node.path}`;

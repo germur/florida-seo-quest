@@ -86,9 +86,9 @@ export function updatePageSEO(opts: {
   description?: string;
   canonical?: string;
   keywords?: string;
-  noindex?: boolean;
+  robots?: string;
 }) {
-  const { title, description, canonical, keywords, noindex } = opts;
+  const { title, description, canonical, keywords, robots = "index, follow" } = opts;
 
   if (title) {
     document.title = title;
@@ -103,20 +103,17 @@ export function updatePageSEO(opts: {
   if (keywords) setMeta("keywords", keywords);
   if (canonical) setCanonical(canonical);
 
-  // robots (para legales u otras noindex)
+  // robots meta tag
   const robotsSel = 'meta[name="robots"]';
-  const robots = document.querySelector<HTMLMetaElement>(robotsSel);
-  if (noindex) {
-    if (robots) {
-      robots.setAttribute("content", "noindex, nofollow");
-    } else {
-      const el = document.createElement("meta");
-      el.setAttribute("name", "robots");
-      el.setAttribute("content", "noindex, nofollow");
-      document.head.appendChild(el);
-    }
-  } else if (robots) {
-    robots.remove();
+  let robotsEl = document.querySelector<HTMLMetaElement>(robotsSel);
+  
+  if (robotsEl) {
+    robotsEl.setAttribute("content", robots);
+  } else {
+    robotsEl = document.createElement("meta");
+    robotsEl.setAttribute("name", "robots");
+    robotsEl.setAttribute("content", robots);
+    document.head.appendChild(robotsEl);
   }
 }
 
@@ -260,7 +257,7 @@ export const seoConfigs: Record<string, SEOConfig> = {
   },
   contact: {
     title: "Contact | Calvo Creativo",
-    description: "Book a consultation and let’s plan your growth.",
+    description: "Book a consultation and let's plan your growth.",
     canonical: `${SITE}/contact`,
   },
   privacyPolicy: {
