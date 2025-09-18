@@ -5,7 +5,7 @@ import SEO from "@/components/SEO";
 import { SITE } from "@/lib/seo";
 
 /* ================================================
- *  Schemas específicos de About
+ *  Schemas specific to About
  * ================================================ */
 const breadcrumbs = {
   "@context": "https://schema.org",
@@ -42,16 +42,43 @@ const brands: Brand[] = [
   { name: "Puff Cleaning", src: "/assets/logos/puff-cleaning.svg" },
   {
     name: "Paramount Property Restoration",
-    src: "/assets/logos/paramount.svg", // súbelo cuando lo tengas
+    src: "/assets/logos/paramount.svg", // if not uploaded yet, fallback kicks in
     href: "/case-studies/paramount-property-restoration",
   },
-  { name: "Eduf1st", src: "/assets/logos/edu1st.svg" },
+  { name: "Edu1st", src: "/assets/logos/edu1st.svg" },
   { name: "Bull Fintech", src: "/assets/logos/bull-fintech.svg" },
   { name: "Sakura Advisors", src: "/assets/logos/sakura-advisors.svg" },
 ];
 
+const BrandLogo: React.FC<{ brand: Brand; idx: number }> = ({ brand, idx }) => {
+  const [error, setError] = React.useState(false);
+  return (
+    <a
+      key={`${brand.name}-${idx}`}
+      href={brand.href || "#"}
+      target={brand.href ? "_blank" : undefined}
+      rel={brand.href ? "noopener noreferrer" : undefined}
+      aria-label={brand.name}
+      className="cc-card"
+    >
+      {!error ? (
+        <img
+          src={brand.src}
+          alt={`${brand.name} logo`}
+          className="cc-logo"
+          loading="lazy"
+          decoding="async"
+          onError={() => setError(true)}
+        />
+      ) : (
+        <span className="text-sm text-muted-foreground">{brand.name}</span>
+      )}
+    </a>
+  );
+};
+
 /* ================================================
- *  FAQ (las que enviaste)
+ *  FAQ (your content)
  * ================================================ */
 type FAQ = { q: string; a: JSX.Element };
 
@@ -63,9 +90,9 @@ const faqs: FAQ[] = [
         At Calvo Creativo, we specialize in <strong>strategic SEO</strong>,{" "}
         <strong>digital storytelling</strong>, and <strong>growth hacking</strong>{" "}
         for ambitious American businesses, particularly those in Florida. Our core
-        mission is to transform your online presence into a robust pillar of{" "}
-        <strong>topical authority</strong>, helping you attract high-quality
-        organic leads and reduce dependence on paid ads for sustainable growth.
+        mission is to turn your online presence into a pillar of{" "}
+        <strong>topical authority</strong>, attracting high-quality organic leads
+        and reducing dependence on paid ads for sustainable growth.
       </p>
     ),
   },
@@ -73,12 +100,12 @@ const faqs: FAQ[] = [
     q: "2. How does your approach to SEO differ from traditional agencies?",
     a: (
       <p>
-        We employ an <strong>AI-driven strategic SEO</strong> approach. We build{" "}
-        <strong>semantic architecture</strong> y <strong>content clusters</strong>{" "}
-        to establish your site as a definitive authority. Combinamos esto con{" "}
-        <strong>digital storytelling</strong> que conecta con tu audiencia y
-        priorizamos <strong>casos reales y resultados medibles</strong> — no solo
-        “hablar de SEO”.
+        We use an <strong>AI-driven strategic SEO</strong> approach. We build{" "}
+        <strong>semantic architecture</strong> and <strong>content clusters</strong>{" "}
+        that position your site as the definitive authority. Combined with{" "}
+        <strong>digital storytelling</strong> that truly connects with your
+        audience, we prioritize <strong>real case studies</strong> and{" "}
+        <strong>measurable results</strong> — not just talk about SEO.
       </p>
     ),
   },
@@ -86,11 +113,11 @@ const faqs: FAQ[] = [
     q: "3. What types of businesses are the best fit for Calvo Creativo's services?",
     a: (
       <p>
-        High-ticket services en Florida (contratistas, real estate, law firms,
-        educación/salud especializados), <strong>B2B</strong> que quieren escalar
-        más allá de lo local y <strong>agencias</strong> que buscan expertise SEO
-        externo. También potenciamos <strong>personal branding</strong> para
-        profesionales y coaches.
+        High-ticket service businesses in Florida (contractors, real estate, law
+        firms, specialized education/health), <strong>B2B</strong> companies
+        expanding beyond local to statewide/national, and <strong>agencies</strong>{" "}
+        seeking external SEO expertise. We also help professionals and coaches build
+        a formidable <strong>personal brand</strong>.
       </p>
     ),
   },
@@ -98,10 +125,10 @@ const faqs: FAQ[] = [
     q: "4. How do you integrate “digital storytelling” into SEO to benefit my brand?",
     a: (
       <p>
-        Un producto no cambia vidas si no <em>conecta</em>. Nuestro{" "}
-        <strong>digital storytelling</strong> crea narrativas que resuenan con tu
-        audiencia y, integradas a una <strong>content strategy</strong> inteligente,
-        elevan rankings, engagement y lealtad — construyendo una marca inspiradora.
+        A product doesn’t change lives if it doesn’t <em>connect</em>. Our{" "}
+        <strong>digital storytelling</strong> crafts narratives that resonate with
+        your audience and, integrated with a smart <strong>content strategy</strong>,
+        drives rankings, engagement, and loyalty — building a truly inspiring brand.
       </p>
     ),
   },
@@ -109,10 +136,10 @@ const faqs: FAQ[] = [
     q: "5. How do you leverage AI and automation in your SEO strategies?",
     a: (
       <p>
-        La IA es un <strong>catalizador</strong> para eficiencia — no reemplaza la
-        estrategia. Usamos IA para <strong>keyword research</strong>,
-        scraping competitivo y reporting automatizado. Escalamos contenido con datos
-        en tiempo real para decisiones precisas y <strong>ventaja competitiva</strong>.
+        AI is a <strong>catalyst</strong> for efficiency — it doesn’t replace
+        strategy. We use AI for <strong>keyword research</strong>, competitive
+        scraping, and automated reporting. This lets us scale content with real-time
+        data for precise decisions and a <strong>competitive edge</strong>.
       </p>
     ),
   },
@@ -120,10 +147,10 @@ const faqs: FAQ[] = [
     q: "6. What kind of results can I expect, and how do you measure success?",
     a: (
       <p>
-        Éxito = <strong>resultados medibles</strong>: Top-3 para keywords clave,
-        +200% de tráfico orgánico en el primer año y 3-5% de conversión desde
-        contenido. Medimos con GSC, GA4 y suites SEO, con KPIs claros y optimización
-        continua.
+        Success means <strong>measurable results</strong>: Top-3 rankings for
+        strategic keywords, +200% organic traffic in year one, and 3-5% conversion
+        from content. We track with GSC, GA4, and SEO suites, using clear KPIs and
+        continuous optimization.
       </p>
     ),
   },
@@ -131,33 +158,33 @@ const faqs: FAQ[] = [
     q: "7. What makes your “7+ years of experience in Florida” so valuable?",
     a: (
       <p>
-        Más de <strong>7 años</strong> operando con empresas en Florida nos dan{" "}
-        conocimiento local profundo: audiencia, dinámicas y el paisaje de{" "}
-        <strong>Local SEO Florida</strong>. Implementamos estrategias hiper-relevantes
-        que generan leads de calidad en un entorno competitivo.
+        Over <strong>7 years</strong> working with Florida companies gives us{" "}
+        deep local insight — audience, dynamics, and the{" "}
+        <strong>Local SEO Florida</strong> landscape. We implement hyper-relevant
+        strategies that win quality leads in a competitive region.
       </p>
     ),
   },
   {
-    q: "8. Can you help with personal branding?",
+    q: "8. I'm a professional looking to strengthen my online presence. Can you help?",
     a: (
       <p>
-        ¡Sí! El <strong>personal branding consulting</strong> es clave: construimos{" "}
-        <strong>autoridad personal</strong> con roadmap estratégico de contenido,
-        optimización de LinkedIn y narrativas que posicionan tu expertise como
-        referencia innegable.
+        Absolutely. <strong>Personal branding consulting</strong> is a key service:
+        we build <strong>personal topical authority</strong> with a strategic
+        content roadmap, LinkedIn optimization, and narratives that position your
+        expertise as an undeniable reference.
       </p>
     ),
   },
 ];
 
 /* ================================================
- *  Página
+ *  Page
  * ================================================ */
 const About: React.FC = () => {
   return (
     <main className="min-h-screen pt-16">
-      {/* SEO base + schemas específicos */}
+      {/* SEO + specific schemas */}
       <SEO
         page="about"
         additionalSchemas={[
@@ -166,10 +193,10 @@ const About: React.FC = () => {
         ]}
       />
 
-      {/* NAVBAR (global) */}
+      {/* NAVBAR */}
       <Header />
 
-      {/* HERO — sin imagen de fondo, consistente con el resto */}
+      {/* HERO (no background image) */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
@@ -181,11 +208,11 @@ const About: React.FC = () => {
               for Florida businesses ready to scale with authority.
             </p>
             <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto">
-              Combinamos arquitectura semántica, inteligencia de datos y narrativas
-              que convierten para crear crecimiento sostenible y autoridad temática.
+              We combine semantic architecture, data intelligence, and converting
+              narratives to create sustainable growth and topical authority.
             </p>
 
-            {/* CTAs principales */}
+            {/* Primary CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+573046807443"
@@ -204,7 +231,7 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* QUIÉNES SOMOS / PROPUESTA */}
+      {/* WHO WE ARE / VALUE PROP */}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-start">
@@ -213,16 +240,16 @@ const About: React.FC = () => {
                 We build authority, not noise
               </h2>
               <p className="text-muted-foreground mb-4">
-                No perseguimos “tácticas sueltas”. Diseñamos{" "}
-                <strong>arquitectura semántica</strong> y <strong>content clusters</strong>{" "}
-                que posicionan tu marca como referencia: del{" "}
-                <em>keyword research</em> avanzado a la ejecución con{" "}
-                <strong>storytelling</strong> y UX que convierte.
+                We don’t chase “isolated tactics.” We design{" "}
+                <strong>semantic architecture</strong> and{" "}
+                <strong>content clusters</strong> that position your brand as the
+                reference in your niche — from advanced keyword research to
+                execution with <strong>storytelling</strong> and UX that converts.
               </p>
               <p className="text-muted-foreground">
-                Nuestro enfoque <strong>AI-driven</strong> acelera investigación,
-                priorización y reporting — para que la estrategia impacte al negocio,
-                no solo al ranking.
+                Our <strong>AI-driven</strong> process accelerates research,
+                prioritization, and reporting — so strategy impacts the business,
+                not just rankings.
               </p>
             </div>
 
@@ -237,7 +264,7 @@ const About: React.FC = () => {
                       Strategic SEO
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Arquitectura, clusters y priorización basada en impacto.
+                      Architecture, clusters, and impact-first prioritization.
                     </p>
                   </div>
                 </div>
@@ -250,7 +277,7 @@ const About: React.FC = () => {
                       Digital Storytelling
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Historias y formatos que conectan con intención y contexto.
+                      Stories and formats that match intent and context.
                     </p>
                   </div>
                 </div>
@@ -263,8 +290,7 @@ const About: React.FC = () => {
                       AI &amp; Automation
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      Datos en tiempo real, eficiencia y escalabilidad sin perder
-                      criterio.
+                      Real-time data, efficiency, and scale without losing judgment.
                     </p>
                   </div>
                 </div>
@@ -283,7 +309,7 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* LOGOS / SOCIAL PROOF – MARQUEE (TAMAÑO UNIFORME) */}
+      {/* LOGOS / SOCIAL PROOF – MARQUEE (UNIFORM SIZE + FALLBACK) */}
       <section className="py-16 bg-secondary/30">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
@@ -342,22 +368,7 @@ const About: React.FC = () => {
             <div className="relative overflow-hidden cc-marquee">
               <div className="cc-track">
                 {[...brands, ...brands].map((b, idx) => (
-                  <a
-                    key={`${b.name}-${idx}`}
-                    href={b.href || "#"}
-                    target={b.href ? "_blank" : undefined}
-                    rel={b.href ? "noopener noreferrer" : undefined}
-                    aria-label={b.name}
-                    className="cc-card"
-                  >
-                    <img
-                      src={b.src}
-                      alt={`${b.name} logo`}
-                      className="cc-logo"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </a>
+                  <BrandLogo brand={b} idx={idx} key={`${b.name}-${idx}`} />
                 ))}
               </div>
             </div>
@@ -365,7 +376,7 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* TESTIMONIOS (placeholder) */}
+      {/* TESTIMONIALS (placeholder) */}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto text-center mb-12">
@@ -373,8 +384,8 @@ const About: React.FC = () => {
               What clients say
             </h2>
             <p className="text-muted-foreground">
-              Próximamente agregaremos testimonios reales y verificados. Si quieres
-              incluir logos con cita, los montamos aquí.
+              We’ll soon add real, verified testimonials. If you want logo + quote,
+              we’ll mount them here.
             </p>
           </div>
 
@@ -385,8 +396,8 @@ const About: React.FC = () => {
                 className="bg-card border border-border rounded-xl p-6 text-left"
               >
                 <div className="text-sm text-muted-foreground italic">
-                  “Calvo Creativo nos ayudó a estructurar el SEO con claridad
-                  estratégica y foco en resultados. Flujo de leads en aumento.”
+                  “Calvo Creativo brought strategic clarity to our SEO and focused on
+                  outcomes. Lead flow trending up.”
                 </div>
                 <div className="mt-4 text-sm font-semibold text-primary">
                   Client Name
@@ -430,7 +441,7 @@ const About: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA FINAL */}
+      {/* FINAL CTA */}
       <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6">
