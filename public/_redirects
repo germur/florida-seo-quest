@@ -1,13 +1,9 @@
-# ==============================
 # Canonical domain
-# ==============================
 http://calvocreativo.com/*        https://calvocreativo.com/:splat   301!
 http://www.calvocreativo.com/*    https://calvocreativo.com/:splat   301!
 https://www.calvocreativo.com/*   https://calvocreativo.com/:splat   301!
 
-# ==============================
 # Trailing slash fixes
-# ==============================
 /about/                          /about                              301!
 /services/                       /services                           301!
 /case-studies/                   /case-studies                       301!
@@ -15,48 +11,16 @@ https://www.calvocreativo.com/*   https://calvocreativo.com/:splat   301!
 /blog/                           /blog                               301!
 /resources/                      /resources                          301!
 /contact/                        /contact                            301!
-/sitemap/                        /sitemap                            301!
 
-# Services with trailing slash
-/services/strategic-seo-consulting/              /services/strategic-seo-consulting          301!
-/services/digital-storytelling-services/        /services/digital-storytelling-services    301!
-/services/seo-automation/                        /services/seo-automation                    301!
-/services/personal-branding-consulting/          /services/personal-branding-consulting     301!
-
-# City pages with trailing slash
-/services/*/*/                   /services/:service/:city            301!
-
-# Blog and case studies with trailing slash
-/blog/*/                         /blog/:splat                        301!
-/case-studies/*/                 /case-studies/:splat                301!
-
-# Legal pages
-/privacy-policy/                 /privacy-policy                     301!
-/terms-of-service/               /terms-of-service                   301!
-/cookie-policy/                  /cookie-policy                      301!
-
-# ==============================
 # Semantic redirects
-# ==============================
 /cookies                         /cookie-policy                      301!
 /privacy                         /privacy-policy                     301!
 /terms                           /terms-of-service                   301!
-/index.html                      /                                   301!
-/tools                           /resources                          301!
 
-# Blog post fix
-/blog/seo-no-murio-hype-estrategia              /blog/seo-didnt-die-hype-strategy          301!
-
-# ==============================
 # Static files
-# ==============================
 /robots.txt                      /robots.txt                         200
 /sitemap.xml                     /sitemap.xml                        200
-/favicon.ico                     /favicon.ico                        200
 /assets/*                        /assets/:splat                      200
-/.well-known/*                   /.well-known/:splat                 200
 
-# ==============================
-# SPA catch-all (MUST be last)
-# ==============================
+# SPA catch-all
 /*                               /index.html                         200
