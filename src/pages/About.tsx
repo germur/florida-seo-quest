@@ -42,7 +42,7 @@ const brands: Brand[] = [
   { name: "Puff Cleaning", src: "/assets/logos/puff-cleaning.svg" },
   {
     name: "Paramount Property Restoration",
-    src: "/assets/logos/paramount.svg", // if not uploaded yet, fallback kicks in
+    src: "/assets/logos/paramount.svg", // add file to remove fallback
     href: "/case-studies/paramount-property-restoration",
   },
   { name: "Edu1st", src: "/assets/logos/edu1st.svg" },
@@ -78,7 +78,7 @@ const BrandLogo: React.FC<{ brand: Brand; idx: number }> = ({ brand, idx }) => {
 };
 
 /* ================================================
- *  FAQ (your content)
+ *  FAQ
  * ================================================ */
 type FAQ = { q: string; a: JSX.Element };
 
@@ -372,39 +372,6 @@ const About: React.FC = () => {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS (placeholder) */}
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="max-w-5xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary mb-4">
-              What clients say
-            </h2>
-            <p className="text-muted-foreground">
-              We’ll soon add real, verified testimonials. If you want logo + quote,
-              we’ll mount them here.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="bg-card border border-border rounded-xl p-6 text-left"
-              >
-                <div className="text-sm text-muted-foreground italic">
-                  “Calvo Creativo brought strategic clarity to our SEO and focused on
-                  outcomes. Lead flow trending up.”
-                </div>
-                <div className="mt-4 text-sm font-semibold text-primary">
-                  Client Name
-                </div>
-                <div className="text-xs text-muted-foreground">Role, Company</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
