@@ -8,12 +8,15 @@
   <meta name="description" content="7+ years scaling brands with SEO strategy, technical audits, and content that converts. Programmatic SEO, topical authority, and automation. Book a consultation." />
   <meta name="author" content="Roger Murillo – Calvo Creativo" />
 
+  <!-- Canonical fallback (Helmet/SEO.tsx lo sobrescribe por ruta) -->
+  <link rel="canonical" href="https://calvocreativo.com/" />
+
   <!-- Favicons -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon.svg">
   <meta name="theme-color" content="#0ea5e9" />
 
-  <!-- Open Graph (valen como fallback; Helmet/SEO.tsx los sobrescribe por ruta) -->
+  <!-- Open Graph (fallback; Helmet/SEO.tsx los sobrescribe por ruta) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Calvo Creativo" />
   <meta property="og:title" content="SEO Strategy & Consulting for Florida Businesses | Calvo Creativo" />
@@ -51,7 +54,20 @@
   <!-- ❌ OJO: Ya NO hay JSON-LD aquí. Los añade SEO.tsx (schema-website, schema-localbusiness) y ServiceDetail (service-schema). -->
 </head>
 <body>
+  <!-- Netlify Forms: discovery para SPA (no visible) -->
+  <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="phone" />
+    <input type="text" name="company" />
+    <input type="text" name="service" />
+    <input type="text" name="budget" />
+    <textarea name="message"></textarea>
+  </form>
+
+  <noscript>JavaScript is required to run this site.</noscript>
   <div id="root"></div>
+
   <!-- App -->
   <script type="module" src="/src/main.tsx"></script>
 </body>
