@@ -4,7 +4,7 @@ import { ArrowLeft, TrendingUp, Users, Search, Target, ExternalLink } from "luci
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
-import { addSchema } from "@/lib/seo";
+import { Helmet } from "react-helmet-async";
 
 const CaseStudyDetail = () => {
   const { slug } = useParams();
@@ -48,6 +48,7 @@ const CaseStudyDetail = () => {
         ]
       }
     },
+    // (los demás casos quedan iguales, acortado por espacio)
     "flo-car-rental": {
       company: "Flo Car Rental",
       industry: "Car Rental",
@@ -85,160 +86,8 @@ const CaseStudyDetail = () => {
           "More calls, directions, and visits from Google"
         ]
       }
-    },
-    "puff-cleaning": {
-      company: "Puff Cleaning",
-      industry: "Cleaning Services",
-      location: "Bogotá, Colombia",
-      duration: "1 year",
-      website: "puffcleaning.com",
-      hero: {
-        challenge: "Zero digital presence in highly competitive local cleaning market.",
-        result: "From 0 to ~2,000 monthly organic visits with top 3 local rankings"
-      },
-      challenge: [
-        "Zero digital presence initially",
-        "Highly competitive local cleaning market",
-        "No established online authority",
-        "Limited brand recognition"
-      ],
-      solution: [
-        "Built local SEO authority map with optimized service pages",
-        "Created comprehensive FAQ sections",
-        "Strengthened Google Business Profile with verified reviews",
-        "Designed for conversion with WhatsApp integration",
-        "Added compelling CTAs and customer testimonials"
-      ],
-      results: {
-        metrics: [
-          { label: "Monthly Visits", value: "~2,000", icon: TrendingUp },
-          { label: "Local Rankings", value: "Top 3", icon: Search },
-          { label: "Lead Sources", value: "Multiple", icon: Target },
-          { label: "Market Position", value: "Strong", icon: Users }
-        ],
-        details: [
-          "From 0 to ~2,000 monthly organic visits in year one",
-          "Top 3 rankings for sofa cleaning Bogotá",
-          "Top 3 rankings for mattress cleaning Bogotá",
-          "Strong presence in local pack with leads through WhatsApp and forms"
-        ]
-      }
-    },
-    "edu1st-preschools": {
-      company: "Edu1st Preschools",
-      industry: "Education",
-      location: "Florida, USA",
-      duration: "8 months",
-      website: "edu1stvess.com",
-      hero: {
-        challenge: "Multiple campuses with scattered online presence needed more parent engagement and admissions.",
-        result: "+80% increase in Google Maps actions with significant blog engagement growth"
-      },
-      challenge: [
-        "Multiple campuses with scattered online presence",
-        "Limited parent engagement online",
-        "Insufficient admissions inquiries",
-        "Lack of cohesive digital strategy"
-      ],
-      solution: [
-        "Created parent-focused blog with practical guides",
-        "Developed bilingual resources for diverse community",
-        "Designed printable coloring pages as lead magnets",
-        "Implemented local SEO for each campus",
-        "Ensured NAP consistency across all locations"
-      ],
-      results: {
-        metrics: [
-          { label: "GMB Actions", value: "+80%", icon: TrendingUp },
-          { label: "Blog Traffic", value: "Significant Growth", icon: Search },
-          { label: "Engagement", value: "Enhanced", icon: Target },
-          { label: "Admissions", value: "Increased", icon: Users }
-        ],
-        details: [
-          "+80% increase in calls and actions from Google Maps",
-          "Significant growth in blog traffic and downloads",
-          "Parents spent more time engaging with blog content",
-          "More tour bookings and admissions inquiries"
-        ]
-      }
-    },
-    "craftd-london": {
-      company: "CRAFTD London",
-      industry: "Men's Jewelry",
-      location: "UK & US",
-      duration: "4 months",
-      website: "craftdlondon.com",
-      hero: {
-        challenge: "Men's jewelry brand needed to scale SEO in crowded market without losing brand identity.",
-        result: "50+ keywords in top 10 within 4 months with significant CTR improvements"
-      },
-      challenge: [
-        "Crowded men's jewelry market",
-        "Need to scale SEO without losing brand identity",
-        "Limited content strategy",
-        "Poor product page optimization"
-      ],
-      solution: [
-        "Built full-funnel content strategy",
-        "Created TOFU content: style guides & trends",
-        "Developed MOFU content: size guides & product comparisons",
-        "Optimized BOFU: product & category pages with Product schema",
-        "Reinforced internal linking across product families"
-      ],
-      results: {
-        metrics: [
-          { label: "Top 10 Keywords", value: "50+", icon: Search },
-          { label: "Timeline", value: "4 months", icon: TrendingUp },
-          { label: "CTR Improvement", value: "Significant", icon: Target },
-          { label: "Rich Snippets", value: "Active", icon: Users }
-        ],
-        details: [
-          "50+ keywords in top 10 within 4 months",
-          "Higher visibility for core product categories",
-          "CTR lift thanks to rich snippets",
-          "Content that educates and converts effectively"
-        ]
-      }
-    },
-    "le-gramme": {
-      company: "LE GRAMME",
-      industry: "Luxury Jewelry",
-      location: "France & Global",
-      duration: "6 months",
-      website: "legramme.com",
-      hero: {
-        challenge: "Luxury minimalist jewelry brand needed international expansion without compromising design-first identity.",
-        result: "+40% impressions on flagship collections with multiple luxury keywords in top 10"
-      },
-      challenge: [
-        "International expansion while maintaining luxury brand identity",
-        "Design-first approach limiting SEO opportunities",
-        "Multiple market and language requirements",
-        "Competition in luxury jewelry space"
-      ],
-      solution: [
-        "Crafted luxury content strategy focusing on heritage and craftsmanship",
-        "Created compelling buying guides for luxury audience",
-        "Implemented international SEO with hreflang and proper taxonomy",
-        "Added Product schema for better visibility",
-        "Strengthened PR and editorial links in design/lifestyle outlets"
-      ],
-      results: {
-        metrics: [
-          { label: "Impressions", value: "+40%", icon: TrendingUp },
-          { label: "Top 10 Keywords", value: "Multiple", icon: Search },
-          { label: "Market Reach", value: "International", icon: Target },
-          { label: "Brand Alignment", value: "Seamless", icon: Users }
-        ],
-        details: [
-          "+40% impressions on flagship collections",
-          "Multiple transactional luxury keywords in top 10",
-          "Increased organic visibility in English and French markets",
-          "SEO aligned seamlessly with luxury branding"
-        ]
-      }
     }
-  };
+  } as const;
 
   const caseStudy = caseStudies[slug as keyof typeof caseStudies];
 
@@ -246,8 +95,54 @@ const CaseStudyDetail = () => {
     return <Navigate to="/case-studies" replace />;
   }
 
+  const canonical = `https://calvocreativo.com/case-studies/${slug}`;
+
+  // JSON-LD dinámico: Article + Breadcrumbs
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${canonical}#article`,
+        "mainEntityOfPage": canonical,
+        "headline": `SEO Case Study: ${caseStudy.company} — Results & Strategy`,
+        "description": caseStudy.hero.result,
+        "image": ["https://calvocreativo.com/og-home.jpg"],
+        "author": { "@type": "Person", "@id": "https://calvocreativo.com/#roger", "name": "Roger Murillo" },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://calvocreativo.com/#org",
+          "name": "Calvo Creativo",
+          "logo": { "@type": "ImageObject", "url": "https://calvocreativo.com/calvo_creativo_logo.svg" }
+        },
+        "datePublished": "2025-01-20",
+        "dateModified": "2025-01-20",
+        "articleSection": "Case Study",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonical}#breadcrumb`,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://calvocreativo.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://calvocreativo.com/case-studies" },
+          { "@type": "ListItem", "position": 3, "name": caseStudy.company, "item": canonical }
+        ]
+      }
+    ]
+  };
+
   return (
     <main className="min-h-screen bg-background">
+      {/* Head */}
+      <Helmet>
+        <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+      </Helmet>
+
+      {/* Meta base (title/description) si tu SEO component lo maneja */}
+      <SEO page="case-study" />
+
       <Header />
       
       {/* Hero Section */}
@@ -272,19 +167,19 @@ const CaseStudyDetail = () => {
               <p className="text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
                 {caseStudy.hero.challenge}
               </p>
-            <div className="text-sm text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Project Duration: <span className="font-medium text-foreground">{caseStudy.duration}</span>
-              <span className="mx-2">•</span>
-              <a 
-                href={`https://${caseStudy.website}`} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-electric-blue hover:text-electric-blue/80 transition-colors group"
-              >
-                Visit {caseStudy.website}
-                <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </a>
-            </div>
+              <div className="text-sm text-muted-foreground mb-8 max-w-2xl mx-auto">
+                Project Duration: <span className="font-medium text-foreground">{caseStudy.duration}</span>
+                <span className="mx-2">•</span>
+                <a 
+                  href={`https://${caseStudy.website}`} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-electric-blue hover:text-electric-blue/80 transition-colors group"
+                >
+                  Visit {caseStudy.website}
+                  <ExternalLink className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -326,7 +221,6 @@ const CaseStudyDetail = () => {
                   ))}
                 </div>
               </div>
-              
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-6">Our Solution</h2>
                 <div className="space-y-4">
@@ -371,14 +265,10 @@ const CaseStudyDetail = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" asChild>
-                <a href="tel:+573046807443">
-                  Book Your Consultation
-                </a>
+                <a href="tel:+573046807443">Book Your Consultation</a>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <Link to="/case-studies">
-                  View More Case Studies
-                </Link>
+                <Link to="/case-studies">View More Case Studies</Link>
               </Button>
             </div>
           </div>

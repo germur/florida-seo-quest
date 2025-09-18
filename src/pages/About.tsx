@@ -3,8 +3,34 @@ import { ArrowRight, Award, Users, TrendingUp, Heart, Target, Lightbulb } from "
 import Header from "@/components/Header";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import { Helmet } from "react-helmet-async";
 
 const About = () => {
+  const canonical = "https://calvocreativo.com/about";
+
+  // JSON-LD: AboutPage + Breadcrumbs (específico, sin duplicar Organization/Website)
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "@id": "https://calvocreativo.com/about#webpage",
+        "url": canonical,
+        "name": "About Calvo Creativo",
+        "isPartOf": { "@id": "https://calvocreativo.com/#website" },
+        "breadcrumb": { "@id": "https://calvocreativo.com/about#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://calvocreativo.com/about#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://calvocreativo.com/" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": canonical }
+        ]
+      }
+    ]
+  };
+
   const values = [
     {
       icon: <Target className="h-8 w-8" />,
@@ -27,32 +53,24 @@ const About = () => {
   ];
 
   const stats = [
-    {
-      number: "7+",
-      label: "Years in SEO",
-      color: "teal"
-    },
-    {
-      number: "50+", 
-      label: "Successful Projects",
-      color: "electric-blue"
-    },
-    {
-      number: "+280%",
-      label: "Average Growth",
-      color: "bright-orange"
-    },
-    {
-      number: "100%",
-      label: "Focused on Florida",
-      color: "purple"
-    }
+    { number: "7+", label: "Years in SEO", color: "teal" },
+    { number: "50+", label: "Successful Projects", color: "electric-blue" },
+    { number: "+280%", label: "Average Growth", color: "bright-orange" },
+    { number: "100%", label: "Focused on Florida", color: "purple" }
   ];
 
   return (
     <main className="min-h-screen pt-16">
+      {/* Head */}
+      <Helmet>
+        <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(aboutSchema)}</script>
+      </Helmet>
+
+      {/* Tu SEO general (title/description) */}
       <SEO page="about" />
       <Header />
+
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-6">
@@ -83,28 +101,25 @@ const About = () => {
                     Since then, I've seen how SEO evolved from being about "tricks" 
                     to becoming a strategic discipline centered on user experience.
                   </p>
-                  
                   <p>
                     My approach has always been to deeply understand the Florida local market. 
                     From Miami to Jacksonville, each city has its particularities, 
                     its unique competition, and its specific opportunities.
                   </p>
-                  
                   <p>
                     I developed the MAES Framework after years of trial and error, 
                     studying what really works in the US market and, 
                     specifically, in Florida's business ecosystem.
                   </p>
                 </div>
-                
-            <Button size="lg" className="mt-8 group" asChild>
-              <Link to="/how-we-work">
-                Learn About the MAES Framework
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+                <Button size="lg" className="mt-8 group" asChild>
+                  <Link to="/how-we-work">
+                    Learn About the MAES Framework
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </Button>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-6">
                 {stats.map((stat, index) => (
                   <div 
@@ -120,6 +135,7 @@ const About = () => {
                   </div>
                 ))}
               </div>
+
             </div>
           </div>
         </div>
@@ -137,7 +153,6 @@ const About = () => {
                 The principles that guide every project and strategic decision
               </p>
             </div>
-            
             <div className="grid md:grid-cols-3 gap-8">
               {values.map((value, index) => (
                 <div 
@@ -149,11 +164,9 @@ const About = () => {
                       {value.icon}
                     </div>
                   </div>
-                  
                   <h3 className="text-2xl font-semibold text-primary mb-4">
                     {value.title}
                   </h3>
-                  
                   <p className="text-muted-foreground leading-relaxed">
                     {value.description}
                   </p>
@@ -176,7 +189,6 @@ const About = () => {
                 Specialized in strategies that work specifically for the Florida market
               </p>
             </div>
-            
             <div className="space-y-8">
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-card border border-border rounded-2xl p-6">
@@ -189,7 +201,6 @@ const About = () => {
                     and performance optimization for complex sites.
                   </p>
                 </div>
-                
                 <div className="bg-card border border-border rounded-2xl p-6">
                   <div className="flex items-center mb-4">
                     <Users className="h-6 w-6 text-electric-blue mr-3" />
@@ -201,7 +212,6 @@ const About = () => {
                   </p>
                 </div>
               </div>
-              
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="bg-card border border-border rounded-2xl p-6">
                   <div className="flex items-center mb-4">
@@ -213,7 +223,6 @@ const About = () => {
                     Miami, Orlando, Tampa, Jacksonville, and the entire region.
                   </p>
                 </div>
-                
                 <div className="bg-card border border-border rounded-2xl p-6">
                   <div className="flex items-center mb-4">
                     <TrendingUp className="h-6 w-6 text-purple mr-3" />
@@ -242,7 +251,6 @@ const About = () => {
                 Music fuels creativity and focus. Here's my go-to playlist for deep SEO work and strategic thinking sessions.
               </p>
             </div>
-            
             <div className="bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
               <div className="aspect-video max-w-2xl mx-auto">
                 <iframe 
@@ -279,14 +287,10 @@ const About = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <a href="mailto:rogermur1990@gmail.com">
-                Get Free Consultation
-              </a>
+              <a href="mailto:rogermur1990@gmail.com">Get Free Consultation</a>
             </Button>
             <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
-              <Link to="/case-studies">
-                View Success Stories
-              </Link>
+              <Link to="/case-studies">View Success Stories</Link>
             </Button>
           </div>
         </div>

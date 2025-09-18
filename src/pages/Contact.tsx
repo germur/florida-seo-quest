@@ -4,8 +4,57 @@ import { useState } from "react";
 import Header from "@/components/Header";
 import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
+  const canonical = "https://calvocreativo.com/contact";
+
+  // JSON-LD: ContactPage + Breadcrumbs (+ FAQPage opcional)
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://calvocreativo.com/contact#webpage",
+        "url": canonical,
+        "name": "Contact Calvo Creativo",
+        "isPartOf": { "@id": "https://calvocreativo.com/#website" },
+        "breadcrumb": { "@id": "https://calvocreativo.com/contact#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://calvocreativo.com/contact#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://calvocreativo.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": canonical }
+        ]
+      }
+    ]
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does it take to see SEO results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typically, you'll start seeing improvements in 3–4 months, with significant results in 6–8 months, depending on competitiveness and current site condition."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you work with businesses outside of Florida?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We specialize in Florida but also work remotely across the US (EN/ES)."
+        }
+      }
+    ]
+  };
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -15,16 +64,11 @@ const Contact = () => {
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Create mailto link with form data
     const subject = `SEO Consultation Request from ${formData.name}`;
     const body = `
 Hello,
@@ -42,20 +86,11 @@ Please contact me at: ${formData.email}
 Best regards,
 ${formData.name}
     `.trim();
-    
+
     const mailtoLink = `mailto:rogermur1990@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      message: "",
-      service: ""
-    });
-    
-    // Show success message (you could add a toast here)
+
+    setFormData({ name: "", email: "", company: "", message: "", service: "" });
     alert("Thank you! Your message has been prepared. Please send the email that just opened.");
   };
 
@@ -105,8 +140,16 @@ ${formData.name}
 
   return (
     <main className="min-h-screen pt-16">
+      {/* Head */}
+      <Helmet>
+        <link rel="canonical" href={canonical} />
+        <script type="application/ld+json">{JSON.stringify(contactSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+      </Helmet>
+
       <SEO page="contact" />
       <Header />
+
       {/* Hero Section */}
       <section className="py-24 bg-gradient-to-br from-background via-secondary/20 to-background">
         <div className="container mx-auto px-6">
@@ -126,7 +169,6 @@ ${formData.name}
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl font-bold text-primary text-center mb-12">Get in Touch Via Email</h2>
-            
             <div className="grid md:grid-cols-2 gap-8 mb-16">
               {contactMethods.map((method, index) => (
                 <div 
@@ -144,10 +186,8 @@ ${formData.name}
                   }`}>
                     {method.icon}
                   </div>
-                  
                   <h3 className="text-2xl font-semibold text-primary mb-4">{method.title}</h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">{method.description}</p>
-                  
                   <Button variant="outline" className={`w-full transition-all ${
                     method.color === 'teal' ? 'group-hover:bg-teal group-hover:text-white group-hover:border-teal' :
                     'group-hover:bg-electric-blue group-hover:text-white group-hover:border-electric-blue'
@@ -177,7 +217,6 @@ ${formData.name}
                   Tell us about your business and SEO goals. The more details you provide, 
                   the better we can prepare for our conversation.
                 </p>
-                
                 <div className="space-y-6">
                   <div className="flex items-center">
                     <Clock className="h-5 w-5 text-teal mr-3" />
@@ -212,7 +251,6 @@ ${formData.name}
                         placeholder="Your name"
                       />
                     </div>
-                    
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-primary mb-2">
                         Email Address *
@@ -299,7 +337,6 @@ ${formData.name}
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-primary text-center mb-12">Frequently Asked Questions</h2>
-            
             <div className="space-y-6">
               {faqs.map((faq, index) => (
                 <div key={index} className="bg-card border border-border rounded-xl p-6">
@@ -308,7 +345,6 @@ ${formData.name}
                 </div>
               ))}
             </div>
-            
             <div className="text-center mt-12">
               <p className="text-muted-foreground mb-4">Don't see your question answered?</p>
               <Button variant="outline" size="lg">
@@ -331,14 +367,10 @@ ${formData.name}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <a href="mailto:rogermur1990@gmail.com">
-                Get Free Consultation
-              </a>
+              <a href="mailto:rogermur1990@gmail.com">Get Free Consultation</a>
             </Button>
             <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
-              <Link to="/case-studies">
-                View Success Stories
-              </Link>
+              <Link to="/case-studies">View Success Stories</Link>
             </Button>
           </div>
         </div>

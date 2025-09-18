@@ -1,11 +1,13 @@
 // src/lib/seo.ts
 // ------------------------------------------------------------
 // Helpers SEO para Calvo Creativo (versión estable y simple)
-// - addSchema(schema: any) para evitar fricciones de TypeScript
-// - updatePageSEO() -> title, description, canonical (con "/")
-// - ensureTrailingSlash()
-// - schemaConfigs (Service de índice) y seoConfigs (metas base)
-// - webSiteSchema y localBusinessSchema listos para usar
+// - updatePageSEO() -> title, description, keywords, canonical
+// - addSchema(schema, id)
+// - normalizeCanonical() (NO fuerza "/")
+// - ensureTrailingSlash() (por si lo necesitas en otras partes)
+// - schemaConfigs: service, breadcrumbs, caseStudy
+// - seoConfigs: metas base por página
+// - webSiteSchema y localBusinessSchema listos
 // ------------------------------------------------------------
 
 /* =========================
@@ -14,8 +16,23 @@
 
 export const SITE = "https://calvocreativo.com";
 
+// Mantengo esta por compatibilidad con tu código actual
 export const ensureTrailingSlash = (url: string) =>
   url ? (url.endsWith("/") ? url : `${url}/`) : url;
+
+// Nueva: canónica sin "/" final (excepto raíz) y sin dobles slashes
+export function normalizeCanonical(href: string): string {
+  try {
+    const u = new URL(href);
+    u.pathname = u.pathname.replace(/\/{2,}/g, "/"); // limpia // repetidos
+    if (u.pathname !== "/") u.pathname = u.pathname.replace(/\/+$/, "");
+    return u.toString();
+  } catch {
+    // Si llega un path relativo
+    const full = `${SITE}${href.startsWith("/") ? "" : "/"}${href}`;
+    return normalizeCanonical(full);
+  }
+}
 
 const setMeta = (name: string, content?: string) => {
   if (!content) return;
@@ -50,7 +67,7 @@ const setTwitter = (name: string, content?: string) => {
 
 const setCanonical = (href: string) => {
   if (!href) return;
-  const normalized = ensureTrailingSlash(href);
+  const normalized = normalizeCanonical(href);
   let link =
     document.querySelector<HTMLLinkElement>('link[rel="canonical"]') ||
     document.createElement("link");
@@ -69,8 +86,9 @@ export function updatePageSEO(opts: {
   description?: string;
   canonical?: string;
   keywords?: string;
+  noindex?: boolean;
 }) {
-  const { title, description, canonical, keywords } = opts;
+  const { title, description, canonical, keywords, noindex } = opts;
 
   if (title) {
     document.title = title;
@@ -84,10 +102,26 @@ export function updatePageSEO(opts: {
   }
   if (keywords) setMeta("keywords", keywords);
   if (canonical) setCanonical(canonical);
+
+  // robots (para legales u otras noindex)
+  const robotsSel = 'meta[name="robots"]';
+  const robots = document.querySelector<HTMLMetaElement>(robotsSel);
+  if (noindex) {
+    if (robots) {
+      robots.setAttribute("content", "noindex, nofollow");
+    } else {
+      const el = document.createElement("meta");
+      el.setAttribute("name", "robots");
+      el.setAttribute("content", "noindex, nofollow");
+      document.head.appendChild(el);
+    }
+  } else if (robots) {
+    robots.remove();
+  }
 }
 
-// 👇 A propósito super-permisiva para NO romper el build.
-// Acepta cualquier JSON-LD (con @type o con @graph).
+// Permisiva a propósito para NO romper TS.
+// Acepta cualquier JSON-LD (con @type o @graph).
 export function addSchema(schema: any, id: string) {
   if (!schema || !id) return;
   const existing = document.getElementById(id);
@@ -120,20 +154,48 @@ export const schemaConfigs = {
       url: SITE + "/",
       image: `${SITE}/og-home.jpg`,
     },
-    url: url ? ensureTrailingSlash(url) : undefined,
+    url: url ? normalizeCanonical(url) : undefined,
   }),
 
-  // Si quieres Person, úsalo solo en About (opcional).
-  person: {
+  // BreadcrumbList genérico
+  breadcrumbs: (items: Array<{ name: string; item: string }>) => ({
     "@context": "https://schema.org",
-    "@type": "Person",
-    name: "Roger Murillo",
-    url: `${SITE}/about/`,
-    image: `${SITE}/og-home.jpg`,
-    jobTitle: "SEO Strategist & Consultant",
-    worksFor: { "@type": "Organization", name: "Calvo Creativo" },
-    sameAs: ["https://x.com/Rogermu47429637", "https://linkedin.com/in/rogermurillo"],
-  },
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: it.name,
+      item: normalizeCanonical(it.item),
+    })),
+  }),
+
+  // CaseStudy básico (enriquece con KPIs cuando quieras)
+  caseStudy: (data: {
+    name: string;
+    url: string;
+    client?: string;
+    industry?: string;
+    summary?: string;
+    results?: string[]; // ["+210% organic traffic", "3x leads", ...]
+  }) => ({
+    "@context": "https://schema.org",
+    "@type": "CaseStudy",
+    name: data.name,
+    url: normalizeCanonical(data.url),
+    description: data.summary,
+    ...(data.industry ? { about: data.industry } : {}),
+    ...(data.client
+      ? { audience: { "@type": "Organization", name: data.client } }
+      : {}),
+    ...(Array.isArray(data.results) && data.results.length
+      ? { result: data.results.map((r) => ({ "@type": "Thing", name: r })) }
+      : {}),
+    provider: {
+      "@type": "ProfessionalService",
+      name: "Calvo Creativo",
+      url: SITE + "/",
+    },
+  }),
 };
 
 /* =========================
@@ -145,6 +207,7 @@ type SEOConfig = {
   description: string;
   keywords?: string;
   canonical?: string;
+  noindex?: boolean;
 };
 
 export const seoConfigs: Record<string, SEOConfig> = {
@@ -160,7 +223,7 @@ export const seoConfigs: Record<string, SEOConfig> = {
     title: "Services | Calvo Creativo",
     description:
       "Strategic SEO consulting, digital storytelling, SEO automation, and personal branding consulting.",
-    canonical: `${SITE}/services/`,
+    canonical: `${SITE}/services`,
   },
   serviceDetail: {
     title: "Service | Calvo Creativo",
@@ -173,52 +236,56 @@ export const seoConfigs: Record<string, SEOConfig> = {
   blog: {
     title: "Blog | Calvo Creativo",
     description: "SEO strategy, growth and storytelling insights.",
-    canonical: `${SITE}/blog/`,
+    canonical: `${SITE}/blog`,
   },
   resources: {
     title: "Resources | Calvo Creativo",
     description: "SEO tools and resources to scale your growth.",
-    canonical: `${SITE}/resources/`,
+    canonical: `${SITE}/resources`,
   },
   caseStudies: {
     title: "Case Studies | Calvo Creativo",
     description: "Real success stories and measurable results.",
-    canonical: `${SITE}/case-studies/`,
+    canonical: `${SITE}/case-studies`,
   },
   howWeWork: {
     title: "How We Work | Calvo Creativo",
     description: "Our methodology and process to deliver results.",
-    canonical: `${SITE}/how-we-work/`,
+    canonical: `${SITE}/how-we-work`,
   },
   about: {
     title: "About | Calvo Creativo",
     description: "Meet Roger Murillo and the Calvo Creativo philosophy.",
-    canonical: `${SITE}/about/`,
+    canonical: `${SITE}/about`,
   },
   contact: {
     title: "Contact | Calvo Creativo",
     description: "Book a consultation and let’s plan your growth.",
-    canonical: `${SITE}/contact/`,
+    canonical: `${SITE}/contact`,
   },
   privacyPolicy: {
     title: "Privacy Policy | Calvo Creativo",
     description: "Our commitment to your privacy.",
-    canonical: `${SITE}/privacy-policy/`,
+    canonical: `${SITE}/privacy-policy`,
+    noindex: true,
   },
   terms: {
     title: "Terms | Calvo Creativo",
     description: "Terms and conditions.",
-    canonical: `${SITE}/terms/`,
+    canonical: `${SITE}/terms`,
+    noindex: true,
   },
   termsOfService: {
     title: "Terms of Service | Calvo Creativo",
     description: "Terms of service for Calvo Creativo.",
-    canonical: `${SITE}/terms-of-service/`,
+    canonical: `${SITE}/terms-of-service`,
+    noindex: true,
   },
   cookiePolicy: {
     title: "Cookie Policy | Calvo Creativo",
     description: "How we use cookies on this site.",
-    canonical: `${SITE}/cookie-policy/`,
+    canonical: `${SITE}/cookie-policy`,
+    noindex: true,
   },
 };
 
@@ -238,13 +305,16 @@ export const webSiteSchema = {
   },
 };
 
+// Puedes dejar LocalBusiness o usar ProfessionalService.
+// Dejo ProfessionalService (más específico para consultoría).
 export const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": "ProfessionalService",
   name: "Calvo Creativo",
   url: `${SITE}/`,
-  image: `${SITE}/logo.png`,
-  telephone: "+573046807443", // usa tu número real
+  logo: `${SITE}/calvo_creativo_logo.svg`,
+  image: `${SITE}/og-home.jpg`,
+  telephone: "+573046807443",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Miami",
@@ -252,5 +322,8 @@ export const localBusinessSchema = {
     postalCode: "33130",
     addressCountry: "US",
   },
-  sameAs: ["https://www.linkedin.com/in/rogermurillo/"],
+  sameAs: [
+    "https://x.com/Rogermu47429637",
+    "https://www.linkedin.com/in/rogermurillo/",
+  ],
 };
