@@ -35,8 +35,11 @@ https://www.calvocreativo.com/*   https://calvocreativo.com/:splat   301!
 # SPA routes (rewrites a la app)
 # ==============================
 /about                                       /index.html                                  200
+/services                                    /index.html                                  200   # ← añadido
 /services/*                                  /index.html                                  200
+/case-studies                                /index.html                                  200   # ← añadido
 /case-studies/*                              /index.html                                  200
+/blog                                        /index.html                                  200   # ← añadido
 /blog/*                                      /index.html                                  200
 /resources                                   /index.html                                  200
 /contact                                     /index.html                                  200
