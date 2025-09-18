@@ -1,23 +1,12 @@
 // src/pages/Contact.tsx
 import React, { useMemo, useState } from "react";
 import SEO from "@/components/SEO";
+import Header from "@/components/Header"; // ✅ añade el header para mostrar el navbar
 
 type Status = "idle" | "loading" | "success" | "error";
 
-const services = [
-  "Strategic SEO",
-  "Digital Storytelling",
-  "SEO Automation",
-  "Personal Branding",
-];
-
-const budgets = [
-  "Not sure yet",
-  "Under $2,000",
-  "$2,000 – $5,000",
-  "$5,000 – $10,000",
-  "$10,000+",
-];
+const services = ["Strategic SEO", "Digital Storytelling", "SEO Automation", "Personal Branding"];
+const budgets = ["Not sure yet", "Under $2,000", "$2,000 – $5,000", "$5,000 – $10,000", "$10,000+"];
 
 const encode = (data: Record<string, string>) =>
   Object.keys(data)
@@ -36,7 +25,6 @@ const Contact: React.FC = () => {
     service: services[0],
     budget: budgets[0],
     message: "",
-    // honeypot
     botField: "",
   });
 
@@ -58,10 +46,8 @@ const Contact: React.FC = () => {
       setErrorMsg("Please complete name, a valid email and a short project description.");
       return;
     }
-
     try {
       setStatus("loading");
-
       const payload: Record<string, string> = {
         "form-name": "contact",
         "bot-field": form.botField,
@@ -73,15 +59,12 @@ const Contact: React.FC = () => {
         budget: form.budget,
         message: form.message,
       };
-
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode(payload),
       });
-
       if (!res.ok) throw new Error(`Netlify returned ${res.status}`);
-
       setStatus("success");
       setForm({
         name: "",
@@ -101,9 +84,9 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <>
-      {/* SEO base (title/desc/canonical) desde /src/lib/seo.ts */}
+    <main className="min-h-screen"> {/* ✅ igual que en Home para consistencia */}
       <SEO page="contact" />
+      <Header /> {/* ✅ navbar visible */}
 
       {/* Hero */}
       <section className="pt-24 md:pt-28">
@@ -115,7 +98,6 @@ const Contact: React.FC = () => {
             <p className="text-lg md:text-xl text-muted-foreground mt-4 max-w-3xl">
               Share context, goals and timeline. We’ll reply in 24–48h with next steps and a quick call slot.
             </p>
-
             <ul className="mt-6 space-y-2 text-muted-foreground">
               <li>• English/Spanish available</li>
               <li>• Florida-based focus (statewide and national too)</li>
@@ -194,13 +176,11 @@ const Contact: React.FC = () => {
                     className="space-y-4"
                     noValidate
                   >
-                    {/* Netlify needs this hidden field to map submission to the form name */}
                     <input type="hidden" name="form-name" value="contact" />
-
-                    {/* Honeypot */}
                     <div className="hidden">
                       <label>
-                        Don’t fill this out: <input name="bot-field" value={form.botField} onChange={onChange("botField")} />
+                        Don’t fill this out:{" "}
+                        <input name="bot-field" value={form.botField} onChange={onChange("botField")} />
                       </label>
                     </div>
 
@@ -323,7 +303,7 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 };
 
