@@ -1,21 +1,53 @@
-# Canonical domain
+# ==============================
+# Canonical domain (HTTPS + apex)
+# ==============================
 http://calvocreativo.com/*        https://calvocreativo.com/:splat   301!
 http://www.calvocreativo.com/*    https://calvocreativo.com/:splat   301!
 https://www.calvocreativo.com/*   https://calvocreativo.com/:splat   301!
 
-# SPA routes
-/about               /index.html   200
-/services/*          /index.html   200
-/case-studies/*      /index.html   200
-/blog/*              /index.html   200
-/resources           /index.html   200
-/contact             /index.html   200
-/sitemap             /index.html   200
+# ==============================
+# Normalización de trailing slash → sin slash
+# (Poner SIEMPRE antes de los rewrites de SPA)
+# ==============================
+/services/                                   /services                                   301!
+/blog/                                       /blog                                       301!
+/case-studies/                               /case-studies                               301!
+/resources/                                  /resources                                  301!
+/about/                                      /about                                      301!
+/contact/                                    /contact                                    301!
+/sitemap/                                    /sitemap                                    301!
 
-# Legales (renderizan app pero van con noindex en el <head>)
-/privacy-policy      /index.html   200
-/terms-of-service    /index.html   200
-/cookie-policy       /index.html   200
+# Detalle case studies con slash final → sin slash
+/case-studies/:slug/                         /case-studies/:slug                         301!
 
-# 404 real
-/*                   /404.html     404
+# Servicios programáticos (cualquier servicio/ciudad) → sin slash
+/services/:service/:city/                    /services/:service/:city                    301!
+
+# Alias comunes → URL real
+/cookies                                     /cookie-policy                              301!
+/privacy                                     /privacy-policy                             301!
+/terms                                       /terms-of-service                           301!
+
+# Opcional: evita duplicado /index.html
+/index.html                                  /                                            301!
+
+# ==============================
+# SPA routes (rewrites a la app)
+# ==============================
+/about                                       /index.html                                  200
+/services/*                                  /index.html                                  200
+/case-studies/*                              /index.html                                  200
+/blog/*                                      /index.html                                  200
+/resources                                   /index.html                                  200
+/contact                                     /index.html                                  200
+/sitemap                                     /index.html                                  200
+
+# Legales (renderiza app; puedes poner noindex en <head>)
+/privacy-policy                              /index.html                                  200
+/terms-of-service                            /index.html                                  200
+/cookie-policy                               /index.html                                  200
+
+# ==============================
+# 404 real (fallback)
+# ==============================
+/*                                           /404.html                                    404
