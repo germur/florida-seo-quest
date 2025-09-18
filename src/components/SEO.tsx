@@ -46,7 +46,7 @@ const SEO: React.FC<SEOProps> = ({
     // 1) Meta + Canonical
     const rawCanonical =
       customCanonical || cfg.canonical || `${SITE}${pathname}`;
-    const canonical = ensureTrailingSlash(rawCanonical);
+    const canonical = rawCanonical.replace(/\/+$/, "");
 
     if (!LEGAL_PAGES.includes(page)) {
       updatePageSEO({
