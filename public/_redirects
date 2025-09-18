@@ -1,14 +1,13 @@
 # ==============================
-# Canonical domain (HTTPS + apex)
+# VERSIÓN SIMPLIFICADA - EMERGENCY FIX
 # ==============================
+
+# Canonical domain (HTTPS + apex)
 http://calvocreativo.com/*        https://calvocreativo.com/:splat   301!
 http://www.calvocreativo.com/*    https://calvocreativo.com/:splat   301!
 https://www.calvocreativo.com/*   https://calvocreativo.com/:splat   301!
 
-# ==============================
-# Normalización trailing slash (CRÍTICO para SEO)
-# ==============================
-# Páginas principales
+# Trailing slash normalization básica
 /about/                          /about                              301!
 /services/                       /services                           301!
 /case-studies/                   /case-studies                       301!
@@ -16,139 +15,18 @@ https://www.calvocreativo.com/*   https://calvocreativo.com/:splat   301!
 /blog/                           /blog                               301!
 /resources/                      /resources                          301!
 /contact/                        /contact                            301!
-/sitemap/                        /sitemap                            301!
 
-# Servicios específicos
-/services/strategic-seo-consulting/              /services/strategic-seo-consulting          301!
-/services/digital-storytelling-services/        /services/digital-storytelling-services    301!
-/services/seo-automation/                        /services/seo-automation                    301!
-/services/personal-branding-consulting/          /services/personal-branding-consulting     301!
-
-# Servicios por ciudad - normalización trailing slash
-/services/strategic-seo-consulting/*/           /services/strategic-seo-consulting/:splat   301!
-/services/digital-storytelling-services/*/     /services/digital-storytelling-services/:splat 301!
-/services/seo-automation/*/                     /services/seo-automation/:splat             301!
-/services/personal-branding-consulting/*/       /services/personal-branding-consulting/:splat 301!
-
-# Blog posts y case studies
-/blog/*/                         /blog/:splat                        301!
-/case-studies/*/                 /case-studies/:splat                301!
-
-# Páginas legales
-/privacy-policy/                 /privacy-policy                     301!
-/terms-of-service/               /terms-of-service                   301!
-/cookie-policy/                  /cookie-policy                      301!
-
-# ==============================
-# Aliases y redirects semánticos
-# ==============================
+# Aliases básicos
 /cookies                         /cookie-policy                      301!
 /privacy                         /privacy-policy                     301!
 /terms                           /terms-of-service                   301!
 /index.html                      /                                   301!
 
-# Redirects semánticos adicionales
-/tools                           /resources                          301!
-/portfolio                       /case-studies                       301!
-/work                           /case-studies                       301!
-/projects                       /case-studies                       301!
-
-# ==============================
-# Blog post específico - URL antigua corregida
-# ==============================
+# Blog post fix específico
 /blog/seo-no-murio-hype-estrategia              /blog/seo-didnt-die-hype-strategy          301!
 
-# ==============================
-# SPA rewrites - URLs exactas del sitemap (específicas primero)
-# ==============================
-
-# Páginas principales
-/about                           /index.html                         200
-/services                        /index.html                         200
-/case-studies                    /index.html                         200
-/how-we-work                     /index.html                         200
-/blog                           /index.html                         200
-/resources                      /index.html                         200
-/contact                        /index.html                         200
-/sitemap                        /index.html                         200
-
-# Servicios específicos
-/services/strategic-seo-consulting               /index.html         200
-/services/digital-storytelling-services         /index.html         200
-/services/seo-automation                         /index.html         200
-/services/personal-branding-consulting           /index.html         200
-
-# Strategic SEO Consulting - Todas las ciudades
-/services/strategic-seo-consulting/miami-fl                     /index.html    200
-/services/strategic-seo-consulting/orlando-fl                   /index.html    200
-/services/strategic-seo-consulting/tampa-fl                     /index.html    200
-/services/strategic-seo-consulting/jacksonville-fl              /index.html    200
-/services/strategic-seo-consulting/fort-lauderdale-fl           /index.html    200
-/services/strategic-seo-consulting/st-petersburg-fl             /index.html    200
-/services/strategic-seo-consulting/sarasota-fl                  /index.html    200
-/services/strategic-seo-consulting/gainesville-fl               /index.html    200
-
-# Digital Storytelling Services - Todas las ciudades
-/services/digital-storytelling-services/miami-fl               /index.html    200
-/services/digital-storytelling-services/orlando-fl             /index.html    200
-/services/digital-storytelling-services/tampa-fl               /index.html    200
-/services/digital-storytelling-services/jacksonville-fl        /index.html    200
-/services/digital-storytelling-services/fort-lauderdale-fl     /index.html    200
-/services/digital-storytelling-services/st-petersburg-fl       /index.html    200
-/services/digital-storytelling-services/sarasota-fl            /index.html    200
-/services/digital-storytelling-services/gainesville-fl         /index.html    200
-
-# SEO Automation - Todas las ciudades
-/services/seo-automation/miami-fl                              /index.html    200
-/services/seo-automation/orlando-fl                            /index.html    200
-/services/seo-automation/tampa-fl                              /index.html    200
-/services/seo-automation/jacksonville-fl                       /index.html    200
-/services/seo-automation/fort-lauderdale-fl                    /index.html    200
-/services/seo-automation/st-petersburg-fl                      /index.html    200
-/services/seo-automation/sarasota-fl                           /index.html    200
-/services/seo-automation/gainesville-fl                        /index.html    200
-
-# Personal Branding Consulting - Todas las ciudades
-/services/personal-branding-consulting/miami-fl                /index.html    200
-/services/personal-branding-consulting/orlando-fl              /index.html    200
-/services/personal-branding-consulting/tampa-fl                /index.html    200
-/services/personal-branding-consulting/jacksonville-fl         /index.html    200
-/services/personal-branding-consulting/fort-lauderdale-fl      /index.html    200
-/services/personal-branding-consulting/st-petersburg-fl        /index.html    200
-/services/personal-branding-consulting/sarasota-fl             /index.html    200
-/services/personal-branding-consulting/gainesville-fl          /index.html    200
-
-# Blog posts específicos
-/blog/seo-didnt-die-hype-strategy                              /index.html    200
-/blog/wordpress-affordable-solution-or-anchor                  /index.html    200
-
-# Case studies específicos
-/case-studies/paramount-property-restoration                    /index.html    200
-/case-studies/flo-car-rental                                   /index.html    200
-/case-studies/puff-cleaning                                    /index.html    200
-/case-studies/edu1st-preschools                                /index.html    200
-/case-studies/craftd-london                                    /index.html    200
-/case-studies/le-gramme                                        /index.html    200
-
-# Páginas legales
-/privacy-policy                  /index.html                         200
-/terms-of-service               /index.html                         200
-/cookie-policy                  /index.html                         200
-
-# ==============================
-# SPA catch-all (después de rewrites específicos, antes del 404)
-# ==============================
-# Assets y archivos estáticos
-/robots.txt                         /robots.txt                       200
-/sitemap.xml                        /sitemap.xml                      200
-/image-sitemap.xml                  /image-sitemap.xml                200
-/assets/*                           /assets/:splat                    200
-/.well-known/*                      /.well-known/:splat               200
-
-# Catch-all para todas las rutas de SPA no listadas arriba
-/*                                  /index.html                       200
-
-# ==============================
-# 404 real - Solo para casos extremos que no deberían ocurrir
-# ==============================
-# (El catch-all de arriba maneja todo, esto es backup)
+# SPA catch-all SIMPLE
+/robots.txt                      /robots.txt                         200
+/sitemap.xml                     /sitemap.xml                        200
+/assets/*                        /assets/:splat                      200
+/*                               /index.html                         200
