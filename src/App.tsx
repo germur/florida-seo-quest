@@ -1,4 +1,25 @@
 // src/App.tsx
+
+// SOLUCIÓN DEFINITIVA para el error de useLayoutEffect
+// Debe ir ANTES de cualquier import de React o componentes
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+  // En el cliente, reemplazamos useLayoutEffect globalmente para evitar errores de hidratación
+  const React = require('react');
+  const originalUseLayoutEffect = React.useLayoutEffect;
+  React.useLayoutEffect = function(effect: React.EffectCallback, deps?: React.DependencyList) {
+    // Solo usar useLayoutEffect si estamos completamente en el cliente
+    if (typeof window !== 'undefined' && typeof document !== 'undefined' && document.readyState !== 'loading') {
+      return originalUseLayoutEffect(effect, deps);
+    }
+    // En otros casos, usar useEffect para evitar warnings
+    return React.useEffect(effect, deps);
+  };
+} else if (typeof window === 'undefined') {
+  // En el servidor, siempre usar useEffect
+  const React = require('react');
+  React.useLayoutEffect = React.useEffect;
+}
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -25,12 +46,6 @@ import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
-
-// Solución para el error de useLayoutEffect en SSR/Lovable
-if (typeof window === 'undefined') {
-  const React = require('react');
-  React.useLayoutEffect = React.useEffect;
-}
 
 const queryClient = new QueryClient();
 
