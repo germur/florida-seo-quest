@@ -23,50 +23,10 @@ export default defineConfig(({ mode }) => ({
       output: {
         manualChunks(id) {
           if (id.includes("node_modules")) {
-            // React core libraries
-            if (id.includes("react") || id.includes("react-dom") || id.includes("scheduler")) {
-              return "react-vendor";
-            }
-            
-            // React Router
-            if (id.includes("react-router") || id.includes("@remix-run")) {
-              return "router";
-            }
-            
-            // Radix UI components
-            if (id.includes("@radix-ui")) {
-              return "radix-ui";
-            }
-            
-            // Other React libraries
-            if (id.includes("react-")) {
-              return "react-libs";
-            }
-            
-            // Utility libraries
-            if (id.includes("tailwind") || id.includes("clsx") || id.includes("class-variance-authority")) {
-              return "utils";
-            }
-            
-            // Analytics and tracking
-            if (id.includes("tanstack")) {
-              return "tanstack";
-            }
-            
-            // Other large libraries get their own chunks
             const parts = id.toString().split("node_modules/")[1].split("/");
             const scopeOrPkg = parts[0];
             const pkg = scopeOrPkg.startsWith("@") ? `${scopeOrPkg}/${parts[1]}` : scopeOrPkg;
-            return `vendor-${pkg}`;
-          }
-          
-          // App code chunking
-          if (id.includes("/src/pages/")) {
-            return "pages";
-          }
-          
-          if (id.includes("/src/components/ui/")) {
-            return "ui-components";
+            return pkg; // un chunk por paquete (HTTP/2 lo maneja bien)
           }
         },
       },
