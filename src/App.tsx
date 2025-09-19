@@ -26,6 +26,12 @@ import CookiePolicy from "./pages/CookiePolicy";
 import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
 
+// Solución para el error de useLayoutEffect en SSR/Lovable
+if (typeof window === 'undefined') {
+  const React = require('react');
+  React.useLayoutEffect = React.useEffect;
+}
+
 const queryClient = new QueryClient();
 
 const App = () => (
