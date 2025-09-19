@@ -41,8 +41,15 @@
   <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/spacegrotesk/v22/V8mDoQDjQSkFtoMM3T6r8E7mPbF4C_k3HqU.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/spacegrotesk/v22/V8mCoQDjQSkFtoMM3T6r8E7mPbF4C_k.woff2" crossorigin>
   
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <!-- Non-blocking font loading -->
+  <script>
+    (function() {
+      var fontCSS = document.createElement('link');
+      fontCSS.rel = 'stylesheet';
+      fontCSS.href = 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap';
+      document.head.appendChild(fontCSS);
+    })();
+  </script>
   <noscript><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 
   <!-- Preconnect: GA4 -->
