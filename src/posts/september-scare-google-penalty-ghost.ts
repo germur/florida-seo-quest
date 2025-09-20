@@ -43,6 +43,14 @@ export const post = {
   },
 
   content: `
+    <div class="hero-image mb-12">
+      <img 
+        src="/september-scare-hero.webp" 
+        alt="The September Scare: A Google Penalty or the Disappearance of a Ghost? - Illustration showing a ghost with Google logo and declining graphs" 
+        class="w-full rounded-2xl shadow-2xl"
+      />
+    </div>
+
     <div class="table-of-contents bg-gradient-to-br from-electric-blue/5 to-electric-blue/10 border border-electric-blue/20 rounded-2xl p-8 mb-12">
       <h2 class="text-xl font-bold text-primary mb-4">📋 Table of Contents</h2>
       <nav class="space-y-2">
