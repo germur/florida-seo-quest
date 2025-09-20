@@ -54,7 +54,7 @@ export const post = {
     </div>
 
     <p class="leading-relaxed mb-6 text-lg">
-      It's Monday morning. You pour a coffee, open your laptop, and check your Google Search Console reports. What you see makes your blood run cold: the impression graph has fallen off a cliff, your average position has "improved" to an unbelievable degree, but your clicks remain stable. Your first reaction is pure panic. "What did I do wrong? Did Google penalize me? Are we losing massive visibility?"
+      It's Monday morning. You pour coffee, open your laptop, and check your Google Search Console reports. What you see makes your blood run cold: the impression graph has fallen off a cliff, your average position has "improved" to an unbelievable degree, but your clicks remain stable. Your first reaction is pure panic. "What did I do wrong? Did Google penalize me? Are we losing massive visibility?"
     </p>
 
     <p class="leading-relaxed mb-8">
@@ -85,7 +85,7 @@ export const post = {
 
       <ul class="list-disc pl-6 space-y-3 mb-8">
         <li>
-          <strong>Reducing mass scraping:</strong> Hundreds of tools and bots used <code>&num=100</code> to download massive volumes of data with a single request. This put an unnecessary load on Google's servers. By eliminating it, Google cleans up artificial traffic.
+          <strong>Reducing mass scraping:</strong> Hundreds of tools and bots used <code>&num=100</code> to download massive volumes of data with a single request. This put unnecessary load on Google's servers. By eliminating it, Google cleans up artificial traffic.
         </li>
         <li>
           <strong>Purifying Search Console data:</strong> By removing impressions from very deep positions (like 95 or 99) that virtually no human user ever sees, the reports become more faithful to real user behavior. It's like Google is removing "ghosts" from your report that were inflating your impressions without providing any value.
@@ -120,7 +120,7 @@ export const post = {
             </tr>
             <tr class="bg-muted/30">
               <td class="border border-border px-4 py-3 font-medium">Average Position</td>
-              <td class="border border-border px-4 py-3">An automatic and sharp improvement. The numbers were much lower.</td>
+              <td class="border border-border px-4 py-3">Automatic and sharp improvement. The numbers were much lower.</td>
               <td class="border border-border px-4 py-3">By not counting the deep positions, the average position only considers those that truly matter (the first few pages).</td>
             </tr>
             <tr>
@@ -130,8 +130,8 @@ export const post = {
             </tr>
             <tr class="bg-muted/30">
               <td class="border border-border px-4 py-3 font-medium">Average CTR</td>
-              <td class="border border-border px-4 py-3">A reported increase in CTR.</td>
-              <td class="border border-border px-4 py-3">Fewer "inflated" impressions + similar clicks = a higher and more realistic click-through rate.</td>
+              <td class="border border-border px-4 py-3">Reported increase in CTR.</td>
+              <td class="border border-border px-4 py-3">Fewer "inflated" impressions + similar clicks = higher and more realistic click-through rate.</td>
             </tr>
           </tbody>
         </table>
@@ -139,7 +139,7 @@ export const post = {
 
       <div class="bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-400 p-6 mb-6 rounded-r-lg">
         <p class="text-green-700">
-          <strong>💡 In essence:</strong> The drop in impressions wasn't a loss of visibility, but the disappearance of data that should have never counted in the first place.
+          <strong>💡 In essence:</strong> The drop in impressions wasn't a loss of visibility, but the disappearance of data that should never have counted in the first place.
         </p>
       </div>
     </section>
@@ -232,13 +232,15 @@ export const post = {
     <section class="mt-12 pt-8 border-t border-border">
       <h3 class="text-xl font-bold text-primary mb-4">📚 References</h3>
       <ul class="space-y-2 text-sm text-muted-foreground">
-        <li>• <a href="#" class="text-electric-blue hover:underline">Google Quietly Disables &num=100 Parameter, Causing Data Fluctuations</a></li>
-        <li>• <a href="#" class="text-electric-blue hover:underline">Google Search Console Impressions Drop: The Real Reason Behind It</a></li>
-        <li>• <a href="#" class="text-electric-blue hover:underline">The &num=100 Parameter is Gone: How to Interpret Your Search Console Data</a></li>
-        <li>• <a href="#" class="text-electric-blue hover:underline">The &num=100 Parameter Is No Longer Supported</a></li>
-        <li>• <a href="#" class="text-electric-blue hover:underline">Google Confirms &num=100 Parameter Is Not a Supported Feature</a></li>
-        <li>• <a href="#" class="text-electric-blue hover:underline">What the Disabling of &num=100 Means for Your SEO Reporting</a></li>
-        <li>• <a href="#" class="text-electric-blue hover:underline">Understanding The Great Decoupling: A New Theory on Impression Fluctuations</a></li>
+        <li>• <a href="https://searchengineland.com/google-search-rank-and-position-tracking-is-a-mess-right-now-461984" class="text-electric-blue hover:underline" target="_blank" rel="noopener">Google Search rank and position tracking is a mess right now - Search Engine Land</a></li>
+        <li>• <a href="https://nikki-pilkington.com/google-search-console-impressions-dropped-overnight-this-is-why/" class="text-electric-blue hover:underline" target="_blank" rel="noopener">Google Search Console Impressions Dropped Overnight? This Is Why - Nikki Pilkington</a></li>
+        <li>• <a href="https://www.logicalposition.com/blog/google-retires-the-num100-parameter-what-it-means-for-seo-tools-gsc-data-and-smbs" class="text-electric-blue hover:underline" target="_blank" rel="noopener">Google Ends &num=100: What It Means for SEO Data & SMBs - Logical Position</a></li>
+        <li>• <a href="https://www.semrush.com/news/424322-google-changes-to-serp-data-collection-what-you-need-to-know/" class="text-electric-blue hover:underline" target="_blank" rel="noopener">Google Changes to SERP Data Collection: What You Need to Know - Semrush</a></li>
+        <li>• <a href="https://www.seroundtable.com/google-search-console-reporting-off-40106.html" class="text-electric-blue hover:underline" target="_blank" rel="noopener">Google Search Console Reporting Off Since 100 Results Per Page Change - Search Engine Roundtable</a></li>
+        <li>• <a href="https://measuremindsgroup.com/gsc-impressions-dropped-rankings-improved" class="text-electric-blue hover:underline" target="_blank" rel="noopener">GSC: Why have impressions dropped & rankings improved? - Measure Minds Group</a></li>
+        <li>• <a href="https://unlimitedgrowth.online/blog/google-se-actualiza-y-ya-no-muestra-100-resultados-por-pagina/" class="text-electric-blue hover:underline" target="_blank" rel="noopener">Google se actualiza y ya no muestra 100 resultados por página - Unlimited Growth</a></li>
+        <li>• <a href="https://carontestudio.com/blog/seo-num100-google/" class="text-electric-blue hover:underline" target="_blank" rel="noopener">Como te afecta final de &num100 en Google - Caronte Studio</a></li>
+        <li>• <a href="https://hispavista.com/analitica/caida-impresiones-search-console/" class="text-electric-blue hover:underline" target="_blank" rel="noopener">Caída de impresiones en Search Console: qué está pasando - Hispavista</a></li>
       </ul>
     </section>
   `
