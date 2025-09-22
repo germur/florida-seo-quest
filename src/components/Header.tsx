@@ -44,9 +44,33 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            <Link to="/case-studies" className="text-muted-foreground hover:text-primary transition-colors text-sm xl:text-base">
-              Case Studies
-            </Link>
+            <div className="relative group">
+              <Link to="/case-studies" className="text-muted-foreground hover:text-primary transition-colors text-sm xl:text-base flex items-center">
+                Case Studies
+              </Link>
+              <div className="absolute top-full left-0 mt-2 w-64 bg-card border border-border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="p-4 space-y-2">
+                  <Link to="/case-studies/paramount-property-restoration" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                    Paramount Property Restoration
+                  </Link>
+                  <Link to="/case-studies/craftd-london" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                    Craftd London
+                  </Link>
+                  <Link to="/case-studies/flo-car-rental" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                    Flo Car Rental
+                  </Link>
+                  <Link to="/case-studies/puff-cleaning" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                    Puff Cleaning
+                  </Link>
+                  <Link to="/case-studies/edu1st-preschools" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                    Edu1st Preschools
+                  </Link>
+                  <Link to="/case-studies/le-gramme" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                    Le Gramme
+                  </Link>
+                </div>
+              </div>
+            </div>
             <Link to="/how-we-work" className="text-muted-foreground hover:text-primary transition-colors text-sm xl:text-base">
               How We Work
             </Link>
