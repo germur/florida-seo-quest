@@ -52,15 +52,16 @@ function pickRandom(arr: typeof CASE_STUDIES) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// Dice face with dots (pips)
+// Modern 3D dice face with enhanced visual effects
 function Pip({ x, y }: { x: number; y: number }) {
   return (
     <div
-      className="absolute w-2.5 h-2.5 rounded-full bg-neutral-gray"
+      className="absolute w-2.5 h-2.5 rounded-full bg-gradient-radial from-neutral-gray via-slate-700 to-slate-800 shadow-inner"
       style={{ 
         left: `${x}%`, 
         top: `${y}%`, 
-        transform: "translate(-50%, -50%)" 
+        transform: "translate(-50%, -50%)",
+        boxShadow: 'inset 0 1px 2px rgba(0,0,0,0.3), 0 1px 2px rgba(255,255,255,0.1)'
       }}
     />
   );
@@ -75,127 +76,297 @@ const LAYOUTS: Record<number, [number, number][]> = {
   6: [[30, 25], [30, 50], [30, 75], [70, 25], [70, 50], [70, 75]],
 };
 
+// Modern 3D dice face with realistic depth and lighting
 function DiceFace({ n }: { n: number }) {
   return (
-    <div className="relative w-16 h-16 bg-white rounded-xl border border-border shadow-lg">
+    <div 
+      className="relative w-16 h-16 rounded-xl shadow-2xl transform-gpu"
+      style={{
+        background: 'linear-gradient(145deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%)',
+        border: '1px solid rgba(148, 163, 184, 0.3)',
+        boxShadow: `
+          0 8px 32px rgba(0,0,0,0.12),
+          0 2px 8px rgba(0,0,0,0.08),
+          inset 0 1px 0 rgba(255,255,255,0.8),
+          inset 0 -1px 0 rgba(0,0,0,0.05)
+        `,
+        transform: 'perspective(200px) rotateX(5deg) rotateY(-5deg)',
+      }}
+    >
+      {/* Subtle inner glow effect */}
+      <div 
+        className="absolute inset-0.5 rounded-xl opacity-40"
+        style={{
+          background: 'radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 70%)'
+        }}
+      />
+      
       {LAYOUTS[n].map(([x, y], i) => (
         <Pip key={i} x={x} y={y} />
       ))}
+      
+      {/* Highlight reflection on top edge */}
+      <div 
+        className="absolute top-0 left-2 right-2 h-1 rounded-full opacity-60"
+        style={{
+          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent)'
+        }}
+      />
     </div>
   );
 }
 
-// CSS Animation styles
+// Enhanced 3D CSS Animation styles with realistic physics
 const diceStyles = `
-@keyframes roll-dice {
-  0% { transform: rotate(0deg) scale(1); }
-  20% { transform: rotate(120deg) scale(1.05); }
-  40% { transform: rotate(240deg) scale(0.98); }
-  60% { transform: rotate(360deg) scale(1.06); }
-  80% { transform: rotate(480deg) scale(0.99); }
-  100% { transform: rotate(600deg) scale(1); }
+@keyframes roll-dice-3d {
+  0% { 
+    transform: perspective(400px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); 
+  }
+  15% { 
+    transform: perspective(400px) rotateX(180deg) rotateY(90deg) rotateZ(45deg) scale(1.1) translateZ(20px); 
+  }
+  30% { 
+    transform: perspective(400px) rotateX(360deg) rotateY(180deg) rotateZ(90deg) scale(0.95) translateZ(-10px); 
+  }
+  45% { 
+    transform: perspective(400px) rotateX(540deg) rotateY(270deg) rotateZ(135deg) scale(1.08) translateZ(25px); 
+  }
+  60% { 
+    transform: perspective(400px) rotateX(720deg) rotateY(360deg) rotateZ(180deg) scale(0.98) translateZ(-5px); 
+  }
+  75% { 
+    transform: perspective(400px) rotateX(900deg) rotateY(450deg) rotateZ(225deg) scale(1.05) translateZ(15px); 
+  }
+  90% { 
+    transform: perspective(400px) rotateX(1080deg) rotateY(540deg) rotateZ(270deg) scale(0.99) translateZ(-2px); 
+  }
+  100% { 
+    transform: perspective(400px) rotateX(1080deg) rotateY(540deg) rotateZ(360deg) scale(1) translateZ(0px); 
+  }
 }
 
-@keyframes float-dice {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-8px) rotate(2deg); }
+@keyframes float-dice-3d {
+  0%, 100% { 
+    transform: perspective(400px) rotateX(5deg) rotateY(-5deg) translateY(0px) translateZ(0px); 
+  }
+  25% { 
+    transform: perspective(400px) rotateX(8deg) rotateY(-2deg) translateY(-4px) translateZ(8px); 
+  }
+  50% { 
+    transform: perspective(400px) rotateX(2deg) rotateY(-8deg) translateY(-8px) translateZ(12px); 
+  }
+  75% { 
+    transform: perspective(400px) rotateX(6deg) rotateY(-6deg) translateY(-4px) translateZ(8px); 
+  }
 }
 
-@keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px hsl(var(--electric-blue) / 0.3), 0 0 40px hsl(var(--electric-blue) / 0.1); }
-  50% { box-shadow: 0 0 30px hsl(var(--electric-blue) / 0.5), 0 0 60px hsl(var(--electric-blue) / 0.2); }
+@keyframes glow-pulse-3d {
+  0%, 100% { 
+    box-shadow: 
+      0 0 30px hsl(var(--electric-blue) / 0.4),
+      0 0 60px hsl(var(--electric-blue) / 0.2),
+      0 0 100px hsl(var(--electric-blue) / 0.1),
+      0 16px 32px rgba(0,0,0,0.15),
+      0 4px 16px rgba(0,0,0,0.1);
+  }
+  50% { 
+    box-shadow: 
+      0 0 50px hsl(var(--electric-blue) / 0.6),
+      0 0 100px hsl(var(--electric-blue) / 0.3),
+      0 0 150px hsl(var(--electric-blue) / 0.15),
+      0 24px 48px rgba(0,0,0,0.2),
+      0 8px 24px rgba(0,0,0,0.15);
+  }
 }
 
-@keyframes sparkle {
-  0%, 100% { opacity: 0; transform: scale(0.8) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+@keyframes sparkle-3d {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(0.6) rotate(0deg) translateZ(0px); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.3) rotate(180deg) translateZ(20px); 
+  }
 }
 
-@keyframes click-invitation {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+@keyframes click-invitation-3d {
+  0%, 100% { 
+    transform: perspective(400px) rotateX(5deg) rotateY(-5deg) scale(1) translateZ(0px); 
+  }
+  50% { 
+    transform: perspective(400px) rotateX(8deg) rotateY(-8deg) scale(1.08) translateZ(10px); 
+  }
 }
 
-.dice-rolling { 
-  animation: roll-dice 1000ms cubic-bezier(0.2, 0.9, 0.2, 1) both; 
+@keyframes particle-float {
+  0% { 
+    opacity: 0; 
+    transform: translateY(0px) translateX(0px) scale(0.5); 
+  }
+  20% { 
+    opacity: 1; 
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(-40px) translateX(var(--random-x, 10px)) scale(0.8); 
+  }
+}
+
+.dice-rolling-3d { 
+  animation: roll-dice-3d 1200ms cubic-bezier(0.175, 0.885, 0.32, 1.275) both; 
 }
 .dice-face-changing {
-  animation: pulse 100ms ease-in-out infinite;
+  animation: pulse 120ms ease-in-out infinite;
 }
-.dice-floating {
-  animation: float-dice 3s ease-in-out infinite;
+.dice-floating-3d {
+  animation: float-dice-3d 4s ease-in-out infinite;
 }
-.dice-glowing {
-  animation: glow-pulse 2s ease-in-out infinite;
+.dice-glowing-3d {
+  animation: glow-pulse-3d 3s ease-in-out infinite;
 }
-.dice-invitation {
-  animation: click-invitation 2s ease-in-out infinite;
+.dice-invitation-3d {
+  animation: click-invitation-3d 2.5s ease-in-out infinite;
+}
+.sparkle-3d {
+  animation: sparkle-3d 2.5s ease-in-out infinite;
 }
 `;
 
+// Enhanced 3D Dice Button with realistic physics and modern effects
 function DiceButton({ onRollEnd, disabled }: { onRollEnd: () => void; disabled: boolean }) {
   const [face, setFace] = useState(1);
   const [rolling, setRolling] = useState(false);
+  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number }>>([]);
+
+  const createParticles = () => {
+    const newParticles = Array.from({ length: 6 }, (_, i) => ({
+      id: Date.now() + i,
+      x: Math.random() * 40 - 20, // Random X offset
+      y: Math.random() * 40 - 20, // Random Y offset
+    }));
+    setParticles(newParticles);
+    
+    // Clear particles after animation
+    setTimeout(() => setParticles([]), 1000);
+  };
 
   const startRoll = () => {
     if (rolling || disabled) return;
     
     setRolling(true);
+    createParticles();
     
-    // Fast face changes during animation
+    // Fast face changes during animation with varied timing
     const faceInterval = setInterval(() => {
       setFace(1 + Math.floor(Math.random() * 6));
-    }, 120);
+    }, 100);
     
-    // End roll animation
+    // End roll animation with longer duration for 3D effect
     setTimeout(() => {
       clearInterval(faceInterval);
       setRolling(false);
       setFace(1 + Math.floor(Math.random() * 6)); // Final face
       onRollEnd();
-    }, 1000);
+    }, 1200);
   };
 
   return (
-    <div className="relative">
-      {/* Sparkle effects around the dice */}
-      <div className="absolute -inset-8 pointer-events-none">
-        <Sparkles className="absolute top-0 left-2 w-4 h-4 text-electric-blue animate-[sparkle_3s_ease-in-out_infinite]" />
-        <Sparkles className="absolute top-2 right-0 w-3 h-3 text-bright-orange animate-[sparkle_3s_ease-in-out_infinite_0.5s]" />
-        <Sparkles className="absolute bottom-0 left-0 w-3 h-3 text-electric-blue animate-[sparkle_3s_ease-in-out_infinite_1s]" />
-        <Sparkles className="absolute bottom-2 right-2 w-4 h-4 text-bright-orange animate-[sparkle_3s_ease-in-out_infinite_1.5s]" />
+    <div className="relative" style={{ perspective: '600px' }}>
+      {/* Enhanced particle system */}
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className="absolute w-1 h-1 bg-electric-blue rounded-full pointer-events-none"
+          style={{
+            left: '50%',
+            top: '50%',
+            ['--random-x' as any]: `${particle.x}px`,
+            animation: 'particle-float 1s ease-out forwards',
+            animationDelay: `${Math.random() * 0.2}s`
+          }}
+        />
+      ))}
+      
+      {/* Enhanced sparkle effects with 3D positioning */}
+      <div className="absolute -inset-12 pointer-events-none">
+        <Sparkles className="absolute top-2 left-4 w-4 h-4 text-electric-blue sparkle-3d" />
+        <Sparkles className="absolute top-4 right-2 w-3 h-3 text-bright-orange sparkle-3d" style={{ animationDelay: '0.6s' }} />
+        <Sparkles className="absolute bottom-2 left-2 w-3 h-3 text-electric-blue sparkle-3d" style={{ animationDelay: '1.2s' }} />
+        <Sparkles className="absolute bottom-4 right-4 w-4 h-4 text-bright-orange sparkle-3d" style={{ animationDelay: '1.8s' }} />
+        <Sparkles className="absolute top-8 left-8 w-2 h-2 text-teal sparkle-3d" style={{ animationDelay: '0.3s' }} />
+        <Sparkles className="absolute top-6 right-8 w-2 h-2 text-electric-blue sparkle-3d" style={{ animationDelay: '0.9s' }} />
       </div>
       
+      {/* Modern 3D button with enhanced shadows and perspective */}
       <button
         type="button"
         onClick={startRoll}
         disabled={disabled || rolling}
         className={`
-          group relative flex items-center justify-center w-24 h-24 rounded-2xl 
-          bg-gradient-to-br from-white to-secondary border-2 cursor-pointer
-          transition-all duration-300 ease-out
-          shadow-[0_8px_32px_-8px_hsl(var(--electric-blue)/0.3)]
+          group relative flex items-center justify-center w-28 h-28 rounded-3xl cursor-pointer
+          transition-all duration-500 ease-out transform-gpu
           
-          ${!rolling && !disabled ? 'dice-floating dice-glowing dice-invitation hover:shadow-[0_12px_48px_-8px_hsl(var(--electric-blue)/0.5)]' : ''}
-          ${!rolling && !disabled ? 'hover:scale-110 hover:-translate-y-2' : ''}
-          ${!rolling && !disabled ? 'border-electric-blue/30 hover:border-electric-blue/60' : 'border-border'}
+          ${!rolling && !disabled ? 'dice-floating-3d dice-glowing-3d dice-invitation-3d' : ''}
+          ${!rolling && !disabled ? 'hover:scale-110 hover:-translate-y-3' : ''}
           
-          active:scale-95 active:translate-y-0
+          active:scale-95 active:translate-y-1
           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:translate-y-0
           
-          ${rolling ? "dice-rolling" : ""}
+          ${rolling ? "dice-rolling-3d" : ""}
           ${rolling ? "dice-face-changing" : ""}
-          
-          before:absolute before:inset-0 before:rounded-2xl 
-          before:bg-gradient-to-br before:from-electric-blue/5 before:to-bright-orange/5
-          before:opacity-0 before:transition-opacity before:duration-300
-          hover:before:opacity-100
         `}
+        style={{
+          background: rolling ? 
+            'linear-gradient(145deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%)' :
+            'linear-gradient(145deg, #ffffff 0%, #f8fafc 40%, #f1f5f9 100%)',
+          border: rolling ? '2px solid rgba(59, 130, 246, 0.6)' : '2px solid rgba(148, 163, 184, 0.2)',
+          boxShadow: rolling ? `
+            0 0 40px hsl(var(--electric-blue) / 0.3),
+            0 0 80px hsl(var(--electric-blue) / 0.1),
+            0 20px 40px rgba(0,0,0,0.15),
+            inset 0 2px 4px rgba(255,255,255,0.8),
+            inset 0 -2px 4px rgba(0,0,0,0.1)
+          ` : `
+            0 12px 48px rgba(0,0,0,0.08),
+            0 4px 16px rgba(0,0,0,0.04),
+            inset 0 1px 0 rgba(255,255,255,0.9),
+            inset 0 -1px 0 rgba(0,0,0,0.05)
+          `,
+          transform: rolling ? 
+            'perspective(600px) rotateX(0deg) rotateY(0deg)' : 
+            'perspective(600px) rotateX(5deg) rotateY(-5deg)',
+        }}
       >
+        {/* Enhanced inner glow that responds to interaction */}
+        <div 
+          className={`absolute inset-1 rounded-3xl transition-opacity duration-300 ${
+            rolling ? 'opacity-60' : 'opacity-0 group-hover:opacity-40'
+          }`}
+          style={{
+            background: 'radial-gradient(circle at 35% 35%, rgba(59, 130, 246, 0.15) 0%, rgba(249, 115, 22, 0.1) 50%, transparent 70%)'
+          }}
+        />
+        
         <DiceFace n={face} />
         
-        {/* Ripple effect on click */}
-        <div className="absolute inset-0 rounded-2xl bg-electric-blue/20 opacity-0 group-active:opacity-100 group-active:animate-ping" />
+        {/* Enhanced ripple effect with 3D depth */}
+        <div 
+          className="absolute inset-0 rounded-3xl opacity-0 group-active:opacity-100 transition-opacity duration-200"
+          style={{
+            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%)',
+            animation: rolling ? 'none' : 'group-active:animate-ping'
+          }}
+        />
+        
+        {/* Subtle edge lighting effect */}
+        <div 
+          className="absolute inset-0 rounded-3xl opacity-20"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.8) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.1) 100%)',
+            pointerEvents: 'none'
+          }}
+        />
       </button>
     </div>
   );

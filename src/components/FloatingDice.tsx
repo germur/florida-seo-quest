@@ -95,15 +95,17 @@ function pickRandom(arr: typeof CASE_STUDIES) {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// Compact dice face for floating version
+// Enhanced 3D compact dice face for floating version
 function Pip({ x, y }: { x: number; y: number }) {
   return (
     <div
-      className="absolute w-1.5 h-1.5 rounded-full bg-neutral-gray"
+      className="absolute w-1.5 h-1.5 rounded-full shadow-inner"
       style={{ 
         left: `${x}%`, 
         top: `${y}%`, 
-        transform: "translate(-50%, -50%)" 
+        transform: "translate(-50%, -50%)",
+        background: 'radial-gradient(circle at 30% 30%, #64748b, #334155)',
+        boxShadow: 'inset 0 0.5px 1px rgba(0,0,0,0.4), 0 0.5px 1px rgba(255,255,255,0.2)'
       }}
     />
   );
@@ -118,72 +120,149 @@ const LAYOUTS: Record<number, [number, number][]> = {
   6: [[30, 25], [30, 50], [30, 75], [70, 25], [70, 50], [70, 75]],
 };
 
+// Enhanced 3D compact dice face with modern styling
 function CompactDiceFace({ n }: { n: number }) {
   return (
-    <div className="relative w-10 h-10 bg-white rounded-lg border border-border shadow-lg">
+    <div 
+      className="relative w-10 h-10 rounded-lg shadow-xl transform-gpu"
+      style={{
+        background: 'linear-gradient(145deg, #ffffff 0%, #f8fafc 50%, #e2e8f0 100%)',
+        border: '1px solid rgba(148, 163, 184, 0.3)',
+        boxShadow: `
+          0 4px 16px rgba(0,0,0,0.1),
+          0 1px 4px rgba(0,0,0,0.06),
+          inset 0 0.5px 0 rgba(255,255,255,0.8),
+          inset 0 -0.5px 0 rgba(0,0,0,0.05)
+        `,
+        transform: 'perspective(100px) rotateX(3deg) rotateY(-3deg)',
+      }}
+    >
+      {/* Subtle inner glow */}
+      <div 
+        className="absolute inset-0.5 rounded-lg opacity-30"
+        style={{
+          background: 'radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 70%)'
+        }}
+      />
+      
       {LAYOUTS[n].map(([x, y], i) => (
         <Pip key={i} x={x} y={y} />
       ))}
+      
+      {/* Top highlight */}
+      <div 
+        className="absolute top-0 left-1 right-1 h-0.5 rounded-full opacity-50"
+        style={{
+          background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent)'
+        }}
+      />
     </div>
   );
 }
 
-// Floating dice CSS animations
+// Enhanced 3D floating dice CSS animations with modern effects
 const floatingDiceStyles = `
-@keyframes floating-roll {
-  0% { transform: rotate(0deg) scale(1); }
-  25% { transform: rotate(180deg) scale(1.1); }
-  50% { transform: rotate(360deg) scale(0.95); }
-  75% { transform: rotate(540deg) scale(1.05); }
-  100% { transform: rotate(720deg) scale(1); }
+@keyframes floating-roll-3d {
+  0% { 
+    transform: perspective(200px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); 
+  }
+  20% { 
+    transform: perspective(200px) rotateX(120deg) rotateY(90deg) rotateZ(45deg) scale(1.15) translateZ(15px); 
+  }
+  40% { 
+    transform: perspective(200px) rotateX(240deg) rotateY(180deg) rotateZ(90deg) scale(0.9) translateZ(-8px); 
+  }
+  60% { 
+    transform: perspective(200px) rotateX(360deg) rotateY(270deg) rotateZ(135deg) scale(1.1) translateZ(18px); 
+  }
+  80% { 
+    transform: perspective(200px) rotateX(480deg) rotateY(360deg) rotateZ(180deg) scale(0.95) translateZ(-5px); 
+  }
+  100% { 
+    transform: perspective(200px) rotateX(540deg) rotateY(450deg) rotateZ(225deg) scale(1) translateZ(0px); 
+  }
 }
 
-@keyframes floating-glow {
+@keyframes floating-glow-3d {
   0%, 100% { 
     box-shadow: 
-      0 0 20px hsl(var(--electric-blue) / 0.4),
-      0 0 40px hsl(var(--electric-blue) / 0.2),
-      0 4px 12px rgba(0,0,0,0.1);
+      0 0 25px hsl(var(--electric-blue) / 0.5),
+      0 0 50px hsl(var(--electric-blue) / 0.25),
+      0 0 75px hsl(var(--electric-blue) / 0.1),
+      0 8px 24px rgba(0,0,0,0.12);
   }
   50% { 
     box-shadow: 
-      0 0 30px hsl(var(--electric-blue) / 0.6),
-      0 0 60px hsl(var(--electric-blue) / 0.3),
-      0 8px 16px rgba(0,0,0,0.15);
+      0 0 40px hsl(var(--electric-blue) / 0.7),
+      0 0 80px hsl(var(--electric-blue) / 0.4),
+      0 0 120px hsl(var(--electric-blue) / 0.2),
+      0 12px 36px rgba(0,0,0,0.18);
   }
 }
 
-@keyframes floating-bounce {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  25% { transform: translateY(-4px) rotate(1deg); }
-  50% { transform: translateY(-8px) rotate(0deg); }
-  75% { transform: translateY(-4px) rotate(-1deg); }
+@keyframes floating-bounce-3d {
+  0%, 100% { 
+    transform: perspective(200px) rotateX(3deg) rotateY(-3deg) translateY(0px) translateZ(0px); 
+  }
+  25% { 
+    transform: perspective(200px) rotateX(5deg) rotateY(-1deg) translateY(-3px) translateZ(6px); 
+  }
+  50% { 
+    transform: perspective(200px) rotateX(1deg) rotateY(-6deg) translateY(-6px) translateZ(10px); 
+  }
+  75% { 
+    transform: perspective(200px) rotateX(4deg) rotateY(-4deg) translateY(-3px) translateZ(6px); 
+  }
 }
 
-@keyframes attention-pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+@keyframes attention-pulse-3d {
+  0%, 100% { 
+    transform: perspective(200px) rotateX(3deg) rotateY(-3deg) scale(1) translateZ(0px); 
+  }
+  50% { 
+    transform: perspective(200px) rotateX(6deg) rotateY(-6deg) scale(1.12) translateZ(8px); 
+  }
 }
 
-@keyframes sparkle-float {
-  0%, 100% { opacity: 0.3; transform: scale(0.8) translateY(0px) rotate(0deg); }
-  50% { opacity: 1; transform: scale(1.2) translateY(-4px) rotate(180deg); }
+@keyframes sparkle-float-3d {
+  0%, 100% { 
+    opacity: 0.4; 
+    transform: scale(0.7) translateY(0px) translateZ(0px) rotate(0deg); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.3) translateY(-6px) translateZ(15px) rotate(180deg); 
+  }
 }
 
-.floating-dice-rolling { 
-  animation: floating-roll 800ms cubic-bezier(0.2, 0.9, 0.2, 1); 
+@keyframes micro-particles {
+  0% { 
+    opacity: 0; 
+    transform: translateY(0px) scale(0.3); 
+  }
+  30% { 
+    opacity: 1; 
+  }
+  100% { 
+    opacity: 0; 
+    transform: translateY(-25px) translateX(var(--random-x, 8px)) scale(0.7); 
+  }
 }
-.floating-dice-glowing {
-  animation: floating-glow 2.5s ease-in-out infinite;
+
+.floating-dice-rolling-3d { 
+  animation: floating-roll-3d 900ms cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
-.floating-dice-bouncing {
-  animation: floating-bounce 3s ease-in-out infinite;
+.floating-dice-glowing-3d {
+  animation: floating-glow-3d 3s ease-in-out infinite;
 }
-.floating-attention {
-  animation: attention-pulse 2s ease-in-out infinite;
+.floating-dice-bouncing-3d {
+  animation: floating-bounce-3d 4s ease-in-out infinite;
 }
-.floating-sparkle {
-  animation: sparkle-float 2.5s ease-in-out infinite;
+.floating-attention-3d {
+  animation: attention-pulse-3d 2.5s ease-in-out infinite;
+}
+.floating-sparkle-3d {
+  animation: sparkle-float-3d 2.8s ease-in-out infinite;
 }
 `;
 
@@ -193,67 +272,128 @@ interface FloatingDiceButtonProps {
   isMinimized: boolean;
 }
 
+// Enhanced 3D Floating Dice Button with particle effects
 function FloatingDiceButton({ onRollEnd, disabled, isMinimized }: FloatingDiceButtonProps) {
   const [face, setFace] = useState(1);
   const [rolling, setRolling] = useState(false);
+  const [particles, setParticles] = useState<Array<{ id: number; x: number; y: number }>>([]);
+
+  const createMicroParticles = () => {
+    const newParticles = Array.from({ length: 4 }, (_, i) => ({
+      id: Date.now() + i,
+      x: Math.random() * 20 - 10,
+      y: Math.random() * 20 - 10,
+    }));
+    setParticles(newParticles);
+    
+    setTimeout(() => setParticles([]), 800);
+  };
 
   const startRoll = () => {
     if (rolling || disabled) return;
     
     setRolling(true);
+    createMicroParticles();
     
     const faceInterval = setInterval(() => {
       setFace(1 + Math.floor(Math.random() * 6));
-    }, 80);
+    }, 75);
     
     setTimeout(() => {
       clearInterval(faceInterval);
       setRolling(false);
       setFace(1 + Math.floor(Math.random() * 6));
       onRollEnd();
-    }, 800);
+    }, 900);
   };
 
   if (isMinimized) {
     return (
-      <button
-        type="button"
-        onClick={startRoll}
-        disabled={disabled || rolling}
-        className={`
-          group relative flex items-center justify-center w-12 h-12 rounded-xl 
-          bg-gradient-to-br from-white to-secondary border-2 cursor-pointer
-          transition-all duration-300 ease-out
-          
-          ${!rolling && !disabled ? 'floating-dice-glowing floating-dice-bouncing floating-attention' : ''}
-          ${!rolling && !disabled ? 'hover:scale-110 hover:-translate-y-1' : ''}
-          ${!rolling && !disabled ? 'border-electric-blue/40 hover:border-electric-blue/70' : 'border-border'}
-          
-          active:scale-95 active:translate-y-0
-          disabled:opacity-50 disabled:cursor-not-allowed
-          
-          ${rolling ? "floating-dice-rolling" : ""}
-        `}
-      >
-        <CompactDiceFace n={face} />
+      <div className="relative" style={{ perspective: '300px' }}>
+        {/* Micro particles for minimized version */}
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="absolute w-0.5 h-0.5 bg-electric-blue rounded-full pointer-events-none"
+            style={{
+              left: '50%',
+              top: '50%',
+              ['--random-x' as any]: `${particle.x}px`,
+              animation: 'micro-particles 0.8s ease-out forwards',
+              animationDelay: `${Math.random() * 0.15}s`
+            }}
+          />
+        ))}
         
-        {/* Sparkle effects for minimized version */}
-        <Sparkles className="absolute -top-2 -right-2 w-3 h-3 text-electric-blue floating-sparkle opacity-80" />
-        <Zap className="absolute -bottom-1 -left-1 w-2.5 h-2.5 text-bright-orange floating-sparkle" style={{ animationDelay: '0.7s' }} />
-        
-        <div className="absolute inset-0 rounded-xl bg-electric-blue/20 opacity-0 group-active:opacity-100 group-active:animate-ping" />
-      </button>
+        <button
+          type="button"
+          onClick={startRoll}
+          disabled={disabled || rolling}
+          className={`
+            group relative flex items-center justify-center w-12 h-12 rounded-xl cursor-pointer
+            transition-all duration-400 ease-out transform-gpu
+            
+            ${!rolling && !disabled ? 'floating-dice-glowing-3d floating-dice-bouncing-3d floating-attention-3d' : ''}
+            ${!rolling && !disabled ? 'hover:scale-115 hover:-translate-y-2' : ''}
+            
+            active:scale-90 active:translate-y-1
+            disabled:opacity-50 disabled:cursor-not-allowed
+            
+            ${rolling ? "floating-dice-rolling-3d" : ""}
+          `}
+          style={{
+            background: rolling ? 
+              'linear-gradient(145deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%)' :
+              'linear-gradient(145deg, #ffffff 0%, #f8fafc 40%, #f1f5f9 100%)',
+            border: rolling ? '2px solid rgba(59, 130, 246, 0.6)' : '2px solid rgba(148, 163, 184, 0.25)',
+            boxShadow: rolling ? `
+              0 0 25px hsl(var(--electric-blue) / 0.4),
+              0 0 50px hsl(var(--electric-blue) / 0.15),
+              0 8px 24px rgba(0,0,0,0.12)
+            ` : `
+              0 6px 20px rgba(0,0,0,0.06),
+              0 2px 8px rgba(0,0,0,0.04),
+              inset 0 1px 0 rgba(255,255,255,0.9)
+            `,
+          }}
+        >
+          <CompactDiceFace n={face} />
+          
+          {/* Enhanced sparkle effects */}
+          <Sparkles className="absolute -top-2 -right-2 w-3 h-3 text-electric-blue floating-sparkle-3d opacity-90" />
+          <Zap className="absolute -bottom-1 -left-1 w-2.5 h-2.5 text-bright-orange floating-sparkle-3d" style={{ animationDelay: '0.8s' }} />
+          
+          <div className="absolute inset-0 rounded-xl bg-electric-blue/25 opacity-0 group-active:opacity-100 group-active:animate-ping" />
+        </button>
+      </div>
     );
   }
 
   return (
-    <div className="relative">
-      {/* Sparkle effects around expanded dice */}
-      <div className="absolute -inset-6 pointer-events-none">
-        <Sparkles className="absolute top-0 left-1 w-3 h-3 text-electric-blue floating-sparkle" />
-        <Sparkles className="absolute top-1 right-0 w-2.5 h-2.5 text-bright-orange floating-sparkle" style={{ animationDelay: '0.5s' }} />
-        <Sparkles className="absolute bottom-0 left-0 w-2.5 h-2.5 text-electric-blue floating-sparkle" style={{ animationDelay: '1s' }} />
-        <Sparkles className="absolute bottom-1 right-1 w-3 h-3 text-bright-orange floating-sparkle" style={{ animationDelay: '1.5s' }} />
+    <div className="relative" style={{ perspective: '400px' }}>
+      {/* Enhanced particle system for expanded version */}
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className="absolute w-1 h-1 bg-electric-blue rounded-full pointer-events-none"
+          style={{
+            left: '50%',
+            top: '50%',
+            ['--random-x' as any]: `${particle.x}px`,
+            animation: 'micro-particles 0.9s ease-out forwards',
+            animationDelay: `${Math.random() * 0.2}s`
+          }}
+        />
+      ))}
+      
+      {/* Enhanced sparkle effects with 3D positioning */}
+      <div className="absolute -inset-8 pointer-events-none">
+        <Sparkles className="absolute top-1 left-2 w-3 h-3 text-electric-blue floating-sparkle-3d" />
+        <Sparkles className="absolute top-2 right-1 w-2.5 h-2.5 text-bright-orange floating-sparkle-3d" style={{ animationDelay: '0.6s' }} />
+        <Sparkles className="absolute bottom-1 left-1 w-2.5 h-2.5 text-electric-blue floating-sparkle-3d" style={{ animationDelay: '1.2s' }} />
+        <Sparkles className="absolute bottom-2 right-2 w-3 h-3 text-bright-orange floating-sparkle-3d" style={{ animationDelay: '1.8s' }} />
+        <Sparkles className="absolute top-4 left-4 w-2 h-2 text-teal floating-sparkle-3d" style={{ animationDelay: '0.3s' }} />
+        <Sparkles className="absolute top-3 right-4 w-2 h-2 text-electric-blue floating-sparkle-3d" style={{ animationDelay: '0.9s' }} />
       </div>
       
       <button
@@ -261,28 +401,68 @@ function FloatingDiceButton({ onRollEnd, disabled, isMinimized }: FloatingDiceBu
         onClick={startRoll}
         disabled={disabled || rolling}
         className={`
-          group relative flex items-center justify-center w-16 h-16 rounded-xl 
-          bg-gradient-to-br from-white to-secondary border-2 cursor-pointer
-          transition-all duration-300 ease-out
+          group relative flex items-center justify-center w-18 h-18 rounded-2xl cursor-pointer
+          transition-all duration-500 ease-out transform-gpu
           
-          ${!rolling && !disabled ? 'floating-dice-glowing floating-dice-bouncing floating-attention' : ''}
-          ${!rolling && !disabled ? 'hover:scale-110 hover:-translate-y-2' : ''}
-          ${!rolling && !disabled ? 'border-electric-blue/40 hover:border-electric-blue/70' : 'border-border'}
+          ${!rolling && !disabled ? 'floating-dice-glowing-3d floating-dice-bouncing-3d floating-attention-3d' : ''}
+          ${!rolling && !disabled ? 'hover:scale-115 hover:-translate-y-3' : ''}
           
-          active:scale-95 active:translate-y-0
+          active:scale-90 active:translate-y-1
           disabled:opacity-50 disabled:cursor-not-allowed
           
-          ${rolling ? "floating-dice-rolling" : ""}
-          
-          before:absolute before:inset-0 before:rounded-xl 
-          before:bg-gradient-to-br before:from-electric-blue/5 before:to-bright-orange/5
-          before:opacity-0 before:transition-opacity before:duration-300
-          hover:before:opacity-100
+          ${rolling ? "floating-dice-rolling-3d" : ""}
         `}
+        style={{
+          background: rolling ? 
+            'linear-gradient(145deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%)' :
+            'linear-gradient(145deg, #ffffff 0%, #f8fafc 40%, #f1f5f9 100%)',
+          border: rolling ? '2px solid rgba(59, 130, 246, 0.6)' : '2px solid rgba(148, 163, 184, 0.2)',
+          boxShadow: rolling ? `
+            0 0 35px hsl(var(--electric-blue) / 0.4),
+            0 0 70px hsl(var(--electric-blue) / 0.2),
+            0 16px 32px rgba(0,0,0,0.12),
+            inset 0 2px 4px rgba(255,255,255,0.8),
+            inset 0 -2px 4px rgba(0,0,0,0.1)
+          ` : `
+            0 10px 40px rgba(0,0,0,0.08),
+            0 4px 16px rgba(0,0,0,0.04),
+            inset 0 1px 0 rgba(255,255,255,0.9),
+            inset 0 -1px 0 rgba(0,0,0,0.05)
+          `,
+          transform: rolling ? 
+            'perspective(400px) rotateX(0deg) rotateY(0deg)' : 
+            'perspective(400px) rotateX(3deg) rotateY(-3deg)',
+        }}
       >
+        {/* Enhanced inner glow that responds to interaction */}
+        <div 
+          className={`absolute inset-1 rounded-2xl transition-opacity duration-300 ${
+            rolling ? 'opacity-50' : 'opacity-0 group-hover:opacity-30'
+          }`}
+          style={{
+            background: 'radial-gradient(circle at 35% 35%, rgba(59, 130, 246, 0.12) 0%, rgba(249, 115, 22, 0.08) 50%, transparent 70%)'
+          }}
+        />
+        
         <CompactDiceFace n={face} />
         
-        <div className="absolute inset-0 rounded-xl bg-electric-blue/20 opacity-0 group-active:opacity-100 group-active:animate-ping" />
+        {/* Enhanced ripple effect with 3D depth */}
+        <div 
+          className="absolute inset-0 rounded-2xl opacity-0 group-active:opacity-100 transition-opacity duration-200"
+          style={{
+            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%)',
+            animation: rolling ? 'none' : 'group-active:animate-ping'
+          }}
+        />
+        
+        {/* Subtle edge lighting effect */}
+        <div 
+          className="absolute inset-0 rounded-2xl opacity-15"
+          style={{
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.8) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.1) 100%)',
+            pointerEvents: 'none'
+          }}
+        />
       </button>
     </div>
   );
