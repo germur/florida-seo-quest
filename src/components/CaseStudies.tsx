@@ -1,5 +1,6 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Phone, CheckCircle, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
 import DiceRoller from "./DiceRoller";
 
 const CaseStudies = () => {
@@ -79,53 +80,162 @@ const CaseStudies = () => {
               <DiceRoller />
             </div>
             
-            {/* Strategic case study navigation with enhanced internal linking */}
-            <div className="grid md:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
-              <Link to="/case-studies/paramount-property-restoration" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
-                <strong>Property Restoration SEO:</strong> +250% Traffic & Emergency Leads
-                <div className="text-xs text-muted-foreground/70 mt-1">Home Services • Local SEO • Programmatic Pages</div>
+            {/* Enhanced Strategic Case Study Navigation */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
+              <Link to="/case-studies/paramount-property-restoration" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                    <Phone className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-foreground group-hover:text-primary transition-colors mb-1">Property Restoration SEO</h4>
+                    <p className="text-sm text-muted-foreground">+250% Traffic & Emergency Leads</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="text-xs bg-primary/10 text-primary/80">#HomeServices</Badge>
+                  <Badge variant="secondary" className="text-xs bg-primary/10 text-primary/80">#LocalSEO</Badge>
+                  <Badge variant="secondary" className="text-xs bg-primary/10 text-primary/80">#ProgrammaticSEO</Badge>
+                </div>
               </Link>
-              <Link to="/case-studies/craftd-london" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
-                <strong>E-commerce Jewelry SEO:</strong> 50+ Keywords Top 10
-                <div className="text-xs text-muted-foreground/70 mt-1">Product SEO • Content Strategy • Rich Snippets</div>
+
+              <Link to="/case-studies/craftd-london" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-electric-blue/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="p-2 bg-electric-blue/10 rounded-lg group-hover:bg-electric-blue/20 transition-colors">
+                    <ArrowUpRight className="h-5 w-5 text-electric-blue" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-foreground group-hover:text-electric-blue transition-colors mb-1">E-commerce Jewelry SEO</h4>
+                    <p className="text-sm text-muted-foreground">50+ Keywords Top 10</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="text-xs bg-electric-blue/10 text-electric-blue/80">#ProductSEO</Badge>
+                  <Badge variant="secondary" className="text-xs bg-electric-blue/10 text-electric-blue/80">#ContentStrategy</Badge>
+                  <Badge variant="secondary" className="text-xs bg-electric-blue/10 text-electric-blue/80">#RichSnippets</Badge>
+                </div>
               </Link>
-              <Link to="/case-studies/edu1st-preschools" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
-                <strong>Multi-Location Education SEO:</strong> +80% Google Actions
-                <div className="text-xs text-muted-foreground/70 mt-1">Local SEO • Content Marketing • Lead Generation</div>
+
+              <Link to="/case-studies/edu1st-preschools" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-teal/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="p-2 bg-teal/10 rounded-lg group-hover:bg-teal/20 transition-colors">
+                    <CheckCircle className="h-5 w-5 text-teal" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-foreground group-hover:text-teal transition-colors mb-1">Multi-Location Education SEO</h4>
+                    <p className="text-sm text-muted-foreground">+80% Google Actions</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="text-xs bg-teal/10 text-teal/80">#MultiLocation</Badge>
+                  <Badge variant="secondary" className="text-xs bg-teal/10 text-teal/80">#ContentMarketing</Badge>
+                  <Badge variant="secondary" className="text-xs bg-teal/10 text-teal/80">#LeadGeneration</Badge>
+                </div>
               </Link>
-              <Link to="/case-studies/flo-car-rental" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
-                <strong>Local Car Rental SEO:</strong> +120% GBP Actions
-                <div className="text-xs text-muted-foreground/70 mt-1">Local SEO • Conversion Optimization • Mobile-First</div>
+
+              <Link to="/case-studies/flo-car-rental" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-bright-orange/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="p-2 bg-bright-orange/10 rounded-lg group-hover:bg-bright-orange/20 transition-colors">
+                    <ExternalLink className="h-5 w-5 text-bright-orange" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-foreground group-hover:text-bright-orange transition-colors mb-1">Local Car Rental SEO</h4>
+                    <p className="text-sm text-muted-foreground">+120% GBP Actions</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="text-xs bg-bright-orange/10 text-bright-orange/80">#LocalSEO</Badge>
+                  <Badge variant="secondary" className="text-xs bg-bright-orange/10 text-bright-orange/80">#ConversionOptimization</Badge>
+                  <Badge variant="secondary" className="text-xs bg-bright-orange/10 text-bright-orange/80">#MobileFirst</Badge>
+                </div>
               </Link>
-              <Link to="/case-studies/puff-cleaning" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
-                <strong>Cleaning Services SEO:</strong> 0 to 2K Monthly Visitors
-                <div className="text-xs text-muted-foreground/70 mt-1">Local Authority • Service Pages • Review Management</div>
+
+              <Link to="/case-studies/puff-cleaning" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                    <ArrowUpRight className="h-5 w-5 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-foreground group-hover:text-primary transition-colors mb-1">Cleaning Services SEO</h4>
+                    <p className="text-sm text-muted-foreground">0 to 2K Monthly Visitors</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="text-xs bg-primary/10 text-primary/80">#LocalAuthority</Badge>
+                  <Badge variant="secondary" className="text-xs bg-primary/10 text-primary/80">#ServicePages</Badge>
+                  <Badge variant="secondary" className="text-xs bg-primary/10 text-primary/80">#ReviewManagement</Badge>
+                </div>
               </Link>
-              <Link to="/case-studies/le-gramme" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
-                <strong>Luxury Jewelry International SEO:</strong> +40% Impressions
-                <div className="text-xs text-muted-foreground/70 mt-1">International SEO • Luxury Branding • Hreflang</div>
+
+              <Link to="/case-studies/le-gramme" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-electric-blue/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+                <div className="flex items-start gap-4 mb-4">
+                  <div className="p-2 bg-electric-blue/10 rounded-lg group-hover:bg-electric-blue/20 transition-colors">
+                    <ExternalLink className="h-5 w-5 text-electric-blue" />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-foreground group-hover:text-electric-blue transition-colors mb-1">Luxury Jewelry International SEO</h4>
+                    <p className="text-sm text-muted-foreground">+40% Impressions</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary" className="text-xs bg-electric-blue/10 text-electric-blue/80">#InternationalSEO</Badge>
+                  <Badge variant="secondary" className="text-xs bg-electric-blue/10 text-electric-blue/80">#LuxuryBranding</Badge>
+                  <Badge variant="secondary" className="text-xs bg-electric-blue/10 text-electric-blue/80">#Hreflang</Badge>
+                </div>
               </Link>
             </div>
             
-            {/* SEO Services Cross-Links */}
-            <div className="bg-secondary/10 border border-border/50 rounded-xl p-6 mb-8 max-w-4xl mx-auto">
-              <h4 className="text-lg font-semibold text-foreground mb-4 text-center">Proven SEO Strategies Behind These Results</h4>
-              <div className="grid md:grid-cols-4 gap-4">
-                <Link to="/services/local-seo-optimization" className="text-center p-3 rounded-lg hover:bg-background/50 transition-colors group">
-                  <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Local SEO</div>
-                  <div className="text-xs text-muted-foreground">Google Business Profile & Local Pack</div>
+            {/* Enhanced SEO Services Cross-Links */}
+            <div className="bg-gradient-to-br from-primary/5 via-secondary/10 to-background border border-border/50 rounded-2xl p-8 mb-8 max-w-5xl mx-auto shadow-lg">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <CheckCircle className="h-5 w-5 text-primary" />
+                </div>
+                <h4 className="text-xl font-bold text-foreground">Proven SEO Strategies Behind These Results</h4>
+              </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <Link to="/services/local-seo-optimization" className="group p-6 rounded-xl border border-border hover:border-primary/30 hover:bg-background/80 transition-all duration-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                      <ArrowUpRight className="h-4 w-4 text-primary" />
+                    </div>
+                    <Badge variant="outline" className="text-xs bg-primary/10 text-primary/80 border-primary/20">#LocalSEO</Badge>
+                  </div>
+                  <h5 className="font-semibold text-foreground group-hover:text-primary transition-colors mb-2">Local SEO</h5>
+                  <p className="text-xs text-muted-foreground">Google Business Profile & Local Pack Domination</p>
                 </Link>
-                <Link to="/services/seo-automation" className="text-center p-3 rounded-lg hover:bg-background/50 transition-colors group">
-                  <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">SEO Automation</div>
-                  <div className="text-xs text-muted-foreground">Programmatic & Scalable SEO</div>
+
+                <Link to="/services/seo-automation" className="group p-6 rounded-xl border border-border hover:border-electric-blue/30 hover:bg-background/80 transition-all duration-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 bg-electric-blue/10 rounded-lg group-hover:bg-electric-blue/20 transition-colors">
+                      <ExternalLink className="h-4 w-4 text-electric-blue" />
+                    </div>
+                    <Badge variant="outline" className="text-xs bg-electric-blue/10 text-electric-blue/80 border-electric-blue/20">#Automation</Badge>
+                  </div>
+                  <h5 className="font-semibold text-foreground group-hover:text-electric-blue transition-colors mb-2">SEO Automation</h5>
+                  <p className="text-xs text-muted-foreground">Programmatic & Scalable SEO Solutions</p>
                 </Link>
-                <Link to="/services/ecommerce-seo" className="text-center p-3 rounded-lg hover:bg-background/50 transition-colors group">
-                  <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">E-commerce SEO</div>
-                  <div className="text-xs text-muted-foreground">Product & Category Optimization</div>
+
+                <Link to="/services/ecommerce-seo" className="group p-6 rounded-xl border border-border hover:border-teal/30 hover:bg-background/80 transition-all duration-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 bg-teal/10 rounded-lg group-hover:bg-teal/20 transition-colors">
+                      <CheckCircle className="h-4 w-4 text-teal" />
+                    </div>
+                    <Badge variant="outline" className="text-xs bg-teal/10 text-teal/80 border-teal/20">#Ecommerce</Badge>
+                  </div>
+                  <h5 className="font-semibold text-foreground group-hover:text-teal transition-colors mb-2">E-commerce SEO</h5>
+                  <p className="text-xs text-muted-foreground">Product & Category Optimization</p>
                 </Link>
-                <Link to="/services/strategic-seo-consulting" className="text-center p-3 rounded-lg hover:bg-background/50 transition-colors group">
-                  <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">SEO Strategy</div>
-                  <div className="text-xs text-muted-foreground">Custom SEO Consulting</div>
+
+                <Link to="/services/strategic-seo-consulting" className="group p-6 rounded-xl border border-border hover:border-bright-orange/30 hover:bg-background/80 transition-all duration-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 bg-bright-orange/10 rounded-lg group-hover:bg-bright-orange/20 transition-colors">
+                      <Phone className="h-4 w-4 text-bright-orange" />
+                    </div>
+                    <Badge variant="outline" className="text-xs bg-bright-orange/10 text-bright-orange/80 border-bright-orange/20">#Strategy</Badge>
+                  </div>
+                  <h5 className="font-semibold text-foreground group-hover:text-bright-orange transition-colors mb-2">SEO Strategy</h5>
+                  <p className="text-xs text-muted-foreground">Custom SEO Consulting & Audits</p>
                 </Link>
               </div>
             </div>

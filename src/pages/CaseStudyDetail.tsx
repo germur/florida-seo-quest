@@ -4,7 +4,7 @@ import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ExternalLink, CheckCircle, Phone, Mail } from "lucide-react";
+import { ArrowRight, ExternalLink, CheckCircle, Phone, Mail, ArrowUpRight } from "lucide-react";
 import { SITE, schemaConfigs } from "@/lib/seo";
 import { loadCaseStudy, getRelatedCaseStudies, type CaseStudy } from "@/lib/case-studies";
 
@@ -265,113 +265,250 @@ const CaseStudyDetail: React.FC = () => {
                 </div>
               )}
 
-              {/* Strategic Internal Links Hub */}
-              <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 border border-border rounded-xl p-8">
-                <h4 className="text-xl font-bold text-foreground mb-6">Explore Our Strategic SEO Services</h4>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {/* Primary Services */}
-                  <div className="space-y-3">
-                    <h5 className="font-semibold text-foreground text-sm uppercase tracking-wide">Core SEO Services</h5>
-                    <div className="space-y-2">
-                      <Link to="/services/strategic-seo-consulting" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                        Strategic SEO Consulting & Audits
+              {/* Enhanced Strategic Internal Links Hub */}
+              <div className="bg-gradient-to-br from-primary/5 via-secondary/10 to-background border border-border/50 rounded-2xl p-8 shadow-lg">
+                <div className="flex items-center gap-3 mb-8">
+                  <div className="p-2 bg-primary/10 rounded-lg">
+                    <ArrowRight className="h-5 w-5 text-primary" />
+                  </div>
+                  <h4 className="text-2xl font-bold text-foreground">Explore Our Strategic SEO Services</h4>
+                </div>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {/* Core Services Section */}
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
+                        #CoreSEO
+                      </Badge>
+                      <h5 className="font-bold text-foreground">Essential Services</h5>
+                    </div>
+                    <div className="space-y-3">
+                      <Link to="/services/strategic-seo-consulting" className="group flex items-center gap-3 p-3 rounded-xl hover:bg-background/80 border border-transparent hover:border-primary/20 transition-all duration-200">
+                        <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                          <CheckCircle className="h-4 w-4 text-primary" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-foreground group-hover:text-primary transition-colors">Strategic SEO Consulting</div>
+                          <div className="text-xs text-muted-foreground">Audits & Strategy</div>
+                        </div>
                       </Link>
-                      <Link to="/services/seo-automation" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                        SEO Automation & Programmatic SEO
+                      <Link to="/services/seo-automation" className="group flex items-center gap-3 p-3 rounded-xl hover:bg-background/80 border border-transparent hover:border-primary/20 transition-all duration-200">
+                        <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                          <ArrowRight className="h-4 w-4 text-primary" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-foreground group-hover:text-primary transition-colors">SEO Automation</div>
+                          <div className="text-xs text-muted-foreground">Programmatic SEO</div>
+                        </div>
                       </Link>
-                      <Link to="/services/digital-storytelling-services" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                        Digital Storytelling for Brands
+                      <Link to="/services/digital-storytelling-services" className="group flex items-center gap-3 p-3 rounded-xl hover:bg-background/80 border border-transparent hover:border-primary/20 transition-all duration-200">
+                        <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                          <ExternalLink className="h-4 w-4 text-primary" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-foreground group-hover:text-primary transition-colors">Digital Storytelling</div>
+                          <div className="text-xs text-muted-foreground">Brand Content Strategy</div>
+                        </div>
                       </Link>
                     </div>
                   </div>
                   
                   {/* Industry-Specific Links */}
-                  <div className="space-y-3">
-                    <h5 className="font-semibold text-foreground text-sm uppercase tracking-wide">Industry Expertise</h5>
-                    <div className="space-y-2">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Badge variant="outline" className="bg-electric-blue/10 text-electric-blue border-electric-blue/20">
+                        #Industry{caseStudy.industry.split(' ')[0]}
+                      </Badge>
+                      <h5 className="font-bold text-foreground">Industry Focus</h5>
+                    </div>
+                    <div className="space-y-3">
                       {caseStudy.industry.includes('Property') || caseStudy.industry.includes('Home') ? (
-                        <Link to="/services/home-services-seo" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                          Home Services SEO Strategy
+                        <Link to="/services/home-services-seo" className="group flex items-center gap-3 p-3 rounded-xl hover:bg-background/80 border border-transparent hover:border-electric-blue/20 transition-all duration-200">
+                          <div className="p-2 bg-electric-blue/10 rounded-lg group-hover:bg-electric-blue/20 transition-colors">
+                            <Phone className="h-4 w-4 text-electric-blue" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-foreground group-hover:text-electric-blue transition-colors">Home Services SEO</div>
+                            <div className="text-xs text-muted-foreground">Emergency & Local Leads</div>
+                          </div>
                         </Link>
                       ) : null}
                       {caseStudy.industry.includes('Car') || caseStudy.industry.includes('Local') ? (
-                        <Link to="/services/local-seo-optimization" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                          Local SEO & Google Business Profile
+                        <Link to="/services/local-seo-optimization" className="group flex items-center gap-3 p-3 rounded-xl hover:bg-background/80 border border-transparent hover:border-electric-blue/20 transition-all duration-200">
+                          <div className="p-2 bg-electric-blue/10 rounded-lg group-hover:bg-electric-blue/20 transition-colors">
+                            <ArrowUpRight className="h-4 w-4 text-electric-blue" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-foreground group-hover:text-electric-blue transition-colors">Local SEO Optimization</div>
+                            <div className="text-xs text-muted-foreground">Google Business Profile</div>
+                          </div>
                         </Link>
                       ) : null}
                       {caseStudy.industry.includes('E-commerce') || caseStudy.industry.includes('Jewelry') ? (
-                        <Link to="/services/ecommerce-seo" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                          E-commerce SEO & Conversion
+                        <Link to="/services/ecommerce-seo" className="group flex items-center gap-3 p-3 rounded-xl hover:bg-background/80 border border-transparent hover:border-electric-blue/20 transition-all duration-200">
+                          <div className="p-2 bg-electric-blue/10 rounded-lg group-hover:bg-electric-blue/20 transition-colors">
+                            <ArrowUpRight className="h-4 w-4 text-electric-blue" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-foreground group-hover:text-electric-blue transition-colors">E-commerce SEO</div>
+                            <div className="text-xs text-muted-foreground">Product & Conversion</div>
+                          </div>
                         </Link>
                       ) : null}
                       {caseStudy.industry.includes('Education') ? (
-                        <Link to="/services/education-seo" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                          Education & Multi-Location SEO
+                        <Link to="/services/education-seo" className="group flex items-center gap-3 p-3 rounded-xl hover:bg-background/80 border border-transparent hover:border-electric-blue/20 transition-all duration-200">
+                          <div className="p-2 bg-electric-blue/10 rounded-lg group-hover:bg-electric-blue/20 transition-colors">
+                            <ArrowUpRight className="h-4 w-4 text-electric-blue" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-foreground group-hover:text-electric-blue transition-colors">Education SEO</div>
+                            <div className="text-xs text-muted-foreground">Multi-Location Strategy</div>
+                          </div>
                         </Link>
                       ) : null}
-                      <Link to="/services" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                        View All SEO Services →
-                      </Link>
+                      <Button variant="outline" size="sm" asChild className="w-full justify-start">
+                        <Link to="/services" className="flex items-center gap-2">
+                          <ArrowRight className="h-4 w-4" />
+                          View All Services
+                        </Link>
+                      </Button>
                     </div>
                   </div>
                   
                   {/* Resources & Learning */}
-                  <div className="space-y-3">
-                    <h5 className="font-semibold text-foreground text-sm uppercase tracking-wide">SEO Resources</h5>
-                    <div className="space-y-2">
-                      <Link to="/resources" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                        Free SEO Tools & Resources
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-2 mb-4">
+                      <Badge variant="outline" className="bg-teal/10 text-teal border-teal/20">
+                        #SEOResources
+                      </Badge>
+                      <h5 className="font-bold text-foreground">Learn & Grow</h5>
+                    </div>
+                    <div className="space-y-3">
+                      <Link to="/resources" className="group flex items-center gap-3 p-3 rounded-xl hover:bg-background/80 border border-transparent hover:border-teal/20 transition-all duration-200">
+                        <div className="p-2 bg-teal/10 rounded-lg group-hover:bg-teal/20 transition-colors">
+                          <ArrowUpRight className="h-4 w-4 text-teal" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-foreground group-hover:text-teal transition-colors">Free SEO Tools</div>
+                          <div className="text-xs text-muted-foreground">Resources & Calculators</div>
+                        </div>
                       </Link>
-                      <Link to="/blog" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                        Latest SEO Strategies & Insights
+                      <Link to="/blog" className="group flex items-center gap-3 p-3 rounded-xl hover:bg-background/80 border border-transparent hover:border-teal/20 transition-all duration-200">
+                        <div className="p-2 bg-teal/10 rounded-lg group-hover:bg-teal/20 transition-colors">
+                          <ArrowUpRight className="h-4 w-4 text-teal" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-foreground group-hover:text-teal transition-colors">SEO Insights Blog</div>
+                          <div className="text-xs text-muted-foreground">Latest Strategies</div>
+                        </div>
                       </Link>
-                      <Link to="/how-we-work" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                        Our Proven SEO Process
-                      </Link>
-                      <Link to="/about" className="block text-primary hover:text-primary/80 transition-colors text-sm">
-                        Meet Your SEO Strategist
+                      <Link to="/how-we-work" className="group flex items-center gap-3 p-3 rounded-xl hover:bg-background/80 border border-transparent hover:border-teal/20 transition-all duration-200">
+                        <div className="p-2 bg-teal/10 rounded-lg group-hover:bg-teal/20 transition-colors">
+                          <CheckCircle className="h-4 w-4 text-teal" />
+                        </div>
+                        <div>
+                          <div className="font-medium text-foreground group-hover:text-teal transition-colors">Our Process</div>
+                          <div className="text-xs text-muted-foreground">Proven Methodology</div>
+                        </div>
                       </Link>
                     </div>
                   </div>
                 </div>
                 
-                {/* Featured Case Study Cross-Links */}
-                <div className="mt-8 pt-6 border-t border-border">
-                  <h5 className="font-semibold text-foreground text-sm uppercase tracking-wide mb-4">Similar Success Stories</h5>
-                  <div className="grid md:grid-cols-3 gap-4">
+                {/* Enhanced Case Study Cross-Links */}
+                <div className="mt-10 pt-8 border-t border-border/50">
+                  <div className="flex items-center gap-3 mb-6">
+                    <Badge variant="secondary" className="bg-bright-orange/10 text-bright-orange border-bright-orange/20">
+                      #SimilarSuccess
+                    </Badge>
+                    <h5 className="font-bold text-foreground">Related Case Studies</h5>
+                  </div>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {caseStudy.industry.includes('Property') ? (
-                      <Link to="/case-studies/paramount-property-restoration" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                        <strong>Property Restoration:</strong> How we generated +180% qualified leads
+                      <Link to="/case-studies/paramount-property-restoration" className="group p-4 rounded-xl border border-border hover:border-bright-orange/30 hover:bg-bright-orange/5 transition-all duration-200">
+                        <div className="flex items-start gap-3">
+                          <div className="p-1.5 bg-bright-orange/10 rounded-lg">
+                            <Phone className="h-3 w-3 text-bright-orange" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-sm text-foreground group-hover:text-bright-orange transition-colors">Property Restoration</div>
+                            <div className="text-xs text-muted-foreground">+180% qualified leads</div>
+                          </div>
+                        </div>
                       </Link>
                     ) : null}
-                    {caseStudy.industry.includes('Car') || caseStudy.industry.includes('Local') ? (
-                      <Link to="/case-studies/flo-car-rental" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                        <strong>Car Rental:</strong> +120% Google Business Profile actions
+                    {(caseStudy.industry.includes('Car') || caseStudy.industry.includes('Local')) && caseStudy.slug !== 'flo-car-rental' ? (
+                      <Link to="/case-studies/flo-car-rental" className="group p-4 rounded-xl border border-border hover:border-bright-orange/30 hover:bg-bright-orange/5 transition-all duration-200">
+                        <div className="flex items-start gap-3">
+                          <div className="p-1.5 bg-bright-orange/10 rounded-lg">
+                            <ArrowUpRight className="h-3 w-3 text-bright-orange" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-sm text-foreground group-hover:text-bright-orange transition-colors">Car Rental</div>
+                            <div className="text-xs text-muted-foreground">+120% GBP actions</div>
+                          </div>
+                        </div>
                       </Link>
                     ) : null}
                     {caseStudy.industry.includes('Cleaning') ? (
-                      <Link to="/case-studies/puff-cleaning" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                        <strong>Cleaning Services:</strong> Zero to 2,000 monthly visitors
+                      <Link to="/case-studies/puff-cleaning" className="group p-4 rounded-xl border border-border hover:border-bright-orange/30 hover:bg-bright-orange/5 transition-all duration-200">
+                        <div className="flex items-start gap-3">
+                          <div className="p-1.5 bg-bright-orange/10 rounded-lg">
+                            <CheckCircle className="h-3 w-3 text-bright-orange" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-sm text-foreground group-hover:text-bright-orange transition-colors">Cleaning Services</div>
+                            <div className="text-xs text-muted-foreground">0 to 2K visitors</div>
+                          </div>
+                        </div>
                       </Link>
                     ) : null}
                     {caseStudy.industry.includes('Education') ? (
-                      <Link to="/case-studies/edu1st-preschools" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                        <strong>Preschools:</strong> Multi-campus digital strategy success
+                      <Link to="/case-studies/edu1st-preschools" className="group p-4 rounded-xl border border-border hover:border-bright-orange/30 hover:bg-bright-orange/5 transition-all duration-200">
+                        <div className="flex items-start gap-3">
+                          <div className="p-1.5 bg-bright-orange/10 rounded-lg">
+                            <ArrowUpRight className="h-3 w-3 text-bright-orange" />
+                          </div>
+                          <div>
+                            <div className="font-medium text-sm text-foreground group-hover:text-bright-orange transition-colors">Preschools</div>
+                            <div className="text-xs text-muted-foreground">Multi-campus success</div>
+                          </div>
+                        </div>
                       </Link>
                     ) : null}
                     {caseStudy.industry.includes('Jewelry') ? (
                       <>
-                        <Link to="/case-studies/craftd-london" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                          <strong>Men's Jewelry:</strong> 50+ keywords in top 10
+                        <Link to="/case-studies/craftd-london" className="group p-4 rounded-xl border border-border hover:border-bright-orange/30 hover:bg-bright-orange/5 transition-all duration-200">
+                          <div className="flex items-start gap-3">
+                            <div className="p-1.5 bg-bright-orange/10 rounded-lg">
+                              <ArrowUpRight className="h-3 w-3 text-bright-orange" />
+                            </div>
+                            <div>
+                              <div className="font-medium text-sm text-foreground group-hover:text-bright-orange transition-colors">Men's Jewelry</div>
+                              <div className="text-xs text-muted-foreground">50+ top 10 keywords</div>
+                            </div>
+                          </div>
                         </Link>
-                        <Link to="/case-studies/le-gramme" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                          <strong>Luxury Jewelry:</strong> International SEO success
+                        <Link to="/case-studies/le-gramme" className="group p-4 rounded-xl border border-border hover:border-bright-orange/30 hover:bg-bright-orange/5 transition-all duration-200">
+                          <div className="flex items-start gap-3">
+                            <div className="p-1.5 bg-bright-orange/10 rounded-lg">
+                              <ExternalLink className="h-3 w-3 text-bright-orange" />
+                            </div>
+                            <div>
+                              <div className="font-medium text-sm text-foreground group-hover:text-bright-orange transition-colors">Luxury Jewelry</div>
+                              <div className="text-xs text-muted-foreground">International SEO</div>
+                            </div>
+                          </div>
                         </Link>
                       </>
                     ) : null}
-                    <Link to="/case-studies" className="text-sm text-primary hover:text-primary/80 transition-colors font-medium">
-                      Browse All Case Studies →
-                    </Link>
+                    <Button variant="ghost" size="sm" asChild className="text-bright-orange hover:text-bright-orange/80 hover:bg-bright-orange/10">
+                      <Link to="/case-studies" className="flex items-center gap-2">
+                        <ArrowUpRight className="h-4 w-4" />
+                        Browse All Cases
+                      </Link>
+                    </Button>
                   </div>
                 </div>
               </div>
