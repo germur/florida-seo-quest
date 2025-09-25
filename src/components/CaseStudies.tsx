@@ -79,17 +79,55 @@ const CaseStudies = () => {
               <DiceRoller />
             </div>
             
-            {/* Strategic case study navigation */}
-            <div className="grid md:grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
-              <Link to="/case-studies/paramount-property-restoration" className="text-sm text-muted-foreground hover:text-primary transition-colors p-3 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
-                <strong>Property Restoration:</strong> +250% Traffic Growth
+            {/* Strategic case study navigation with enhanced internal linking */}
+            <div className="grid md:grid-cols-3 gap-4 mb-8 max-w-4xl mx-auto">
+              <Link to="/case-studies/paramount-property-restoration" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
+                <strong>Property Restoration SEO:</strong> +250% Traffic & Emergency Leads
+                <div className="text-xs text-muted-foreground/70 mt-1">Home Services • Local SEO • Programmatic Pages</div>
               </Link>
-              <Link to="/case-studies/craftd-london" className="text-sm text-muted-foreground hover:text-primary transition-colors p-3 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
-                <strong>E-commerce:</strong> 50+ Keywords Top 10
+              <Link to="/case-studies/craftd-london" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
+                <strong>E-commerce Jewelry SEO:</strong> 50+ Keywords Top 10
+                <div className="text-xs text-muted-foreground/70 mt-1">Product SEO • Content Strategy • Rich Snippets</div>
               </Link>
-              <Link to="/case-studies/edu1st-preschools" className="text-sm text-muted-foreground hover:text-primary transition-colors p-3 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
-                <strong>Education:</strong> +80% Local Actions
+              <Link to="/case-studies/edu1st-preschools" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
+                <strong>Multi-Location Education SEO:</strong> +80% Google Actions
+                <div className="text-xs text-muted-foreground/70 mt-1">Local SEO • Content Marketing • Lead Generation</div>
               </Link>
+              <Link to="/case-studies/flo-car-rental" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
+                <strong>Local Car Rental SEO:</strong> +120% GBP Actions
+                <div className="text-xs text-muted-foreground/70 mt-1">Local SEO • Conversion Optimization • Mobile-First</div>
+              </Link>
+              <Link to="/case-studies/puff-cleaning" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
+                <strong>Cleaning Services SEO:</strong> 0 to 2K Monthly Visitors
+                <div className="text-xs text-muted-foreground/70 mt-1">Local Authority • Service Pages • Review Management</div>
+              </Link>
+              <Link to="/case-studies/le-gramme" className="text-sm text-muted-foreground hover:text-primary transition-colors p-4 rounded-lg hover:bg-card/50 border border-transparent hover:border-border/30">
+                <strong>Luxury Jewelry International SEO:</strong> +40% Impressions
+                <div className="text-xs text-muted-foreground/70 mt-1">International SEO • Luxury Branding • Hreflang</div>
+              </Link>
+            </div>
+            
+            {/* SEO Services Cross-Links */}
+            <div className="bg-secondary/10 border border-border/50 rounded-xl p-6 mb-8 max-w-4xl mx-auto">
+              <h4 className="text-lg font-semibold text-foreground mb-4 text-center">Proven SEO Strategies Behind These Results</h4>
+              <div className="grid md:grid-cols-4 gap-4">
+                <Link to="/services/local-seo-optimization" className="text-center p-3 rounded-lg hover:bg-background/50 transition-colors group">
+                  <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Local SEO</div>
+                  <div className="text-xs text-muted-foreground">Google Business Profile & Local Pack</div>
+                </Link>
+                <Link to="/services/seo-automation" className="text-center p-3 rounded-lg hover:bg-background/50 transition-colors group">
+                  <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">SEO Automation</div>
+                  <div className="text-xs text-muted-foreground">Programmatic & Scalable SEO</div>
+                </Link>
+                <Link to="/services/ecommerce-seo" className="text-center p-3 rounded-lg hover:bg-background/50 transition-colors group">
+                  <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">E-commerce SEO</div>
+                  <div className="text-xs text-muted-foreground">Product & Category Optimization</div>
+                </Link>
+                <Link to="/services/strategic-seo-consulting" className="text-center p-3 rounded-lg hover:bg-background/50 transition-colors group">
+                  <div className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">SEO Strategy</div>
+                  <div className="text-xs text-muted-foreground">Custom SEO Consulting</div>
+                </Link>
+              </div>
             </div>
             
             <Link 

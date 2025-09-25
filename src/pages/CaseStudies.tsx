@@ -264,6 +264,126 @@ const CaseStudies = () => {
                   </div>
                 </div>
 
+                {/* Strategic Internal Links Section */}
+                <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 border border-border rounded-xl p-6 mb-8">
+                  <h4 className="text-lg font-semibold text-foreground mb-4">
+                    Explore Services Used in This Case Study
+                  </h4>
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {/* Dynamic service links based on case study industry */}
+                    {caseStudy.industry.includes('Property') && (
+                      <>
+                        <Link to="/services/home-services-seo" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Home Services SEO Strategy
+                        </Link>
+                        <Link to="/services/local-seo-optimization" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Local SEO & Emergency Lead Generation
+                        </Link>
+                        <Link to="/services/seo-automation" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Programmatic City + Service Pages
+                        </Link>
+                      </>
+                    )}
+                    {caseStudy.industry.includes('Car Rental') && (
+                      <>
+                        <Link to="/services/local-seo-optimization" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Google Business Profile Optimization
+                        </Link>
+                        <Link to="/services/conversion-optimization" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Conversion Rate Optimization
+                        </Link>
+                        <Link to="/services/mobile-seo" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Mobile-First SEO Strategy
+                        </Link>
+                      </>
+                    )}
+                    {caseStudy.industry.includes('Cleaning') && (
+                      <>
+                        <Link to="/services/local-seo-optimization" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Local SEO Authority Building
+                        </Link>
+                        <Link to="/services/content-marketing" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Service Page & FAQ Optimization
+                        </Link>
+                        <Link to="/services/google-business-profile" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Review Management & GBP Growth
+                        </Link>
+                      </>
+                    )}
+                    {caseStudy.industry.includes('Education') && (
+                      <>
+                        <Link to="/services/multi-location-seo" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Multi-Campus SEO Strategy
+                        </Link>
+                        <Link to="/services/content-marketing" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Parent-Focused Content Strategy
+                        </Link>
+                        <Link to="/services/local-seo-optimization" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Local SEO for Education
+                        </Link>
+                      </>
+                    )}
+                    {caseStudy.industry.includes('Jewelry') && (
+                      <>
+                        <Link to="/services/ecommerce-seo" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          E-commerce SEO & Product Optimization
+                        </Link>
+                        <Link to="/services/international-seo" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          International SEO Strategy
+                        </Link>
+                        <Link to="/services/content-marketing" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                          Luxury Brand Content Strategy
+                        </Link>
+                      </>
+                    )}
+                    
+                    {/* Universal links for all case studies */}
+                    <Link to="/services/strategic-seo-consulting" className="text-sm text-primary hover:text-primary/80 transition-colors">
+                      Strategic SEO Consulting
+                    </Link>
+                    <Link to="/services" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+                      View All SEO Services →
+                    </Link>
+                  </div>
+                  
+                  {/* Cross-case study links */}
+                  <div className="mt-6 pt-4 border-t border-border">
+                    <p className="text-sm text-muted-foreground mb-3">Similar Success Stories:</p>
+                    <div className="flex flex-wrap gap-4">
+                      {caseStudy.id !== 'paramount-property-restoration' && (
+                        <Link to="/case-studies/paramount-property-restoration" className="text-xs text-primary hover:text-primary/80 transition-colors">
+                          Property Restoration: +180% leads
+                        </Link>
+                      )}
+                      {caseStudy.id !== 'flo-car-rental' && (
+                        <Link to="/case-studies/flo-car-rental" className="text-xs text-primary hover:text-primary/80 transition-colors">
+                          Car Rental: +120% GBP actions
+                        </Link>
+                      )}
+                      {caseStudy.id !== 'puff-cleaning' && (
+                        <Link to="/case-studies/puff-cleaning" className="text-xs text-primary hover:text-primary/80 transition-colors">
+                          Cleaning Services: 0 to 2K visitors
+                        </Link>
+                      )}
+                      {caseStudy.id !== 'edu1st-preschools' && (
+                        <Link to="/case-studies/edu1st-preschools" className="text-xs text-primary hover:text-primary/80 transition-colors">
+                          Preschools: Multi-campus success
+                        </Link>
+                      )}
+                      {caseStudy.id !== 'craftd-london' && (
+                        <Link to="/case-studies/craftd-london" className="text-xs text-primary hover:text-primary/80 transition-colors">
+                          Men's Jewelry: 50+ top 10 keywords
+                        </Link>
+                      )}
+                      {caseStudy.id !== 'le-gramme' && (
+                        <Link to="/case-studies/le-gramme" className="text-xs text-primary hover:text-primary/80 transition-colors">
+                          Luxury Jewelry: International SEO
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
                 {/* CTA */}
                 <div className="text-center pt-8 border-t border-border hover:border-electric-blue/30 transition-colors duration-300">
                   <h4 className="text-xl font-semibold text-foreground mb-4">

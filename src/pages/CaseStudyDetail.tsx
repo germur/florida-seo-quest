@@ -265,19 +265,114 @@ const CaseStudyDetail: React.FC = () => {
                 </div>
               )}
 
-              {/* Related Services Links */}
+              {/* Strategic Internal Links Hub */}
               <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 border border-border rounded-xl p-8">
-                <h4 className="text-xl font-bold text-foreground mb-6">Related Services</h4>
-                <div className="grid md:grid-cols-3 gap-4">
-                  <Link to="/services/strategic-seo-consulting" className="text-primary hover:underline">
-                    Strategic SEO Consulting
-                  </Link>
-                  <Link to="/services/seo-automation" className="text-primary hover:underline">
-                    SEO Automation
-                  </Link>
-                  <Link to="/services/digital-storytelling-services" className="text-primary hover:underline">
-                    Digital Storytelling
-                  </Link>
+                <h4 className="text-xl font-bold text-foreground mb-6">Explore Our Strategic SEO Services</h4>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {/* Primary Services */}
+                  <div className="space-y-3">
+                    <h5 className="font-semibold text-foreground text-sm uppercase tracking-wide">Core SEO Services</h5>
+                    <div className="space-y-2">
+                      <Link to="/services/strategic-seo-consulting" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                        Strategic SEO Consulting & Audits
+                      </Link>
+                      <Link to="/services/seo-automation" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                        SEO Automation & Programmatic SEO
+                      </Link>
+                      <Link to="/services/digital-storytelling-services" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                        Digital Storytelling for Brands
+                      </Link>
+                    </div>
+                  </div>
+                  
+                  {/* Industry-Specific Links */}
+                  <div className="space-y-3">
+                    <h5 className="font-semibold text-foreground text-sm uppercase tracking-wide">Industry Expertise</h5>
+                    <div className="space-y-2">
+                      {caseStudy.industry.includes('Property') || caseStudy.industry.includes('Home') ? (
+                        <Link to="/services/home-services-seo" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                          Home Services SEO Strategy
+                        </Link>
+                      ) : null}
+                      {caseStudy.industry.includes('Car') || caseStudy.industry.includes('Local') ? (
+                        <Link to="/services/local-seo-optimization" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                          Local SEO & Google Business Profile
+                        </Link>
+                      ) : null}
+                      {caseStudy.industry.includes('E-commerce') || caseStudy.industry.includes('Jewelry') ? (
+                        <Link to="/services/ecommerce-seo" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                          E-commerce SEO & Conversion
+                        </Link>
+                      ) : null}
+                      {caseStudy.industry.includes('Education') ? (
+                        <Link to="/services/education-seo" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                          Education & Multi-Location SEO
+                        </Link>
+                      ) : null}
+                      <Link to="/services" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                        View All SEO Services →
+                      </Link>
+                    </div>
+                  </div>
+                  
+                  {/* Resources & Learning */}
+                  <div className="space-y-3">
+                    <h5 className="font-semibold text-foreground text-sm uppercase tracking-wide">SEO Resources</h5>
+                    <div className="space-y-2">
+                      <Link to="/resources" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                        Free SEO Tools & Resources
+                      </Link>
+                      <Link to="/blog" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                        Latest SEO Strategies & Insights
+                      </Link>
+                      <Link to="/how-we-work" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                        Our Proven SEO Process
+                      </Link>
+                      <Link to="/about" className="block text-primary hover:text-primary/80 transition-colors text-sm">
+                        Meet Your SEO Strategist
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Featured Case Study Cross-Links */}
+                <div className="mt-8 pt-6 border-t border-border">
+                  <h5 className="font-semibold text-foreground text-sm uppercase tracking-wide mb-4">Similar Success Stories</h5>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {caseStudy.industry.includes('Property') ? (
+                      <Link to="/case-studies/paramount-property-restoration" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                        <strong>Property Restoration:</strong> How we generated +180% qualified leads
+                      </Link>
+                    ) : null}
+                    {caseStudy.industry.includes('Car') || caseStudy.industry.includes('Local') ? (
+                      <Link to="/case-studies/flo-car-rental" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                        <strong>Car Rental:</strong> +120% Google Business Profile actions
+                      </Link>
+                    ) : null}
+                    {caseStudy.industry.includes('Cleaning') ? (
+                      <Link to="/case-studies/puff-cleaning" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                        <strong>Cleaning Services:</strong> Zero to 2,000 monthly visitors
+                      </Link>
+                    ) : null}
+                    {caseStudy.industry.includes('Education') ? (
+                      <Link to="/case-studies/edu1st-preschools" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                        <strong>Preschools:</strong> Multi-campus digital strategy success
+                      </Link>
+                    ) : null}
+                    {caseStudy.industry.includes('Jewelry') ? (
+                      <>
+                        <Link to="/case-studies/craftd-london" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                          <strong>Men's Jewelry:</strong> 50+ keywords in top 10
+                        </Link>
+                        <Link to="/case-studies/le-gramme" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                          <strong>Luxury Jewelry:</strong> International SEO success
+                        </Link>
+                      </>
+                    ) : null}
+                    <Link to="/case-studies" className="text-sm text-primary hover:text-primary/80 transition-colors font-medium">
+                      Browse All Case Studies →
+                    </Link>
+                  </div>
                 </div>
               </div>
 
