@@ -33,7 +33,7 @@ export const post = {
     "publisher": {
       "@type": "Organization",
       "name": "Calvo Creativo",
-      "logo": { "@type": "ImageObject", "url": "https://calvocreativo.com/logo.png" }
+      "logo": { "@type": "ImageObject", "url": "https://calvocreativo.com/calvo_creativo_logo.svg" }
     },
     "datePublished": "2025-08-28",
     "dateModified": "2025-08-28",

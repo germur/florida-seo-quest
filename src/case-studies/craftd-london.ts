@@ -17,7 +17,7 @@ export const caseStudy = {
     "Stronger brand presence in competitive searches",
     "Improved product discovery through internal linking"
   ],
-  hero: "/og-home.jpg",
+  hero: "/og-home.webp",
   metrics: [
     { label: "Keywords in Top 10", value: "50+" },
     { label: "Timeline", value: "4 months" },

@@ -17,7 +17,7 @@ export const caseStudy = {
     "Stronger international brand recognition",
     "Quality editorial backlinks from design publications"
   ],
-  hero: "/og-home.jpg",
+  hero: "/og-home.webp",
   metrics: [
     { label: "Flagship Impressions", value: "+40%" },
     { label: "Timeline", value: "6 months" },

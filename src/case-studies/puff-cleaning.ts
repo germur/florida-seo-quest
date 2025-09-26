@@ -17,7 +17,7 @@ export const caseStudy = {
     "Established digital authority in cleaning services",
     "Mobile-optimized conversion funnel"
   ],
-  hero: "/og-home.jpg",
+  hero: "/og-home.webp",
   metrics: [
     { label: "Monthly Organic Traffic", value: "~2,000" },
     { label: "Timeline", value: "1 year" },

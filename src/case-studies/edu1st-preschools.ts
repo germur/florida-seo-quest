@@ -17,7 +17,7 @@ export const caseStudy = {
     "Improved local visibility for each campus",
     "Stronger parent community engagement"
   ],
-  hero: "/og-home.jpg", 
+  hero: "/og-home.webp", 
   metrics: [
     { label: "Google Maps Actions", value: "+80%" },
     { label: "Timeline", value: "8 months" },

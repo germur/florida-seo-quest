@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, ChevronRight, ArrowUpRight } from "lucide-react";
-import calvoCreativoLogo from "@/assets/calvo-creativo-logo-footer.png";
+import calvoCreativoLogo from "@/assets/calvo-creativo-logo-footer.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

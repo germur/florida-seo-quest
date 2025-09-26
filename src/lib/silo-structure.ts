@@ -227,7 +227,7 @@ export const generateSILOSchema = (node: SILONode, cityData?: any) => {
     "name": "Calvo Creativo",
     "description": node.metaDescription,
     "url": nodeUrl,
-    "image": `${site}/og.jpg`,
+    "image": `${site}/og-home.webp`,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": cityData?.name,

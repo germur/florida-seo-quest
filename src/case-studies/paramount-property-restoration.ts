@@ -17,7 +17,7 @@ export const caseStudy = {
     "Multi-city emergency coverage",
     "First SEO leads in <6 months"
   ],
-  hero: "/og-home.jpg",
+  hero: "/og-home.webp",
   metrics: [
     { label: "Organic Traffic", value: "+218%" },
     { label: "Qualified Leads", value: "3.1×" },

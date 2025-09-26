@@ -21,7 +21,7 @@ const personSchema = {
   "@type": "Person",
   name: "Roger Murillo",
   url: `${SITE}/about/`,
-  image: `${SITE}/og-home.jpg`,
+  image: `${SITE}/og-home.webp`,
   jobTitle: "SEO Strategist & Consultant",
   worksFor: { "@type": "Organization", name: "Calvo Creativo" },
   sameAs: [

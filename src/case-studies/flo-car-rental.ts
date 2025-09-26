@@ -17,7 +17,7 @@ export const caseStudy = {
     "Stronger local pack presence",
     "Improved mobile booking experience"
   ],
-  hero: "/og-home.jpg",
+  hero: "/og-home.webp",
   metrics: [
     { label: "GBP Actions Growth", value: "+120%" },
     { label: "Timeline", value: "6 months" },

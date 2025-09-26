@@ -149,7 +149,7 @@ export const schemaConfigs = {
       name: "Calvo Creativo",
       areaServed: "Florida",
       url: SITE + "/",
-      image: `${SITE}/og-home.jpg`,
+      image: `${SITE}/og-home.webp`,
     },
     url: url ? normalizeCanonical(url) : undefined,
   }),
@@ -310,7 +310,7 @@ export const localBusinessSchema = {
   name: "Calvo Creativo",
   url: `${SITE}/`,
   logo: `${SITE}/calvo_creativo_logo.svg`,
-  image: `${SITE}/og-home.jpg`,
+  image: `${SITE}/og-home.webp`,
   telephone: "+573046807443",
   address: {
     "@type": "PostalAddress",
