@@ -361,24 +361,26 @@ const ServiceCityDetail = () => {
       </section>
 
       {/* Local CTA */}
-      <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white">
+      <section className="py-24 bg-card border-t">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            {content.cta.includes('?') ? content.cta.split('?')[0] + '?' : 'Ready to Dominate ' + cityData.name + ' Search Results?'}
-          </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            {content.cta.includes('?') ? content.cta.split('.')[1] || 'Get a free SEO consultation tailored specifically for your ' + cityData.name + ' business.' : content.cta}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
-              <a href="tel:+573046807443">
-                <Phone className="mr-2 h-5 w-5" />
-                Call for Free {cityData.name} SEO Audit
-              </a>
-            </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
-              <Link to="/case-studies">View {cityData.region} Success Stories</Link>
-            </Button>
+          <div className="bg-gradient-to-br from-electric-blue to-bright-orange rounded-2xl p-12 text-white">
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
+              {content.cta.includes('?') ? content.cta.split('?')[0] + '?' : 'Ready to Dominate ' + cityData.name + ' Search Results?'}
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              {content.cta.includes('?') ? content.cta.split('.')[1] || 'Get a free SEO consultation tailored specifically for your ' + cityData.name + ' business.' : content.cta}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="secondary" size="lg" asChild>
+                <a href="tel:+573046807443">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Call for Free {cityData.name} SEO Audit
+                </a>
+              </Button>
+              <Button variant="outline-white" size="lg" asChild>
+                <Link to="/case-studies">View {cityData.region} Success Stories</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

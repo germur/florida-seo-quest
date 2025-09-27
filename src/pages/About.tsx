@@ -3,6 +3,8 @@ import React from "react";
 import Header from "@/components/Header";
 import SEO from "@/components/SEO";
 import { SITE } from "@/lib/seo";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 /* ================================================
  *  Schemas specific to About
@@ -409,9 +411,42 @@ const About: React.FC = () => {
       </section>
 
       {/* FINAL CTA */}
-      <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white">
+      <section className="py-24 bg-card border-t">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
+          <div className="bg-gradient-to-br from-electric-blue to-bright-orange rounded-2xl p-12 text-white">
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
+              Ready to Grow with Strategic SEO?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Let's align your content, architecture, and storytelling to win
+              consistently in Florida.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="tel:+573046807443"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 rounded-md px-8"
+              >
+                Schedule Free Consultation
+              </a>
+              <Button
+                variant="outline-white"
+                size="lg"
+                asChild
+              >
+                <Link to="/services">Explore Services</Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default About;
+      <section className="py-24 bg-card border-t">
+        <div className="bg-gradient-to-br from-electric-blue to-bright-orange rounded-2xl p-12 text-white">
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
             Ready to Grow with Strategic SEO?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
@@ -425,12 +460,14 @@ const About: React.FC = () => {
             >
               Schedule Free Consultation
             </a>
-            <a
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border bg-transparent hover:text-primary-foreground transition-all duration-200 h-11 rounded-md px-8 border-white/30 text-white hover:bg-white/10"
-              href="/services"
-            >
-              Explore Services
-            </a>
+              <Button
+                variant="outline-white"
+                size="lg"
+                asChild
+              >
+                <Link to="/services">Explore Services</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

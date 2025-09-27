@@ -244,21 +244,23 @@ const Blog = () => {
       )}
 
       {/* Newsletter CTA */}
-      <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white">
+      <section className="py-24 bg-card border-t">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Stay Updated
-          </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Get weekly insights and strategies to grow your business with SEO.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" className="bg-white text-primary hover:bg-white/90" asChild>
-              <Link to="/contact">
-                Subscribe
-              </Link>
-            </Button>
+          <div className="bg-gradient-to-br from-electric-blue to-bright-orange rounded-2xl p-12 text-white">
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
+              Stay Updated
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Get weekly insights and strategies to grow your business with SEO.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="secondary" className="bg-white text-primary hover:bg-white/90" asChild>
+                <Link to="/contact">
+                  Subscribe
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

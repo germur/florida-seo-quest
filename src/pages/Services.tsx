@@ -230,23 +230,25 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-primary via-primary to-neutral-gray text-white">
+      <section className="py-24 bg-card border-t">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Ready to Start Growing?
-          </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Let's discuss your project and how we can help you achieve sustainable SEO growth.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
-              <a href="tel:+573046807443">
-                Schedule Free Consultation
-              </a>
-            </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
-              <Link to="/case-studies">See Our Results</Link>
-            </Button>
+          <div className="bg-gradient-to-br from-electric-blue to-bright-orange rounded-2xl p-12 text-white">
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
+              Ready to Start Growing?
+            </h2>
+            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Let's discuss your project and how we can help you achieve sustainable SEO growth.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="secondary" size="lg" asChild>
+                <a href="tel:+573046807443">
+                  Schedule Free Consultation
+                </a>
+              </Button>
+              <Button variant="outline-white" size="lg" asChild>
+                <Link to="/case-studies">See Our Results</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

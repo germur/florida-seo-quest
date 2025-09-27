@@ -143,25 +143,27 @@ const Resources = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-foreground via-neutral-gray to-foreground text-white">
+      <section className="py-24 bg-card border-t">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="font-black text-4xl md:text-5xl mb-6">
-            Need More Help?
-          </h2>
-          <p className="font-subtitle text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Get personalized guidance and advanced strategies with our SEO consulting services.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
-              <a href="tel:+573046807443">
-                Schedule Consultation
-              </a>
-            </Button>
-            <Button variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10" asChild>
-              <Link to="/services">
-                View Services
-              </Link>
-            </Button>
+          <div className="bg-gradient-to-br from-electric-blue to-bright-orange rounded-2xl p-12 text-white">
+            <h2 className="font-black text-4xl md:text-5xl mb-6">
+              Need More Help?
+            </h2>
+            <p className="font-subtitle text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+              Get personalized guidance and advanced strategies with our SEO consulting services.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="secondary" size="lg" asChild>
+                <a href="tel:+573046807443">
+                  Schedule Consultation
+                </a>
+              </Button>
+              <Button variant="outline-white" size="lg" asChild>
+                <Link to="/services">
+                  View Services
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
