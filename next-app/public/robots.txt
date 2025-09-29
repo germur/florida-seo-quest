@@ -1,0 +1,32 @@
+# ----- Standard web crawlers -----
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Allow: /
+
+Sitemap: https://calvocreativo.com/sitemap.xml
+
+# ----- LLM / AI crawlers -----
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ChatGPTBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /

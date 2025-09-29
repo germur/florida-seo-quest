@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+   
+   <!-- Homepage Images -->
+   <url>
+      <loc>https://calvocreativo.com/</loc>
+      <image:image>
+         <image:loc>https://calvocreativo.com/og-home.jpg</image:loc>
+         <image:title>Calvo Creativo - SEO Strategy & Consulting</image:title>
+         <image:caption>Professional SEO consultant specializing in programmatic SEO, technical audits, and content strategy for Florida businesses</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/lovable-uploads/15b81203-d4a9-4da9-ace4-976c55d22c82.png</image:loc>
+         <image:title>Calvo Creativo Website Structure & Services Map</image:title>
+         <image:caption>Visual representation of website structure and SEO services offered by Calvo Creativo</image:caption>
+      </image:image>
+   </url>
+
+   <!-- Blog Post: SEO Strategy -->
+   <url>
+      <loc>https://calvocreativo.com/blog/seo-no-murio-hype-estrategia</loc>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/seo-hype-cycle-pattern.jpg</image:loc>
+         <image:title>SEO Hype Cycle Pattern Analysis</image:title>
+         <image:caption>Chart showing the cyclical nature of SEO trends and marketing hype versus sustainable strategy</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/voice-search-predictions-vs-reality-2025.webp</image:loc>
+         <image:title>Voice Search Predictions vs Reality 2025</image:title>
+         <image:caption>Data visualization comparing voice search predictions with actual usage statistics in 2025</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/seo-voice-usage-stats.jpg</image:loc>
+         <image:title>Voice Search Usage Statistics</image:title>
+         <image:caption>Current statistics on voice search adoption and usage patterns</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/visual-search-consumer-adoption.webp</image:loc>
+         <image:title>Visual Search Consumer Adoption</image:title>
+         <image:caption>Infographic showing consumer adoption rates and trends for visual search technology</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/seo-visual-search-usage.jpg</image:loc>
+         <image:title>Visual Search Usage in SEO</image:title>
+         <image:caption>Chart displaying visual search integration in SEO strategies and its effectiveness</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/aeo-fading-snippet-data.webp</image:loc>
+         <image:title>AEO Featured Snippets Data Analysis</image:title>
+         <image:caption>Data analysis showing the evolution and impact of Answer Engine Optimization on featured snippets</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/seo-featured-snippets-stats.jpg</image:loc>
+         <image:title>Featured Snippets Performance Statistics</image:title>
+         <image:caption>Statistics and performance metrics for SEO featured snippets optimization</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/google-rule-timeline-solve-intent.webp</image:loc>
+         <image:title>Google Algorithm Evolution Timeline</image:title>
+         <image:caption>Timeline showing Google's algorithm updates focused on solving user intent and search quality</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/hype-data-reality-loop.webp</image:loc>
+         <image:title>Marketing Hype vs Data Reality Cycle</image:title>
+         <image:caption>Visualization of the cycle between marketing hype and data-driven reality in SEO industry</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/seo-strategy-puzzle-pieces.webp</image:loc>
+         <image:title>SEO Strategy Components</image:title>
+         <image:caption>Infographic showing the interconnected pieces of a comprehensive SEO strategy</image:caption>
+      </image:image>
+   </url>
+
+   <!-- Brand Assets -->
+   <url>
+      <loc>https://calvocreativo.com/about</loc>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/calvo-creativo-logo.svg</image:loc>
+         <image:title>Calvo Creativo Logo</image:title>
+         <image:caption>Official logo of Calvo Creativo SEO consulting agency</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/calvo-creativo-logo.png</image:loc>
+         <image:title>Calvo Creativo Logo PNG</image:title>
+         <image:caption>PNG version of Calvo Creativo official logo</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/calvo-creativo-logo-new.png</image:loc>
+         <image:title>Calvo Creativo Updated Logo</image:title>
+         <image:caption>Updated version of Calvo Creativo brand logo</image:caption>
+      </image:image>
+   </url>
+
+   <!-- SEO Industry Analysis Images -->
+   <url>
+      <loc>https://calvocreativo.com/resources</loc>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/seo-acronyms-vs-reality.jpg</image:loc>
+         <image:title>SEO Acronyms vs Reality</image:title>
+         <image:caption>Analysis comparing popular SEO acronyms with their real-world implementation and effectiveness</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/seo-voice-predictions-vs-reality.jpg</image:loc>
+         <image:title>Voice Search Predictions Analysis</image:title>
+         <image:caption>Comparison of voice search predictions versus actual market adoption and usage patterns</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/digital-marketing-hype-cycle-visual-search.webp</image:loc>
+         <image:title>Digital Marketing Hype Cycle Visual Search</image:title>
+         <image:caption>Hype cycle analysis for visual search in digital marketing and SEO strategies</image:caption>
+      </image:image>
+      <image:image>
+         <image:loc>https://calvocreativo.com/assets/voice-search-local-seo-usage.webp</image:loc>
+         <image:title>Voice Search Local SEO Usage</image:title>
+         <image:caption>Statistics and analysis of voice search impact on local SEO and business discovery</image:caption>
+      </image:image>
+   </url>
+
+</urlset>

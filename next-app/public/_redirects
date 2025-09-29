@@ -1,0 +1,6 @@
+# Domain canonicalization (crítico para SEO)
+https://www.calvocreativo.com/* https://calvocreativo.com/:splat 301!
+
+# Básicos para SPA  
+/assets/* /assets/:splat 200
+/* /index.html 200
