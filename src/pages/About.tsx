@@ -124,10 +124,10 @@ const faqs: FAQ[] = [
     ),
   },
   {
-    q: "4. How do you integrate “digital storytelling” into SEO to benefit my brand?",
+    q: "4. How do you integrate digital storytelling into SEO to benefit my brand?",
     a: (
       <p>
-        A product doesn’t change lives if it doesn’t <em>connect</em>. Our{" "}
+        A product doesn't change lives if it doesn't <em>connect</em>. Our{" "}
         <strong>digital storytelling</strong> crafts narratives that resonate with
         your audience and, integrated with a smart <strong>content strategy</strong>,
         drives rankings, engagement, and loyalty — building a truly inspiring brand.
@@ -138,7 +138,7 @@ const faqs: FAQ[] = [
     q: "5. How do you leverage AI and automation in your SEO strategies?",
     a: (
       <p>
-        AI is a <strong>catalyst</strong> for efficiency — it doesn’t replace
+        AI is a <strong>catalyst</strong> for efficiency — it doesn't replace
         strategy. We use AI for <strong>keyword research</strong>, competitive
         scraping, and automated reporting. This lets us scale content with real-time
         data for precise decisions and a <strong>competitive edge</strong>.
@@ -157,7 +157,7 @@ const faqs: FAQ[] = [
     ),
   },
   {
-    q: "7. What makes your “7+ years of experience in Florida” so valuable?",
+    q: "7. What makes your 7+ years of experience in Florida so valuable?",
     a: (
       <p>
         Over <strong>7 years</strong> working with Florida companies gives us{" "}
@@ -242,7 +242,7 @@ const About: React.FC = () => {
                 We build authority, not noise
               </h2>
               <p className="text-muted-foreground mb-4">
-                We don’t chase “isolated tactics.” We design{" "}
+                We don't chase "isolated tactics." We design{" "}
                 <strong>semantic architecture</strong> and{" "}
                 <strong>content clusters</strong> that position your brand as the
                 reference in your niche — from advanced keyword research to
@@ -428,38 +428,6 @@ const About: React.FC = () => {
               >
                 Schedule Free Consultation
               </a>
-              <Button
-                variant="outline-white"
-                size="lg"
-                asChild
-              >
-                <Link to="/services">Explore Services</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
-};
-
-export default About;
-      <section className="py-24 bg-card border-t">
-        <div className="bg-gradient-to-br from-electric-blue to-bright-orange rounded-2xl p-12 text-white">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Ready to Grow with Strategic SEO?
-          </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Let’s align your content, architecture, and storytelling to win
-            consistently in Florida.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="tel:+573046807443"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 rounded-md px-8"
-            >
-              Schedule Free Consultation
-            </a>
               <Button
                 variant="outline-white"
                 size="lg"
