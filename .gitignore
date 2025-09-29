@@ -10,10 +10,13 @@ lerna-debug.log*
 # Dependencias
 node_modules/
 
-# Build outputs
+# Next.js build outputs
 .next/
-out/
-dist/
+out/              # generado si corres `next export`
+
+# Netlify & Vercel
+.netlify/
+.vercel/
 
 # Editor directories and files
 .vscode/*
@@ -27,6 +30,7 @@ dist/
 *.sw?
 
 # Env files
+.env
 .env.local
 .env.development.local
 .env.test.local
