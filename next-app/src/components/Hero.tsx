@@ -1,13 +1,18 @@
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
-
+import dynamic from 'next/dynamic';
 import { ArrowRight } from "lucide-react";
+
+const P5Background = dynamic(() => import('./P5Background'), { ssr: false });
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-secondary/30 overflow-hidden">
+      {/* P5.js Animated Background */}
+      <P5Background />
+      
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10" style={{ zIndex: 0 }}>
         <div className="absolute top-20 left-20 w-72 h-72 bg-electric-blue rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-bright-orange/20 rounded-full blur-3xl"></div>
       </div>
