@@ -9,7 +9,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const searchableContent = [
   { title: "Strategic SEO Consulting", href: "/services/strategic-seo-consulting", type: "Service" },

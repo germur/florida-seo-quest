@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+'use client';
+
+import Link from "next/link";
 import { Mail, Phone, MapPin, ChevronRight, ArrowUpRight } from "lucide-react";
 import calvoCreativoLogo from "@/assets/calvo-creativo-logo-footer.webp";
 
@@ -34,7 +36,7 @@ const Footer = () => {
             
             {/* Company Info - Compact */}
             <div className="space-y-4">
-              <Link to="/" className="inline-block transition-transform duration-300 hover:scale-105">
+              <Link href="/" className="inline-block transition-transform duration-300 hover:scale-105">
                 <div className="flex items-center space-x-3 p-3 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-electric-blue/30 transition-all duration-300">
                   <img 
                     src={calvoCreativoLogo} 
@@ -75,7 +77,7 @@ const Footer = () => {
                 {resourceLinks.map((link) => (
                   <li key={link.name}>
                     <Link 
-                      to={link.href} 
+                      href={link.href} 
                       className="group flex items-center text-primary-foreground/70 hover:text-primary-foreground transition-all duration-300 py-1 px-2 rounded-lg hover:bg-white/5"
                     >
                       <span className="group-hover:translate-x-1 transition-transform duration-300 text-sm">{link.name}</span>
@@ -96,7 +98,7 @@ const Footer = () => {
                 {legalLinks.map((link) => (
                   <li key={link.name}>
                     <Link 
-                      to={link.href} 
+                      href={link.href} 
                       className="group flex items-center text-primary-foreground/70 hover:text-primary-foreground transition-all duration-300 py-1 px-2 rounded-lg hover:bg-white/5"
                     >
                       <span className="group-hover:translate-x-1 transition-transform duration-300 text-sm">{link.name}</span>

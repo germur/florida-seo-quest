@@ -1,6 +1,7 @@
-// src/components/SEO.tsx
+'use client';
+
+import { usePathname } from 'next/navigation';
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
 import {
   updatePageSEO,
   addSchema,
@@ -38,7 +39,7 @@ const SEO: React.FC<SEOProps> = ({
   keywords,
   additionalSchemas = [],
 }) => {
-  const { pathname } = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     const cfg = seoConfigs[page];

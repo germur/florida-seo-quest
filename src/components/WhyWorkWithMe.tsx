@@ -1,5 +1,7 @@
+'use client';
+
 import { MapPin, Target, Building, FileText } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const WhyWorkWithMe = () => {
   const features = [

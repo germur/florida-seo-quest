@@ -1,5 +1,7 @@
+'use client';
+
 import { ArrowUpRight, Phone, CheckCircle, ExternalLink } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import DiceRoller from "./DiceRoller";
 

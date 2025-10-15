@@ -1,5 +1,7 @@
+'use client';
+
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
 import calvoCreativoLogo from "@/assets/calvo-creativo-logo.svg";
@@ -14,7 +16,7 @@ const Header = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex items-center">
-            <Link to="/" className="flex items-center group">
+            <Link href="/" className="flex items-center group">
               <img 
                 src={calvoCreativoLogo} 
                 alt="Calvo Creativo" 
@@ -26,68 +28,68 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
             <div className="relative group">
-              <Link to="/services" className="inline-flex items-center px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
+              <Link href="/services" className="inline-flex items-center px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
                 Services
                 <ChevronDown className="ml-1 h-3 w-3 transition-transform group-hover:rotate-180" />
               </Link>
               <div className="absolute top-full left-0 mt-1 w-72 bg-popover border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60]">
                 <div className="p-4 space-y-2">
-                  <Link to="/services/strategic-seo-consulting" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                  <Link href="/services/strategic-seo-consulting" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     Strategic SEO Consulting
                   </Link>
-                  <Link to="/services/digital-storytelling-services" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                  <Link href="/services/digital-storytelling-services" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     Digital Storytelling Services
                   </Link>
-                  <Link to="/services/seo-automation" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                  <Link href="/services/seo-automation" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     SEO Automation
                   </Link>
-                  <Link to="/services/personal-branding-consulting" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                  <Link href="/services/personal-branding-consulting" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     Personal Branding Consulting
                   </Link>
                 </div>
               </div>
             </div>
             <div className="relative group">
-              <Link to="/case-studies" className="inline-flex items-center px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
+              <Link href="/case-studies" className="inline-flex items-center px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
                 Case Studies
                 <ChevronDown className="ml-1 h-3 w-3 transition-transform group-hover:rotate-180" />
               </Link>
               <div className="absolute top-full left-0 mt-1 w-72 bg-popover border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[60]">
                 <div className="p-4 space-y-2">
-                  <Link to="/case-studies/paramount-property-restoration" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                  <Link href="/case-studies/paramount-property-restoration" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     Paramount Property Restoration
                   </Link>
-                  <Link to="/case-studies/craftd-london" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                  <Link href="/case-studies/craftd-london" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     Craftd London
                   </Link>
-                  <Link to="/case-studies/flo-car-rental" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                  <Link href="/case-studies/flo-car-rental" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     Flo Car Rental
                   </Link>
-                  <Link to="/case-studies/puff-cleaning" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                  <Link href="/case-studies/puff-cleaning" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     Puff Cleaning
                   </Link>
-                  <Link to="/case-studies/edu1st-preschools" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                  <Link href="/case-studies/edu1st-preschools" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     Edu1st Preschools
                   </Link>
-                  <Link to="/case-studies/le-gramme" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
+                  <Link href="/case-studies/le-gramme" className="block px-3 py-2 text-sm text-muted-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors">
                     Le Gramme
                   </Link>
                 </div>
               </div>
             </div>
-            <Link to="/how-we-work" className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
+            <Link href="/how-we-work" className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
               How We Work
             </Link>
-            <Link to="/blog" className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
+            <Link href="/blog" className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
               Blog
             </Link>
-            <Link to="/resources" className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
+            <Link href="/resources" className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
               Resources
             </Link>
-            <Link to="/about" className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
+            <Link href="/about" className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
               About
             </Link>
-            <Link to="/contact" className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
+            <Link href="/contact" className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200">
               Contact
             </Link>
           </nav>
@@ -123,49 +125,49 @@ const Header = () => {
           <div className="lg:hidden absolute top-full left-0 right-0 bg-popover/98 backdrop-blur-lg border-b border-border shadow-lg z-40">
             <nav className="container mx-auto px-4 md:px-6 py-6 space-y-2">
               <Link 
-                to="/services" 
+                href="/services" 
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </Link>
               <Link 
-                to="/case-studies" 
+                href="/case-studies" 
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Case Studies
               </Link>
               <Link 
-                to="/how-we-work" 
+                href="/how-we-work" 
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 How We Work
               </Link>
               <Link 
-                to="/blog" 
+                href="/blog" 
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Blog
               </Link>
               <Link 
-                to="/resources" 
+                href="/resources" 
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Resources
               </Link>
               <Link 
-                to="/about" 
+                href="/about" 
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
               <Link 
-                to="/contact" 
+                href="/contact" 
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >

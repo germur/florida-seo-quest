@@ -1,6 +1,8 @@
+'use client';
+
 import { ArrowRight, Calendar, Clock, Tag, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getRelatedPosts, Post } from "@/lib/posts";
 

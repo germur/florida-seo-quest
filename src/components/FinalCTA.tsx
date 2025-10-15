@@ -1,6 +1,8 @@
+'use client';
+
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Dice1 } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const FinalCTA = () => {
   return (
