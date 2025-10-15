@@ -110,7 +110,7 @@ const ProcessSection = () => {
           
           <div className="text-center mt-12">
             <Button variant="outline" size="lg" className="group" asChild>
-              <Link to="/how-we-work">
+              <Link href="/how-we-work">
                 <Play className="mr-2 h-5 w-5" />
                 See the Full Process
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

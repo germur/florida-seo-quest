@@ -43,7 +43,7 @@ const FinalCTA = () => {
                 className="group"
                 asChild
               >
-                <Link to="/case-studies">
+                <Link href="/case-studies">
                   <Dice1 className="mr-2 h-5 w-5 group-hover:rotate-45 transition-transform" />
                   See Case Studies
                 </Link>

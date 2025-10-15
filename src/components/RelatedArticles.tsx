@@ -51,7 +51,7 @@ const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps)
         {articles.map((article) => (
           <Link
             key={article.slug}
-            to={`/blog/${article.slug}`}
+            href={`/blog/${article.slug}`}
             className="group block p-6 bg-background border border-border rounded-xl hover:shadow-lg hover:border-primary/20 transition-all duration-200"
           >
             <div className="flex items-start justify-between gap-4 mb-3">
@@ -100,7 +100,7 @@ const RelatedArticles = ({ currentSlug, currentCategory }: RelatedArticlesProps)
 
       <div className="mt-8 text-center">
         <Button asChild variant="outline">
-          <Link to="/blog">
+          <Link href="/blog">
             View All Articles
             <ArrowRight className="w-4 h-4 ml-2" />
           </Link>

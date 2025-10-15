@@ -54,7 +54,7 @@ const Hero = () => {
               </a>
             </Button>
             <Button variant="outline" size="lg" className="group" asChild>
-              <Link to="/case-studies">
+              <Link href="/case-studies">
                 See Success Stories
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -63,16 +63,16 @@ const Hero = () => {
 
           {/* Quick Navigation Links */}
           <div className="flex flex-wrap justify-center gap-6 mb-16 text-sm">
-            <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+            <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
               SEO Strategy (MAES)
             </Link>
-            <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+            <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
               Technical SEO Audit
             </Link>
-            <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+            <Link href="/services" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
               SEO Consulting
             </Link>
-            <Link to="/resources" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
+            <Link href="/resources" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted underline-offset-4">
               Free SEO Tools
             </Link>
           </div>

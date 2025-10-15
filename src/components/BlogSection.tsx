@@ -34,7 +34,7 @@ const BlogSection = () => {
           
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
             {posts.map((post, index) => (
-              <Link key={index} to={`/blog/${post.id}`} className="block">
+              <Link key={index} href={`/blog/${post.id}`} className="block">
                 <article 
                   className={`bg-gradient-to-br ${post.color} bg-card border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group cursor-pointer`}
                 >
@@ -68,7 +68,7 @@ const BlogSection = () => {
           
           <div className="text-center">
             <Button variant="outline" size="lg" className="group" asChild>
-              <Link to="/blog">
+              <Link href="/blog">
                 Visit the Blog
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>

@@ -52,22 +52,22 @@ const WhyWorkWithMe = () => {
                 {/* Strategic internal links based on feature */}
                 <div className="text-center">
                   {index === 0 && (
-                    <Link to="/case-studies/flo-car-rental" className="text-xs text-electric-blue hover:text-bright-orange transition-colors underline decoration-dotted">
+                    <Link href="/case-studies/flo-car-rental" className="text-xs text-electric-blue hover:text-bright-orange transition-colors underline decoration-dotted">
                       Miami Success Story
                     </Link>
                   )}
                   {index === 1 && (
-                    <Link to="/resources#title-analyzer" className="text-xs text-electric-blue hover:text-bright-orange transition-colors underline decoration-dotted">
+                    <Link href="/resources#title-analyzer" className="text-xs text-electric-blue hover:text-bright-orange transition-colors underline decoration-dotted">
                       Try Intent Analysis Tool
                     </Link>
                   )}
                   {index === 2 && (
-                    <Link to="/case-studies/craftd-london" className="text-xs text-electric-blue hover:text-bright-orange transition-colors underline decoration-dotted">
+                    <Link href="/case-studies/craftd-london" className="text-xs text-electric-blue hover:text-bright-orange transition-colors underline decoration-dotted">
                       Authority Building Case
                     </Link>
                   )}
                   {index === 3 && (
-                    <Link to="/blog" className="text-xs text-electric-blue hover:text-bright-orange transition-colors underline decoration-dotted">
+                    <Link href="/blog" className="text-xs text-electric-blue hover:text-bright-orange transition-colors underline decoration-dotted">
                       Content Strategy Tips
                     </Link>
                   )}

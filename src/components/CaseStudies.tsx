@@ -47,7 +47,7 @@ const CaseStudies = () => {
             {cases.map((caseStudy, index) => (
               <Link 
                 key={index}
-                to={`/case-studies/${caseStudy.slug}`}
+                href={`/case-studies/${caseStudy.slug}`}
                 className="block bg-card border border-border rounded-lg p-6 hover:shadow-lg transition-all duration-200 group"
               >
                 <div className="flex items-start justify-between mb-4">
@@ -84,7 +84,7 @@ const CaseStudies = () => {
             
             {/* Enhanced Strategic Case Study Navigation */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 max-w-6xl mx-auto">
-              <Link to="/case-studies/paramount-property-restoration" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <Link href="/case-studies/paramount-property-restoration" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                     <Phone className="h-5 w-5 text-primary" />
@@ -101,7 +101,7 @@ const CaseStudies = () => {
                 </div>
               </Link>
 
-              <Link to="/case-studies/craftd-london" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-electric-blue/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <Link href="/case-studies/craftd-london" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-electric-blue/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="p-2 bg-electric-blue/10 rounded-lg group-hover:bg-electric-blue/20 transition-colors">
                     <ArrowUpRight className="h-5 w-5 text-electric-blue" />
@@ -118,7 +118,7 @@ const CaseStudies = () => {
                 </div>
               </Link>
 
-              <Link to="/case-studies/edu1st-preschools" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-teal/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <Link href="/case-studies/edu1st-preschools" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-teal/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="p-2 bg-teal/10 rounded-lg group-hover:bg-teal/20 transition-colors">
                     <CheckCircle className="h-5 w-5 text-teal" />
@@ -135,7 +135,7 @@ const CaseStudies = () => {
                 </div>
               </Link>
 
-              <Link to="/case-studies/flo-car-rental" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-bright-orange/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <Link href="/case-studies/flo-car-rental" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-bright-orange/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="p-2 bg-bright-orange/10 rounded-lg group-hover:bg-bright-orange/20 transition-colors">
                     <ExternalLink className="h-5 w-5 text-bright-orange" />
@@ -152,7 +152,7 @@ const CaseStudies = () => {
                 </div>
               </Link>
 
-              <Link to="/case-studies/puff-cleaning" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <Link href="/case-studies/puff-cleaning" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                     <ArrowUpRight className="h-5 w-5 text-primary" />
@@ -169,7 +169,7 @@ const CaseStudies = () => {
                 </div>
               </Link>
 
-              <Link to="/case-studies/le-gramme" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-electric-blue/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
+              <Link href="/case-studies/le-gramme" className="group p-6 rounded-2xl hover:bg-card/50 border border-border hover:border-electric-blue/30 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="p-2 bg-electric-blue/10 rounded-lg group-hover:bg-electric-blue/20 transition-colors">
                     <ExternalLink className="h-5 w-5 text-electric-blue" />
@@ -196,7 +196,7 @@ const CaseStudies = () => {
                 <h4 className="text-xl font-bold text-foreground">Proven SEO Strategies Behind These Results</h4>
               </div>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <Link to="/services/local-seo-optimization" className="group p-6 rounded-xl border border-border hover:border-primary/30 hover:bg-background/80 transition-all duration-200">
+                <Link href="/services/local-seo-optimization" className="group p-6 rounded-xl border border-border hover:border-primary/30 hover:bg-background/80 transition-all duration-200">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                       <ArrowUpRight className="h-4 w-4 text-primary" />
@@ -207,7 +207,7 @@ const CaseStudies = () => {
                   <p className="text-xs text-muted-foreground">Google Business Profile & Local Pack Domination</p>
                 </Link>
 
-                <Link to="/services/seo-automation" className="group p-6 rounded-xl border border-border hover:border-electric-blue/30 hover:bg-background/80 transition-all duration-200">
+                <Link href="/services/seo-automation" className="group p-6 rounded-xl border border-border hover:border-electric-blue/30 hover:bg-background/80 transition-all duration-200">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 bg-electric-blue/10 rounded-lg group-hover:bg-electric-blue/20 transition-colors">
                       <ExternalLink className="h-4 w-4 text-electric-blue" />
@@ -218,7 +218,7 @@ const CaseStudies = () => {
                   <p className="text-xs text-muted-foreground">Programmatic & Scalable SEO Solutions</p>
                 </Link>
 
-                <Link to="/services/ecommerce-seo" className="group p-6 rounded-xl border border-border hover:border-teal/30 hover:bg-background/80 transition-all duration-200">
+                <Link href="/services/ecommerce-seo" className="group p-6 rounded-xl border border-border hover:border-teal/30 hover:bg-background/80 transition-all duration-200">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 bg-teal/10 rounded-lg group-hover:bg-teal/20 transition-colors">
                       <CheckCircle className="h-4 w-4 text-teal" />
@@ -229,7 +229,7 @@ const CaseStudies = () => {
                   <p className="text-xs text-muted-foreground">Product & Category Optimization</p>
                 </Link>
 
-                <Link to="/services/strategic-seo-consulting" className="group p-6 rounded-xl border border-border hover:border-bright-orange/30 hover:bg-background/80 transition-all duration-200">
+                <Link href="/services/strategic-seo-consulting" className="group p-6 rounded-xl border border-border hover:border-bright-orange/30 hover:bg-background/80 transition-all duration-200">
                   <div className="flex items-center gap-3 mb-3">
                     <div className="p-2 bg-bright-orange/10 rounded-lg group-hover:bg-bright-orange/20 transition-colors">
                       <Phone className="h-4 w-4 text-bright-orange" />
@@ -243,7 +243,7 @@ const CaseStudies = () => {
             </div>
             
             <Link 
-              to="/case-studies" 
+              href="/case-studies" 
               className="inline-flex items-center text-foreground hover:text-primary transition-colors font-medium"
             >
               View all case studies & results

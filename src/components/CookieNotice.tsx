@@ -47,7 +47,7 @@ const CookieNotice = () => {
               Utilizamos cookies esenciales para el funcionamiento del sitio y cookies de análisis para 
               mejorar nuestros servicios. También usamos cookies de marketing para personalizar tu experiencia. 
               Al hacer clic en "Aceptar", consientes el uso de todas las cookies.{" "}
-              <Link to="/cookie-policy" className="text-primary hover:underline font-medium">
+              <Link href="/cookie-policy" className="text-primary hover:underline font-medium">
                 Más información sobre cookies
               </Link>
             </p>
@@ -68,7 +68,7 @@ const CookieNotice = () => {
                 Solo Cookies Esenciales
               </Button>
               
-              <Link to="/cookie-policy">
+              <Link href="/cookie-policy">
                 <Button variant="ghost" className="w-full sm:w-auto">
                   Configurar Cookies
                 </Button>

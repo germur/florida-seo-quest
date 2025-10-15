@@ -27,7 +27,7 @@ const RelatedLinks = ({ title = "Related Resources", links, className = "" }: Re
           {links.map((link, index) => (
             <Link
               key={index}
-              to={link.href}
+              href={link.href}
               className="group p-4 rounded-lg bg-background/50 border border-border/30 hover:border-electric-blue/30 hover:bg-background/80 transition-all duration-300"
             >
               <div className="flex items-center justify-between mb-2">

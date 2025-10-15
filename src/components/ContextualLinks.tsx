@@ -46,7 +46,7 @@ const ContextualLinks = ({
               </a>
             ) : (
               <Link
-                to={link.href}
+                href={link.href}
                 className="text-muted-foreground hover:text-primary transition-colors text-sm underline decoration-dotted underline-offset-4"
               >
                 {link.title}
@@ -82,7 +82,7 @@ const ContextualLinks = ({
                 </a>
               ) : (
                 <Link
-                  to={link.href}
+                  href={link.href}
                   className="group flex items-start space-x-2 text-muted-foreground hover:text-primary transition-colors"
                 >
                   <ArrowRight className="h-4 w-4 mt-0.5 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
@@ -133,7 +133,7 @@ const ContextualLinks = ({
                 </p>
               </a>
             ) : (
-              <Link to={link.href} className="group block">
+              <Link href={link.href} className="group block">
                 <div className="flex items-center justify-between mb-2">
                   <h5 className="font-medium text-foreground group-hover:text-primary transition-colors">
                     {link.title}

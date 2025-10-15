@@ -74,7 +74,7 @@ const SearchButton = () => {
               filteredContent.map((item, index) => (
                 <Link
                   key={index}
-                  to={item.href}
+                  href={item.href}
                   onClick={handleItemClick}
                   className="flex items-center justify-between px-3 py-2 rounded-md hover:bg-accent/50 transition-colors group"
                 >

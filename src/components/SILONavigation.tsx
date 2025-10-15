@@ -20,7 +20,7 @@ const SILONavigation: React.FC<SILONavigationProps> = ({ breadcrumbs, currentPag
       <div className="container mx-auto px-6">
         <div className="flex items-center space-x-2 text-sm">
           <Link 
-            to="/" 
+            href="/" 
             className="flex items-center text-muted-foreground hover:text-primary transition-colors"
           >
             <Home className="h-4 w-4 mr-1" />
@@ -34,7 +34,7 @@ const SILONavigation: React.FC<SILONavigationProps> = ({ breadcrumbs, currentPag
                 <span className="text-primary font-medium">{item.label}</span>
               ) : (
                 <Link 
-                  to={item.href}
+                  href={item.href}
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   {item.label}

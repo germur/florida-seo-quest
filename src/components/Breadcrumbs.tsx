@@ -16,7 +16,7 @@ interface BreadcrumbsProps {
 const Breadcrumbs = ({ items, className = "" }: BreadcrumbsProps) => {
   return (
     <nav className={`flex items-center space-x-2 text-sm text-muted-foreground ${className}`} aria-label="Breadcrumb">
-      <Link to="/" className="hover:text-primary transition-colors">
+      <Link href="/" className="hover:text-primary transition-colors">
         Home
       </Link>
       
@@ -24,7 +24,7 @@ const Breadcrumbs = ({ items, className = "" }: BreadcrumbsProps) => {
         <div key={index} className="flex items-center space-x-2">
           <ChevronRight className="h-4 w-4 text-muted-foreground/50" />
           {item.href && index < items.length - 1 ? (
-            <Link to={item.href} className="hover:text-primary transition-colors">
+            <Link href={item.href} className="hover:text-primary transition-colors">
               {item.label}
             </Link>
           ) : (

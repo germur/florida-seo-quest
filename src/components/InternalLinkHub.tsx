@@ -47,7 +47,7 @@ const InternalLinkHub = ({ groups, title = "Explore More", className = "" }: Int
                     </a>
                   ) : (
                     <Link
-                      to={link.href}
+                      href={link.href}
                       className="group flex items-center text-muted-foreground hover:text-primary transition-colors text-sm"
                     >
                       <span>{link.name}</span>

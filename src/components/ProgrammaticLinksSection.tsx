@@ -81,7 +81,7 @@ const ProgrammaticLinksSection = () => {
                   {category.links.map((link, linkIndex) => (
                     <Link
                       key={linkIndex}
-                      to={link.href}
+                      href={link.href}
                       className="group flex items-center justify-between text-muted-foreground hover:text-primary transition-all duration-300 py-2 px-3 rounded-lg hover:bg-white/50 backdrop-blur-sm border border-transparent hover:border-electric-blue/20"
                     >
                       <span className="text-sm md:text-base font-medium leading-relaxed">

@@ -75,7 +75,7 @@ const CoreServices = () => {
                 
                 <div className="space-y-3">
                   <Button variant="outline" className="group w-full justify-between" asChild>
-                    <Link to={service.href}>
+                    <Link href={service.href}>
                       {service.cta}
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                     </Link>
@@ -84,22 +84,22 @@ const CoreServices = () => {
                   {/* Contextual links based on service */}
                   <div className="text-sm text-center">
                     {index === 0 && (
-                      <Link to="/case-studies/paramount-property-restoration" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
+                      <Link href="/case-studies/paramount-property-restoration" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
                         See Strategic SEO Results →
                       </Link>
                     )}
                     {index === 1 && (
-                      <Link to="/services/digital-storytelling-services/miami-fl/" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
+                      <Link href="/services/digital-storytelling-services/miami-fl/" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
                         View Miami Storytelling →
                       </Link>
                     )}
                     {index === 2 && (
-                      <Link to="/services/seo-automation/orlando-fl/" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
+                      <Link href="/services/seo-automation/orlando-fl/" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
                         See Orlando Automation →
                       </Link>
                     )}
                     {index === 3 && (
-                      <Link to="/services/personal-branding-consulting/tampa-fl/" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
+                      <Link href="/services/personal-branding-consulting/tampa-fl/" className="text-muted-foreground hover:text-primary transition-colors underline decoration-dotted">
                         See Tampa Branding →
                       </Link>
                     )}
