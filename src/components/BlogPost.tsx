@@ -1,8 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { Post, loadPost } from '@/lib/posts';
+import { createRoot } from 'react-dom/client';
+import { MarketShareChart, SentimentChart, FocusRadarChart, PriceProjectionChart } from '@/components/SemrushCharts';
 
 interface BlogPostProps {
   slug: string;
@@ -12,11 +14,12 @@ export default function BlogPost({ slug }: BlogPostProps) {
   const router = useRouter();
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchPost = async () => {
       const loadedPost = await loadPost(slug);
-      
+
       if (!loadedPost) {
         router.push('/blog');
       } else {
@@ -27,6 +30,43 @@ export default function BlogPost({ slug }: BlogPostProps) {
 
     fetchPost();
   }, [slug, router]);
+
+  // Mount charts after content is rendered
+  useEffect(() => {
+    if (!post || !contentRef.current) return;
+
+    // Chart placeholders mapping
+    const chartComponents: Record<string, React.ComponentType> = {
+      'chart-market-share': MarketShareChart,
+      'chart-sentiment': SentimentChart,
+      'chart-focus-radar': FocusRadarChart,
+      'chart-price-projection': PriceProjectionChart,
+    };
+
+    const roots: any[] = [];
+
+    // Find and mount each chart
+    Object.entries(chartComponents).forEach(([id, Component]) => {
+      const element = contentRef.current?.querySelector(`#${id}`);
+      if (element && !element.hasAttribute('data-chart-mounted')) {
+        const root = createRoot(element);
+        root.render(<Component />);
+        roots.push(root);
+        element.setAttribute('data-chart-mounted', 'true');
+      }
+    });
+
+    // Cleanup function to unmount charts
+    return () => {
+      roots.forEach(root => {
+        try {
+          root.unmount();
+        } catch (e) {
+          // Ignore unmount errors
+        }
+      });
+    };
+  }, [post]);
 
   if (loading) {
     return (
@@ -62,8 +102,9 @@ export default function BlogPost({ slug }: BlogPostProps) {
           </span>
         </div>
       </header>
-      
-      <div 
+
+      <div
+        ref={contentRef}
         className="prose prose-lg dark:prose-invert max-w-none"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />

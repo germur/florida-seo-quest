@@ -1,11 +1,10 @@
 // src/posts/adobe-acquires-semrush.ts
 
-// IMAGES
-import cover from "../assets/adobe-semrush-cover.webp";
-import marketShare from "../assets/seo-market-share-chart.webp";
-import sentiment from "../assets/seo-community-sentiment.webp";
-import focusRadar from "../assets/semrush-focus-radar.webp";
-import priceProjection from "../assets/semrush-price-projection.webp";
+// No longer needed - using interactive charts instead
+// import marketShare from "../assets/seo-market-share-chart.webp";
+// import sentiment from "../assets/seo-community-sentiment.webp";
+// import focusRadar from "../assets/semrush-focus-radar.webp";
+// import priceProjection from "../assets/semrush-price-projection.webp";
 
 export const post = {
   slug: "adobe-acquires-semrush",
@@ -81,9 +80,7 @@ export const post = {
       </p>
       
       <figure class="my-8">
-        <img src="${marketShare.src}" alt="SEO Tool Market Share"
-             class="block w-full max-w-3xl mx-auto rounded-xl border border-border aspect-[16/9] object-contain"
-             loading="lazy" decoding="async" />
+        <div id="chart-market-share" class="chart-container"></div>
         <figcaption class="text-sm text-muted-foreground mt-2 text-center">Estimated market share prior to acquisition</figcaption>
       </figure>
 
@@ -99,9 +96,7 @@ export const post = {
       </p>
       
       <figure class="my-8">
-        <img src="${sentiment.src}" alt="SEO Community Sentiment"
-             class="block w-full max-w-3xl mx-auto rounded-xl border border-border aspect-[16/9] object-contain"
-             loading="lazy" decoding="async" />
+        <div id="chart-sentiment" class="chart-container"></div>
         <figcaption class="text-sm text-muted-foreground mt-2 text-center">Hypothetical poll within SEO communities</figcaption>
       </figure>
 
@@ -182,9 +177,7 @@ export const post = {
       </p>
       
       <figure class="my-8">
-        <img src="${focusRadar.src}" alt="Semrush Focus Shift Analysis"
-             class="block w-full max-w-3xl mx-auto rounded-xl border border-border aspect-[16/9] object-contain"
-             loading="lazy" decoding="async" />
+        <div id="chart-focus-radar" class="chart-container"></div>
         <figcaption class="text-sm text-muted-foreground mt-2 text-center">Comparison of current vs feared focus under Adobe's direction</figcaption>
       </figure>
 
@@ -200,9 +193,7 @@ export const post = {
       </p>
       
       <figure class="my-8">
-        <img src="${priceProjection.src}" alt="Semrush Price Projection"
-             class="block w-full max-w-3xl mx-auto rounded-xl border border-border aspect-[16/9] object-contain"
-             loading="lazy" decoding="async" />
+        <div id="chart-price-projection" class="chart-container"></div>
         <figcaption class="text-sm text-muted-foreground mt-2 text-center">Hypothetical cost projection for popular plans</figcaption>
       </figure>
 
