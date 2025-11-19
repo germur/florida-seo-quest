@@ -14,7 +14,7 @@ const Blog = () => {
   const [featuredPosts, setFeaturedPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const categories = ["All", "SEO Strategy", "Web Development", "Digital Marketing", "Case Studies"];
+  const categories = ["All", "SEO Analysis", "SEO Strategy", "Web Development", "Digital Marketing", "Case Studies"];
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -52,8 +52,8 @@ const Blog = () => {
 
   // Filter posts based on selected category
   const regularPosts = posts.filter(post => !post.featured);
-  const filteredPosts = selectedCategory === "All" 
-    ? regularPosts 
+  const filteredPosts = selectedCategory === "All"
+    ? regularPosts
     : regularPosts.filter(post => post.category === selectedCategory);
 
   return (
@@ -70,11 +70,11 @@ const Blog = () => {
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed">
               Strategic insights, practical guides, and case studies to help you grow with SEO.
             </p>
-            
+
             <div className="relative max-w-md mx-auto">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
-              <input 
-                type="text" 
+              <input
+                type="text"
                 placeholder="Search articles..."
                 className="w-full pl-10 pr-4 py-3 bg-card border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-teal/20 focus:border-teal"
               />
@@ -88,21 +88,21 @@ const Blog = () => {
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-3xl font-bold text-primary mb-12">Featured Articles</h2>
-              
+
               <div className="grid lg:grid-cols-2 gap-8 mb-16">
                 {featuredPosts.map((post) => (
-                  <Link 
+                  <Link
                     key={post.slug}
                     href={`/blog/${post.slug}`}
                     className="block"
                   >
                     <article className="bg-gradient-to-br from-teal/5 to-electric-blue/5 border border-border rounded-2xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
                       <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
-                        <span className={`px-3 py-1 rounded-full font-medium ${
+                        <span className={`px-3 py-1 rounded-full font-medium ${post.category === 'SEO Analysis' ? 'bg-purple-500/10 text-purple-500' :
                           post.category === 'SEO Strategy' ? 'bg-electric-blue/10 text-electric-blue' :
-                          post.category === 'Web Development' ? 'bg-bright-orange/10 text-bright-orange' :
-                          'bg-teal/10 text-teal'
-                        }`}>
+                            post.category === 'Web Development' ? 'bg-bright-orange/10 text-bright-orange' :
+                              'bg-teal/10 text-teal'
+                          }`}>
                           {post.category}
                         </span>
                         <span className="flex items-center gap-1">
@@ -110,15 +110,15 @@ const Blog = () => {
                           {post.readTime}
                         </span>
                       </div>
-                      
+
                       <h3 className="text-2xl font-bold text-primary mb-4 group-hover:text-teal transition-colors">
                         {post.title}
                       </h3>
-                      
+
                       <p className="text-muted-foreground leading-relaxed mb-6">
                         {post.metaDescription}
                       </p>
-                      
+
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           {post.tags.slice(0, 2).map((tag, tagIndex) => (
@@ -127,7 +127,7 @@ const Blog = () => {
                             </span>
                           ))}
                         </div>
-                        
+
                         <div className="flex items-center text-teal font-medium group-hover:text-electric-blue transition-colors">
                           Read Article
                           <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -150,11 +150,10 @@ const Blog = () => {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
-                    selectedCategory === category
-                      ? 'bg-teal text-white'
-                      : 'bg-card text-muted-foreground hover:bg-muted hover:text-primary'
-                  }`}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${selectedCategory === category
+                    ? 'bg-teal text-white'
+                    : 'bg-card text-muted-foreground hover:bg-muted hover:text-primary'
+                    }`}
                 >
                   {category}
                 </button>
@@ -192,7 +191,7 @@ const Blog = () => {
                   </div>
                 ) : (
                   filteredPosts.map((post) => (
-                    <Link 
+                    <Link
                       key={post.slug}
                       href={`/blog/${post.slug}`}
                       className="block"
@@ -205,24 +204,24 @@ const Blog = () => {
                           </span>
                           <span>{new Date(post.date).toLocaleDateString()}</span>
                         </div>
-                        
+
                         <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-teal transition-colors">
                           {post.title}
                         </h3>
-                        
+
                         <p className="text-muted-foreground leading-relaxed mb-6">
                           {post.metaDescription}
                         </p>
-                        
+
                         <div className="flex items-center justify-between">
-                          <span className={`px-2 py-1 text-xs rounded font-medium ${
-                            post.category === 'SEO Strategy' ? 'bg-electric-blue/10 text-electric-blue' :
-                            post.category === 'Web Development' ? 'bg-bright-orange/10 text-bright-orange' :
-                            'bg-teal/10 text-teal'
-                          }`}>
+                          <span className={`px-2 py-1 text-xs rounded font-medium ${post.category === 'SEO Analysis' ? 'bg-purple-500/10 text-purple-500' :
+                              post.category === 'SEO Strategy' ? 'bg-electric-blue/10 text-electric-blue' :
+                                post.category === 'Web Development' ? 'bg-bright-orange/10 text-bright-orange' :
+                                  'bg-teal/10 text-teal'
+                            }`}>
                             {post.category}
                           </span>
-                          
+
                           <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-teal group-hover:translate-x-1 transition-all" />
                         </div>
                       </article>
@@ -230,7 +229,7 @@ const Blog = () => {
                   ))
                 )}
               </div>
-              
+
               {filteredPosts.length === 0 && (
                 <div className="text-center py-16">
                   <p className="text-lg text-muted-foreground">No articles found in this category.</p>
@@ -250,7 +249,7 @@ const Blog = () => {
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Get weekly insights and strategies to grow your business with SEO.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="secondary" className="bg-white text-primary hover:bg-white/90" asChild>
                 <Link href="/contact">

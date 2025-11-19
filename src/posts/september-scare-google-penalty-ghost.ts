@@ -5,7 +5,7 @@ export const post = {
   title: "The September Scare: A Google Penalty or the Disappearance of a Ghost?",
   date: "2025-09-20",
   readTime: "8 min",
-  category: "Technical SEO", 
+  category: "Technical SEO",
   tags: ["Google", "Search Console", "Technical SEO", "Data Analysis", "SEO Audit"],
   featured: true,
   metaTitle: "The September Scare: Google Penalty or Ghost Disappearance? | Calvo Creativo",
@@ -15,10 +15,10 @@ export const post = {
     "@type": "Article",
     "headline": "The September Scare: A Google Penalty or the Disappearance of a Ghost?",
     "description": "Complete analysis of Search Console impressions drop during September 2025 and why it wasn't a penalty.",
-    "author": { 
-      "@type": "Person", 
-      "name": "Roger Murillo", 
-      "url": "https://calvocreativo.com/sobre-nosotros" 
+    "author": {
+      "@type": "Person",
+      "name": "Roger Murillo",
+      "url": "https://calvocreativo.com/sobre-nosotros"
     },
     "publisher": {
       "@type": "Organization",
@@ -34,7 +34,7 @@ export const post = {
     "articleSection": "Technical SEO",
     "keywords": [
       "Google Search Console",
-      "Technical SEO", 
+      "Technical SEO",
       "SEO Audit",
       "Data Analysis",
       "Google Penalties",
@@ -205,7 +205,7 @@ export const post = {
       <h2 class="text-3xl font-bold text-primary mb-6">🏆 Conclusion</h2>
       
       <p class="leading-relaxed mb-6">
-        2025 will be remembered for many SEO changes, but this is one of the most subtle and powerful. The deactivation of <code>&num=100</code> isn't a crisis—it's a clean-up. It's Google's invitation to focus on what truly matters: the experience of real users.
+        2025 will be remembered for many SEO changes, but this is one of the most subtle and powerful. The deactivation of <code>&num=100</code> isn't a crisis—it's a clean-up. It's Google's invitation to focus on what truly matters: the experience of real users. As we discussed in our article about <a href="/blog/seo-didnt-die-hype-strategy" class="text-electric-blue hover:underline font-medium">SEO strategies that actually work</a>, cutting through the noise is essential.
       </p>
 
       <p class="leading-relaxed mb-6">

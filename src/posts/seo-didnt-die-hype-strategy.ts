@@ -129,7 +129,7 @@ export const post = {
       <p class="leading-relaxed mb-6">
         If you're a lawyer, doctor, or financial consultant, Lens isn't your new sales channel.
       </p>
-      <p class="leading-relaxed mb-6">Hype shines like fireworks. Loud, dazzling, but ephemeral.</p>
+      <p class="leading-relaxed mb-6">Hype shines like fireworks. Loud, dazzling, but ephemeral. Similar patterns emerged in recent industry consolidations, like the <a href="/blog/adobe-acquires-semrush" class="text-electric-blue hover:underline font-medium">hypothetical Adobe-Semrush acquisition</a>.</p>
     </section>
 
     <section id="acronyms-that-sell-smoke">
@@ -207,7 +207,7 @@ export const post = {
         Even AEO, though limited, can be strategic in industries where snippets dominate (Stephan Spencer).
       </p>
       <p class="leading-relaxed mb-6">
-        The problem isn't with the technology. The problem is selling it as if it were the new gospel, when in reality they are specific pieces within a much broader puzzle.
+        The problem isn't with the technology. The problem is selling it as if it were the new gospel, when in reality they are specific pieces within a much broader puzzle. Our <a href="/services" class="text-electric-blue hover:underline font-medium">SEO services</a> focus on proven strategies, not fleeting trends.
       </p>
     </section>
 
@@ -615,7 +615,7 @@ export const post = {
       </p>
       <p class="leading-relaxed mb-6">That is, SEO.</p>
       <p class="leading-relaxed mb-6">
-        Result: they keep growing, while you accumulated consultancy bills that never changed anything.
+        Result: they keep growing, while you accumulated consultancy bills that never changed anything. See how we've helped businesses with <a href="/case-studies" class="text-electric-blue hover:underline font-medium">real SEO results</a>.
       </p>
 
       <h3 class="text-xl font-semibold text-primary mb-4">Your real advantage: critical thinking</h3>
@@ -638,7 +638,7 @@ export const post = {
         <li>Giving trust with data, experience, and consistency (Google E-E-A-T).</li>
       </ul>
       <p class="leading-relaxed mb-6">
-        Everything else—voice, visual, AEO, the acronym they invent tomorrow—are layers. Complements. Useful tools in some contexts, but never substitutes for strategy.
+        Everything else—voice, visual, AEO, the acronym they invent tomorrow—are layers. Complements. Useful tools in some contexts, but never substitutes for strategy. Explore our <a href="/tools" class="text-electric-blue hover:underline font-medium">free SEO tools</a> to strengthen your fundamentals.
       </p>
 
       <h3 class="text-xl font-semibold text-primary mb-4">What to remember (and what to ignore) from today</h3>

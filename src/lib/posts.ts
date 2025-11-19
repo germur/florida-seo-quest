@@ -28,26 +28,27 @@ export const loadPost = async (slug: string): Promise<Post | null> => {
 // Get all available posts (you'll need to manually maintain this list or use a build-time script)
 export const getAllPosts = async (): Promise<Post[]> => {
   const postSlugs = [
+    'adobe-acquires-semrush',
     'wordpress-affordable-solution-or-anchor',
     'seo-didnt-die-hype-strategy',
     'september-scare-google-penalty-ghost'
   ];
-  
+
   const posts = await Promise.all(
     postSlugs.map(slug => loadPost(slug))
   );
-  
+
   return posts.filter((post): post is Post => post !== null);
 };
 
 // Get posts by category
 export const getPostsByCategory = async (category?: string): Promise<Post[]> => {
   const allPosts = await getAllPosts();
-  
+
   if (!category || category === 'All') {
     return allPosts;
   }
-  
+
   return allPosts.filter(post => post.category === category);
 };
 
@@ -60,7 +61,7 @@ export const getFeaturedPosts = async (): Promise<Post[]> => {
 // Get related posts based on category and tags
 export const getRelatedPosts = async (currentSlug: string, currentCategory?: string): Promise<Post[]> => {
   const allPosts = await getAllPosts();
-  
+
   return allPosts
     .filter(post => post.slug !== currentSlug)
     .filter(post => !currentCategory || post.category === currentCategory)
