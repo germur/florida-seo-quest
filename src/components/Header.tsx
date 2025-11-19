@@ -2,9 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState } from "react";
-import calvoCreativoLogo from "@/assets/calvo-creativo-logo.svg";
 import SearchButton from "./SearchButton";
 import ThemeToggle from "./ThemeToggle";
 
@@ -17,14 +17,17 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <div className="flex items-center">
             <Link href="/" className="flex items-center group">
-              <img 
-                src={calvoCreativoLogo} 
-                alt="Calvo Creativo" 
+              <Image
+                src="/calvo_creartivo_logo.svg"
+                alt="Calvo Creativo"
+                width={180}
+                height={64}
                 className="h-12 w-auto md:h-14 lg:h-16 xl:h-18 transition-transform group-hover:scale-105"
+                priority
               />
             </Link>
           </div>
-          
+
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2">
             <div className="relative group">
@@ -93,7 +96,7 @@ const Header = () => {
               Contact
             </Link>
           </nav>
-          
+
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center space-x-2">
             <SearchButton />
@@ -124,50 +127,50 @@ const Header = () => {
         {isMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-popover/98 backdrop-blur-lg border-b border-border shadow-lg z-40">
             <nav className="container mx-auto px-4 md:px-6 py-6 space-y-2">
-              <Link 
-                href="/services" 
+              <Link
+                href="/services"
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Services
               </Link>
-              <Link 
-                href="/case-studies" 
+              <Link
+                href="/case-studies"
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Case Studies
               </Link>
-              <Link 
-                href="/how-we-work" 
+              <Link
+                href="/how-we-work"
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 How We Work
               </Link>
-              <Link 
-                href="/blog" 
+              <Link
+                href="/blog"
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Blog
               </Link>
-              <Link 
-                href="/resources" 
+              <Link
+                href="/resources"
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Resources
               </Link>
-              <Link 
-                href="/about" 
+              <Link
+                href="/about"
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
               </Link>
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 className="block px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-primary hover:bg-accent/50 rounded-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
               >
