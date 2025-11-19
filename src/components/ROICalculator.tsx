@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -55,7 +57,7 @@ const ROICalculator = () => {
 
   const getROIAnalysis = () => {
     const { roi, revenue, estimatedTraffic, conversions } = results;
-    let analysis = [];
+    const analysis = [];
 
     if (roi > 200) {
       analysis.push("🎯 Excellent ROI: Your SEO investment is generating exceptional results.");
@@ -193,10 +195,10 @@ const ROICalculator = () => {
                 <Button
                   key={pos.position}
                   variant={selectedPosition === pos.position ? "default" : "outline"}
-                  className={`font-semibold ${selectedPosition === pos.position 
-                    ? "bg-electric-blue hover:bg-electric-blue/90 text-white" 
+                  className={`font-semibold ${selectedPosition === pos.position
+                    ? "bg-electric-blue hover:bg-electric-blue/90 text-white"
                     : "hover:border-electric-blue hover:-translate-y-1 transition-all"
-                  }`}
+                    }`}
                   onClick={() => {
                     setSelectedPosition(pos.position);
                     setSelectedCTR(pos.ctr);
@@ -302,7 +304,7 @@ const ROICalculator = () => {
           </div>
 
           {/* Calculate Button */}
-            <Button
+          <Button
             onClick={calculateROI}
             className="w-full py-4 text-lg font-bold bg-gradient-to-r from-electric-blue to-bright-orange hover:opacity-90 transition-all hover:-translate-y-1"
             size="lg"
@@ -349,7 +351,7 @@ const ROICalculator = () => {
               <div className="bg-secondary/30 p-6 rounded-2xl">
                 <h3 className="text-lg font-bold text-foreground mb-4">ROI Quality</h3>
                 <div className="relative h-10 bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 rounded-full overflow-hidden">
-                  <div 
+                  <div
                     className="absolute top-1/2 transform -translate-y-1/2 w-1 h-8 bg-black rounded-full transition-all duration-500"
                     style={{ left: `${getROIPosition()}%` }}
                   />
