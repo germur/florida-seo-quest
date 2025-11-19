@@ -1,5 +1,5 @@
 [build]
-  publish = "dist"
+  publish = ".next"
   command = "npm run build"
 
 # Cache static assets for 1 year (they have cache-busting hashes)

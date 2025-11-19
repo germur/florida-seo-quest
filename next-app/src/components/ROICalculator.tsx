@@ -57,7 +57,7 @@ const ROICalculator = () => {
 
   const getROIAnalysis = () => {
     const { roi, revenue, estimatedTraffic, conversions } = results;
-    let analysis = [];
+    const analysis = [];
 
     if (roi > 200) {
       analysis.push("🎯 Excellent ROI: Your SEO investment is generating exceptional results.");

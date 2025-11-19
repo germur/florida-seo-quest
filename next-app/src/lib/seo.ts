@@ -37,7 +37,7 @@ export function normalizeCanonical(href: string): string {
 
 const setMeta = (name: string, content?: string) => {
   if (!content) return;
-  let el =
+  const el =
     document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`) ||
     document.createElement("meta");
   el.setAttribute("name", name);
@@ -47,7 +47,7 @@ const setMeta = (name: string, content?: string) => {
 
 const setOG = (property: string, content?: string) => {
   if (!content) return;
-  let el =
+  const el =
     document.querySelector<HTMLMetaElement>(
       `meta[property="${property}"]`
     ) || document.createElement("meta");
@@ -58,7 +58,7 @@ const setOG = (property: string, content?: string) => {
 
 const setTwitter = (name: string, content?: string) => {
   if (!content) return;
-  let el =
+  const el =
     document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`) ||
     document.createElement("meta");
   el.setAttribute("name", name);
@@ -69,7 +69,7 @@ const setTwitter = (name: string, content?: string) => {
 const setCanonical = (href: string) => {
   if (!href) return;
   const normalized = normalizeCanonical(href);
-  let link =
+  const link =
     document.querySelector<HTMLLinkElement>('link[rel="canonical"]') ||
     document.createElement("link");
   link.setAttribute("rel", "canonical");

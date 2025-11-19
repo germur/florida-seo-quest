@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -228,15 +230,15 @@ const TitleAnalyzer = () => {
   return (
     <div className="max-w-4xl mx-auto bg-card border border-border rounded-3xl shadow-2xl overflow-hidden">
       {/* Header */}
-        <div className="bg-gradient-to-br from-electric-blue to-bright-orange text-white p-8 text-center">
-          <h1 className="font-black text-3xl md:text-4xl mb-3 flex items-center justify-center gap-3">
-            <Sparkles className="h-8 w-8" />
-            SEO Title Analyzer
-          </h1>
-          <p className="text-lg font-medium text-white/90">
-            Optimize your titles to maximize CTR and rankings in Google
-          </p>
-        </div>
+      <div className="bg-gradient-to-br from-electric-blue to-bright-orange text-white p-8 text-center">
+        <h1 className="font-black text-3xl md:text-4xl mb-3 flex items-center justify-center gap-3">
+          <Sparkles className="h-8 w-8" />
+          SEO Title Analyzer
+        </h1>
+        <p className="text-lg font-medium text-white/90">
+          Optimize your titles to maximize CTR and rankings in Google
+        </p>
+      </div>
 
       {/* Body */}
       <div className="p-8 space-y-8">
@@ -249,7 +251,7 @@ const TitleAnalyzer = () => {
             className="text-xl p-6 text-center font-medium"
             maxLength={100}
           />
-          
+
           <div className="flex justify-between items-center">
             <span className={`px-3 py-1 rounded-full text-sm font-semibold ${charStatus.bg} ${charStatus.color}`}>
               {title.length} / 60 caracteres
@@ -266,8 +268,8 @@ const TitleAnalyzer = () => {
             📱 Vista previa en Google
           </h3>
           <div className="bg-background p-4 rounded-xl border border-border">
-            <a 
-              href="#" 
+            <a
+              href="#"
               className="text-blue-600 text-lg hover:underline block truncate"
               style={{ maxWidth: '100%' }}
             >
@@ -285,16 +287,16 @@ const TitleAnalyzer = () => {
           disabled={isAnalyzing}
           className="w-full py-4 text-xl font-bold bg-gradient-to-r from-electric-blue to-bright-orange hover:opacity-90 transition-all hover:-translate-y-1"
           size="lg"
-          >
-            {isAnalyzing ? (
-              <>Analyzing title...</>
-            ) : (
-              <>
-                <Search className="mr-2 h-6 w-6" />
-                Analyze Title 🔍
-              </>
-            )}
-          </Button>
+        >
+          {isAnalyzing ? (
+            <>Analyzing title...</>
+          ) : (
+            <>
+              <Search className="mr-2 h-6 w-6" />
+              Analyze Title 🔍
+            </>
+          )}
+        </Button>
 
         {/* Results */}
         {showResults && (
@@ -343,9 +345,9 @@ const TitleAnalyzer = () => {
               {results.analysis.map((item, index) => {
                 const IconComponent = item.icon;
                 const colorClass = item.type === 'success' ? 'text-green-500 bg-green-100' :
-                                 item.type === 'warning' ? 'text-yellow-500 bg-yellow-100' :
-                                 'text-red-500 bg-red-100';
-                
+                  item.type === 'warning' ? 'text-yellow-500 bg-yellow-100' :
+                    'text-red-500 bg-red-100';
+
                 return (
                   <div key={index} className="flex items-center gap-4 bg-background p-4 rounded-xl border border-border">
                     <div className={`p-3 rounded-full ${colorClass}`}>
