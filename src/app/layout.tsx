@@ -6,7 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FloatingDice from '@/components/FloatingDice';
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 });
@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     template: '%s | Calvo Creativo',
   },
   description: '7+ years scaling brands with SEO strategy, technical audits, and content that converts.',
+  verification: {
+    google: 'Pf6XqzotH9a91PubzzPMega091eBnBCtvqOWG_90xnE',
+  },
 };
 
 export default function RootLayout({
